@@ -1,0 +1,16 @@
+{
+  "scenario": "building_train_8/denver_6",
+  "policy": "baseline",
+  "steps": 8640,
+  "total_reward": -26.681133293295716,
+  "mean_reward": -0.003088094131168486,
+  "mean_comfort": -4.163306946884659e-05,
+  "mean_energy": -0.00240374310854058,
+  "mean_carbon": -0.0006427179073427655,
+  "worst_step_reward": -0.039099305868148804,
+  "num_ahus": 3,
+  "num_zones": 30,
+  "policy_seconds": 62.933792230867766,
+  "sim_seconds": 775.6182784011144,
+  "wall_seconds": 918.2387657849995
+}

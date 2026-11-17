@@ -1,0 +1,16 @@
+{
+  "scenario": "building_train_1/atlanta_2",
+  "policy": "baseline",
+  "steps": 8640,
+  "total_reward": -23.71458768566663,
+  "mean_reward": -0.0027447439451003044,
+  "mean_comfort": -4.0614133878557174e-05,
+  "mean_energy": -0.0012675743963444586,
+  "mean_carbon": -0.0014365553822067469,
+  "worst_step_reward": -0.1354362517595291,
+  "num_ahus": 4,
+  "num_zones": 39,
+  "policy_seconds": 88.89371031397968,
+  "sim_seconds": 1498.2637672199508,
+  "wall_seconds": 1723.942681388
+}

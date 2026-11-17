@@ -1,0 +1,16 @@
+{
+  "scenario": "building_train_7/singapore_6",
+  "policy": "baseline",
+  "steps": 8640,
+  "total_reward": -47.25729292196581,
+  "mean_reward": -0.005469594088190487,
+  "mean_comfort": -4.072182527387655e-05,
+  "mean_energy": -0.004401150052777021,
+  "mean_carbon": -0.0010277221320481211,
+  "worst_step_reward": -0.14177483320236206,
+  "num_ahus": 4,
+  "num_zones": 36,
+  "policy_seconds": 51.23698778904145,
+  "sim_seconds": 629.2867796448118,
+  "wall_seconds": 749.0413907330003
+}

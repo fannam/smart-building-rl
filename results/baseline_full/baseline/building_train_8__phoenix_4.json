@@ -1,0 +1,16 @@
+{
+  "scenario": "building_train_8/phoenix_4",
+  "policy": "baseline",
+  "steps": 8640,
+  "total_reward": -83.21430567916877,
+  "mean_reward": -0.009631285379533424,
+  "mean_comfort": -7.031510020034949e-05,
+  "mean_energy": -0.007774567797389621,
+  "mean_carbon": -0.001786402340091628,
+  "worst_step_reward": -0.30818676948547363,
+  "num_ahus": 3,
+  "num_zones": 30,
+  "policy_seconds": 55.43784619788494,
+  "sim_seconds": 716.1585849280982,
+  "wall_seconds": 844.4886865580011
+}

@@ -1,0 +1,16 @@
+{
+  "scenario": "building_train_2/fairbanks_2",
+  "policy": "baseline",
+  "steps": 8640,
+  "total_reward": -93.29826892867277,
+  "mean_reward": -0.010798410755633422,
+  "mean_comfort": -0.0006751717703793822,
+  "mean_energy": -0.002871744427469625,
+  "mean_carbon": -0.007251494410051337,
+  "worst_step_reward": -0.4127662777900696,
+  "num_ahus": 9,
+  "num_zones": 85,
+  "policy_seconds": 140.15316211702702,
+  "sim_seconds": 2424.7754122650986,
+  "wall_seconds": 2790.431039833
+}
