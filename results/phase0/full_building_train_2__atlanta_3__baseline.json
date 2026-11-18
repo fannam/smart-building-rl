@@ -1,0 +1,244 @@
+{
+  "scenario": "building_train_2/atlanta_3",
+  "policy": "baseline",
+  "import_s": 0.8652014230001441,
+  "rss_start_mb": 282.5390625,
+  "env_load_s": 3.3695629199992254,
+  "meta_s": 0.0027240949993938557,
+  "reset_s": 0.014372213999195083,
+  "K": 9,
+  "V": 85,
+  "obs_dim": 703,
+  "policy_init_s": 0.3755001469999115,
+  "hws": {
+    "energy_balance": true,
+    "heat_source": "Boiler",
+    "water_capacity_m3": 1.5,
+    "heating_rate_K_per_min": 0.5
+  },
+  "get_action": {
+    "n": 8640,
+    "mean_ms": 2.232811542821596,
+    "p50_ms": 2.1960479998597293,
+    "p95_ms": 2.472760049977296,
+    "p99_ms": 2.8224463104470505,
+    "max_ms": 6.476763000136998,
+    "first_ms": 1.901491000353417
+  },
+  "env_step": {
+    "n": 8640,
+    "mean_ms": 45.55138404618006,
+    "p50_ms": 45.34089550043063,
+    "p95_ms": 47.09454129965707,
+    "p99_ms": 48.426607650444566,
+    "max_ms": 1414.009463000184,
+    "first_ms": 1414.009463000184
+  },
+  "mean_reward_partial": -0.0027887006980298187,
+  "time_alignment": [
+    {
+      "step": 0,
+      "sim_ts_before_step": "2023-04-16 06:00:00",
+      "sim_ts_after_step": "2023-04-16 06:05:00",
+      "reward_start": "2023-04-16 06:05:00",
+      "obs_hour": 6.083
+    },
+    {
+      "step": 1,
+      "sim_ts_before_step": "2023-04-16 06:05:00",
+      "sim_ts_after_step": "2023-04-16 06:10:00",
+      "reward_start": "2023-04-16 06:10:00",
+      "obs_hour": 6.167
+    },
+    {
+      "step": 2,
+      "sim_ts_before_step": "2023-04-16 06:10:00",
+      "sim_ts_after_step": "2023-04-16 06:15:00",
+      "reward_start": "2023-04-16 06:15:00",
+      "obs_hour": 6.25
+    },
+    {
+      "step": 12,
+      "sim_ts_before_step": "2023-04-16 07:00:00",
+      "sim_ts_after_step": "2023-04-16 07:05:00",
+      "reward_start": "2023-04-16 07:05:00",
+      "obs_hour": 7.083
+    },
+    {
+      "step": 24,
+      "sim_ts_before_step": "2023-04-16 08:00:00",
+      "sim_ts_after_step": "2023-04-16 08:05:00",
+      "reward_start": "2023-04-16 08:05:00",
+      "obs_hour": 8.083
+    },
+    {
+      "step": 36,
+      "sim_ts_before_step": "2023-04-16 09:00:00",
+      "sim_ts_after_step": "2023-04-16 09:05:00",
+      "reward_start": "2023-04-16 09:05:00",
+      "obs_hour": 9.083
+    },
+    {
+      "step": 48,
+      "sim_ts_before_step": "2023-04-16 10:00:00",
+      "sim_ts_after_step": "2023-04-16 10:05:00",
+      "reward_start": "2023-04-16 10:05:00",
+      "obs_hour": 10.083
+    },
+    {
+      "step": 60,
+      "sim_ts_before_step": "2023-04-16 11:00:00",
+      "sim_ts_after_step": "2023-04-16 11:05:00",
+      "reward_start": "2023-04-16 11:05:00",
+      "obs_hour": 11.083
+    },
+    {
+      "step": 72,
+      "sim_ts_before_step": "2023-04-16 12:00:00",
+      "sim_ts_after_step": "2023-04-16 12:05:00",
+      "reward_start": "2023-04-16 12:05:00",
+      "obs_hour": 12.083
+    },
+    {
+      "step": 84,
+      "sim_ts_before_step": "2023-04-16 13:00:00",
+      "sim_ts_after_step": "2023-04-16 13:05:00",
+      "reward_start": "2023-04-16 13:05:00",
+      "obs_hour": 13.083
+    },
+    {
+      "step": 96,
+      "sim_ts_before_step": "2023-04-16 14:00:00",
+      "sim_ts_after_step": "2023-04-16 14:05:00",
+      "reward_start": "2023-04-16 14:05:00",
+      "obs_hour": 14.083
+    },
+    {
+      "step": 108,
+      "sim_ts_before_step": "2023-04-16 15:00:00",
+      "sim_ts_after_step": "2023-04-16 15:05:00",
+      "reward_start": "2023-04-16 15:05:00",
+      "obs_hour": 15.083
+    },
+    {
+      "step": 120,
+      "sim_ts_before_step": "2023-04-16 16:00:00",
+      "sim_ts_after_step": "2023-04-16 16:05:00",
+      "reward_start": "2023-04-16 16:05:00",
+      "obs_hour": 16.083
+    },
+    {
+      "step": 132,
+      "sim_ts_before_step": "2023-04-16 17:00:00",
+      "sim_ts_after_step": "2023-04-16 17:05:00",
+      "reward_start": "2023-04-16 17:05:00",
+      "obs_hour": 17.083
+    },
+    {
+      "step": 144,
+      "sim_ts_before_step": "2023-04-16 18:00:00",
+      "sim_ts_after_step": "2023-04-16 18:05:00",
+      "reward_start": "2023-04-16 18:05:00",
+      "obs_hour": 18.083
+    },
+    {
+      "step": 156,
+      "sim_ts_before_step": "2023-04-16 19:00:00",
+      "sim_ts_after_step": "2023-04-16 19:05:00",
+      "reward_start": "2023-04-16 19:05:00",
+      "obs_hour": 19.083
+    },
+    {
+      "step": 168,
+      "sim_ts_before_step": "2023-04-16 20:00:00",
+      "sim_ts_after_step": "2023-04-16 20:05:00",
+      "reward_start": "2023-04-16 20:05:00",
+      "obs_hour": 20.083
+    },
+    {
+      "step": 180,
+      "sim_ts_before_step": "2023-04-16 21:00:00",
+      "sim_ts_after_step": "2023-04-16 21:05:00",
+      "reward_start": "2023-04-16 21:05:00",
+      "obs_hour": 21.083
+    },
+    {
+      "step": 192,
+      "sim_ts_before_step": "2023-04-16 22:00:00",
+      "sim_ts_after_step": "2023-04-16 22:05:00",
+      "reward_start": "2023-04-16 22:05:00",
+      "obs_hour": 22.083
+    },
+    {
+      "step": 204,
+      "sim_ts_before_step": "2023-04-16 23:00:00",
+      "sim_ts_after_step": "2023-04-16 23:05:00",
+      "reward_start": "2023-04-16 23:05:00",
+      "obs_hour": 23.083
+    },
+    {
+      "step": 216,
+      "sim_ts_before_step": "2023-04-17 00:00:00",
+      "sim_ts_after_step": "2023-04-17 00:05:00",
+      "reward_start": "2023-04-17 00:05:00",
+      "obs_hour": 0.083
+    },
+    {
+      "step": 228,
+      "sim_ts_before_step": "2023-04-17 01:00:00",
+      "sim_ts_after_step": "2023-04-17 01:05:00",
+      "reward_start": "2023-04-17 01:05:00",
+      "obs_hour": 1.083
+    },
+    {
+      "step": 240,
+      "sim_ts_before_step": "2023-04-17 02:00:00",
+      "sim_ts_after_step": "2023-04-17 02:05:00",
+      "reward_start": "2023-04-17 02:05:00",
+      "obs_hour": 2.083
+    },
+    {
+      "step": 252,
+      "sim_ts_before_step": "2023-04-17 03:00:00",
+      "sim_ts_after_step": "2023-04-17 03:05:00",
+      "reward_start": "2023-04-17 03:05:00",
+      "obs_hour": 3.083
+    },
+    {
+      "step": 264,
+      "sim_ts_before_step": "2023-04-17 04:00:00",
+      "sim_ts_after_step": "2023-04-17 04:05:00",
+      "reward_start": "2023-04-17 04:05:00",
+      "obs_hour": 4.083
+    },
+    {
+      "step": 276,
+      "sim_ts_before_step": "2023-04-17 05:00:00",
+      "sim_ts_after_step": "2023-04-17 05:05:00",
+      "reward_start": "2023-04-17 05:05:00",
+      "obs_hour": 5.083
+    },
+    {
+      "step": 288,
+      "sim_ts_before_step": "2023-04-17 06:00:00",
+      "sim_ts_after_step": "2023-04-17 06:05:00",
+      "reward_start": "2023-04-17 06:05:00",
+      "obs_hour": 6.083
+    }
+  ],
+  "pickle_error": "TypeError(\"cannot pickle 'SuperLU' object\")",
+  "plain_deepcopy_error": "TypeError(\"cannot pickle 'SuperLU' object\")",
+  "deepcopy": {
+    "n": 100,
+    "mean_ms": 989.6146737800153,
+    "p50_ms": 1046.245855000052,
+    "p95_ms": 1078.8975279505394,
+    "p99_ms": 1090.5250352503572,
+    "max_ms": 1102.940550999847,
+    "first_ms": 1044.1611380001632
+  },
+  "rss_with_5_copies_mb": 1680.98046875,
+  "rss_before_copies_mb": 764.8125,
+  "copy_determinism_max_abs_diff": 0.012634316459298134,
+  "rss_end_mb": 1673.53125
+}

@@ -1,0 +1,698 @@
+{
+ "episodes": 60,
+ "offset_convention": "obs[t+d] vs privileged[t]",
+ "groups": {
+  "ahu_supply_air_flowrate_sensor vs sum zone_info.air_flow_rate[t]": {
+   "-1": {
+    "max_abs": 9.727165281772614,
+    "max_rel": 1.0,
+    "mean_abs": 0.053771841620510324,
+    "corr_mean": 0.94108616271621,
+    "frac_exact_min": 0.4461538461538462
+   },
+   "0": {
+    "max_abs": 9.919751405715942,
+    "max_rel": 1.0,
+    "mean_abs": 0.0399069178974665,
+    "corr_mean": 0.9559098882312146,
+    "frac_exact_min": 0.4677579365079365
+   },
+   "1": {
+    "max_abs": 9.999999747378752e-05,
+    "max_rel": 6.206738467546154e-05,
+    "mean_abs": 5.32990889458954e-05,
+    "corr_mean": 0.9999999994490903,
+    "frac_exact_min": 1.0
+   },
+   "2": {
+    "max_abs": 9.91965116729989,
+    "max_rel": 1.0,
+    "mean_abs": 0.03990916220491447,
+    "corr_mean": 0.955920790588041,
+    "frac_exact_min": 0.4674937965260546
+   }
+  },
+  "ahu_supply_air_flowrate_setpoint vs sum zone_info.air_flow_rate[t]": {
+   "-1": {
+    "max_abs": 9.727165281772614,
+    "max_rel": 1.0,
+    "mean_abs": 0.053771841620510324,
+    "corr_mean": 0.94108616271621,
+    "frac_exact_min": 0.4461538461538462
+   },
+   "0": {
+    "max_abs": 9.919751405715942,
+    "max_rel": 1.0,
+    "mean_abs": 0.0399069178974665,
+    "corr_mean": 0.9559098882312146,
+    "frac_exact_min": 0.4677579365079365
+   },
+   "1": {
+    "max_abs": 9.999999747378752e-05,
+    "max_rel": 6.206738467546154e-05,
+    "mean_abs": 5.32990889458954e-05,
+    "corr_mean": 0.9999999994490903,
+    "frac_exact_min": 1.0
+   },
+   "2": {
+    "max_abs": 9.91965116729989,
+    "max_rel": 1.0,
+    "mean_abs": 0.03990916220491447,
+    "corr_mean": 0.955920790588041,
+    "frac_exact_min": 0.4674937965260546
+   }
+  },
+  "ahu_outside_air_flowrate_sensor vs (1-recirc_eff[t])*sum flow[t]": {
+   "-1": {
+    "max_abs": 5.223792414873969,
+    "max_rel": 0.999995382473049,
+    "mean_abs": 0.026772296246022082,
+    "corr_mean": 0.9188634289629972,
+    "frac_exact_min": 0.4462779156327543
+   },
+   "0": {
+    "max_abs": 5.223792414873969,
+    "max_rel": 0.999995382473049,
+    "mean_abs": 0.019436085850388737,
+    "corr_mean": 0.9398118468192841,
+    "frac_exact_min": 0.4678819444444444
+   },
+   "1": {
+    "max_abs": 3.099441525655777e-07,
+    "max_rel": 9.972828100674141e-08,
+    "mean_abs": 8.689894768747366e-09,
+    "corr_mean": 0.9999999999999989,
+    "frac_exact_min": 1.0
+   },
+   "2": {
+    "max_abs": 5.223792593689723,
+    "max_rel": 0.999995356261526,
+    "mean_abs": 0.019440463436507457,
+    "corr_mean": 0.9398157185348924,
+    "frac_exact_min": 0.4676178660049628
+   }
+  },
+  "ahu_supply_air_temperature_sensor vs commanded SAT a_t": {
+   "-1": {
+    "max_abs": 20.0,
+    "max_rel": 0.06557377049180328,
+    "mean_abs": 0.518778045525207,
+    "corr_mean": 0.9365042544737308,
+    "frac_exact_min": 0.7862696443341605
+   },
+   "0": {
+    "max_abs": 20.0,
+    "max_rel": 0.06557377049180328,
+    "mean_abs": 0.3733127816197416,
+    "corr_mean": 0.9536941358033907,
+    "frac_exact_min": 0.8219246031746031
+   },
+   "1": {
+    "max_abs": 1.6808509826660156e-05,
+    "max_rel": 5.510986828413166e-08,
+    "mean_abs": 6.963894163093208e-07,
+    "corr_mean": 0.999999999999938,
+    "frac_exact_min": 1.0
+   },
+   "2": {
+    "max_abs": 20.0,
+    "max_rel": 0.06557377049180328,
+    "mean_abs": 0.37002502679392396,
+    "corr_mean": 0.9539061531207448,
+    "frac_exact_min": 0.822332506203474
+   }
+  },
+  "ahu_supply_air_static_pressure_sensor vs run*max(cmd,200)[t]": {
+   "-1": {
+    "max_abs": 2000.0,
+    "max_rel": 5.0,
+    "mean_abs": 8.731609115529912,
+    "corr_mean": 0.9085664901359434,
+    "frac_exact_min": 0.7708436724565757
+   },
+   "0": {
+    "max_abs": 2000.0,
+    "max_rel": 5.0,
+    "mean_abs": 5.456906904130601,
+    "corr_mean": 0.9367969749078269,
+    "frac_exact_min": 0.7922867063492064
+   },
+   "1": {
+    "max_abs": 0.00011873245239257812,
+    "max_rel": 8.319493469365358e-08,
+    "mean_abs": 8.803247292497022e-07,
+    "corr_mean": 0.9999999999999987,
+    "frac_exact_min": 1.0
+   },
+   "2": {
+    "max_abs": 2000.0,
+    "max_rel": 1.000000060191727,
+    "mean_abs": 4.973423626140851,
+    "corr_mean": 0.9522725706078623,
+    "frac_exact_min": 0.7926799007444169
+   }
+  },
+  "ahu_recirculation echo vs clip(cmd,0,0.7)[t]": {
+   "-1": {
+    "max_abs": 0.7,
+    "max_rel": 1.0,
+    "mean_abs": 0.005492356370205529,
+    "corr_mean": 0.6178107434043199,
+    "frac_exact_min": 0.8568238213399504
+   },
+   "0": {
+    "max_abs": 0.7,
+    "max_rel": 1.0,
+    "mean_abs": 0.003952121733320827,
+    "corr_mean": 0.6295331912170352,
+    "frac_exact_min": 0.8658234126984127
+   },
+   "1": {
+    "max_abs": 2.9802322387695312e-08,
+    "max_rel": 4.257474626813616e-08,
+    "mean_abs": 1.1349518797998547e-08,
+    "corr_mean": 0.9999999999999755,
+    "frac_exact_min": 1.0
+   },
+   "2": {
+    "max_abs": 0.7,
+    "max_rel": 1.0,
+    "mean_abs": 0.0037555719041031796,
+    "corr_mean": 0.7476384629815197,
+    "frac_exact_min": 0.8662531017369727
+   }
+  },
+  "ahu_supervisor_run_command echo vs run[t]": {
+   "-1": {
+    "max_abs": 1.0,
+    "max_rel": 1.0,
+    "mean_abs": 0.019796434151272864,
+    "corr_mean": 0.9594201621263295,
+    "frac_exact_min": 0.9508133443617315
+   },
+   "0": {
+    "max_abs": 1.0,
+    "max_rel": 1.0,
+    "mean_abs": 0.01127932558054086,
+    "corr_mean": 0.9768620617063865,
+    "frac_exact_min": 0.9724977954144621
+   },
+   "1": {
+    "max_abs": 0,
+    "max_rel": 0,
+    "mean_abs": 0.0,
+    "corr_mean": 1.0,
+    "frac_exact_min": 1.0
+   },
+   "2": {
+    "max_abs": 1.0,
+    "max_rel": 1.0,
+    "mean_abs": 0.010804498667401895,
+    "corr_mean": 0.9778397853840802,
+    "frac_exact_min": 0.9728149986214503
+   }
+  },
+  "ahu_supply_fan_run_command vs run[t]": {
+   "-1": {
+    "max_abs": 1.0,
+    "max_rel": 1.0,
+    "mean_abs": 0.019796434151272864,
+    "corr_mean": 0.9594201621263295,
+    "frac_exact_min": 0.9508133443617315
+   },
+   "0": {
+    "max_abs": 1.0,
+    "max_rel": 1.0,
+    "mean_abs": 0.01127932558054086,
+    "corr_mean": 0.9768620617063865,
+    "frac_exact_min": 0.9724977954144621
+   },
+   "1": {
+    "max_abs": 0,
+    "max_rel": 0,
+    "mean_abs": 0.0,
+    "corr_mean": 1.0,
+    "frac_exact_min": 1.0
+   },
+   "2": {
+    "max_abs": 1.0,
+    "max_rel": 1.0,
+    "mean_abs": 0.010804498667401895,
+    "corr_mean": 0.9778397853840802,
+    "frac_exact_min": 0.9728149986214503
+   }
+  },
+  "vav_supply_air_flowrate_setpoint vs zone_info.air_flow_rate_setpoint[t]": {
+   "-1": {
+    "max_abs": 0,
+    "max_rel": 0,
+    "mean_abs": 0.0,
+    "corr_mean": null,
+    "frac_exact_min": 1.0
+   },
+   "0": {
+    "max_abs": 0,
+    "max_rel": 0,
+    "mean_abs": 0.0,
+    "corr_mean": null,
+    "frac_exact_min": 1.0
+   },
+   "1": {
+    "max_abs": 0,
+    "max_rel": 0,
+    "mean_abs": 0.0,
+    "corr_mean": null,
+    "frac_exact_min": 1.0
+   },
+   "2": {
+    "max_abs": 0,
+    "max_rel": 0,
+    "mean_abs": 0.0,
+    "corr_mean": null,
+    "frac_exact_min": 1.0
+   }
+  },
+  "vav_supply_air_flowrate_setpoint vs zone_info.air_flow_rate[t]": {
+   "-1": {
+    "max_abs": 1.9999900000002526,
+    "max_rel": 3.795496390420665,
+    "mean_abs": 1.9421873307717707,
+    "corr_mean": null,
+    "frac_exact_min": 0.0
+   },
+   "0": {
+    "max_abs": 1.9999900000002526,
+    "max_rel": 3.795496390420665,
+    "mean_abs": 1.9422141651126832,
+    "corr_mean": null,
+    "frac_exact_min": 0.0
+   },
+   "1": {
+    "max_abs": 1.9999900000002526,
+    "max_rel": 3.795496390420665,
+    "mean_abs": 1.9422141651126832,
+    "corr_mean": null,
+    "frac_exact_min": 0.0
+   },
+   "2": {
+    "max_abs": 1.9999900000002526,
+    "max_rel": 3.795496390420665,
+    "mean_abs": 1.9421929728981409,
+    "corr_mean": null,
+    "frac_exact_min": 0.0
+   }
+  },
+  "vav_damper echo vs max(cmd,0.1)[t]": {
+   "-1": {
+    "max_abs": 0.9000000059604645,
+    "max_rel": 0.9000000059604645,
+    "mean_abs": 0.006796798286198198,
+    "corr_mean": 0.930056970842008,
+    "frac_exact_min": 0.582948399821849
+   },
+   "0": {
+    "max_abs": 0.9000000059604645,
+    "max_rel": 0.9000000059604645,
+    "mean_abs": 0.005660163120810169,
+    "corr_mean": 0.9425297598848369,
+    "frac_exact_min": 0.599753256003256
+   },
+   "1": {
+    "max_abs": 2.9802322387695312e-08,
+    "max_rel": 3.577015870217852e-08,
+    "mean_abs": 5.362040390381359e-09,
+    "corr_mean": 0.9999999999999976,
+    "frac_exact_min": 1.0
+   },
+   "2": {
+    "max_abs": 0.9000000059604645,
+    "max_rel": 0.9000000059604645,
+    "mean_abs": 0.00566297212820398,
+    "corr_mean": 0.9425248119530428,
+    "frac_exact_min": 0.5995546223834065
+   }
+  },
+  "vav_zone_air_temperature_sensor vs zone_info.zone_air_temperature[t]": {
+   "-1": {
+    "max_abs": 16.611602306365967,
+    "max_rel": 0.05570319304390842,
+    "mean_abs": 0.06878559872646156,
+    "corr_mean": 0.99576024475169,
+    "frac_exact_min": 0.30866832092638546
+   },
+   "0": {
+    "max_abs": 16.664307117462158,
+    "max_rel": 0.05587992652287624,
+    "mean_abs": 0.05382949723485133,
+    "corr_mean": 0.9965958898016388,
+    "frac_exact_min": 0.32235449735449734
+   },
+   "1": {
+    "max_abs": 15.820128917694092,
+    "max_rel": 0.0530890238065661,
+    "mean_abs": 0.0326548538922518,
+    "corr_mean": 0.9980932150928604,
+    "frac_exact_min": 0.47822420634920637
+   },
+   "2": {
+    "max_abs": 9.5367431640625e-07,
+    "max_rel": 3.211201822852844e-09,
+    "mean_abs": 5.108001892717818e-08,
+    "corr_mean": 0.9999999999999992,
+    "frac_exact_min": 1.0
+   }
+  },
+  "hws_supply_water_temperature_sensor vs tank_state[t+1].tank_T": {
+   "-1": {
+    "max_abs": 40.0,
+    "max_rel": 0.11428571428571428,
+    "mean_abs": 0.49883550998693277,
+    "corr_mean": 0.9306054391093702,
+    "frac_exact_min": 0.35186104218362285
+   },
+   "0": {
+    "max_abs": 40.0,
+    "max_rel": 0.11428571428571428,
+    "mean_abs": 0.28039946972861435,
+    "corr_mean": 0.9718653568974391,
+    "frac_exact_min": 0.4722222222222222
+   },
+   "1": {
+    "max_abs": 1.5258664745942951e-05,
+    "max_rel": 4.488043324799901e-08,
+    "mean_abs": 5.211729636637733e-06,
+    "corr_mean": 0.9999999999987302,
+    "frac_exact_min": 1.0
+   },
+   "2": {
+    "max_abs": 40.0,
+    "max_rel": 0.11428571428571428,
+    "mean_abs": 0.28053060482441816,
+    "corr_mean": 0.9718573513245489,
+    "frac_exact_min": 0.47196029776674936
+   }
+  },
+  "hws_supply_water_temperature_setpoint echo vs cmd[t]": {
+   "-1": {
+    "max_abs": 40.0,
+    "max_rel": 0.11428571428571428,
+    "mean_abs": 1.7041129880975063,
+    "corr_mean": 0.8342409198897481,
+    "frac_exact_min": 0.7399503722084367
+   },
+   "0": {
+    "max_abs": 40.0,
+    "max_rel": 0.11428571428571428,
+    "mean_abs": 1.008135617124912,
+    "corr_mean": 0.8974001906772977,
+    "frac_exact_min": 0.8923611111111112
+   },
+   "1": {
+    "max_abs": 1.8358230590820312e-05,
+    "max_rel": 5.245208740234375e-08,
+    "mean_abs": 1.0148256141864868e-06,
+    "corr_mean": 0.9999999999996306,
+    "frac_exact_min": 1.0
+   },
+   "2": {
+    "max_abs": 40.0,
+    "max_rel": 0.11428571428571428,
+    "mean_abs": 0.9940645256480145,
+    "corr_mean": 0.9104888922296308,
+    "frac_exact_min": 0.892803970223325
+   }
+  },
+  "hws_differential_pressure_sensor vs cmd dp[t]": {
+   "-1": {
+    "max_abs": 20.0,
+    "max_rel": 587999999.5231628,
+    "mean_abs": 0.09932017648651233,
+    "corr_mean": 0.6954920149577798,
+    "frac_exact_min": 0.47444168734491315
+   },
+   "0": {
+    "max_abs": 20.0,
+    "max_rel": 587999999.5231628,
+    "mean_abs": 0.09256151882181494,
+    "corr_mean": 0.716122282874393,
+    "frac_exact_min": 0.49404761904761907
+   },
+   "1": {
+    "max_abs": 1.5497207641601562e-06,
+    "max_rel": 9.419173470667673e-08,
+    "mean_abs": 6.348397171620044e-09,
+    "corr_mean": 0.9999999999999992,
+    "frac_exact_min": 1.0
+   },
+   "2": {
+    "max_abs": 20.0,
+    "max_rel": 1.0000000092058368,
+    "mean_abs": 0.09231564415498318,
+    "corr_mean": 0.7857147651546437,
+    "frac_exact_min": 0.49429280397022335
+   }
+  },
+  "hws_differential_pressure_setpoint echo vs cmd dp[t]": {
+   "-1": {
+    "max_abs": 19.99999976158142,
+    "max_rel": 587999820.7092285,
+    "mean_abs": 0.09932037376371641,
+    "corr_mean": 0.6954918008298626,
+    "frac_exact_min": 0.47444168734491315
+   },
+   "0": {
+    "max_abs": 19.99999976158142,
+    "max_rel": 587999820.7092285,
+    "mean_abs": 0.09256171677189122,
+    "corr_mean": 0.7161220794272957,
+    "frac_exact_min": 0.49404761904761907
+   },
+   "1": {
+    "max_abs": 1.7881393432617188e-06,
+    "max_rel": 238.41857910156247,
+    "mean_abs": 2.31272496368364e-07,
+    "corr_mean": 0.9999999999635248,
+    "frac_exact_min": 1.0
+   },
+   "2": {
+    "max_abs": 19.99999976158142,
+    "max_rel": 238.41857910156247,
+    "mean_abs": 0.0923158419382983,
+    "corr_mean": 0.7857145581939826,
+    "frac_exact_min": 0.49429280397022335
+   }
+  },
+  "num_occupants vs sum zone_info.average_occupancy[t]": {
+   "-1": {
+    "max_abs": 35.0,
+    "max_rel": 0.22151898734177214,
+    "mean_abs": 1.2068817204301079,
+    "corr_mean": 0.9954610866033189,
+    "frac_exact_min": 0.6148883374689826
+   },
+   "0": {
+    "max_abs": 35.0,
+    "max_rel": 0.22151898734177214,
+    "mean_abs": 0.8058531746031743,
+    "corr_mean": 0.9976405386399806,
+    "frac_exact_min": 0.6324404761904762
+   },
+   "1": {
+    "max_abs": 35.0,
+    "max_rel": 0.22151898734177214,
+    "mean_abs": 0.4038029100529099,
+    "corr_mean": 0.9991615589123818,
+    "frac_exact_min": 0.6979166666666666
+   },
+   "2": {
+    "max_abs": 0,
+    "max_rel": 0,
+    "mean_abs": 0.0,
+    "corr_mean": 1.0,
+    "frac_exact_min": 1.0
+   }
+  },
+  "hws_run_status vs hws run cmd[t]": {
+   "-1": {
+    "max_abs": 1.0,
+    "max_rel": 999999999.9999999,
+    "mean_abs": 0.009396195202646817,
+    "corr_mean": 0.9165891254153369,
+    "frac_exact_min": 0.961786600496278
+   },
+   "0": {
+    "max_abs": 1.0,
+    "max_rel": 999999999.9999999,
+    "mean_abs": 0.006464947089947089,
+    "corr_mean": 0.9465244936029299,
+    "frac_exact_min": 0.96875
+   },
+   "1": {
+    "max_abs": 0,
+    "max_rel": 0,
+    "mean_abs": 0.0,
+    "corr_mean": 1.0,
+    "frac_exact_min": 1.0
+   },
+   "2": {
+    "max_abs": 1.0,
+    "max_rel": 1.0,
+    "mean_abs": 0.00597187758478081,
+    "corr_mean": 0.9500988028133807,
+    "frac_exact_min": 0.9692307692307692
+   }
+  }
+ },
+ "outside_air_temperature": {
+  "building_train_1/atlanta_2": {
+   "max_spread_across_ahus": 0.0,
+   "vs_weather_at_sim_ts[i]+k*300s": {
+    "-2": {
+     "max_abs": 1.45001220703125,
+     "mean_abs": 0.17486987740436313
+    },
+    "-1": {
+     "max_abs": 0.7250122070312841,
+     "mean_abs": 0.08790916350828717
+    },
+    "0": {
+     "max_abs": 1.4241536462122895e-05,
+     "mean_abs": 7.4188328207284975e-06
+    },
+    "1": {
+     "max_abs": 0.7250122070312273,
+     "mean_abs": 0.08792541735902354
+    },
+    "2": {
+     "max_abs": 1.45001220703125,
+     "mean_abs": 0.17487374467901745
+    }
+   }
+  },
+  "building_train_2/atlanta_3": {
+   "max_spread_across_ahus": 0.0,
+   "vs_weather_at_sim_ts[i]+k*300s": {
+    "-2": {
+     "max_abs": 1.350012207031284,
+     "mean_abs": 0.18475608390690607
+    },
+    "-1": {
+     "max_abs": 0.6750122070312727,
+     "mean_abs": 0.09291176065455124
+    },
+    "0": {
+     "max_abs": 1.4241536462122895e-05,
+     "mean_abs": 7.582238792733893e-06
+    },
+    "1": {
+     "max_abs": 0.6750122070312159,
+     "mean_abs": 0.09293277546938258
+    },
+    "2": {
+     "max_abs": 1.3500122070312273,
+     "mean_abs": 0.18470681599793692
+    }
+   }
+  },
+  "building_train_4/atlanta_5": {
+   "max_spread_across_ahus": 0.0,
+   "vs_weather_at_sim_ts[i]+k*300s": {
+    "-2": {
+     "max_abs": 0.7499877929687955,
+     "mean_abs": 0.13814454274893762
+    },
+    "-1": {
+     "max_abs": 0.3749877929687955,
+     "mean_abs": 0.06931309395044363
+    },
+    "0": {
+     "max_abs": 1.4241536462122895e-05,
+     "mean_abs": 7.402693962571607e-06
+    },
+    "1": {
+     "max_abs": 0.3750122070312045,
+     "mean_abs": 0.06940410300693092
+    },
+    "2": {
+     "max_abs": 0.7500122070312045,
+     "mean_abs": 0.13832235870588563
+    }
+   }
+  },
+  "building_train_5/atlanta_6": {
+   "max_spread_across_ahus": 0.0,
+   "vs_weather_at_sim_ts[i]+k*300s": {
+    "-2": {
+     "max_abs": 0.7500122070312614,
+     "mean_abs": 0.11631434826274505
+    },
+    "-1": {
+     "max_abs": 0.37501220703126137,
+     "mean_abs": 0.058563682292631716
+    },
+    "0": {
+     "max_abs": 1.4241536518966313e-05,
+     "mean_abs": 7.743627405894999e-06
+    },
+    "1": {
+     "max_abs": 0.37498779296873863,
+     "mean_abs": 0.058670848366682724
+    },
+    "2": {
+     "max_abs": 0.7499877929687386,
+     "mean_abs": 0.1165619688297263
+    }
+   }
+  },
+  "building_train_7/atlanta_8": {
+   "max_spread_across_ahus": 0.0,
+   "vs_weather_at_sim_ts[i]+k*300s": {
+    "-2": {
+     "max_abs": 1.0833414713541742,
+     "mean_abs": 0.16546230111273827
+    },
+    "-1": {
+     "max_abs": 0.5416748046875455,
+     "mean_abs": 0.0833933265243438
+    },
+    "0": {
+     "max_abs": 1.4241536462122895e-05,
+     "mean_abs": 7.735557974688802e-06
+    },
+    "1": {
+     "max_abs": 0.5416788736978901,
+     "mean_abs": 0.08339325995154483
+    },
+    "2": {
+     "max_abs": 1.0833455403645758,
+     "mean_abs": 0.16546218814071298
+    }
+   }
+  },
+  "building_train_8/atlanta_1": {
+   "max_spread_across_ahus": 0.0,
+   "vs_weather_at_sim_ts[i]+k*300s": {
+    "-2": {
+     "max_abs": 0.7499938964843409,
+     "mean_abs": 0.086628557973376
+    },
+    "-1": {
+     "max_abs": 0.3749938964843409,
+     "mean_abs": 0.04363165776447477
+    },
+    "0": {
+     "max_abs": 1.4241536462122895e-05,
+     "mean_abs": 6.596759575906399e-06
+    },
+    "1": {
+     "max_abs": 0.3750061035156591,
+     "mean_abs": 0.0436770745376545
+    },
+    "2": {
+     "max_abs": 0.7500061035156591,
+     "mean_abs": 0.08669874991607844
+    }
+   }
+  }
+ }
+}

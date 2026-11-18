@@ -1,0 +1,53 @@
+{
+ "scenario": "building_train_4/atlanta_5",
+ "policy": "baseline",
+ "import_s": 1.46770172000015,
+ "rss_start_mb": 282.38671875,
+ "env_load_s": 3.7581820090008478,
+ "meta_s": 0.002761484000075143,
+ "reset_s": 0.011160779999954684,
+ "K": 6,
+ "V": 54,
+ "obs_dim": 472,
+ "policy_init_s": 0.32697633800034964,
+ "hws": {
+  "energy_balance": true,
+  "heat_source": "Boiler",
+  "water_capacity_m3": 1.5,
+  "heating_rate_K_per_min": 0.5
+ },
+ "get_action": {
+  "n": 8640,
+  "mean_ms": 1.6721158116865809,
+  "p50_ms": 1.6654295004627784,
+  "p95_ms": 1.8265794001763422,
+  "p99_ms": 2.1938775997387,
+  "max_ms": 5.687859000317985,
+  "first_ms": 1.3812030001645326
+ },
+ "env_step": {
+  "n": 8640,
+  "mean_ms": 35.069929625233044,
+  "p50_ms": 34.584289000122226,
+  "p95_ms": 37.10003184992274,
+  "p99_ms": 43.00676978939012,
+  "max_ms": 916.4266759999009,
+  "first_ms": 916.4266759999009
+ },
+ "mean_reward_partial": -0.006323238789351577,
+ "pickle_error": "TypeError(\"cannot pickle 'SuperLU' object\")",
+ "plain_deepcopy_error": "TypeError(\"cannot pickle 'SuperLU' object\")",
+ "deepcopy": {
+  "n": 100,
+  "mean_ms": 920.98158109,
+  "p50_ms": 975.446766999994,
+  "p95_ms": 1007.7376998001,
+  "p99_ms": 1023.5820313197928,
+  "max_ms": 1024.8152070007563,
+  "first_ms": 948.4942150002098
+ },
+ "rss_with_5_copies_mb": 1557.11328125,
+ "rss_before_copies_mb": 696.1171875,
+ "copy_determinism_max_abs_diff": 3.3346936106681824e-05,
+ "rss_end_mb": 1559.80859375
+}

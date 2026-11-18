@@ -1,0 +1,78 @@
+{
+ "version": "lobo-v1",
+ "protocol": "leave-one-building-out",
+ "assignment_rule": "buildings sorted lexicographically; fold i holds out the i-th building",
+ "data_root": "data/phase1_sample",
+ "profiles": [
+  "baseline",
+  "moderate"
+ ],
+ "folds": [
+  {
+   "fold": 0,
+   "test_building": "building_train_1",
+   "train_buildings": [
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7",
+    "building_train_8"
+   ]
+  },
+  {
+   "fold": 1,
+   "test_building": "building_train_2",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7",
+    "building_train_8"
+   ]
+  },
+  {
+   "fold": 2,
+   "test_building": "building_train_4",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_5",
+    "building_train_7",
+    "building_train_8"
+   ]
+  },
+  {
+   "fold": 3,
+   "test_building": "building_train_5",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_7",
+    "building_train_8"
+   ]
+  },
+  {
+   "fold": 4,
+   "test_building": "building_train_7",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_8"
+   ]
+  },
+  {
+   "fold": 5,
+   "test_building": "building_train_8",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7"
+   ]
+  }
+ ]
+}

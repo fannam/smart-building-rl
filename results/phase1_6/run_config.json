@@ -1,0 +1,17 @@
+{
+ "data_root": "data/phase1_sample",
+ "profiles": [
+  "baseline",
+  "moderate"
+ ],
+ "seed": 0,
+ "folds_config": "configs/leave_one_building_out.json",
+ "dataset_api": "aligned-windows-v1",
+ "folds_version": "lobo-v1",
+ "runtime_schema": "runtime-features-v1",
+ "argv": [
+  "scripts/evaluate_lobo.py",
+  "--data",
+  "data/phase1_sample"
+ ]
+}

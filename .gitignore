@@ -2,3 +2,20 @@
 __pycache__/
 *.pyc
 starter-kit/
+data/
+
+# Python / tooling
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+
+# Large scratch artifacts (~1 GB)
+scratch/phase1_5/cache/
+scratch/phase1_5/validation/
+scratch/phase1_audit/out/
+
+# Model checkpoints
+*.pt
+*.pth
+*.ckpt

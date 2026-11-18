@@ -1,0 +1,84 @@
+{
+ "train": {
+  "episodes": 50,
+  "windows": 100050,
+  "skipped_short": [],
+  "buildings": [
+   "building_train_1",
+   "building_train_2",
+   "building_train_4",
+   "building_train_7",
+   "building_train_8"
+  ],
+  "first_batch_shapes": {
+   "obs_window": [
+    32,
+    14,
+    352
+   ],
+   "runtime_obs": [
+    32,
+    4,
+    352
+   ],
+   "actions": [
+    32,
+    12,
+    92
+   ],
+   "effective": [
+    32,
+    12,
+    92
+   ],
+   "zone_temp_target": [
+    32,
+    12,
+    39
+   ],
+   "reward": [
+    32,
+    12
+   ]
+  }
+ },
+ "test": {
+  "episodes": 10,
+  "windows": 20010,
+  "skipped_short": [],
+  "buildings": [
+   "building_train_5"
+  ],
+  "first_batch_shapes": {
+   "obs_window": [
+    32,
+    14,
+    652
+   ],
+   "runtime_obs": [
+    32,
+    4,
+    652
+   ],
+   "actions": [
+    32,
+    12,
+    184
+   ],
+   "effective": [
+    32,
+    12,
+    184
+   ],
+   "zone_temp_target": [
+    32,
+    12,
+    79
+   ],
+   "reward": [
+    32,
+    12
+   ]
+  }
+ }
+}
