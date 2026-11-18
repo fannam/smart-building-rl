@@ -1,0 +1,71 @@
+{
+ "config": {
+  "name": "phase2a_gru_v1.1",
+  "data_root": "data/phase1_sample",
+  "profiles": [
+   "baseline",
+   "moderate"
+  ],
+  "folds_config": "configs/leave_one_building_out.json",
+  "seed": 0,
+  "model": {
+   "hidden_zone": 64,
+   "hidden_bldg": 64,
+   "head_hidden": 64
+  },
+  "loss_weights": {
+   "temperature": 1.0,
+   "hws": 0.5,
+   "electricity": 0.5,
+   "gas": 0.5
+  },
+  "training": {
+   "context": 12,
+   "horizon_train": 24,
+   "train_stride": 4,
+   "val_stride": 8,
+   "max_train_windows": null,
+   "batch_size": 32,
+   "lr": 0.002,
+   "weight_decay": 0.0001,
+   "grad_clip": 1.0,
+   "epochs": 12,
+   "patience": 3,
+   "workers": 1,
+   "torch_threads": 3,
+   "min_epochs": 6
+  },
+  "evaluation": {
+   "context": 12,
+   "horizon": 36,
+   "test_stride": 6,
+   "batch_size": 64,
+   "report_horizons": [
+    1,
+    3,
+    6,
+    12,
+    36
+   ],
+   "exo_modes": [
+    "persistence",
+    "oracle"
+   ]
+  },
+  "baselines": {
+   "linear_ridge": 0.001,
+   "fit_stride": 2
+  },
+  "protocol_note": "v1.1 = v1 + min_epochs 6 (early stopping cannot trigger before epoch 6). Identical to v1 for every run that trained >= 6 epochs; runs stopped earlier under v1 are retrained."
+ },
+ "jobs": [
+  "1:0"
+ ],
+ "argv": [
+  "scripts/train_dynamics.py",
+  "--jobs",
+  "1:0",
+  "--parallel",
+  "1"
+ ]
+}

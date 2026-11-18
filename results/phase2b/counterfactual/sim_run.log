@@ -1,0 +1,12 @@
+building_train_8/atlanta_1: 6 points x 47 arms, nominal exact=True, replay obs max 0.0e+00, 31.5 min
+building_train_8/fairbanks_8: 6 points x 47 arms, nominal exact=True, replay obs max 0.0e+00, 31.6 min
+building_train_7/atlanta_8: 6 points x 47 arms, nominal exact=True, replay obs max 0.0e+00, 35.8 min
+building_train_7/fairbanks_7: 6 points x 47 arms, nominal exact=True, replay obs max 0.0e+00, 37.3 min
+building_train_1/fairbanks_1: 5 points x 47 arms, nominal exact=True, replay obs max 0.0e+00, 49.1 min
+building_train_5/atlanta_6: 4 points x 47 arms, nominal exact=True, replay obs max 0.0e+00, 55.6 min
+building_train_1/atlanta_2: 6 points x 47 arms, nominal exact=True, replay obs max 0.0e+00, 59.3 min
+building_train_4/atlanta_5: 5 points x 47 arms, nominal exact=True, replay obs max 0.0e+00, 69.3 min
+building_train_5/fairbanks_5: 6 points x 47 arms, nominal exact=True, replay obs max 0.0e+00, 82.9 min
+building_train_4/fairbanks_4: 6 points x 47 arms, nominal exact=True, replay obs max 0.0e+00, 82.9 min
+building_train_2/fairbanks_2: 6 points x 47 arms, nominal exact=True, replay obs max 0.0e+00, 104.2 min
+building_train_2/atlanta_3: 6 points x 47 arms, nominal exact=True, replay obs max 0.0e+00, 104.8 min

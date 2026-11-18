@@ -19,3 +19,17 @@ scratch/phase1_audit/out/
 *.pt
 *.pth
 *.ckpt
+
+# Large result arrays (regenerable by the scripts; keep only json/md/log/png summaries)
+results/**/*.npz
+results/**/*.npy
+results/**/*.pkl
+results/**/*.csv.gz
+results/phase2b/_stale_local_partial/
+
+# Scratch experiment outputs
+scratch/phase2a_evaltest/
+scratch/phase2b/
+
+# Kaggle downloads / uploads
+*.zip
