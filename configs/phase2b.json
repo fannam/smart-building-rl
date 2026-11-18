@@ -1,0 +1,15 @@
+{
+ "name": "phase2b_v1",
+ "data_root": "data/phase1_sample",
+ "profiles": ["baseline", "moderate"],
+ "folds_config": "configs/leave_one_building_out.json",
+ "phase2a_config": "configs/dynamics_gru.json",
+ "phase2a_dir": "results/phase2a",
+ "seed": 0,
+ "evaluation": {"context": 12, "horizon": 36, "test_stride": 6, "batch_size": 64,
+                "report_horizons": [1, 6, 12, 24, 36], "exo_modes": ["persistence", "oracle"]},
+ "counterfactual": {"horizon": 36, "context": 12, "n_per_stratum": 1, "pulse": 6, "seed": 0,
+                    "scenarios": "scripts/counterfactual_run.py::DEFAULT_SCENARIOS"},
+ "occupancy": {"train_stride": 6, "hgb_grid": [100, 300], "learning_rate": 0.05, "max_leaf_nodes": 31},
+ "notes": "Phase 2B reuses the Phase 2A folds, splits, windows, temporal contract and runtime whitelist unchanged. Phase 2A artifacts are read-only inputs."
+}

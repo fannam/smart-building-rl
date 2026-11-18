@@ -2,3 +2,34 @@
 __pycache__/
 *.pyc
 starter-kit/
+data/
+
+# Python / tooling
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+
+# Large scratch artifacts (~1 GB)
+scratch/phase1_5/cache/
+scratch/phase1_5/validation/
+scratch/phase1_audit/out/
+
+# Model checkpoints
+*.pt
+*.pth
+*.ckpt
+
+# Large result arrays (regenerable by the scripts; keep only json/md/log/png summaries)
+results/**/*.npz
+results/**/*.npy
+results/**/*.pkl
+results/**/*.csv.gz
+results/phase2b/_stale_local_partial/
+
+# Scratch experiment outputs
+scratch/phase2a_evaltest/
+scratch/phase2b/
+
+# Kaggle downloads / uploads
+*.zip

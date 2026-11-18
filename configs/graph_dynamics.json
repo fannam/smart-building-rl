@@ -1,0 +1,59 @@
+{
+ "name": "phase2b_graph_v1",
+ "data_root": "data/phase1_sample",
+ "profiles": [
+  "baseline",
+  "moderate"
+ ],
+ "folds_config": "configs/leave_one_building_out.json",
+ "seed": 0,
+ "model": {
+  "hidden": 44,
+  "head_hidden": 64,
+  "use_zone_adjacency": true
+ },
+ "loss_weights": {
+  "temperature": 1.0,
+  "hws": 0.5,
+  "electricity": 0.5,
+  "gas": 0.5
+ },
+ "training": {
+  "context": 12,
+  "horizon_train": 24,
+  "train_stride": 4,
+  "val_stride": 8,
+  "max_train_windows": null,
+  "batch_size": 32,
+  "lr": 0.002,
+  "weight_decay": 0.0001,
+  "grad_clip": 1.0,
+  "epochs": 12,
+  "patience": 3,
+  "workers": 1,
+  "torch_threads": 3,
+  "min_epochs": 6
+ },
+ "evaluation": {
+  "context": 12,
+  "horizon": 36,
+  "test_stride": 6,
+  "batch_size": 64,
+  "report_horizons": [
+   1,
+   3,
+   6,
+   12,
+   36
+  ],
+  "exo_modes": [
+   "persistence",
+   "oracle"
+  ]
+ },
+ "baselines": {
+  "linear_ridge": 0.001,
+  "fit_stride": 2
+ },
+ "protocol_note": "Identical to configs/dynamics_gru.json (Phase 2A v1.1) except the model class (src/graph/model.py GraphDynamics). Same folds, splits, windows, loss, optimizer, schedule, early stopping."
+}

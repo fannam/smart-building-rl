@@ -1,0 +1,390 @@
+{
+ "1_short_collection": {
+  "ok": true,
+  "episodes": 6,
+  "steps": 1152,
+  "wall_s": [
+   32.2,
+   32.3,
+   32.3,
+   30.5,
+   30.3,
+   32.0
+  ],
+  "policy_ms_mean": [
+   2.979,
+   2.975,
+   3.29,
+   1.58,
+   1.512,
+   2.977
+  ],
+  "sim_ms_mean": [
+   21.57,
+   21.64,
+   21.39,
+   21.47,
+   21.39,
+   21.41
+  ],
+  "mb": [
+   0.51,
+   0.51,
+   0.52,
+   0.5,
+   0.5,
+   0.51
+  ],
+  "errors": []
+ },
+ "2_alignment": {
+  "ok": true,
+  "reward_info_t_equals_sensors_in_obs_t_plus_2": {
+   "zone_temp": 4.76837158203125e-07,
+   "heating_sp": 0.0,
+   "cooling_sp": 0.0,
+   "num_occupants": 0.0
+  },
+  "zone_temp_err_if_using_obs_t_plus_1": 8.546600580215454,
+  "sim_dt_unique": [
+   300
+  ],
+  "reward_start_eq_next_sim_ts": true,
+  "echo_fields_checked": 69,
+  "echo_max_abs_err_vs_a_t": 1.6450881958007812e-05,
+  "stale_obs_mismatch_rate": 0.11976982837859955,
+  "obs_hour_vs_reward_hour_max_err_h": 1.356481433845147e-07,
+  "excluded_effective_echoes": "static_pressure (0 when AHU off), recirculation (capped at 0.7)"
+ },
+ "3_reward_reconstruction": {
+  "ok": true,
+  "tables_equal_to_starter_kit": true,
+  "K_derived_normalizers_match_config": true,
+  "exact_max_abs_err": 5.682257220307463e-09,
+  "variants": {
+   "moderate": {
+    "gas_mean": {
+     "max_abs_err": 0.00588128624549189,
+     "episode_mean_rel_err": 0.018777985964835302,
+     "comfort_mean_err": 4.052543035342785e-13
+    },
+    "occ_uniform": {
+     "max_abs_err": 0.008171752873354015,
+     "episode_mean_rel_err": -0.009081360589507792,
+     "comfort_mean_err": -3.750085421135589e-05
+    },
+    "occ_area": {
+     "max_abs_err": 0.011628161141480152,
+     "episode_mean_rel_err": -0.007351430925626892,
+     "comfort_mean_err": -3.0357229334675464e-05
+    },
+    "obs_lag1": {
+     "max_abs_err": 0.028541957047728377,
+     "episode_mean_rel_err": -0.0015730845833882153,
+     "comfort_mean_err": -6.495947839629963e-06
+    },
+    "obs_temps": {
+     "max_abs_err": 5.8865744501090944e-09,
+     "episode_mean_rel_err": 3.828511634533359e-10,
+     "comfort_mean_err": -2.291907755617987e-12
+    },
+    "causal": {
+     "max_abs_err": 0.008270753700890213,
+     "episode_mean_rel_err": 0.010190590804300731,
+     "comfort_mean_err": -3.546105386504429e-05
+    }
+   },
+   "baseline": {
+    "gas_mean": {
+     "max_abs_err": 0.0030533786625796533,
+     "episode_mean_rel_err": 0.02280423528367146,
+     "comfort_mean_err": 5.105687031942331e-13
+    },
+    "occ_uniform": {
+     "max_abs_err": 0.015344966410637373,
+     "episode_mean_rel_err": -0.01706008844383273,
+     "comfort_mean_err": -5.726355980118566e-05
+    },
+    "occ_area": {
+     "max_abs_err": 0.018587983400248226,
+     "episode_mean_rel_err": -0.01602959549346046,
+     "comfort_mean_err": -5.3804627939029064e-05
+    },
+    "obs_lag1": {
+     "max_abs_err": 0.050517578781687084,
+     "episode_mean_rel_err": -0.007398179691483876,
+     "comfort_mean_err": -2.4832591670179768e-05
+    },
+    "obs_temps": {
+     "max_abs_err": 0.0028637695383299045,
+     "episode_mean_rel_err": 0.0007406131440162442,
+     "comfort_mean_err": 2.4859162808289682e-06
+    },
+    "causal": {
+     "max_abs_err": 0.012291592517382516,
+     "episode_mean_rel_err": 0.006020214024155557,
+     "comfort_mean_err": -5.633690687795932e-05
+    }
+   }
+  },
+  "occupied_steps": {
+   "moderate": 469,
+   "baseline": 469
+  },
+  "num_occupants_obs_vs_true": {
+   "moderate": {
+    "max_abs_diff": 4.0,
+    "gate_agreement": 0.9991319444444444
+   },
+   "baseline": {
+    "max_abs_diff": 4.0,
+    "gate_agreement": 0.9991319444444444
+   }
+  },
+  "hour_dow_from_obs": {
+   "moderate": [
+    1.0,
+    1.0
+   ],
+   "baseline": [
+    1.0,
+    1.0
+   ]
+  }
+ },
+ "4_action_serialization": {
+  "ok": true,
+  "dtypes": {
+   "moderate": {
+    "cont_dtype": "float32",
+    "disc_dtype": "int8",
+    "cont_in_range": true,
+    "disc_binary": true,
+    "cont_shape": [
+     1152,
+     71
+    ],
+    "disc_shape": [
+     1152,
+     4
+    ]
+   },
+   "baseline": {
+    "cont_dtype": "float32",
+    "disc_dtype": "int8",
+    "cont_in_range": true,
+    "disc_binary": true,
+    "cont_shape": [
+     1152,
+     71
+    ],
+    "disc_shape": [
+     1152,
+     4
+    ]
+   }
+  },
+  "replay": {
+   "moderate": {
+    "initial_obs_equal": true,
+    "max_abs_obs_diff": 0.0,
+    "rewards_bit_equal": true
+   },
+   "baseline": {
+    "initial_obs_equal": true,
+    "max_abs_obs_diff": 0.0,
+    "rewards_bit_equal": true
+   }
+  },
+  "layout": {
+   "n_continuous": 71,
+   "n_discrete": 4,
+   "discrete_names": [
+    "ahs_ahu_1_supervisor_run_command",
+    "ahs_ahu_2_supervisor_run_command",
+    "ahs_ahu_3_supervisor_run_command",
+    "hws_supervisor_run_command"
+   ]
+  }
+ },
+ "5_determinism": {
+  "ok": true,
+  "differing_arrays_same_seed": [],
+  "episode_meta_equal": true,
+  "different_seed_changes_knobs": true,
+  "seed2_action_diff_fraction": 0.9765625
+ },
+ "6_randomized_action_validity": {
+  "ok": true,
+  "default_precondition_hours": 1.0,
+  "moderate": {
+   "sat_native_range": [
+    285.0,
+    305.0
+   ],
+   "pressure_native_range": [
+    0.0,
+    1137.1916681528091
+   ],
+   "hws_native_range": [
+    310.0,
+    350.0
+   ],
+   "forced_off_steps": 0,
+   "forced_on_steps": 231,
+   "forced_off_while_occupied_or_prestart": 0,
+   "forced_off_consistent": true,
+   "nonknob_action_changes_without_internal_knobs": 0,
+   "active_fraction": {
+    "sat": 0.22511574074074073,
+    "pressure": 0.17997685185185186,
+    "hws": 0.6380208333333334,
+    "setback": 0.765625,
+    "precondition_changed": 0.25
+   },
+   "guard_ahu_steps": 4,
+   "guard_hws_steps": 0,
+   "perturbed_step_fraction": 0.6588541666666666,
+   "score": 0.004129430823594602,
+   "mean_comfort": -9.527074375685154e-05
+  },
+  "mild": {
+   "sat_native_range": [
+    285.5000001192093,
+    305.0
+   ],
+   "pressure_native_range": [
+    0.0,
+    796.9324439764023
+   ],
+   "hws_native_range": [
+    310.0,
+    350.0
+   ],
+   "forced_off_steps": 0,
+   "forced_on_steps": 89,
+   "forced_off_while_occupied_or_prestart": 0,
+   "forced_off_consistent": true,
+   "nonknob_action_changes_without_internal_knobs": 0,
+   "active_fraction": {
+    "sat": 0.12413194444444445,
+    "pressure": 0.059895833333333336,
+    "hws": 0.3628472222222222,
+    "setback": 0.765625,
+    "precondition_changed": 0.25
+   },
+   "guard_ahu_steps": 4,
+   "guard_hws_steps": 0,
+   "perturbed_step_fraction": 0.5815972222222222,
+   "score": 0.0035506820036819895,
+   "mean_comfort": -9.668973102445003e-05
+  },
+  "baseline_same_window": {
+   "score": 0.0033565798396845517,
+   "mean_comfort": -0.00013425935635685466
+  }
+ },
+ "7_torch_loading": {
+  "ok": true,
+  "torch": "2.15.0+cpu",
+  "windows": 858,
+  "batch_shapes": {
+   "obs": [
+    [
+     32,
+     13,
+     283
+    ],
+    "torch.float32"
+   ],
+   "action_continuous": [
+    [
+     32,
+     12,
+     71
+    ],
+    "torch.float32"
+   ],
+   "action_discrete": [
+    [
+     32,
+     12,
+     4
+    ],
+    "torch.int8"
+   ],
+   "baseline_continuous": [
+    [
+     32,
+     12,
+     71
+    ],
+    "torch.float32"
+   ],
+   "baseline_discrete": [
+    [
+     32,
+     12,
+     4
+    ],
+    "torch.int8"
+   ],
+   "reward": [
+    [
+     32,
+     12
+    ],
+    "torch.float64"
+   ],
+   "zone_info": [
+    [
+     32,
+     12,
+     30,
+     6
+    ],
+    "torch.float32"
+   ],
+   "tank_state": [
+    [
+     32,
+     13,
+     6
+    ],
+    "torch.float64"
+   ],
+   "calendar": [
+    [
+     32,
+     12,
+     6
+    ],
+    "torch.int16"
+   ],
+   "episode": [
+    [
+     32
+    ],
+    "torch.int64"
+   ],
+   "t0": [
+    [
+     32
+    ],
+    "torch.int64"
+   ]
+  }
+ },
+ "8_baseline_unchanged": {
+  "ok": true,
+  "tracked_sources_diff": "none",
+  "null_profile_equals_baseline": true,
+  "full_steps": 8640,
+  "full_mean_reward": -0.004031689621114378,
+  "stored_mean_reward": -0.004031689621114378,
+  "per_step_rewards_equal_stored": true,
+  "full_policy_ms_mean": 1.485417366027832,
+  "full_sim_ms_mean": 18.84650230407715,
+  "full_wall_s": 191.0872237299991
+ }
+}

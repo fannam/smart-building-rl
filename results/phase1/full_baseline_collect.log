@@ -1,0 +1,2 @@
+1 episodes, 1 workers, 8640 steps -> /home/namph32/Documents/workspace/smart-building-rl/data/phase1_validation/full_baseline
+done building_train_8__atlanta_1__baseline__s0__e0           T=8640 score=0.00403 pert=0.00 3.7MB wall=191s

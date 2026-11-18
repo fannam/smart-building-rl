@@ -1,0 +1,2482 @@
+{
+ "train": {
+  "episodes": 50,
+  "transitions": 100800,
+  "buildings": [
+   "building_train_1",
+   "building_train_2",
+   "building_train_4",
+   "building_train_5",
+   "building_train_8"
+  ],
+  "stations": [
+   "atlanta",
+   "denver",
+   "fairbanks",
+   "phoenix",
+   "singapore"
+  ],
+  "weathers": [
+   "atlanta_1",
+   "atlanta_2",
+   "atlanta_3",
+   "atlanta_5",
+   "atlanta_6",
+   "denver_2",
+   "denver_3",
+   "denver_6",
+   "denver_7",
+   "denver_8",
+   "fairbanks_1",
+   "fairbanks_2",
+   "fairbanks_4",
+   "fairbanks_5",
+   "fairbanks_8",
+   "phoenix_1",
+   "phoenix_4",
+   "phoenix_5",
+   "phoenix_6",
+   "phoenix_8",
+   "singapore_1",
+   "singapore_3",
+   "singapore_4",
+   "singapore_7",
+   "singapore_8"
+  ],
+  "K": [
+   3,
+   4,
+   6,
+   8,
+   9
+  ],
+  "V": [
+   30,
+   39,
+   54,
+   79,
+   85
+  ],
+  "actions.ahu_run_frac": {
+   "mean": 0.44467027667548503,
+   "min": 0.3275049603174603,
+   "max": 0.5939980158730159
+  },
+  "actions.damper_eff_mean": {
+   "mean": 0.1447399307375159,
+   "min": 0.12201474977977997,
+   "max": 0.24612019475359959
+  },
+  "actions.damper_floor_binding_frac": {
+   "mean": 0.0,
+   "min": 0.0,
+   "max": 0.0
+  },
+  "actions.hws_setpoint_k.p5": {
+   "mean": 310.0,
+   "min": 310.0,
+   "max": 310.0
+  },
+  "actions.hws_setpoint_k.p50": {
+   "mean": 328.9669002056122,
+   "min": 310.0,
+   "max": 349.5167851448059
+  },
+  "actions.hws_setpoint_k.p95": {
+   "mean": 333.91324200630186,
+   "min": 310.0,
+   "max": 350.0
+  },
+  "actions.perturbed_frac": {
+   "mean": 0.38843253968253966,
+   "min": 0.0,
+   "max": 0.9637896825396826
+  },
+  "actions.pressure_floor_binding_frac_running": {
+   "mean": 0.11032313255375222,
+   "min": 0.0,
+   "max": 0.2829443447037702
+  },
+  "actions.recirc_cap_binding_frac": {
+   "mean": 0.0,
+   "min": 0.0,
+   "max": 0.0
+  },
+  "actions.recirc_cmd_mean": {
+   "mean": 0.6601614829159307,
+   "min": 0.5216893642202612,
+   "max": 0.7000000029802322
+  },
+  "actions.recirc_eff_mean": {
+   "mean": 0.6601614801508999,
+   "min": 0.5216893620996546,
+   "max": 0.7000000000000001
+  },
+  "actions.reheat_valve_mean": {
+   "mean": 0.02775492290305195,
+   "min": 0.0,
+   "max": 0.1802914427613825
+  },
+  "actions.sat_cmd_k_running.p5": {
+   "mean": 286.3772377371788,
+   "min": 285.0,
+   "max": 290.5000001192093
+  },
+  "actions.sat_cmd_k_running.p50": {
+   "mean": 288.96780463680625,
+   "min": 285.0,
+   "max": 305.0
+  },
+  "actions.sat_cmd_k_running.p95": {
+   "mean": 297.49323507592084,
+   "min": 285.0,
+   "max": 305.0
+  },
+  "actions.static_pressure_cmd_pa_running.p5": {
+   "mean": 162.785182595253,
+   "min": 116.71262979507446,
+   "max": 199.99998807907104
+  },
+  "actions.static_pressure_cmd_pa_running.p50": {
+   "mean": 200.2033507823944,
+   "min": 199.99998807907104,
+   "max": 210.16812324523926
+  },
+  "actions.static_pressure_cmd_pa_running.p95": {
+   "mean": 423.85768124461174,
+   "min": 199.99998807907104,
+   "max": 711.0565304756165
+  },
+  "actions.static_pressure_eff_pa_running.p5": {
+   "mean": 200.0,
+   "min": 200.0,
+   "max": 200.0
+  },
+  "actions.static_pressure_eff_pa_running.p50": {
+   "mean": 200.20336246490479,
+   "min": 200.0,
+   "max": 210.16812324523926
+  },
+  "actions.static_pressure_eff_pa_running.p95": {
+   "mean": 423.8576862514019,
+   "min": 200.0,
+   "max": 711.0565304756165
+  },
+  "comfort_occupied_zone_steps": {
+   "mean": 28520.44,
+   "min": 15849.0,
+   "max": 46682.0
+  },
+  "comfort_violation_frac.>0.0K": {
+   "mean": 0.02266260513284004,
+   "min": 0.0033803085126642546,
+   "max": 0.07131386427169452
+  },
+  "comfort_violation_frac.>0.5K": {
+   "mean": 0.0012370483854905966,
+   "min": 0.0,
+   "max": 0.022542080532920953
+  },
+  "comfort_violation_frac.>1.0K": {
+   "mean": 0.000560535412329318,
+   "min": 0.0,
+   "max": 0.009159578897281865
+  },
+  "comfort_violation_frac.>2.0K": {
+   "mean": 0.0002101770076935807,
+   "min": 0.0,
+   "max": 0.0033631806692086884
+  },
+  "comfort_violation_max_k": {
+   "mean": 1.2359765625,
+   "min": 0.206787109375,
+   "max": 7.88946533203125
+  },
+  "comfort_violation_mean_k_when_violating": {
+   "mean": 0.13350858921612355,
+   "min": 0.037770135062081475,
+   "max": 0.8468993349102801
+  },
+  "cooling_active_frac": {
+   "mean": 0.4125892857142857,
+   "min": 0.001488095238095238,
+   "max": 0.8824404761904762
+  },
+  "cooling_degree_hours_24c": {
+   "mean": 440.662269287111,
+   "min": 0.0,
+   "max": 2082.84164886475
+  },
+  "energy_kwh_per_ahu_per_day.cooling_electric": {
+   "mean": 29.884344827742666,
+   "min": 0.004251386054924556,
+   "max": 124.86556856393814
+  },
+  "energy_kwh_per_ahu_per_day.electricity": {
+   "mean": 35.43744656129098,
+   "min": 3.1165486117488217,
+   "max": 133.95220094633103
+  },
+  "energy_kwh_per_ahu_per_day.fan_electric": {
+   "mean": 5.202071571772691,
+   "min": 2.718253706190321,
+   "max": 15.315815530186608
+  },
+  "energy_kwh_per_ahu_per_day.gas": {
+   "mean": 76.63130184378895,
+   "min": 0.0,
+   "max": 1087.3592296963873
+  },
+  "energy_kwh_per_ahu_per_day.pump_electric": {
+   "mean": 0.3510301617756241,
+   "min": 0.0,
+   "max": 7.208891036391795
+  },
+  "heating_active_frac": {
+   "mean": 0.361468253968254,
+   "min": 0.0,
+   "max": 0.8392857142857143
+  },
+  "heating_degree_hours_18c": {
+   "mean": 1138.2748146870913,
+   "min": 0.0,
+   "max": 7438.499973805741
+  },
+  "oat_c.max": {
+   "mean": 26.58000122070315,
+   "min": -0.6000122070312273,
+   "max": 46.10000000000002
+  },
+  "oat_c.mean": {
+   "mean": 16.724884435363403,
+   "min": -26.27833400380213,
+   "max": 36.39439750826473
+  },
+  "oat_c.min": {
+   "mean": 7.923999633789088,
+   "min": -39.39999999999998,
+   "max": 28.899987792968773
+  },
+  "occupancy.max_total": {
+   "mean": 97.4,
+   "min": 51.0,
+   "max": 158.0
+  },
+  "occupancy.mean_total_when_occupied": {
+   "mean": 53.38646481353477,
+   "min": 27.17628205128205,
+   "max": 88.48397435897436
+  },
+  "occupancy.occupied_frac": {
+   "mean": 0.37436507936507935,
+   "min": 0.30952380952380953,
+   "max": 0.3869047619047619
+  },
+  "reward_mean": {
+   "mean": -0.007161348419935225,
+   "min": -0.0536237497519495,
+   "max": -0.0007891689256608977
+  },
+  "severe_cold": {
+   "mean": 0.12,
+   "min": 0.0,
+   "max": 1.0
+  },
+  "start_month_privileged": {
+   "mean": 5.88,
+   "min": 1.0,
+   "max": 11.0
+  },
+  "zone_temp_c.p1": {
+   "mean": 16.66292537841799,
+   "min": 0.8301635742187727,
+   "max": 21.39611053466799
+  },
+  "zone_temp_c.p50": {
+   "mean": 22.646343383789084,
+   "min": 18.361688232421898,
+   "max": 24.85224304199221
+  },
+  "zone_temp_c.p99": {
+   "mean": 26.431323840332055,
+   "min": 23.468699340820336,
+   "max": 33.20439575195315
+  }
+ },
+ "test": {
+  "episodes": 10,
+  "transitions": 20160,
+  "buildings": [
+   "building_train_7"
+  ],
+  "stations": [
+   "atlanta",
+   "denver",
+   "fairbanks",
+   "phoenix",
+   "singapore"
+  ],
+  "weathers": [
+   "atlanta_8",
+   "denver_5",
+   "fairbanks_7",
+   "phoenix_3",
+   "singapore_6"
+  ],
+  "K": [
+   4
+  ],
+  "V": [
+   36
+  ],
+  "actions.ahu_run_frac": {
+   "mean": 0.41246279761904764,
+   "min": 0.3219246031746032,
+   "max": 0.47185019841269843
+  },
+  "actions.damper_eff_mean": {
+   "mean": 0.1332219077203149,
+   "min": 0.12323532525176824,
+   "max": 0.144850692792282
+  },
+  "actions.damper_floor_binding_frac": {
+   "mean": 0.0,
+   "min": 0.0,
+   "max": 0.0
+  },
+  "actions.hws_setpoint_k.p5": {
+   "mean": 310.0,
+   "min": 310.0,
+   "max": 310.0
+  },
+  "actions.hws_setpoint_k.p50": {
+   "mean": 331.19593673944473,
+   "min": 310.0,
+   "max": 348.78613233566284
+  },
+  "actions.hws_setpoint_k.p95": {
+   "mean": 335.00264143943787,
+   "min": 310.0,
+   "max": 350.0
+  },
+  "actions.perturbed_frac": {
+   "mean": 0.3452876984126984,
+   "min": 0.0,
+   "max": 0.7733134920634921
+  },
+  "actions.pressure_floor_binding_frac_running": {
+   "mean": 0.12124830877614119,
+   "min": 0.0,
+   "max": 0.2778372591006424
+  },
+  "actions.recirc_cap_binding_frac": {
+   "mean": 0.0,
+   "min": 0.0,
+   "max": 0.0
+  },
+  "actions.recirc_cmd_mean": {
+   "mean": 0.6821963215390063,
+   "min": 0.6566006387511729,
+   "max": 0.6999131974243071
+  },
+  "actions.recirc_eff_mean": {
+   "mean": 0.6821963186654326,
+   "min": 0.656600635999706,
+   "max": 0.6999131944444443
+  },
+  "actions.reheat_valve_mean": {
+   "mean": 0.035823862793145055,
+   "min": 0.0,
+   "max": 0.0895974390679851
+  },
+  "actions.sat_cmd_k_running.p5": {
+   "mean": 286.3975212574005,
+   "min": 285.0,
+   "max": 288.9999997615814
+  },
+  "actions.sat_cmd_k_running.p50": {
+   "mean": 289.05470187962055,
+   "min": 285.0,
+   "max": 292.54701897501945
+  },
+  "actions.sat_cmd_k_running.p95": {
+   "mean": 298.21133487299085,
+   "min": 287.5,
+   "max": 305.0
+  },
+  "actions.static_pressure_cmd_pa_running.p5": {
+   "mean": 160.99885255098343,
+   "min": 117.99567937850952,
+   "max": 199.99998807907104
+  },
+  "actions.static_pressure_cmd_pa_running.p50": {
+   "mean": 199.99998807907104,
+   "min": 199.99998807907104,
+   "max": 199.99998807907104
+  },
+  "actions.static_pressure_cmd_pa_running.p95": {
+   "mean": 411.02560646831853,
+   "min": 199.99998807907104,
+   "max": 739.5039387047291
+  },
+  "actions.static_pressure_eff_pa_running.p5": {
+   "mean": 200.0,
+   "min": 200.0,
+   "max": 200.0
+  },
+  "actions.static_pressure_eff_pa_running.p50": {
+   "mean": 200.0,
+   "min": 200.0,
+   "max": 200.0
+  },
+  "actions.static_pressure_eff_pa_running.p95": {
+   "mean": 411.025612428783,
+   "min": 200.0,
+   "max": 739.5039387047291
+  },
+  "comfort_occupied_zone_steps": {
+   "mean": 13666.6,
+   "min": 11752.0,
+   "max": 14943.0
+  },
+  "comfort_violation_frac.>0.0K": {
+   "mean": 0.023266430930843306,
+   "min": 0.0035468112159539582,
+   "max": 0.0673927842069435
+  },
+  "comfort_violation_frac.>0.5K": {
+   "mean": 0.00010277481933047418,
+   "min": 0.0,
+   "max": 0.0003403675970047651
+  },
+  "comfort_violation_frac.>1.0K": {
+   "mean": 0.0,
+   "min": 0.0,
+   "max": 0.0
+  },
+  "comfort_violation_frac.>2.0K": {
+   "mean": 0.0,
+   "min": 0.0,
+   "max": 0.0
+  },
+  "comfort_violation_max_k": {
+   "mean": 0.501861572265625,
+   "min": 0.181488037109375,
+   "max": 0.78179931640625
+  },
+  "comfort_violation_mean_k_when_violating": {
+   "mean": 0.08313672067601924,
+   "min": 0.028306927597313597,
+   "max": 0.19579905383991744
+  },
+  "cooling_active_frac": {
+   "mean": 0.3927083333333333,
+   "min": 0.23859126984126985,
+   "max": 0.6086309523809523
+  },
+  "cooling_degree_hours_24c": {
+   "mean": 276.6680584716812,
+   "min": 0.0,
+   "max": 726.0416900634804
+  },
+  "energy_kwh_per_ahu_per_day.cooling_electric": {
+   "mean": 21.845280834251152,
+   "min": 0.10588837620538348,
+   "max": 49.916905654839105
+  },
+  "energy_kwh_per_ahu_per_day.electricity": {
+   "mean": 25.778718610377837,
+   "min": 2.808352321437007,
+   "max": 55.2090802509444
+  },
+  "energy_kwh_per_ahu_per_day.fan_electric": {
+   "mean": 3.8944618075597863,
+   "min": 2.621759744825817,
+   "max": 5.59844131833031
+  },
+  "energy_kwh_per_ahu_per_day.gas": {
+   "mean": 42.4742771434466,
+   "min": 0.0,
+   "max": 111.29006986672537
+  },
+  "energy_kwh_per_ahu_per_day.pump_electric": {
+   "mean": 0.038975968566899305,
+   "min": 0.0,
+   "max": 0.12311676335850877
+  },
+  "heating_active_frac": {
+   "mean": 0.38377976190476193,
+   "min": 0.0,
+   "max": 0.8174603174603174
+  },
+  "heating_degree_hours_18c": {
+   "mean": 576.4248749796532,
+   "min": 0.0,
+   "max": 1538.8208775838177
+  },
+  "oat_c.max": {
+   "mean": 27.640002441406274,
+   "min": 16.700006103515648,
+   "max": 36.70000610351565
+  },
+  "oat_c.mean": {
+   "mean": 18.9930441618557,
+   "min": 8.837605097273782,
+   "max": 28.3195340914483
+  },
+  "oat_c.min": {
+   "mean": 11.500000000000023,
+   "min": 1.6000000000000227,
+   "max": 23.999993896484398
+  },
+  "occupancy.max_total": {
+   "mean": 34.2,
+   "min": 33.0,
+   "max": 35.0
+  },
+  "occupancy.mean_total_when_occupied": {
+   "mean": 19.10872238698326,
+   "min": 18.924315619967793,
+   "max": 19.231660231660232
+  },
+  "occupancy.occupied_frac": {
+   "mean": 0.35446428571428573,
+   "min": 0.3080357142857143,
+   "max": 0.3854166666666667
+  },
+  "reward_mean": {
+   "mean": -0.004518905351991028,
+   "min": -0.00559775893315245,
+   "max": -0.0022332588598601433
+  },
+  "severe_cold": {
+   "mean": 0.0,
+   "min": 0.0,
+   "max": 0.0
+  },
+  "start_month_privileged": {
+   "mean": 8.0,
+   "min": 4.0,
+   "max": 11.0
+  },
+  "zone_temp_c.p1": {
+   "mean": 17.58735275268557,
+   "min": 12.704675292968773,
+   "max": 21.436120605468773
+  },
+  "zone_temp_c.p50": {
+   "mean": 22.75252532958987,
+   "min": 20.90162048339846,
+   "max": 24.66291198730471
+  },
+  "zone_temp_c.p99": {
+   "mean": 26.450915527343774,
+   "min": 23.822381591796898,
+   "max": 29.67315826416018
+  }
+ },
+ "test_by_weather": {
+  "atlanta_8": {
+   "episodes": 2,
+   "transitions": 4032,
+   "buildings": [
+    "building_train_7"
+   ],
+   "stations": [
+    "atlanta"
+   ],
+   "weathers": [
+    "atlanta_8"
+   ],
+   "K": [
+    4
+   ],
+   "V": [
+    36
+   ],
+   "actions.ahu_run_frac": {
+    "mean": 0.4302455357142857,
+    "min": 0.40835813492063494,
+    "max": 0.4521329365079365
+   },
+   "actions.damper_eff_mean": {
+    "mean": 0.12708975805986655,
+    "min": 0.12611098248215458,
+    "max": 0.1280685336375785
+   },
+   "actions.damper_floor_binding_frac": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "actions.hws_setpoint_k.p5": {
+    "mean": 310.0,
+    "min": 310.0,
+    "max": 310.0
+   },
+   "actions.hws_setpoint_k.p50": {
+    "mean": 343.8513946533203,
+    "min": 343.66177320480347,
+    "max": 344.04101610183716
+   },
+   "actions.hws_setpoint_k.p95": {
+    "mean": 350.0,
+    "min": 350.0,
+    "max": 350.0
+   },
+   "actions.perturbed_frac": {
+    "mean": 0.31994047619047616,
+    "min": 0.0,
+    "max": 0.6398809523809523
+   },
+   "actions.pressure_floor_binding_frac_running": {
+    "mean": 0.11862314865606144,
+    "min": 0.0,
+    "max": 0.23724629731212288
+   },
+   "actions.recirc_cap_binding_frac": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "actions.recirc_cmd_mean": {
+    "mean": 0.6933097397607252,
+    "min": 0.6919740269673235,
+    "max": 0.6946454525541268
+   },
+   "actions.recirc_eff_mean": {
+    "mean": 0.693309736874549,
+    "min": 0.6919740240968542,
+    "max": 0.6946454496522438
+   },
+   "actions.reheat_valve_mean": {
+    "mean": 0.08549768458119833,
+    "min": 0.08511773207747485,
+    "max": 0.08587763708492181
+   },
+   "actions.sat_cmd_k_running.p5": {
+    "mean": 288.7906804680824,
+    "min": 288.58136117458344,
+    "max": 288.9999997615814
+   },
+   "actions.sat_cmd_k_running.p50": {
+    "mean": 292.5235094875097,
+    "min": 292.5,
+    "max": 292.54701897501945
+   },
+   "actions.sat_cmd_k_running.p95": {
+    "mean": 295.02199456095695,
+    "min": 294.4999999925494,
+    "max": 295.5439891293645
+   },
+   "actions.static_pressure_cmd_pa_running.p5": {
+    "mean": 160.33995151519775,
+    "min": 120.67991495132446,
+    "max": 199.99998807907104
+   },
+   "actions.static_pressure_cmd_pa_running.p50": {
+    "mean": 199.99998807907104,
+    "min": 199.99998807907104,
+    "max": 199.99998807907104
+   },
+   "actions.static_pressure_cmd_pa_running.p95": {
+    "mean": 373.61086905002594,
+    "min": 199.99998807907104,
+    "max": 547.2217500209808
+   },
+   "actions.static_pressure_eff_pa_running.p5": {
+    "mean": 200.0,
+    "min": 200.0,
+    "max": 200.0
+   },
+   "actions.static_pressure_eff_pa_running.p50": {
+    "mean": 200.0,
+    "min": 200.0,
+    "max": 200.0
+   },
+   "actions.static_pressure_eff_pa_running.p95": {
+    "mean": 373.6108750104904,
+    "min": 200.0,
+    "max": 547.2217500209808
+   },
+   "comfort_occupied_zone_steps": {
+    "mean": 14943.0,
+    "min": 14943.0,
+    "max": 14943.0
+   },
+   "comfort_violation_frac.>0.0K": {
+    "mean": 0.009402395770594926,
+    "min": 0.005353677307100314,
+    "max": 0.01345111423408954
+   },
+   "comfort_violation_frac.>0.5K": {
+    "mean": 0.0001003814495081309,
+    "min": 0.0,
+    "max": 0.0002007628990162618
+   },
+   "comfort_violation_frac.>1.0K": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "comfort_violation_frac.>2.0K": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "comfort_violation_max_k": {
+    "mean": 0.630859375,
+    "min": 0.47991943359375,
+    "max": 0.78179931640625
+   },
+   "comfort_violation_mean_k_when_violating": {
+    "mean": 0.09512406629116381,
+    "min": 0.08170588099541355,
+    "max": 0.10854225158691407
+   },
+   "cooling_active_frac": {
+    "mean": 0.31398809523809523,
+    "min": 0.25,
+    "max": 0.37797619047619047
+   },
+   "cooling_degree_hours_24c": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "energy_kwh_per_ahu_per_day.cooling_electric": {
+    "mean": 0.9013171624982108,
+    "min": 0.18302302848006644,
+    "max": 1.6196112965163552
+   },
+   "energy_kwh_per_ahu_per_day.electricity": {
+    "mean": 4.574504718120159,
+    "min": 3.061892623291896,
+    "max": 6.0871168129484206
+   },
+   "energy_kwh_per_ahu_per_day.fan_electric": {
+    "mean": 3.563760403587705,
+    "min": 2.783132054101853,
+    "max": 4.344388753073556
+   },
+   "energy_kwh_per_ahu_per_day.gas": {
+    "mean": 101.73727804974148,
+    "min": 97.86462888999212,
+    "max": 105.60992720949082
+   },
+   "energy_kwh_per_ahu_per_day.pump_electric": {
+    "mean": 0.10942715203424266,
+    "min": 0.09573754070997657,
+    "max": 0.12311676335850877
+   },
+   "heating_active_frac": {
+    "mean": 0.623015873015873,
+    "min": 0.6051587301587301,
+    "max": 0.6408730158730159
+   },
+   "heating_degree_hours_18c": {
+    "mean": 1205.731318155921,
+    "min": 1205.731318155921,
+    "max": 1205.731318155921
+   },
+   "oat_c.max": {
+    "mean": 19.9999938964844,
+    "min": 19.999993896484398,
+    "max": 19.999993896484398
+   },
+   "oat_c.mean": {
+    "mean": 10.919582907469154,
+    "min": 10.919582907469154,
+    "max": 10.919582907469154
+   },
+   "oat_c.min": {
+    "mean": 2.4999938964843977,
+    "min": 2.4999938964843977,
+    "max": 2.4999938964843977
+   },
+   "occupancy.max_total": {
+    "mean": 35.0,
+    "min": 35.0,
+    "max": 35.0
+   },
+   "occupancy.mean_total_when_occupied": {
+    "mean": 19.231660231660232,
+    "min": 19.231660231660232,
+    "max": 19.231660231660232
+   },
+   "occupancy.occupied_frac": {
+    "mean": 0.3854166666666667,
+    "min": 0.3854166666666667,
+    "max": 0.3854166666666667
+   },
+   "reward_mean": {
+    "mean": -0.005182817721777697,
+    "min": -0.005503051767477916,
+    "max": -0.004862583676077477
+   },
+   "severe_cold": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "start_month_privileged": {
+    "mean": 11.0,
+    "min": 11.0,
+    "max": 11.0
+   },
+   "zone_temp_c.p1": {
+    "mean": 13.312280273437523,
+    "min": 13.294129943847679,
+    "max": 13.330430603027366
+   },
+   "zone_temp_c.p50": {
+    "mean": 20.92429504394534,
+    "min": 20.919244384765648,
+    "max": 20.929345703125023
+   },
+   "zone_temp_c.p99": {
+    "mean": 23.8494812011719,
+    "min": 23.83209381103518,
+    "max": 23.866868591308616
+   }
+  },
+  "denver_5": {
+   "episodes": 2,
+   "transitions": 4032,
+   "buildings": [
+    "building_train_7"
+   ],
+   "stations": [
+    "denver"
+   ],
+   "weathers": [
+    "denver_5"
+   ],
+   "K": [
+    4
+   ],
+   "V": [
+    36
+   ],
+   "actions.ahu_run_frac": {
+    "mean": 0.3529265873015873,
+    "min": 0.3219246031746032,
+    "max": 0.38392857142857145
+   },
+   "actions.damper_eff_mean": {
+    "mean": 0.12973033812920468,
+    "min": 0.12959349144085683,
+    "max": 0.12986718481755255
+   },
+   "actions.damper_floor_binding_frac": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "actions.hws_setpoint_k.p5": {
+    "mean": 310.0,
+    "min": 310.0,
+    "max": 310.0
+   },
+   "actions.hws_setpoint_k.p50": {
+    "mean": 348.5351952910423,
+    "min": 348.2842582464218,
+    "max": 348.78613233566284
+   },
+   "actions.hws_setpoint_k.p95": {
+    "mean": 349.70220923423767,
+    "min": 349.40441846847534,
+    "max": 350.0
+   },
+   "actions.perturbed_frac": {
+    "mean": 0.32415674603174605,
+    "min": 0.0,
+    "max": 0.6483134920634921
+   },
+   "actions.pressure_floor_binding_frac_running": {
+    "mean": 0.13162144702842377,
+    "min": 0.0,
+    "max": 0.26324289405684753
+   },
+   "actions.recirc_cap_binding_frac": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "actions.recirc_cmd_mean": {
+    "mean": 0.657730131370954,
+    "min": 0.6566006387511729,
+    "max": 0.6588596239907352
+   },
+   "actions.recirc_eff_mean": {
+    "mean": 0.6577301286211502,
+    "min": 0.656600635999706,
+    "max": 0.6588596212425943
+   },
+   "actions.reheat_valve_mean": {
+    "mean": 0.0040713532000516885,
+    "min": 0.0036231360002312407,
+    "max": 0.004519570399872137
+   },
+   "actions.sat_cmd_k_running.p5": {
+    "mean": 285.0,
+    "min": 285.0,
+    "max": 285.0
+   },
+   "actions.sat_cmd_k_running.p50": {
+    "mean": 290.24999991059303,
+    "min": 289.4999998807907,
+    "max": 290.99999994039536
+   },
+   "actions.sat_cmd_k_running.p95": {
+    "mean": 305.0,
+    "min": 305.0,
+    "max": 305.0
+   },
+   "actions.static_pressure_cmd_pa_running.p5": {
+    "mean": 161.87629848718643,
+    "min": 123.75260889530182,
+    "max": 199.99998807907104
+   },
+   "actions.static_pressure_cmd_pa_running.p50": {
+    "mean": 199.99998807907104,
+    "min": 199.99998807907104,
+    "max": 199.99998807907104
+   },
+   "actions.static_pressure_cmd_pa_running.p95": {
+    "mean": 469.75196339190006,
+    "min": 199.99998807907104,
+    "max": 739.5039387047291
+   },
+   "actions.static_pressure_eff_pa_running.p5": {
+    "mean": 200.0,
+    "min": 200.0,
+    "max": 200.0
+   },
+   "actions.static_pressure_eff_pa_running.p50": {
+    "mean": 200.0,
+    "min": 200.0,
+    "max": 200.0
+   },
+   "actions.static_pressure_eff_pa_running.p95": {
+    "mean": 469.75196935236454,
+    "min": 200.0,
+    "max": 739.5039387047291
+   },
+   "comfort_occupied_zone_steps": {
+    "mean": 11752.0,
+    "min": 11752.0,
+    "max": 11752.0
+   },
+   "comfort_violation_frac.>0.0K": {
+    "mean": 0.04616235534377127,
+    "min": 0.024931926480599047,
+    "max": 0.0673927842069435
+   },
+   "comfort_violation_frac.>0.5K": {
+    "mean": 0.00021272974812797818,
+    "min": 8.509189925119128e-05,
+    "max": 0.0003403675970047651
+   },
+   "comfort_violation_frac.>1.0K": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "comfort_violation_frac.>2.0K": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "comfort_violation_max_k": {
+    "mean": 0.5958099365234375,
+    "min": 0.512420654296875,
+    "max": 0.67919921875
+   },
+   "comfort_violation_mean_k_when_violating": {
+    "mean": 0.0676636169988038,
+    "min": 0.0565090765318366,
+    "max": 0.07881815746577099
+   },
+   "cooling_active_frac": {
+    "mean": 0.390625,
+    "min": 0.29811507936507936,
+    "max": 0.48313492063492064
+   },
+   "cooling_degree_hours_24c": {
+    "mean": 189.9194020589206,
+    "min": 189.9194020589206,
+    "max": 189.9194020589206
+   },
+   "energy_kwh_per_ahu_per_day.cooling_electric": {
+    "mean": 17.960367701167108,
+    "min": 17.35611588925753,
+    "max": 18.564619513076686
+   },
+   "energy_kwh_per_ahu_per_day.electricity": {
+    "mean": 21.628029220912687,
+    "min": 20.19926024922786,
+    "max": 23.05679819259752
+   },
+   "energy_kwh_per_ahu_per_day.fan_electric": {
+    "mean": 3.6676134907858717,
+    "min": 2.8431073391778128,
+    "max": 4.49211964239393
+   },
+   "energy_kwh_per_ahu_per_day.gas": {
+    "mean": 3.5638526339985073,
+    "min": 3.380920829000927,
+    "max": 3.746784438996088
+   },
+   "energy_kwh_per_ahu_per_day.pump_electric": {
+    "mean": 4.802895971224329e-05,
+    "min": 3.702079251787881e-05,
+    "max": 5.903712690660777e-05
+   },
+   "heating_active_frac": {
+    "mean": 0.7053571428571429,
+    "min": 0.5932539682539683,
+    "max": 0.8174603174603174
+   },
+   "heating_degree_hours_18c": {
+    "mean": 124.05552012125504,
+    "min": 124.05552012125504,
+    "max": 124.05552012125504
+   },
+   "oat_c.max": {
+    "mean": 32.20000610351565,
+    "min": 32.20000610351565,
+    "max": 32.20000610351565
+   },
+   "oat_c.mean": {
+    "mean": 21.304016258531025,
+    "min": 21.304016258531025,
+    "max": 21.304016258531025
+   },
+   "oat_c.min": {
+    "mean": 13.300012207031273,
+    "min": 13.300012207031273,
+    "max": 13.300012207031273
+   },
+   "occupancy.max_total": {
+    "mean": 33.0,
+    "min": 33.0,
+    "max": 33.0
+   },
+   "occupancy.mean_total_when_occupied": {
+    "mean": 18.924315619967793,
+    "min": 18.924315619967793,
+    "max": 18.924315619967793
+   },
+   "occupancy.occupied_frac": {
+    "mean": 0.3080357142857143,
+    "min": 0.3080357142857143,
+    "max": 0.3080357142857143
+   },
+   "reward_mean": {
+    "mean": -0.002418424416893527,
+    "min": -0.0026035899739269104,
+    "max": -0.0022332588598601433
+   },
+   "severe_cold": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "start_month_privileged": {
+    "mean": 7.0,
+    "min": 7.0,
+    "max": 7.0
+   },
+   "zone_temp_c.p1": {
+    "mean": 19.552133178710964,
+    "min": 19.53737030029299,
+    "max": 19.56689605712893
+   },
+   "zone_temp_c.p50": {
+    "mean": 23.64981994628909,
+    "min": 23.57715759277346,
+    "max": 23.72248229980471
+   },
+   "zone_temp_c.p99": {
+    "mean": 27.269433593750026,
+    "min": 27.125299072265648,
+    "max": 27.413568115234398
+   }
+  },
+  "fairbanks_7": {
+   "episodes": 2,
+   "transitions": 4032,
+   "buildings": [
+    "building_train_7"
+   ],
+   "stations": [
+    "fairbanks"
+   ],
+   "weathers": [
+    "fairbanks_7"
+   ],
+   "K": [
+    4
+   ],
+   "V": [
+    36
+   ],
+   "actions.ahu_run_frac": {
+    "mean": 0.4380580357142857,
+    "min": 0.41282242063492064,
+    "max": 0.4632936507936508
+   },
+   "actions.damper_eff_mean": {
+    "mean": 0.12356699840805133,
+    "min": 0.12323532525176824,
+    "max": 0.12389867156433441
+   },
+   "actions.damper_floor_binding_frac": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "actions.hws_setpoint_k.p5": {
+    "mean": 310.0,
+    "min": 310.0,
+    "max": 310.0
+   },
+   "actions.hws_setpoint_k.p50": {
+    "mean": 343.593093752861,
+    "min": 340.0477600097656,
+    "max": 347.1384274959564
+   },
+   "actions.hws_setpoint_k.p95": {
+    "mean": 350.0,
+    "min": 350.0,
+    "max": 350.0
+   },
+   "actions.perturbed_frac": {
+    "mean": 0.35168650793650796,
+    "min": 0.0,
+    "max": 0.7033730158730159
+   },
+   "actions.pressure_floor_binding_frac_running": {
+    "mean": 0.1389186295503212,
+    "min": 0.0,
+    "max": 0.2778372591006424
+   },
+   "actions.recirc_cap_binding_frac": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "actions.recirc_cmd_mean": {
+    "mean": 0.699270976089518,
+    "min": 0.698976315667558,
+    "max": 0.6995656365114782
+   },
+   "actions.recirc_eff_mean": {
+    "mean": 0.6992709731371884,
+    "min": 0.6989763127205872,
+    "max": 0.6995656335537898
+   },
+   "actions.reheat_valve_mean": {
+    "mean": 0.08955027618447524,
+    "min": 0.08950311330096537,
+    "max": 0.0895974390679851
+   },
+   "actions.sat_cmd_k_running.p5": {
+    "mean": 288.19692581892014,
+    "min": 287.39385187625885,
+    "max": 288.9999997615814
+   },
+   "actions.sat_cmd_k_running.p50": {
+    "mean": 291.25,
+    "min": 290.99999994039536,
+    "max": 291.50000005960464
+   },
+   "actions.sat_cmd_k_running.p95": {
+    "mean": 293.9906848408282,
+    "min": 293.49999994039536,
+    "max": 294.481369741261
+   },
+   "actions.static_pressure_cmd_pa_running.p5": {
+    "mean": 158.99783372879028,
+    "min": 117.99567937850952,
+    "max": 199.99998807907104
+   },
+   "actions.static_pressure_cmd_pa_running.p50": {
+    "mean": 199.99998807907104,
+    "min": 199.99998807907104,
+    "max": 199.99998807907104
+   },
+   "actions.static_pressure_cmd_pa_running.p95": {
+    "mean": 328.9034068584442,
+    "min": 199.99998807907104,
+    "max": 457.8068256378174
+   },
+   "actions.static_pressure_eff_pa_running.p5": {
+    "mean": 200.0,
+    "min": 200.0,
+    "max": 200.0
+   },
+   "actions.static_pressure_eff_pa_running.p50": {
+    "mean": 200.0,
+    "min": 200.0,
+    "max": 200.0
+   },
+   "actions.static_pressure_eff_pa_running.p95": {
+    "mean": 328.9034128189087,
+    "min": 200.0,
+    "max": 457.8068256378174
+   },
+   "comfort_occupied_zone_steps": {
+    "mean": 14943.0,
+    "min": 14943.0,
+    "max": 14943.0
+   },
+   "comfort_violation_frac.>0.0K": {
+    "mean": 0.006725557117044769,
+    "min": 0.0035468112159539582,
+    "max": 0.009904303018135581
+   },
+   "comfort_violation_frac.>0.5K": {
+    "mean": 0.00020076289901626183,
+    "min": 0.00013384193267750787,
+    "max": 0.00026768386535501573
+   },
+   "comfort_violation_frac.>1.0K": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "comfort_violation_frac.>2.0K": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "comfort_violation_max_k": {
+    "mean": 0.6123046875,
+    "min": 0.522979736328125,
+    "max": 0.701629638671875
+   },
+   "comfort_violation_mean_k_when_violating": {
+    "mean": 0.13711935740718426,
+    "min": 0.07843966097445101,
+    "max": 0.19579905383991744
+   },
+   "cooling_active_frac": {
+    "mean": 0.29017857142857145,
+    "min": 0.23859126984126985,
+    "max": 0.341765873015873
+   },
+   "cooling_degree_hours_24c": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "energy_kwh_per_ahu_per_day.cooling_electric": {
+    "mean": 0.8018052090303003,
+    "min": 0.10588837620538348,
+    "max": 1.497722041855217
+   },
+   "energy_kwh_per_ahu_per_day.electricity": {
+    "mean": 4.280898291211971,
+    "min": 2.808352321437007,
+    "max": 5.753444260986933
+   },
+   "energy_kwh_per_ahu_per_day.fan_electric": {
+    "mean": 3.3936884203411286,
+    "min": 2.621759744825817,
+    "max": 4.165617095856439
+   },
+   "energy_kwh_per_ahu_per_day.gas": {
+    "mean": 107.07025503349303,
+    "min": 102.85044020026069,
+    "max": 111.29006986672537
+   },
+   "energy_kwh_per_ahu_per_day.pump_electric": {
+    "mean": 0.08540466184054163,
+    "min": 0.08070420040580627,
+    "max": 0.09010512327527699
+   },
+   "heating_active_frac": {
+    "mean": 0.5905257936507936,
+    "min": 0.5659722222222222,
+    "max": 0.6150793650793651
+   },
+   "heating_degree_hours_18c": {
+    "mean": 1538.8208775838177,
+    "min": 1538.8208775838177,
+    "max": 1538.8208775838177
+   },
+   "oat_c.max": {
+    "mean": 16.70000610351565,
+    "min": 16.700006103515648,
+    "max": 16.700006103515648
+   },
+   "oat_c.mean": {
+    "mean": 8.837605097273782,
+    "min": 8.837605097273782,
+    "max": 8.837605097273782
+   },
+   "oat_c.min": {
+    "mean": 1.6000000000000227,
+    "min": 1.6000000000000227,
+    "max": 1.6000000000000227
+   },
+   "occupancy.max_total": {
+    "mean": 35.0,
+    "min": 35.0,
+    "max": 35.0
+   },
+   "occupancy.mean_total_when_occupied": {
+    "mean": 19.231660231660232,
+    "min": 19.231660231660232,
+    "max": 19.231660231660232
+   },
+   "occupancy.occupied_frac": {
+    "mean": 0.3854166666666667,
+    "min": 0.3854166666666667,
+    "max": 0.3854166666666667
+   },
+   "reward_mean": {
+    "mean": -0.005278586185745048,
+    "min": -0.00559775893315245,
+    "max": -0.004959413438337646
+   },
+   "severe_cold": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "start_month_privileged": {
+    "mean": 9.0,
+    "min": 9.0,
+    "max": 9.0
+   },
+   "zone_temp_c.p1": {
+    "mean": 12.723828887939476,
+    "min": 12.704675292968773,
+    "max": 12.742982482910179
+   },
+   "zone_temp_c.p50": {
+    "mean": 20.913179016113308,
+    "min": 20.90162048339846,
+    "max": 20.924737548828148
+   },
+   "zone_temp_c.p99": {
+    "mean": 23.837838745117214,
+    "min": 23.822381591796898,
+    "max": 23.853295898437523
+   }
+  },
+  "phoenix_3": {
+   "episodes": 2,
+   "transitions": 4032,
+   "buildings": [
+    "building_train_7"
+   ],
+   "stations": [
+    "phoenix"
+   ],
+   "weathers": [
+    "phoenix_3"
+   ],
+   "K": [
+    4
+   ],
+   "V": [
+    36
+   ],
+   "actions.ahu_run_frac": {
+    "mean": 0.4419642857142857,
+    "min": 0.412078373015873,
+    "max": 0.47185019841269843
+   },
+   "actions.damper_eff_mean": {
+    "mean": 0.1439771565121665,
+    "min": 0.14310362023205103,
+    "max": 0.144850692792282
+   },
+   "actions.damper_floor_binding_frac": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "actions.hws_setpoint_k.p5": {
+    "mean": 310.0,
+    "min": 310.0,
+    "max": 310.0
+   },
+   "actions.hws_setpoint_k.p50": {
+    "mean": 310.0,
+    "min": 310.0,
+    "max": 310.0
+   },
+   "actions.hws_setpoint_k.p95": {
+    "mean": 313.865504860878,
+    "min": 310.0,
+    "max": 317.731009721756
+   },
+   "actions.perturbed_frac": {
+    "mean": 0.38665674603174605,
+    "min": 0.0,
+    "max": 0.7733134920634921
+   },
+   "actions.pressure_floor_binding_frac_running": {
+    "mean": 0.08830486202365309,
+    "min": 0.0,
+    "max": 0.17660972404730618
+   },
+   "actions.recirc_cap_binding_frac": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "actions.recirc_cmd_mean": {
+    "mean": 0.6607575630495275,
+    "min": 0.6583222773133746,
+    "max": 0.6631928487856803
+   },
+   "actions.recirc_eff_mean": {
+    "mean": 0.6607575602498312,
+    "min": 0.6583222745219938,
+    "max": 0.6631928459776687
+   },
+   "actions.reheat_valve_mean": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "actions.sat_cmd_k_running.p5": {
+    "mean": 285.0,
+    "min": 285.0,
+    "max": 285.0
+   },
+   "actions.sat_cmd_k_running.p50": {
+    "mean": 285.99999994039536,
+    "min": 285.0,
+    "max": 286.9999998807907
+   },
+   "actions.sat_cmd_k_running.p95": {
+    "mean": 304.5439949631691,
+    "min": 304.0879899263382,
+    "max": 305.0
+   },
+   "actions.static_pressure_cmd_pa_running.p5": {
+    "mean": 161.06507182121277,
+    "min": 122.13015556335449,
+    "max": 199.99998807907104
+   },
+   "actions.static_pressure_cmd_pa_running.p50": {
+    "mean": 199.99998807907104,
+    "min": 199.99998807907104,
+    "max": 199.99998807907104
+   },
+   "actions.static_pressure_cmd_pa_running.p95": {
+    "mean": 416.06236994265805,
+    "min": 199.99998807907104,
+    "max": 632.1247518062451
+   },
+   "actions.static_pressure_eff_pa_running.p5": {
+    "mean": 200.0,
+    "min": 200.0,
+    "max": 200.0
+   },
+   "actions.static_pressure_eff_pa_running.p50": {
+    "mean": 200.0,
+    "min": 200.0,
+    "max": 200.0
+   },
+   "actions.static_pressure_eff_pa_running.p95": {
+    "mean": 416.06237590312253,
+    "min": 200.0,
+    "max": 632.1247518062451
+   },
+   "comfort_occupied_zone_steps": {
+    "mean": 14943.0,
+    "min": 14943.0,
+    "max": 14943.0
+   },
+   "comfort_violation_frac.>0.0K": {
+    "mean": 0.03804456936358161,
+    "min": 0.010305828816168105,
+    "max": 0.06578330991099511
+   },
+   "comfort_violation_frac.>0.5K": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "comfort_violation_frac.>1.0K": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "comfort_violation_frac.>2.0K": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "comfort_violation_max_k": {
+    "mean": 0.3772125244140625,
+    "min": 0.2689208984375,
+    "max": 0.485504150390625
+   },
+   "comfort_violation_mean_k_when_violating": {
+    "mean": 0.05816166698038866,
+    "min": 0.038898220309963476,
+    "max": 0.07742511365081384
+   },
+   "cooling_active_frac": {
+    "mean": 0.4982638888888889,
+    "min": 0.3878968253968254,
+    "max": 0.6086309523809523
+   },
+   "cooling_degree_hours_24c": {
+    "mean": 467.3792002360049,
+    "min": 467.3792002360049,
+    "max": 467.3792002360049
+   },
+   "energy_kwh_per_ahu_per_day.cooling_electric": {
+    "mean": 41.459913604136766,
+    "min": 40.450213372416506,
+    "max": 42.46961383585703
+   },
+   "energy_kwh_per_ahu_per_day.electricity": {
+    "mean": 46.168895214321395,
+    "min": 44.26973527445545,
+    "max": 48.068055154187334
+   },
+   "energy_kwh_per_ahu_per_day.fan_electric": {
+    "mean": 4.708981610184624,
+    "min": 3.8195219020389373,
+    "max": 5.59844131833031
+   },
+   "energy_kwh_per_ahu_per_day.gas": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "energy_kwh_per_ahu_per_day.pump_electric": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "heating_active_frac": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "heating_degree_hours_18c": {
+    "mean": 13.516659037271856,
+    "min": 13.516659037271856,
+    "max": 13.516659037271856
+   },
+   "oat_c.max": {
+    "mean": 36.70000610351565,
+    "min": 36.70000610351565,
+    "max": 36.70000610351565
+   },
+   "oat_c.mean": {
+    "mean": 25.58448245455622,
+    "min": 25.58448245455622,
+    "max": 25.58448245455622
+   },
+   "oat_c.min": {
+    "mean": 16.100000000000023,
+    "min": 16.100000000000023,
+    "max": 16.100000000000023
+   },
+   "occupancy.max_total": {
+    "mean": 35.0,
+    "min": 35.0,
+    "max": 35.0
+   },
+   "occupancy.mean_total_when_occupied": {
+    "mean": 19.231660231660232,
+    "min": 19.231660231660232,
+    "max": 19.231660231660232
+   },
+   "occupancy.occupied_frac": {
+    "mean": 0.3854166666666667,
+    "min": 0.3854166666666667,
+    "max": 0.3854166666666667
+   },
+   "reward_mean": {
+    "mean": -0.004612835456062688,
+    "min": -0.004889434852617659,
+    "max": -0.004336236059507717
+   },
+   "severe_cold": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "start_month_privileged": {
+    "mean": 4.0,
+    "min": 4.0,
+    "max": 4.0
+   },
+   "zone_temp_c.p1": {
+    "mean": 20.958051300048854,
+    "min": 20.935479736328148,
+    "max": 20.980622863769554
+   },
+   "zone_temp_c.p50": {
+    "mean": 23.805802917480495,
+    "min": 23.80042419433596,
+    "max": 23.811181640625023
+   },
+   "zone_temp_c.p99": {
+    "mean": 27.778325653076198,
+    "min": 27.517137145996116,
+    "max": 28.039514160156273
+   }
+  },
+  "singapore_6": {
+   "episodes": 2,
+   "transitions": 4032,
+   "buildings": [
+    "building_train_7"
+   ],
+   "stations": [
+    "singapore"
+   ],
+   "weathers": [
+    "singapore_6"
+   ],
+   "K": [
+    4
+   ],
+   "V": [
+    36
+   ],
+   "actions.ahu_run_frac": {
+    "mean": 0.39911954365079366,
+    "min": 0.34226190476190477,
+    "max": 0.45597718253968256
+   },
+   "actions.damper_eff_mean": {
+    "mean": 0.1417452874922854,
+    "min": 0.14020667953270036,
+    "max": 0.14328389545187042
+   },
+   "actions.damper_floor_binding_frac": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "actions.hws_setpoint_k.p5": {
+    "mean": 310.0,
+    "min": 310.0,
+    "max": 310.0
+   },
+   "actions.hws_setpoint_k.p50": {
+    "mean": 310.0,
+    "min": 310.0,
+    "max": 310.0
+   },
+   "actions.hws_setpoint_k.p95": {
+    "mean": 311.44549310207367,
+    "min": 310.0,
+    "max": 312.89098620414734
+   },
+   "actions.perturbed_frac": {
+    "mean": 0.34399801587301587,
+    "min": 0.0,
+    "max": 0.6879960317460317
+   },
+   "actions.pressure_floor_binding_frac_running": {
+    "mean": 0.1287734566222464,
+    "min": 0.0,
+    "max": 0.2575469132444928
+   },
+   "actions.recirc_cap_binding_frac": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "actions.recirc_cmd_mean": {
+    "mean": 0.6999131974243071,
+    "min": 0.6999131974243071,
+    "max": 0.6999131974243071
+   },
+   "actions.recirc_eff_mean": {
+    "mean": 0.6999131944444443,
+    "min": 0.6999131944444443,
+    "max": 0.6999131944444443
+   },
+   "actions.reheat_valve_mean": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "actions.sat_cmd_k_running.p5": {
+    "mean": 285.0,
+    "min": 285.0,
+    "max": 285.0
+   },
+   "actions.sat_cmd_k_running.p50": {
+    "mean": 285.25000005960464,
+    "min": 285.0,
+    "max": 285.5000001192093
+   },
+   "actions.sat_cmd_k_running.p95": {
+    "mean": 292.5,
+    "min": 287.5,
+    "max": 297.5
+   },
+   "actions.static_pressure_cmd_pa_running.p5": {
+    "mean": 162.7151072025299,
+    "min": 125.43022632598877,
+    "max": 199.99998807907104
+   },
+   "actions.static_pressure_cmd_pa_running.p50": {
+    "mean": 199.99998807907104,
+    "min": 199.99998807907104,
+    "max": 199.99998807907104
+   },
+   "actions.static_pressure_cmd_pa_running.p95": {
+    "mean": 466.79942309856415,
+    "min": 199.99998807907104,
+    "max": 733.5988581180573
+   },
+   "actions.static_pressure_eff_pa_running.p5": {
+    "mean": 200.0,
+    "min": 200.0,
+    "max": 200.0
+   },
+   "actions.static_pressure_eff_pa_running.p50": {
+    "mean": 200.0,
+    "min": 200.0,
+    "max": 200.0
+   },
+   "actions.static_pressure_eff_pa_running.p95": {
+    "mean": 466.7994290590286,
+    "min": 200.0,
+    "max": 733.5988581180573
+   },
+   "comfort_occupied_zone_steps": {
+    "mean": 11752.0,
+    "min": 11752.0,
+    "max": 11752.0
+   },
+   "comfort_violation_frac.>0.0K": {
+    "mean": 0.015997277059223963,
+    "min": 0.004850238257317904,
+    "max": 0.02714431586113002
+   },
+   "comfort_violation_frac.>0.5K": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "comfort_violation_frac.>1.0K": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "comfort_violation_frac.>2.0K": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "comfort_violation_max_k": {
+    "mean": 0.293121337890625,
+    "min": 0.181488037109375,
+    "max": 0.404754638671875
+   },
+   "comfort_violation_mean_k_when_violating": {
+    "mean": 0.0576148957025557,
+    "min": 0.028306927597313597,
+    "max": 0.0869228638077978
+   },
+   "cooling_active_frac": {
+    "mean": 0.4704861111111111,
+    "min": 0.34226190476190477,
+    "max": 0.5987103174603174
+   },
+   "cooling_degree_hours_24c": {
+    "mean": 726.0416900634804,
+    "min": 726.0416900634804,
+    "max": 726.0416900634804
+   },
+   "energy_kwh_per_ahu_per_day.cooling_electric": {
+    "mean": 48.10300049442337,
+    "min": 46.28909533400763,
+    "max": 49.916905654839105
+   },
+   "energy_kwh_per_ahu_per_day.electricity": {
+    "mean": 52.24126560732296,
+    "min": 49.27345096370152,
+    "max": 55.2090802509444
+   },
+   "energy_kwh_per_ahu_per_day.fan_electric": {
+    "mean": 4.138265112899599,
+    "min": 2.9843556296938942,
+    "max": 5.292174596105303
+   },
+   "energy_kwh_per_ahu_per_day.gas": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "energy_kwh_per_ahu_per_day.pump_electric": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "heating_active_frac": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "heating_degree_hours_18c": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "oat_c.max": {
+    "mean": 32.60000000000002,
+    "min": 32.60000000000002,
+    "max": 32.60000000000002
+   },
+   "oat_c.mean": {
+    "mean": 28.3195340914483,
+    "min": 28.3195340914483,
+    "max": 28.3195340914483
+   },
+   "oat_c.min": {
+    "mean": 23.9999938964844,
+    "min": 23.999993896484398,
+    "max": 23.999993896484398
+   },
+   "occupancy.max_total": {
+    "mean": 33.0,
+    "min": 33.0,
+    "max": 33.0
+   },
+   "occupancy.mean_total_when_occupied": {
+    "mean": 18.924315619967793,
+    "min": 18.924315619967793,
+    "max": 18.924315619967793
+   },
+   "occupancy.occupied_frac": {
+    "mean": 0.3080357142857143,
+    "min": 0.3080357142857143,
+    "max": 0.3080357142857143
+   },
+   "reward_mean": {
+    "mean": -0.00510186297947618,
+    "min": -0.005410095861421608,
+    "max": -0.004793630097530753
+   },
+   "severe_cold": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "start_month_privileged": {
+    "mean": 9.0,
+    "min": 9.0,
+    "max": 9.0
+   },
+   "zone_temp_c.p1": {
+    "mean": 21.390470123291042,
+    "min": 21.344819641113304,
+    "max": 21.436120605468773
+   },
+   "zone_temp_c.p50": {
+    "mean": 24.46952972412112,
+    "min": 24.276147460937523,
+    "max": 24.66291198730471
+   },
+   "zone_temp_c.p99": {
+    "mean": 29.519498443603542,
+    "min": 29.365838623046898,
+    "max": 29.67315826416018
+   }
+  }
+ },
+ "test_by_profile": {
+  "baseline": {
+   "episodes": 5,
+   "transitions": 10080,
+   "buildings": [
+    "building_train_7"
+   ],
+   "stations": [
+    "atlanta",
+    "denver",
+    "fairbanks",
+    "phoenix",
+    "singapore"
+   ],
+   "weathers": [
+    "atlanta_8",
+    "denver_5",
+    "fairbanks_7",
+    "phoenix_3",
+    "singapore_6"
+   ],
+   "K": [
+    4
+   ],
+   "V": [
+    36
+   ],
+   "actions.ahu_run_frac": {
+    "mean": 0.3794890873015873,
+    "min": 0.3219246031746032,
+    "max": 0.41282242063492064
+   },
+   "actions.damper_eff_mean": {
+    "mean": 0.13337835246888957,
+    "min": 0.12389867156433441,
+    "max": 0.144850692792282
+   },
+   "actions.damper_floor_binding_frac": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "actions.hws_setpoint_k.p5": {
+    "mean": 310.0,
+    "min": 310.0,
+    "max": 310.0
+   },
+   "actions.hws_setpoint_k.p50": {
+    "mean": 331.91726660728455,
+    "min": 310.0,
+    "max": 348.78613233566284
+   },
+   "actions.hws_setpoint_k.p95": {
+    "mean": 333.88088369369507,
+    "min": 310.0,
+    "max": 350.0
+   },
+   "actions.perturbed_frac": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "actions.pressure_floor_binding_frac_running": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "actions.recirc_cap_binding_frac": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "actions.recirc_cmd_mean": {
+    "mean": 0.6811572912247472,
+    "min": 0.6566006387511729,
+    "max": 0.6999131974243071
+   },
+   "actions.recirc_eff_mean": {
+    "mean": 0.6811572883567171,
+    "min": 0.656600635999706,
+    "max": 0.6999131944444443
+   },
+   "actions.reheat_valve_mean": {
+    "mean": 0.03564879627573429,
+    "min": 0.0,
+    "max": 0.08950311330096537
+   },
+   "actions.sat_cmd_k_running.p5": {
+    "mean": 286.59999990463257,
+    "min": 285.0,
+    "max": 288.9999997615814
+   },
+   "actions.sat_cmd_k_running.p50": {
+    "mean": 288.69999998807907,
+    "min": 285.0,
+    "max": 292.5
+   },
+   "actions.sat_cmd_k_running.p95": {
+    "mean": 297.09999998658895,
+    "min": 287.5,
+    "max": 305.0
+   },
+   "actions.static_pressure_cmd_pa_running.p5": {
+    "mean": 199.99998807907104,
+    "min": 199.99998807907104,
+    "max": 199.99998807907104
+   },
+   "actions.static_pressure_cmd_pa_running.p50": {
+    "mean": 199.99998807907104,
+    "min": 199.99998807907104,
+    "max": 199.99998807907104
+   },
+   "actions.static_pressure_cmd_pa_running.p95": {
+    "mean": 199.99998807907104,
+    "min": 199.99998807907104,
+    "max": 199.99998807907104
+   },
+   "actions.static_pressure_eff_pa_running.p5": {
+    "mean": 200.0,
+    "min": 200.0,
+    "max": 200.0
+   },
+   "actions.static_pressure_eff_pa_running.p50": {
+    "mean": 200.0,
+    "min": 200.0,
+    "max": 200.0
+   },
+   "actions.static_pressure_eff_pa_running.p95": {
+    "mean": 200.0,
+    "min": 200.0,
+    "max": 200.0
+   },
+   "comfort_occupied_zone_steps": {
+    "mean": 13666.6,
+    "min": 11752.0,
+    "max": 14943.0
+   },
+   "comfort_violation_frac.>0.0K": {
+    "mean": 0.009797696415427867,
+    "min": 0.0035468112159539582,
+    "max": 0.024931926480599047
+   },
+   "comfort_violation_frac.>0.5K": {
+    "mean": 7.05551529212414e-05,
+    "min": 0.0,
+    "max": 0.00026768386535501573
+   },
+   "comfort_violation_frac.>1.0K": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "comfort_violation_frac.>2.0K": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "comfort_violation_max_k": {
+    "mean": 0.393145751953125,
+    "min": 0.181488037109375,
+    "max": 0.522979736328125
+   },
+   "comfort_violation_mean_k_when_violating": {
+    "mean": 0.08561110597318904,
+    "min": 0.028306927597313597,
+    "max": 0.19579905383991744
+   },
+   "cooling_active_frac": {
+    "mean": 0.30337301587301585,
+    "min": 0.23859126984126985,
+    "max": 0.3878968253968254
+   },
+   "cooling_degree_hours_24c": {
+    "mean": 276.6680584716812,
+    "min": 0.0,
+    "max": 726.0416900634804
+   },
+   "energy_kwh_per_ahu_per_day.cooling_electric": {
+    "mean": 20.876867200073423,
+    "min": 0.10588837620538348,
+    "max": 46.28909533400763
+   },
+   "energy_kwh_per_ahu_per_day.electricity": {
+    "mean": 23.922538286422746,
+    "min": 2.808352321437007,
+    "max": 49.27345096370152
+   },
+   "energy_kwh_per_ahu_per_day.fan_electric": {
+    "mean": 3.010375333967663,
+    "min": 2.621759744825817,
+    "max": 3.8195219020389373
+   },
+   "energy_kwh_per_ahu_per_day.gas": {
+    "mean": 40.81919798385075,
+    "min": 0.0,
+    "max": 102.85044020026069
+   },
+   "energy_kwh_per_ahu_per_day.pump_electric": {
+    "mean": 0.03529575238166014,
+    "min": 0.0,
+    "max": 0.09573754070997657
+   },
+   "heating_active_frac": {
+    "mean": 0.40753968253968254,
+    "min": 0.0,
+    "max": 0.8174603174603174
+   },
+   "heating_degree_hours_18c": {
+    "mean": 576.4248749796532,
+    "min": 0.0,
+    "max": 1538.8208775838177
+   },
+   "oat_c.max": {
+    "mean": 27.640002441406274,
+    "min": 16.700006103515648,
+    "max": 36.70000610351565
+   },
+   "oat_c.mean": {
+    "mean": 18.993044161855696,
+    "min": 8.837605097273782,
+    "max": 28.3195340914483
+   },
+   "oat_c.min": {
+    "mean": 11.500000000000023,
+    "min": 1.6000000000000227,
+    "max": 23.999993896484398
+   },
+   "occupancy.max_total": {
+    "mean": 34.2,
+    "min": 33.0,
+    "max": 35.0
+   },
+   "occupancy.mean_total_when_occupied": {
+    "mean": 19.108722386983256,
+    "min": 18.924315619967793,
+    "max": 19.231660231660232
+   },
+   "occupancy.occupied_frac": {
+    "mean": 0.35446428571428573,
+    "min": 0.3080357142857143,
+    "max": 0.3854166666666667
+   },
+   "reward_mean": {
+    "mean": -0.004237024426262747,
+    "min": -0.004959413438337646,
+    "max": -0.0022332588598601433
+   },
+   "severe_cold": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "start_month_privileged": {
+    "mean": 8.0,
+    "min": 4.0,
+    "max": 11.0
+   },
+   "zone_temp_c.p1": {
+    "mean": 17.60374908447268,
+    "min": 12.704675292968773,
+    "max": 21.436120605468773
+   },
+   "zone_temp_c.p50": {
+    "mean": 22.810131835937522,
+    "min": 20.924737548828148,
+    "max": 24.66291198730471
+   },
+   "zone_temp_c.p99": {
+    "mean": 26.5692810058594,
+    "min": 23.853295898437523,
+    "max": 29.67315826416018
+   }
+  },
+  "moderate": {
+   "episodes": 5,
+   "transitions": 10080,
+   "buildings": [
+    "building_train_7"
+   ],
+   "stations": [
+    "atlanta",
+    "denver",
+    "fairbanks",
+    "phoenix",
+    "singapore"
+   ],
+   "weathers": [
+    "atlanta_8",
+    "denver_5",
+    "fairbanks_7",
+    "phoenix_3",
+    "singapore_6"
+   ],
+   "K": [
+    4
+   ],
+   "V": [
+    36
+   ],
+   "actions.ahu_run_frac": {
+    "mean": 0.44543650793650796,
+    "min": 0.38392857142857145,
+    "max": 0.47185019841269843
+   },
+   "actions.damper_eff_mean": {
+    "mean": 0.1330654629717402,
+    "min": 0.12323532525176824,
+    "max": 0.14328389545187042
+   },
+   "actions.damper_floor_binding_frac": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "actions.hws_setpoint_k.p5": {
+    "mean": 310.0,
+    "min": 310.0,
+    "max": 310.0
+   },
+   "actions.hws_setpoint_k.p50": {
+    "mean": 330.4746068716049,
+    "min": 310.0,
+    "max": 348.2842582464218
+   },
+   "actions.hws_setpoint_k.p95": {
+    "mean": 336.12439918518066,
+    "min": 312.89098620414734,
+    "max": 350.0
+   },
+   "actions.perturbed_frac": {
+    "mean": 0.6905753968253968,
+    "min": 0.6398809523809523,
+    "max": 0.7733134920634921
+   },
+   "actions.pressure_floor_binding_frac_running": {
+    "mean": 0.24249661755228238,
+    "min": 0.17660972404730618,
+    "max": 0.2778372591006424
+   },
+   "actions.recirc_cap_binding_frac": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "actions.recirc_cmd_mean": {
+    "mean": 0.6832353518532656,
+    "min": 0.6588596239907352,
+    "max": 0.6999131974243071
+   },
+   "actions.recirc_eff_mean": {
+    "mean": 0.6832353489741482,
+    "min": 0.6588596212425943,
+    "max": 0.6999131944444443
+   },
+   "actions.reheat_valve_mean": {
+    "mean": 0.03599892931055581,
+    "min": 0.0,
+    "max": 0.0895974390679851
+   },
+   "actions.sat_cmd_k_running.p5": {
+    "mean": 286.19504261016846,
+    "min": 285.0,
+    "max": 288.58136117458344
+   },
+   "actions.sat_cmd_k_running.p50": {
+    "mean": 289.40940377116203,
+    "min": 285.5000001192093,
+    "max": 292.54701897501945
+   },
+   "actions.sat_cmd_k_running.p95": {
+    "mean": 299.32266975939274,
+    "min": 294.481369741261,
+    "max": 305.0
+   },
+   "actions.static_pressure_cmd_pa_running.p5": {
+    "mean": 121.99771702289581,
+    "min": 117.99567937850952,
+    "max": 125.43022632598877
+   },
+   "actions.static_pressure_cmd_pa_running.p50": {
+    "mean": 199.99998807907104,
+    "min": 199.99998807907104,
+    "max": 199.99998807907104
+   },
+   "actions.static_pressure_cmd_pa_running.p95": {
+    "mean": 622.051224857566,
+    "min": 457.8068256378174,
+    "max": 739.5039387047291
+   },
+   "actions.static_pressure_eff_pa_running.p5": {
+    "mean": 200.0,
+    "min": 200.0,
+    "max": 200.0
+   },
+   "actions.static_pressure_eff_pa_running.p50": {
+    "mean": 200.0,
+    "min": 200.0,
+    "max": 200.0
+   },
+   "actions.static_pressure_eff_pa_running.p95": {
+    "mean": 622.051224857566,
+    "min": 457.8068256378174,
+    "max": 739.5039387047291
+   },
+   "comfort_occupied_zone_steps": {
+    "mean": 13666.6,
+    "min": 11752.0,
+    "max": 14943.0
+   },
+   "comfort_violation_frac.>0.0K": {
+    "mean": 0.036735165446258745,
+    "min": 0.009904303018135581,
+    "max": 0.0673927842069435
+   },
+   "comfort_violation_frac.>0.5K": {
+    "mean": 0.00013499448573970694,
+    "min": 0.0,
+    "max": 0.0003403675970047651
+   },
+   "comfort_violation_frac.>1.0K": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "comfort_violation_frac.>2.0K": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "comfort_violation_max_k": {
+    "mean": 0.610577392578125,
+    "min": 0.404754638671875,
+    "max": 0.78179931640625
+   },
+   "comfort_violation_mean_k_when_violating": {
+    "mean": 0.08066233537884944,
+    "min": 0.07742511365081384,
+    "max": 0.0869228638077978
+   },
+   "cooling_active_frac": {
+    "mean": 0.4820436507936508,
+    "min": 0.341765873015873,
+    "max": 0.6086309523809523
+   },
+   "cooling_degree_hours_24c": {
+    "mean": 276.6680584716812,
+    "min": 0.0,
+    "max": 726.0416900634804
+   },
+   "energy_kwh_per_ahu_per_day.cooling_electric": {
+    "mean": 22.81369446842888,
+    "min": 1.497722041855217,
+    "max": 49.916905654839105
+   },
+   "energy_kwh_per_ahu_per_day.electricity": {
+    "mean": 27.63489893433292,
+    "min": 5.753444260986933,
+    "max": 55.2090802509444
+   },
+   "energy_kwh_per_ahu_per_day.fan_electric": {
+    "mean": 4.778548281151907,
+    "min": 4.165617095856439,
+    "max": 5.59844131833031
+   },
+   "energy_kwh_per_ahu_per_day.gas": {
+    "mean": 44.12935630304246,
+    "min": 0.0,
+    "max": 111.29006986672537
+   },
+   "energy_kwh_per_ahu_per_day.pump_electric": {
+    "mean": 0.04265618475213847,
+    "min": 0.0,
+    "max": 0.12311676335850877
+   },
+   "heating_active_frac": {
+    "mean": 0.36001984126984127,
+    "min": 0.0,
+    "max": 0.6408730158730159
+   },
+   "heating_degree_hours_18c": {
+    "mean": 576.4248749796532,
+    "min": 0.0,
+    "max": 1538.8208775838177
+   },
+   "oat_c.max": {
+    "mean": 27.640002441406274,
+    "min": 16.700006103515648,
+    "max": 36.70000610351565
+   },
+   "oat_c.mean": {
+    "mean": 18.993044161855696,
+    "min": 8.837605097273782,
+    "max": 28.3195340914483
+   },
+   "oat_c.min": {
+    "mean": 11.500000000000023,
+    "min": 1.6000000000000227,
+    "max": 23.999993896484398
+   },
+   "occupancy.max_total": {
+    "mean": 34.2,
+    "min": 33.0,
+    "max": 35.0
+   },
+   "occupancy.mean_total_when_occupied": {
+    "mean": 19.108722386983256,
+    "min": 18.924315619967793,
+    "max": 19.231660231660232
+   },
+   "occupancy.occupied_frac": {
+    "mean": 0.35446428571428573,
+    "min": 0.3080357142857143,
+    "max": 0.3854166666666667
+   },
+   "reward_mean": {
+    "mean": -0.004800786277719309,
+    "min": -0.00559775893315245,
+    "max": -0.0026035899739269104
+   },
+   "severe_cold": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   },
+   "start_month_privileged": {
+    "mean": 8.0,
+    "min": 4.0,
+    "max": 11.0
+   },
+   "zone_temp_c.p1": {
+    "mean": 17.57095642089846,
+    "min": 12.742982482910179,
+    "max": 21.344819641113304
+   },
+   "zone_temp_c.p50": {
+    "mean": 22.69491882324221,
+    "min": 20.90162048339846,
+    "max": 24.276147460937523
+   },
+   "zone_temp_c.p99": {
+    "mean": 26.33255004882815,
+    "min": 23.822381591796898,
+    "max": 29.365838623046898
+   }
+  }
+ },
+ "coverage": {
+  "train_oat_c_range": [
+   -39.39999999999998,
+   46.10000000000002
+  ],
+  "test_oat_c_range": [
+   1.6000000000000227,
+   36.70000610351565
+  ],
+  "test_oat_within_train_range": true,
+  "train_K": [
+   3,
+   4,
+   6,
+   8,
+   9
+  ],
+  "test_K": [
+   4
+  ],
+  "test_K_within_train_K_range": true,
+  "train_V_range": [
+   30,
+   85
+  ],
+  "test_V": [
+   36
+  ],
+  "test_severe_cold_scenarios": [],
+  "train_severe_cold_scenarios": [
+   "building_train_1/fairbanks_1",
+   "building_train_2/fairbanks_2",
+   "building_train_8/fairbanks_8"
+  ],
+  "test_min_oat_c": 1.6000000000000227
+ }
+}

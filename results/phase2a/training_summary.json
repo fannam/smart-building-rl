@@ -1,0 +1,186 @@
+[
+ {
+  "fold": {
+   "fold": 1,
+   "test_building": "building_train_2",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7",
+    "building_train_8"
+   ]
+  },
+  "seed": 0,
+  "best_epoch": 0,
+  "best_val_total": 0.9972853294095477,
+  "epochs_run": 4,
+  "train_windows": 19700,
+  "val_windows": 2350,
+  "train_s": 1435.0055177211761,
+  "params": 99142,
+  "checkpoint": "/home/namph32/Documents/workspace/smart-building-rl/results/phase2a/fold_1_building_train_2/gru_seed0.pt",
+  "wall_s": 1484.1199297904968
+ },
+ {
+  "fold": {
+   "fold": 2,
+   "test_building": "building_train_4",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_5",
+    "building_train_7",
+    "building_train_8"
+   ]
+  },
+  "seed": 0,
+  "best_epoch": 2,
+  "best_val_total": 0.46891880005195336,
+  "epochs_run": 6,
+  "train_windows": 19700,
+  "val_windows": 2350,
+  "train_s": 2198.779937982559,
+  "params": 99142,
+  "checkpoint": "/home/namph32/Documents/workspace/smart-building-rl/results/phase2a/fold_2_building_train_4/gru_seed0.pt",
+  "wall_s": 2248.1734099388123
+ },
+ {
+  "fold": {
+   "fold": 4,
+   "test_building": "building_train_7",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_8"
+   ]
+  },
+  "seed": 0,
+  "best_epoch": 3,
+  "best_val_total": 0.4621515999976042,
+  "epochs_run": 7,
+  "train_windows": 19700,
+  "val_windows": 2350,
+  "train_s": 2518.287496328354,
+  "params": 99142,
+  "checkpoint": "/home/namph32/Documents/workspace/smart-building-rl/results/phase2a/fold_4_building_train_7/gru_seed0.pt",
+  "wall_s": 2631.5477900505066
+ },
+ {
+  "fold": {
+   "fold": 5,
+   "test_building": "building_train_8",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7"
+   ]
+  },
+  "seed": 1,
+  "best_epoch": 7,
+  "best_val_total": 0.400817215971246,
+  "epochs_run": 11,
+  "train_windows": 19700,
+  "val_windows": 2350,
+  "train_s": 4154.171359300613,
+  "params": 99142,
+  "checkpoint": "/home/namph32/Documents/workspace/smart-building-rl/results/phase2a/fold_5_building_train_8/gru_seed1.pt",
+  "wall_s": 4156.50049996376
+ },
+ {
+  "fold": {
+   "fold": 5,
+   "test_building": "building_train_8",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7"
+   ]
+  },
+  "seed": 2,
+  "best_epoch": 11,
+  "best_val_total": 0.3490813648378527,
+  "epochs_run": 12,
+  "train_windows": 19700,
+  "val_windows": 2350,
+  "train_s": 4565.334463834763,
+  "params": 99142,
+  "checkpoint": "/home/namph32/Documents/workspace/smart-building-rl/results/phase2a/fold_5_building_train_8/gru_seed2.pt",
+  "wall_s": 4567.649845600128
+ },
+ {
+  "fold": {
+   "fold": 5,
+   "test_building": "building_train_8",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7"
+   ]
+  },
+  "seed": 0,
+  "best_epoch": 8,
+  "best_val_total": 0.4220622985598606,
+  "epochs_run": 12,
+  "train_windows": 19700,
+  "val_windows": 2350,
+  "train_s": 4591.419996500015,
+  "params": 99142,
+  "checkpoint": "/home/namph32/Documents/workspace/smart-building-rl/results/phase2a/fold_5_building_train_8/gru_seed0.pt",
+  "wall_s": 4648.207014322281
+ },
+ {
+  "fold": {
+   "fold": 3,
+   "test_building": "building_train_5",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_7",
+    "building_train_8"
+   ]
+  },
+  "seed": 0,
+  "best_epoch": 8,
+  "best_val_total": 0.3873621516332433,
+  "epochs_run": 12,
+  "train_windows": 19700,
+  "val_windows": 2350,
+  "train_s": 4612.152368307114,
+  "params": 99142,
+  "checkpoint": "/home/namph32/Documents/workspace/smart-building-rl/results/phase2a/fold_3_building_train_5/gru_seed0.pt",
+  "wall_s": 4660.15651512146
+ },
+ {
+  "fold": {
+   "fold": 0,
+   "test_building": "building_train_1",
+   "train_buildings": [
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7",
+    "building_train_8"
+   ]
+  },
+  "seed": 0,
+  "best_epoch": 8,
+  "best_val_total": 0.3914318193706709,
+  "epochs_run": 12,
+  "train_windows": 19700,
+  "val_windows": 2350,
+  "train_s": 4615.169672966003,
+  "params": 99142,
+  "checkpoint": "/home/namph32/Documents/workspace/smart-building-rl/results/phase2a/fold_0_building_train_1/gru_seed0.pt",
+  "wall_s": 4677.077952861786
+ }
+]

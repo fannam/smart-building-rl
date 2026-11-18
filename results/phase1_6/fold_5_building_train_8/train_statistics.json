@@ -1,0 +1,101 @@
+{
+ "stats": {
+  "zone_air_temperature_k": {
+   "mean": 295.66528426565844,
+   "std": 3.181565750248283,
+   "n": 5909810
+  },
+  "outside_air_temperature_k": {
+   "mean": 290.02539712643943,
+   "std": 15.027092553877853,
+   "n": 100850
+  },
+  "hws_supply_water_temperature_k": {
+   "mean": 339.03511095386483,
+   "std": 8.35648521056371,
+   "n": 100850
+  },
+  "num_occupants": {
+   "mean": 18.94112047595439,
+   "std": 35.276302174359095,
+   "n": 100850
+  },
+  "sat_setpoint_k": {
+   "mean": 298.5182479216418,
+   "std": 8.299776591856219,
+   "n": 624960
+  },
+  "static_pressure_eff_pa": {
+   "mean": 104.16144902137856,
+   "std": 144.62117040978853,
+   "n": 624960
+  },
+  "hws_setpoint_k": {
+   "mean": 325.83314938292204,
+   "std": 17.92521477560316,
+   "n": 100800
+  }
+ },
+ "provenance": {
+  "buildings": [
+   "building_train_1",
+   "building_train_2",
+   "building_train_4",
+   "building_train_5",
+   "building_train_7"
+  ],
+  "episode_ids": [
+   "building_train_1__atlanta_2__baseline__s0__e0",
+   "building_train_1__atlanta_2__moderate__s0__e0",
+   "building_train_1__denver_7__baseline__s0__e0",
+   "building_train_1__denver_7__moderate__s0__e0",
+   "building_train_1__fairbanks_1__baseline__s0__e0",
+   "building_train_1__fairbanks_1__moderate__s0__e0",
+   "building_train_1__phoenix_5__baseline__s0__e0",
+   "building_train_1__phoenix_5__moderate__s0__e0",
+   "building_train_1__singapore_8__baseline__s0__e0",
+   "building_train_1__singapore_8__moderate__s0__e0",
+   "building_train_2__atlanta_3__baseline__s0__e0",
+   "building_train_2__atlanta_3__moderate__s0__e0",
+   "building_train_2__denver_8__baseline__s0__e0",
+   "building_train_2__denver_8__moderate__s0__e0",
+   "building_train_2__fairbanks_2__baseline__s0__e0",
+   "building_train_2__fairbanks_2__moderate__s0__e0",
+   "building_train_2__phoenix_6__baseline__s0__e0",
+   "building_train_2__phoenix_6__moderate__s0__e0",
+   "building_train_2__singapore_1__baseline__s0__e0",
+   "building_train_2__singapore_1__moderate__s0__e0",
+   "building_train_4__atlanta_5__baseline__s0__e0",
+   "building_train_4__atlanta_5__moderate__s0__e0",
+   "building_train_4__denver_2__baseline__s0__e0",
+   "building_train_4__denver_2__moderate__s0__e0",
+   "building_train_4__fairbanks_4__baseline__s0__e0",
+   "building_train_4__fairbanks_4__moderate__s0__e0",
+   "building_train_4__phoenix_8__baseline__s0__e0",
+   "building_train_4__phoenix_8__moderate__s0__e0",
+   "building_train_4__singapore_3__baseline__s0__e0",
+   "building_train_4__singapore_3__moderate__s0__e0",
+   "building_train_5__atlanta_6__baseline__s0__e0",
+   "building_train_5__atlanta_6__moderate__s0__e0",
+   "building_train_5__denver_3__baseline__s0__e0",
+   "building_train_5__denver_3__moderate__s0__e0",
+   "building_train_5__fairbanks_5__baseline__s0__e0",
+   "building_train_5__fairbanks_5__moderate__s0__e0",
+   "building_train_5__phoenix_1__baseline__s0__e0",
+   "building_train_5__phoenix_1__moderate__s0__e0",
+   "building_train_5__singapore_4__baseline__s0__e0",
+   "building_train_5__singapore_4__moderate__s0__e0",
+   "building_train_7__atlanta_8__baseline__s0__e0",
+   "building_train_7__atlanta_8__moderate__s0__e0",
+   "building_train_7__denver_5__baseline__s0__e0",
+   "building_train_7__denver_5__moderate__s0__e0",
+   "building_train_7__fairbanks_7__baseline__s0__e0",
+   "building_train_7__fairbanks_7__moderate__s0__e0",
+   "building_train_7__phoenix_3__baseline__s0__e0",
+   "building_train_7__phoenix_3__moderate__s0__e0",
+   "building_train_7__singapore_6__baseline__s0__e0",
+   "building_train_7__singapore_6__moderate__s0__e0"
+  ],
+  "manifest_digest": "9796f24b2d894a82"
+ }
+}
