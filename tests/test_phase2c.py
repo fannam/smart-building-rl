@@ -159,7 +159,8 @@ class TestPlanning(unittest.TestCase):
         d = tempfile.mkdtemp()
         try:
             p = os.path.join(d, "x.npz")
-            open(p, "wb").write(b"not a zip")
+            with open(p, "wb") as fh:
+                fh.write(b"not a zip")
             self.assertFalse(branch_complete(p, 20))
             self.assertFalse(branch_complete(os.path.join(d, "missing.npz"), 20))
         finally:
@@ -254,6 +255,10 @@ if __name__ == "__main__":
     unittest.main()
 
 
+HAVE_TORCH = __import__("importlib").util.find_spec("torch") is not None
+
+
+@unittest.skipUnless(HAVE_TORCH, "torch not installed (collection-only environment)")
 @unittest.skipUnless(HAVE_SAMPLE and os.environ.get("RUN_SIM_TESTS", "1") == "1", "simulator tests disabled")
 class TestPairedTraining(unittest.TestCase):
     """Paired objective on one REAL collected branch group (b8, heating, 3 arms + nominal)."""
