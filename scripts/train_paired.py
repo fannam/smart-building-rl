@@ -12,6 +12,16 @@ Job spec  arch:objective:fold:seed:lambda   e.g.  gru:paired:5:0:0.3   graph:arm
 Outputs   <out>/<arch>_<objective>_lam<lambda>/fold_<i>_<building>/{model_seed<s>.pt, train_log_seed<s>.json, train_<s>.log}
 A job whose train_log exists is skipped (resume across sessions).
 
+Session time limit (Kaggle: 12 h). With --deadline <unix time>:
+  * a job not yet started when less than --min-start-minutes remain is DEFERRED (nothing written);
+  * after every epoch the full training state (model, optimizer, one-cycle scheduler, early-stopping counters,
+    history, RNG/generator states) is saved atomically to resume_seed<s>.pt;
+  * a running job stops (INTERRUPTED) when the next epoch would not finish before the deadline, or immediately
+    if the deadline passes mid-epoch (the partial epoch is discarded);
+  * the next session resumes from resume_seed<s>.pt; on completion the resume file is deleted.
+A resumed job reproduces the same schedule and early-stopping logic; it is not guaranteed bit-identical to an
+uninterrupted run (the branch-group iterator restarts at the resume epoch). Resumed epochs are logged.
+
     python scripts/train_paired.py --config configs/phase2c/paired_training.json --jobs gru:paired:5:0:0.3 --device auto
 """
 from __future__ import annotations
@@ -48,7 +58,8 @@ def parse(spec: str):
     return arch, objective, int(fold), int(seed), lam
 
 
-def run_job(spec: str, cfg_path: str, out: str, overrides: tuple, job_index: int) -> dict:
+def run_job(spec: str, cfg_path: str, out: str, overrides: tuple, job_index: int, deadline: float | None = None,
+            min_start_s: float = 600.0) -> dict:
     import os
     os.chdir(ROOT)
     import numpy as np
@@ -73,7 +84,10 @@ def run_job(spec: str, cfg_path: str, out: str, overrides: tuple, job_index: int
     d.mkdir(parents=True, exist_ok=True)
     if (d / f"train_log_seed{seed}.json").exists():
         return {"spec": spec, "skipped": True}
-    logf = (d / f"train_{seed}.log").open("w")
+    if deadline is not None and time.time() > deadline - min_start_s:
+        return {"spec": spec, "deferred": True}
+    resume_path = d / f"resume_seed{seed}.pt"
+    logf = (d / f"train_{seed}.log").open("a")
     def log(m):
         logf.write(m + "\n"); logf.flush()
     try:
@@ -137,11 +151,38 @@ def run_job(spec: str, cfg_path: str, out: str, overrides: tuple, job_index: int
 
         best, best_ep, patience, history = math.inf, -1, 0, []
         ckpt = d / f"model_seed{seed}.pt"
+        ep0, resumes, prior_train_s = 0, [], 0.0
+        if resume_path.exists():
+            R = torch.load(resume_path, map_location="cpu", weights_only=False)
+            assert R["spec"] == spec and R["total_steps"] == total_steps, f"{spec}: resume state does not match this job"
+            inner.load_state_dict(R["state_dict"]); opt.load_state_dict(R["opt"]); sched.load_state_dict(R["sched"])
+            best, best_ep, patience, history = R["best"], R["best_ep"], R["patience"], R["history"]
+            ep0, resumes, prior_train_s = R["next_epoch"], R["resumes"] + [R["next_epoch"]], R["train_s"]
+            torch.set_rng_state(R["torch_rng"]); np.random.set_state(R["np_rng"])
+            dl_tr.generator.set_state(R["dl_gen"]); g.set_state(R["br_gen"])
+            log(f"[{spec}] RESUMED at epoch {ep0} (best {best_ep}, patience {patience})")
+
+        def save_resume(next_epoch):
+            tmp = resume_path.with_suffix(".pt.part")
+            torch.save({"spec": spec, "total_steps": total_steps, "state_dict": cpu_state_dict(inner),
+                        "opt": opt.state_dict(), "sched": sched.state_dict(), "best": best, "best_ep": best_ep,
+                        "patience": patience, "history": history, "next_epoch": next_epoch, "resumes": resumes,
+                        "train_s": prior_train_s + time.time() - t_start, "torch_rng": torch.get_rng_state(),
+                        "np_rng": np.random.get_state(), "dl_gen": dl_tr.generator.get_state(), "br_gen": g.get_state()}, tmp)
+            os.replace(tmp, resume_path)
+
+        def interrupted(why):
+            log(f"[{spec}] INTERRUPTED ({why}); resume from epoch {len(history)} in the next session")
+            return {"spec": spec, "interrupted": True, "next_epoch": len(history), "why": why}
+
         it_br = iter(bl_tr)
-        for ep in range(tc["epochs"]):
+        stopped = False
+        for ep in range(ep0, tc["epochs"]):
             model.train()
             agg, nb, t_ep = {}, 0, time.time()
             for step, batch in enumerate(dl_tr):
+                if deadline is not None and time.time() > deadline:
+                    return interrupted(f"deadline passed during epoch {ep}; partial epoch discarded")
                 batch = batch_to(batch, device)
                 loss, parts = multitask_loss(rollout(model, batch), batch, norm, w)
                 rec = {"state": float(loss)}
@@ -178,16 +219,25 @@ def run_job(spec: str, cfg_path: str, out: str, overrides: tuple, job_index: int
                 patience += 1
                 if patience >= tc["patience"] and ep + 1 >= tc.get("min_epochs", 0):
                     log(f"[{spec}] early stop at epoch {ep} (best {best_ep})")
-                    break
+                    stopped = True
+            if stopped or ep + 1 == tc["epochs"]:
+                break
+            save_resume(ep + 1)
+            if deadline is not None:
+                est = 1.25 * max(h["epoch_s"] for h in history[-3:])
+                if time.time() + est > deadline:
+                    return interrupted(f"next epoch (~{est / 60:.0f} min) would not finish before the deadline")
         info = {"spec": spec, "arch": arch, "objective": objective, "lambda": lam, "seed": seed, "fold": fold,
                 "best_epoch": best_ep, "best_val_select": best, "epochs_run": len(history),
                 "best_val_state": history[best_ep]["val_state"]["total"], "best_val_cf": history[best_ep]["val_branch"]["cf_total"],
                 "train_windows": len(ds_tr), "train_branch_points": len(bg_tr), "val_branch_points": len(bg_va),
                 "dropped_aborted_arms": bg_tr.dropped_aborted + bg_va.dropped_aborted, "delta_stats": dstats,
                 "branch_ids_train": tr_ids, "branch_ids_val": va_ids, "split_digest": man.get("digest"),
-                "params": sum(p.numel() for p in inner.parameters()), "train_s": time.time() - t_start,
+                "params": sum(p.numel() for p in inner.parameters()), "train_s": prior_train_s + time.time() - t_start,
+                "resumed_at_epochs": resumes,
                 "device": str(device), "torch": torch.__version__, "config": pc, "history": history, "checkpoint": str(ckpt)}
         (d / f"train_log_seed{seed}.json").write_text(json.dumps(info, indent=1))
+        resume_path.unlink(missing_ok=True)
         return {k: v for k, v in info.items() if k not in ("history", "branch_ids_train", "branch_ids_val", "config")}
     except Exception:
         log(traceback.format_exc())
@@ -203,6 +253,9 @@ def main():
     ap.add_argument("--device", default=None)
     ap.add_argument("--workers", type=int, default=None)
     ap.add_argument("--threads", type=int, default=None)
+    ap.add_argument("--deadline", type=float, default=None,
+                    help="unix time; jobs checkpoint every epoch and stop before it (see module docstring)")
+    ap.add_argument("--min-start-minutes", type=float, default=10.0)
     a = ap.parse_args()
     for j in a.jobs:
         parse(j)
@@ -215,13 +268,18 @@ def main():
     ov = (a.device, a.workers, a.threads)
     res = []
     with ProcessPoolExecutor(max_workers=a.parallel) as pool:
-        futs = [pool.submit(run_job, j, str(Path(a.config).resolve()), str(out), ov, i) for i, j in enumerate(a.jobs)]
+        futs = [pool.submit(run_job, j, str(Path(a.config).resolve()), str(out), ov, i, a.deadline,
+                            60 * a.min_start_minutes) for i, j in enumerate(a.jobs)]
         for fu in as_completed(futs):
             r = fu.result(); res.append(r)
             if "error" in r:
                 print(f"FAIL {r['spec']}\n{r['error']}", flush=True)
             elif r.get("skipped"):
                 print(f"skip {r['spec']} (already trained)", flush=True)
+            elif r.get("deferred"):
+                print(f"deferred {r['spec']} (not enough session time left to start)", flush=True)
+            elif r.get("interrupted"):
+                print(f"interrupted {r['spec']} at epoch {r['next_epoch']}: {r['why']}", flush=True)
             else:
                 print(f"done {r['spec']}: best epoch {r['best_epoch']}/{r['epochs_run']} val state {r['best_val_state']:.4f} "
                       f"val cf {r['best_val_cf']:.4f} branches {r['train_branch_points']}/{r['val_branch_points']} "
