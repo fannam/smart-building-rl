@@ -18,8 +18,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import math
 import sys
+
+# Jupyter kernels (e.g. Kaggle) export MPLBACKEND=module://matplotlib_inline.backend_inline; subprocesses using
+# another environment cannot import that backend, and the simulator imports matplotlib -> force a headless backend.
+if os.environ.get("MPLBACKEND", "").startswith("module://"):
+    os.environ["MPLBACKEND"] = "Agg"
 import time
 import traceback
 from concurrent.futures import ProcessPoolExecutor, as_completed
