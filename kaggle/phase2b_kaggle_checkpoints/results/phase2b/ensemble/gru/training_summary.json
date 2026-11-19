@@ -1,0 +1,252 @@
+[
+ {
+  "fold": {
+   "fold": 1,
+   "test_building": "building_train_2",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7",
+    "building_train_8"
+   ]
+  },
+  "seed": 1,
+  "best_epoch": 1,
+  "best_val_total": 1.0231958503860075,
+  "epochs_run": 6,
+  "train_windows": 19700,
+  "val_windows": 2350,
+  "train_s": 1359.6345429420471,
+  "params": 99142,
+  "checkpoint": "/kaggle/working/smart-building-rl/results/phase2b/ensemble/gru/fold_1_building_train_2/gru_seed1.pt",
+  "device": "cuda:1",
+  "torch": "2.15.0+cu132",
+  "wall_s": 1365.3435242176056
+ },
+ {
+  "fold": {
+   "fold": 0,
+   "test_building": "building_train_1",
+   "train_buildings": [
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7",
+    "building_train_8"
+   ]
+  },
+  "seed": 1,
+  "best_epoch": 3,
+  "best_val_total": 0.39389205593112353,
+  "epochs_run": 7,
+  "train_windows": 19700,
+  "val_windows": 2350,
+  "train_s": 1622.7251977920532,
+  "params": 99142,
+  "checkpoint": "/kaggle/working/smart-building-rl/results/phase2b/ensemble/gru/fold_0_building_train_1/gru_seed1.pt",
+  "device": "cuda:0",
+  "torch": "2.15.0+cu132",
+  "wall_s": 1628.129486322403
+ },
+ {
+  "fold": {
+   "fold": 2,
+   "test_building": "building_train_4",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_5",
+    "building_train_7",
+    "building_train_8"
+   ]
+  },
+  "seed": 1,
+  "best_epoch": 9,
+  "best_val_total": 0.465220762920138,
+  "epochs_run": 12,
+  "train_windows": 19700,
+  "val_windows": 2350,
+  "train_s": 2778.5296008586884,
+  "params": 99142,
+  "checkpoint": "/kaggle/working/smart-building-rl/results/phase2b/ensemble/gru/fold_2_building_train_4/gru_seed1.pt",
+  "device": "cuda:0",
+  "torch": "2.15.0+cu132",
+  "wall_s": 2783.7911381721497
+ },
+ {
+  "fold": {
+   "fold": 3,
+   "test_building": "building_train_5",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_7",
+    "building_train_8"
+   ]
+  },
+  "seed": 1,
+  "best_epoch": 7,
+  "best_val_total": 0.4213128800478739,
+  "epochs_run": 11,
+  "train_windows": 19700,
+  "val_windows": 2350,
+  "train_s": 2539.404483318329,
+  "params": 99142,
+  "checkpoint": "/kaggle/working/smart-building-rl/results/phase2b/ensemble/gru/fold_3_building_train_5/gru_seed1.pt",
+  "device": "cuda:1",
+  "torch": "2.15.0+cu132",
+  "wall_s": 2542.891443014145
+ },
+ {
+  "fold": {
+   "fold": 4,
+   "test_building": "building_train_7",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_8"
+   ]
+  },
+  "seed": 1,
+  "best_epoch": 6,
+  "best_val_total": 0.49844353618351994,
+  "epochs_run": 10,
+  "train_windows": 19700,
+  "val_windows": 2350,
+  "train_s": 2304.673753261566,
+  "params": 99142,
+  "checkpoint": "/kaggle/working/smart-building-rl/results/phase2b/ensemble/gru/fold_4_building_train_7/gru_seed1.pt",
+  "device": "cuda:0",
+  "torch": "2.15.0+cu132",
+  "wall_s": 2307.8185501098633
+ },
+ {
+  "fold": {
+   "fold": 0,
+   "test_building": "building_train_1",
+   "train_buildings": [
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7",
+    "building_train_8"
+   ]
+  },
+  "seed": 2,
+  "best_epoch": 4,
+  "best_val_total": 0.3700642287227753,
+  "epochs_run": 8,
+  "train_windows": 19700,
+  "val_windows": 2350,
+  "train_s": 1891.7910187244415,
+  "params": 99142,
+  "checkpoint": "/kaggle/working/smart-building-rl/results/phase2b/ensemble/gru/fold_0_building_train_1/gru_seed2.pt",
+  "device": "cuda:1",
+  "torch": "2.15.0+cu132",
+  "wall_s": 1895.0697281360626
+ },
+ {
+  "fold": {
+   "fold": 1,
+   "test_building": "building_train_2",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7",
+    "building_train_8"
+   ]
+  },
+  "seed": 2,
+  "best_epoch": 0,
+  "best_val_total": 0.7807615107881862,
+  "epochs_run": 6,
+  "train_windows": 19700,
+  "val_windows": 2350,
+  "train_s": 1369.8726017475128,
+  "params": 99142,
+  "checkpoint": "/kaggle/working/smart-building-rl/results/phase2b/ensemble/gru/fold_1_building_train_2/gru_seed2.pt",
+  "device": "cuda:0",
+  "torch": "2.15.0+cu132",
+  "wall_s": 1372.923800945282
+ },
+ {
+  "fold": {
+   "fold": 2,
+   "test_building": "building_train_4",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_5",
+    "building_train_7",
+    "building_train_8"
+   ]
+  },
+  "seed": 2,
+  "best_epoch": 3,
+  "best_val_total": 0.44090112897793987,
+  "epochs_run": 7,
+  "train_windows": 19700,
+  "val_windows": 2350,
+  "train_s": 1644.3696179389954,
+  "params": 99142,
+  "checkpoint": "/kaggle/working/smart-building-rl/results/phase2b/ensemble/gru/fold_2_building_train_4/gru_seed2.pt",
+  "device": "cuda:1",
+  "torch": "2.15.0+cu132",
+  "wall_s": 1647.870014667511
+ },
+ {
+  "fold": {
+   "fold": 3,
+   "test_building": "building_train_5",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_7",
+    "building_train_8"
+   ]
+  },
+  "seed": 2,
+  "best_epoch": 4,
+  "best_val_total": 0.3901356499189058,
+  "epochs_run": 8,
+  "train_windows": 19700,
+  "val_windows": 2350,
+  "train_s": 1596.064455986023,
+  "params": 99142,
+  "checkpoint": "/kaggle/working/smart-building-rl/results/phase2b/ensemble/gru/fold_3_building_train_5/gru_seed2.pt",
+  "device": "cuda:0",
+  "torch": "2.15.0+cu132",
+  "wall_s": 1598.969419002533
+ },
+ {
+  "fold": {
+   "fold": 4,
+   "test_building": "building_train_7",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_8"
+   ]
+  },
+  "seed": 2,
+  "best_epoch": 3,
+  "best_val_total": 0.4450778482934913,
+  "epochs_run": 7,
+  "train_windows": 19700,
+  "val_windows": 2350,
+  "train_s": 1207.775048494339,
+  "params": 99142,
+  "checkpoint": "/kaggle/working/smart-building-rl/results/phase2b/ensemble/gru/fold_4_building_train_7/gru_seed2.pt",
+  "device": "cuda:1",
+  "torch": "2.15.0+cu132",
+  "wall_s": 1210.8721766471863
+ }
+]

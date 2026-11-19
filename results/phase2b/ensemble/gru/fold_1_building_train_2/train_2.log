@@ -1,0 +1,7 @@
+[fold 1 seed 2] ep 0 train 1.2003 val 0.7808 (T 0.594 H 0.269 E 0.074 G 0.031) 230s
+[fold 1 seed 2] ep 1 train 0.5569 val 1.0150 (T 0.889 H 0.145 E 0.060 G 0.047) 225s
+[fold 1 seed 2] ep 2 train 0.3622 val 1.1694 (T 0.979 H 0.264 E 0.062 G 0.054) 226s
+[fold 1 seed 2] ep 3 train 0.2787 val 1.0496 (T 0.947 H 0.103 E 0.054 G 0.047) 226s
+[fold 1 seed 2] ep 4 train 0.2274 val 1.0632 (T 0.952 H 0.134 E 0.035 G 0.054) 230s
+[fold 1 seed 2] ep 5 train 0.1864 val 1.2604 (T 1.115 H 0.213 E 0.031 G 0.047) 232s
+[fold 1 seed 2] early stop at epoch 5 (best 0)

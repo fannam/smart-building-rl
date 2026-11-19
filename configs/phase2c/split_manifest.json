@@ -1,0 +1,156 @@
+{
+ "version": "phase2c-splits-v1",
+ "unit": "scenario-day (t_b // 288); all arms of a branch point share its split",
+ "heldout_weather_prefix": "denver",
+ "val_fraction": 0.2,
+ "seed": 0,
+ "test_a": {
+  "source": "/home/namph32/Documents/workspace/smart-building-rl/configs/phase2c/phase2b_branch_points.json",
+  "branch_points": {
+   "building_train_1/atlanta_2": [
+    315,
+    950,
+    1145,
+    1192,
+    1649,
+    1761
+   ],
+   "building_train_1/fairbanks_1": [
+    434,
+    1145,
+    1275,
+    1664,
+    1812
+   ],
+   "building_train_2/atlanta_3": [
+    331,
+    378,
+    890,
+    1050,
+    1145,
+    1849
+   ],
+   "building_train_2/fairbanks_2": [
+    359,
+    610,
+    815,
+    1145,
+    1300,
+    1820
+   ],
+   "building_train_4/atlanta_5": [
+    815,
+    895,
+    1145,
+    1439,
+    1820
+   ],
+   "building_train_4/fairbanks_4": [
+    696,
+    997,
+    1050,
+    1145,
+    1464,
+    1849
+   ],
+   "building_train_5/atlanta_6": [
+    815,
+    1145,
+    1262,
+    1820
+   ],
+   "building_train_5/fairbanks_5": [
+    292,
+    371,
+    581,
+    1145,
+    1664,
+    1812
+   ],
+   "building_train_7/atlanta_8": [
+    359,
+    915,
+    1145,
+    1444,
+    1649,
+    1761
+   ],
+   "building_train_7/fairbanks_7": [
+    361,
+    943,
+    1145,
+    1301,
+    1649,
+    1761
+   ],
+   "building_train_8/atlanta_1": [
+    342,
+    425,
+    1145,
+    1493,
+    1649,
+    1761
+   ],
+   "building_train_8/fairbanks_8": [
+    293,
+    575,
+    618,
+    1145,
+    1649,
+    1761
+   ]
+  }
+ },
+ "assignments": {
+  "building_train_7__denver_5__t00859": {
+   "split": "test_b",
+   "scenario_day": "building_train_7/denver_5#2",
+   "scenario": "building_train_7/denver_5",
+   "building": "building_train_7",
+   "weather": "denver_5",
+   "t_b": 859,
+   "stratum": "morning_recovery"
+  },
+  "building_train_7__denver_5__t01154": {
+   "split": "test_b",
+   "scenario_day": "building_train_7/denver_5#4",
+   "scenario": "building_train_7/denver_5",
+   "building": "building_train_7",
+   "weather": "denver_5",
+   "t_b": 1154,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_7__denver_5__t01467": {
+   "split": "test_b",
+   "scenario_day": "building_train_7/denver_5#5",
+   "scenario": "building_train_7/denver_5",
+   "building": "building_train_7",
+   "weather": "denver_5",
+   "t_b": 1467,
+   "stratum": "occupied_heating"
+  },
+  "building_train_8__atlanta_1__t00574": {
+   "split": "train",
+   "scenario_day": "building_train_8/atlanta_1#1",
+   "scenario": "building_train_8/atlanta_1",
+   "building": "building_train_8",
+   "weather": "atlanta_1",
+   "t_b": 574,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__atlanta_1__t01299": {
+   "split": "train",
+   "scenario_day": "building_train_8/atlanta_1#4",
+   "scenario": "building_train_8/atlanta_1",
+   "building": "building_train_8",
+   "weather": "atlanta_1",
+   "t_b": 1299,
+   "stratum": "occupied_heating"
+  }
+ },
+ "counts": {
+  "building_train_7|test_b": 3,
+  "building_train_8|train": 2
+ },
+ "digest": "1c4d00c34b25174c"
+}
