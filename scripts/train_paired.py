@@ -58,6 +58,16 @@ def parse(spec: str):
     return arch, objective, int(fold), int(seed), lam
 
 
+_SLOT = None   # index of this pool worker (0..parallel-1); fixes the GPU a worker uses
+
+
+def _init_worker(counter):
+    global _SLOT
+    with counter.get_lock():
+        _SLOT = counter.value
+        counter.value += 1
+
+
 def run_job(spec: str, cfg_path: str, out: str, overrides: tuple, job_index: int, deadline: float | None = None,
             min_start_s: float = 600.0) -> dict:
     import os
@@ -76,7 +86,8 @@ def run_job(spec: str, cfg_path: str, out: str, overrides: tuple, job_index: int
     base = json.loads((ROOT / pc["base_configs"][arch]).read_text())
     base["data_root"] = pc["phase1_root"]
     base["training"].update(pc.get("training_overrides", {}))
-    base = apply_overrides(base, *overrides, job_index=job_index)
+    # GPU = worker slot % n_gpus (each worker keeps one GPU, so concurrent jobs stay balanced across GPUs)
+    base = apply_overrides(base, *overrides, job_index=_SLOT if _SLOT is not None else job_index)
     tc, mc, w = base["training"], base["model"], base["loss_weights"]
     torch.set_num_threads(tc["torch_threads"])
     fold = json.loads((ROOT / base["folds_config"]).read_text())["folds"][fold_idx]
@@ -267,7 +278,8 @@ def main():
     (out / f"jobs_{int(time.time())}.json").write_text(json.dumps({"argv": sys.argv, "jobs": a.jobs, "config": pc}, indent=1))
     ov = (a.device, a.workers, a.threads)
     res = []
-    with ProcessPoolExecutor(max_workers=a.parallel) as pool:
+    import multiprocessing as mp
+    with ProcessPoolExecutor(max_workers=a.parallel, initializer=_init_worker, initargs=(mp.Value("i", 0),)) as pool:
         futs = [pool.submit(run_job, j, str(Path(a.config).resolve()), str(out), ov, i, a.deadline,
                             60 * a.min_start_minutes) for i, j in enumerate(a.jobs)]
         for fu in as_completed(futs):
