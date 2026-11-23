@@ -1,0 +1,182 @@
+[
+ {
+  "spec": "graph:paired:0:1:1",
+  "skipped": true
+ },
+ {
+  "spec": "graph:paired:3:1:1",
+  "skipped": true
+ },
+ {
+  "spec": "graph:paired:4:1:1",
+  "skipped": true
+ },
+ {
+  "spec": "graph:paired:5:1:1",
+  "skipped": true
+ },
+ {
+  "spec": "graph:paired:0:2:1",
+  "skipped": true
+ },
+ {
+  "spec": "graph:paired:1:2:1",
+  "skipped": true
+ },
+ {
+  "spec": "graph:paired:2:2:1",
+  "skipped": true
+ },
+ {
+  "spec": "graph:paired:2:1:1",
+  "skipped": true
+ },
+ {
+  "spec": "graph:paired:1:1:1",
+  "skipped": true
+ },
+ {
+  "spec": "graph:paired:3:2:1",
+  "arch": "graph",
+  "objective": "paired",
+  "lambda": 1.0,
+  "seed": 2,
+  "fold": {
+   "fold": 3,
+   "test_building": "building_train_5",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_7",
+    "building_train_8"
+   ]
+  },
+  "best_epoch": 11,
+  "best_val_select": 0.5336910733079883,
+  "epochs_run": 12,
+  "best_val_state": 0.18315525597112403,
+  "best_val_cf": 0.07623495143623306,
+  "train_windows": 19700,
+  "train_branch_points": 149,
+  "val_branch_points": 51,
+  "dropped_aborted_arms": 0,
+  "delta_stats": {
+   "zone": 0.7630866765975952,
+   "tank": 1.9513368606567383,
+   "energy": [
+    0.0029900950848908473,
+    0.015681420540462093,
+    0.0005659088463619034,
+    0.03017738319495946
+   ],
+   "n_groups": 149,
+   "n_arms": 2831
+  },
+  "split_digest": "326251fd425e93f3",
+  "params": 100398,
+  "train_s": 9514.63726401329,
+  "resumed_at_epochs": [
+   7
+  ],
+  "device": "cuda:0",
+  "torch": "2.15.0+cu132",
+  "checkpoint": "/kaggle/working/phase2c_training/results/phase2c/training/graph_paired_lam1/fold_3_building_train_5/model_seed2.pt"
+ },
+ {
+  "spec": "graph:paired:5:2:1",
+  "arch": "graph",
+  "objective": "paired",
+  "lambda": 1.0,
+  "seed": 2,
+  "fold": {
+   "fold": 5,
+   "test_building": "building_train_8",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7"
+   ]
+  },
+  "best_epoch": 10,
+  "best_val_select": 0.6908727372393503,
+  "epochs_run": 12,
+  "best_val_state": 0.22073629872269324,
+  "best_val_cf": 0.09482908182089096,
+  "train_windows": 19700,
+  "train_branch_points": 155,
+  "val_branch_points": 45,
+  "dropped_aborted_arms": 0,
+  "delta_stats": {
+   "zone": 0.6795970797538757,
+   "tank": 2.024871826171875,
+   "energy": [
+    0.0028551404372729084,
+    0.014929309955403368,
+    0.0005328571382069878,
+    0.026849904040971925
+   ],
+   "n_groups": 155,
+   "n_arms": 2945
+  },
+  "split_digest": "326251fd425e93f3",
+  "params": 100398,
+  "train_s": 9393.79215669632,
+  "resumed_at_epochs": [
+   7
+  ],
+  "device": "cuda:1",
+  "torch": "2.15.0+cu132",
+  "checkpoint": "/kaggle/working/phase2c_training/results/phase2c/training/graph_paired_lam1/fold_5_building_train_8/model_seed2.pt"
+ },
+ {
+  "spec": "graph:paired:4:2:1",
+  "arch": "graph",
+  "objective": "paired",
+  "lambda": 1.0,
+  "seed": 2,
+  "fold": {
+   "fold": 4,
+   "test_building": "building_train_7",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_8"
+   ]
+  },
+  "best_epoch": 11,
+  "best_val_select": 0.6324540114152813,
+  "epochs_run": 12,
+  "best_val_state": 0.20930760202778353,
+  "best_val_cf": 0.08283188198085713,
+  "train_windows": 19700,
+  "train_branch_points": 155,
+  "val_branch_points": 45,
+  "dropped_aborted_arms": 0,
+  "delta_stats": {
+   "zone": 0.7064359784126282,
+   "tank": 2.012880802154541,
+   "energy": [
+    0.002978542240427024,
+    0.01602993610548748,
+    0.0005527944369476994,
+    0.028684014952953703
+   ],
+   "n_groups": 155,
+   "n_arms": 2945
+  },
+  "split_digest": "326251fd425e93f3",
+  "params": 100398,
+  "train_s": 9466.937481164932,
+  "resumed_at_epochs": [
+   7
+  ],
+  "device": "cuda:0",
+  "torch": "2.15.0+cu132",
+  "checkpoint": "/kaggle/working/phase2c_training/results/phase2c/training/graph_paired_lam1/fold_4_building_train_7/model_seed2.pt"
+ }
+]

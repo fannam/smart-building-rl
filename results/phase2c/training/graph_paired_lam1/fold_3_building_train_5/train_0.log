@@ -1,0 +1,14 @@
+[graph:paired:3:0:1] ep 0 sel 2.7273 | val state 0.6018 arm 1.7267 cf 0.3988 (zone 0.152 tank 0.126 E 0.184) 744s
+[graph:paired:3:0:1] ep 1 sel 1.7679 | val state 0.4603 arm 1.0564 cf 0.2512 (zone 0.108 tank 0.105 E 0.091) 740s
+[graph:paired:3:0:1] ep 2 sel 1.3694 | val state 0.4100 arm 0.7763 cf 0.1831 (zone 0.072 tank 0.094 E 0.064) 740s
+[graph:paired:3:0:1] ep 3 sel 1.0406 | val state 0.2785 arm 0.6076 cf 0.1545 (zone 0.058 tank 0.083 E 0.055) 718s
+[graph:paired:3:0:1] ep 4 sel 0.8487 | val state 0.2737 arm 0.4408 cf 0.1342 (zone 0.050 tank 0.074 E 0.048) 711s
+[graph:paired:3:0:1] INTERRUPTED (next epoch (~15 min) would not finish before the deadline); resume from epoch 5 in the next session
+[graph:paired:3:0:1] RESUMED at epoch 5 (best 4, patience 0)
+[graph:paired:3:0:1] ep 5 sel 0.8648 | val state 0.2233 arm 0.5199 cf 0.1216 (zone 0.046 tank 0.068 E 0.042) 598s
+[graph:paired:3:0:1] ep 6 sel 0.7434 | val state 0.2358 arm 0.3966 cf 0.1110 (zone 0.040 tank 0.067 E 0.037) 590s
+[graph:paired:3:0:1] ep 7 sel 0.6391 | val state 0.2184 arm 0.3246 cf 0.0962 (zone 0.037 tank 0.053 E 0.033) 596s
+[graph:paired:3:0:1] ep 8 sel 0.5723 | val state 0.1940 arm 0.2906 cf 0.0877 (zone 0.034 tank 0.050 E 0.029) 595s
+[graph:paired:3:0:1] ep 9 sel 0.5600 | val state 0.1834 arm 0.2929 cf 0.0838 (zone 0.032 tank 0.048 E 0.028) 593s
+[graph:paired:3:0:1] ep 10 sel 0.5429 | val state 0.1818 arm 0.2796 cf 0.0814 (zone 0.030 tank 0.048 E 0.027) 594s
+[graph:paired:3:0:1] ep 11 sel 0.5399 | val state 0.1811 arm 0.2777 cf 0.0811 (zone 0.030 tank 0.048 E 0.027) 591s

@@ -1,0 +1,13 @@
+[gru:arms:5:0:0] ep 0 sel 2.9198 | val state 0.7494 arm 2.1703 cf 0.4557 (zone 0.183 tank 0.116 E 0.215) 357s
+[gru:arms:5:0:0] ep 1 sel 2.1609 | val state 0.5933 arm 1.5676 cf 0.3673 (zone 0.172 tank 0.100 E 0.145) 366s
+[gru:arms:5:0:0] ep 2 sel 1.8870 | val state 0.6499 arm 1.2371 cf 0.3043 (zone 0.138 tank 0.094 E 0.119) 363s
+[gru:arms:5:0:0] ep 3 sel 1.3182 | val state 0.3847 arm 0.9335 cf 0.2623 (zone 0.115 tank 0.091 E 0.101) 361s
+[gru:arms:5:0:0] ep 4 sel 1.4205 | val state 0.4382 arm 0.9822 cf 0.2463 (zone 0.111 tank 0.083 E 0.093) 369s
+[gru:arms:5:0:0] ep 5 sel 1.2584 | val state 0.3611 arm 0.8973 cf 0.2260 (zone 0.103 tank 0.076 E 0.085) 409s
+[gru:arms:5:0:0] ep 6 sel 1.0344 | val state 0.3318 arm 0.7026 cf 0.2051 (zone 0.092 tank 0.070 E 0.079) 406s
+[gru:arms:5:0:0] ep 7 sel 1.0324 | val state 0.3156 arm 0.7168 cf 0.1941 (zone 0.087 tank 0.067 E 0.074) 402s
+[gru:arms:5:0:0] ep 8 sel 0.9344 | val state 0.3020 arm 0.6324 cf 0.1822 (zone 0.081 tank 0.063 E 0.070) 397s
+[gru:arms:5:0:0] ep 9 sel 0.9372 | val state 0.3095 arm 0.6277 cf 0.1775 (zone 0.079 tank 0.062 E 0.067) 407s
+[gru:arms:5:0:0] ep 10 sel 0.9377 | val state 0.3040 arm 0.6337 cf 0.1715 (zone 0.076 tank 0.061 E 0.065) 402s
+[gru:arms:5:0:0] ep 11 sel 0.9447 | val state 0.3041 arm 0.6407 cf 0.1713 (zone 0.076 tank 0.061 E 0.065) 409s
+[gru:arms:5:0:0] early stop at epoch 11 (best 8)

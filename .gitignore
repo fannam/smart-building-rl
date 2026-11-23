@@ -34,5 +34,8 @@ scratch/phase2b/
 # Kaggle downloads / uploads
 *.zip
 
+# Kaggle competition data (gateway + simulator bundle); not ours to redistribute
+competition_data/
+
 # Phase 2C scratch / local dry runs
 scratch/phase2c/

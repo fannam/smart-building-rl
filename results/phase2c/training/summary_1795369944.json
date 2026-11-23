@@ -1,0 +1,34 @@
+[
+ {
+  "spec": "gru:paired:5:0:0.1",
+  "skipped": true
+ },
+ {
+  "spec": "gru:paired:5:0:0.3",
+  "skipped": true
+ },
+ {
+  "spec": "gru:paired:5:0:1",
+  "skipped": true
+ },
+ {
+  "spec": "graph:paired:5:0:0.1",
+  "skipped": true
+ },
+ {
+  "spec": "graph:paired:5:0:0.3",
+  "skipped": true
+ },
+ {
+  "spec": "graph:paired:5:0:1",
+  "skipped": true
+ },
+ {
+  "spec": "gru:arms:5:0:0",
+  "skipped": true
+ },
+ {
+  "spec": "graph:arms:5:0:0",
+  "skipped": true
+ }
+]
