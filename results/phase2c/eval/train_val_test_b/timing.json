@@ -1,0 +1,49 @@
+{
+ "wall_s": 165.5215790271759,
+ "parallel": 6,
+ "threads": 2,
+ "per_building": {
+  "building_train_1": {
+   "points": 50,
+   "models": 6,
+   "load_s": 0.056043148040771484,
+   "mean_point_s": 2.097629714012146,
+   "wall_s": 104.93763017654419
+  },
+  "building_train_2": {
+   "points": 50,
+   "models": 8,
+   "load_s": 0.07136058807373047,
+   "mean_point_s": 3.2615955209732057,
+   "wall_s": 163.1512167453766
+  },
+  "building_train_4": {
+   "points": 50,
+   "models": 6,
+   "load_s": 0.056159257888793945,
+   "mean_point_s": 2.3838316583633423,
+   "wall_s": 119.24783730506897
+  },
+  "building_train_5": {
+   "points": 50,
+   "models": 6,
+   "load_s": 0.03982210159301758,
+   "mean_point_s": 2.6712429237365725,
+   "wall_s": 133.602059841156
+  },
+  "building_train_7": {
+   "points": 50,
+   "models": 6,
+   "load_s": 0.047479867935180664,
+   "mean_point_s": 2.2118238019943237,
+   "wall_s": 110.63876152038574
+  },
+  "building_train_8": {
+   "points": 50,
+   "models": 12,
+   "load_s": 0.10335135459899902,
+   "mean_point_s": 3.026816930770874,
+   "wall_s": 151.44428658485413
+  }
+ }
+}
