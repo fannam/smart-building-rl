@@ -1,0 +1,370 @@
+[
+ {
+  "spec": "gru:paired:5:0:0.1",
+  "arch": "gru",
+  "objective": "paired",
+  "lambda": 0.1,
+  "seed": 0,
+  "fold": {
+   "fold": 5,
+   "test_building": "building_train_8",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7"
+   ]
+  },
+  "best_epoch": 10,
+  "best_val_select": 0.8869258818931257,
+  "epochs_run": 12,
+  "best_val_state": 0.29943543121319366,
+  "best_val_cf": 0.15905005217570325,
+  "train_windows": 19700,
+  "train_branch_points": 155,
+  "val_branch_points": 45,
+  "dropped_aborted_arms": 0,
+  "delta_stats": {
+   "zone": 0.6795970797538757,
+   "tank": 2.024871826171875,
+   "energy": [
+    0.0028551404372729084,
+    0.014929309955403368,
+    0.0005328571382069878,
+    0.026849904040971925
+   ],
+   "n_groups": 155,
+   "n_arms": 2945
+  },
+  "split_digest": "326251fd425e93f3",
+  "params": 99142,
+  "train_s": 4627.509910106659,
+  "resumed_at_epochs": [],
+  "device": "cuda:0",
+  "torch": "2.15.0+cu132",
+  "checkpoint": "/kaggle/working/phase2c_training/results/phase2c/training/gru_paired_lam0.1/fold_5_building_train_8/model_seed0.pt"
+ },
+ {
+  "spec": "gru:arms:5:0:0",
+  "arch": "gru",
+  "objective": "arms",
+  "lambda": 0.0,
+  "seed": 0,
+  "fold": {
+   "fold": 5,
+   "test_building": "building_train_8",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7"
+   ]
+  },
+  "best_epoch": 8,
+  "best_val_select": 0.9344113796093576,
+  "epochs_run": 12,
+  "best_val_state": 0.30203176579261953,
+  "best_val_cf": 0.18220702469672845,
+  "train_windows": 19700,
+  "train_branch_points": 155,
+  "val_branch_points": 45,
+  "dropped_aborted_arms": 0,
+  "delta_stats": {
+   "zone": 0.6795970797538757,
+   "tank": 2.024871826171875,
+   "energy": [
+    0.0028551404372729084,
+    0.014929309955403368,
+    0.0005328571382069878,
+    0.026849904040971925
+   ],
+   "n_groups": 155,
+   "n_arms": 2945
+  },
+  "split_digest": "326251fd425e93f3",
+  "params": 99142,
+  "train_s": 4661.68501663208,
+  "resumed_at_epochs": [],
+  "device": "cuda:0",
+  "torch": "2.15.0+cu132",
+  "checkpoint": "/kaggle/working/phase2c_training/results/phase2c/training/gru_arms_lam0/fold_5_building_train_8/model_seed0.pt"
+ },
+ {
+  "spec": "gru:paired:5:0:0.3",
+  "arch": "gru",
+  "objective": "paired",
+  "lambda": 0.3,
+  "seed": 0,
+  "fold": {
+   "fold": 5,
+   "test_building": "building_train_8",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7"
+   ]
+  },
+  "best_epoch": 10,
+  "best_val_select": 0.8860551513858428,
+  "epochs_run": 12,
+  "best_val_state": 0.29420645524923866,
+  "best_val_cf": 0.14678850527042928,
+  "train_windows": 19700,
+  "train_branch_points": 155,
+  "val_branch_points": 45,
+  "dropped_aborted_arms": 0,
+  "delta_stats": {
+   "zone": 0.6795970797538757,
+   "tank": 2.024871826171875,
+   "energy": [
+    0.0028551404372729084,
+    0.014929309955403368,
+    0.0005328571382069878,
+    0.026849904040971925
+   ],
+   "n_groups": 155,
+   "n_arms": 2945
+  },
+  "split_digest": "326251fd425e93f3",
+  "params": 99142,
+  "train_s": 4499.833429574966,
+  "resumed_at_epochs": [],
+  "device": "cuda:0",
+  "torch": "2.15.0+cu132",
+  "checkpoint": "/kaggle/working/phase2c_training/results/phase2c/training/gru_paired_lam0.3/fold_5_building_train_8/model_seed0.pt"
+ },
+ {
+  "spec": "gru:paired:5:0:1",
+  "arch": "gru",
+  "objective": "paired",
+  "lambda": 1.0,
+  "seed": 0,
+  "fold": {
+   "fold": 5,
+   "test_building": "building_train_8",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7"
+   ]
+  },
+  "best_epoch": 9,
+  "best_val_select": 0.9936571192290725,
+  "epochs_run": 12,
+  "best_val_state": 0.32047265794480573,
+  "best_val_cf": 0.13131562122346266,
+  "train_windows": 19700,
+  "train_branch_points": 155,
+  "val_branch_points": 45,
+  "dropped_aborted_arms": 0,
+  "delta_stats": {
+   "zone": 0.6795970797538757,
+   "tank": 2.024871826171875,
+   "energy": [
+    0.0028551404372729084,
+    0.014929309955403368,
+    0.0005328571382069878,
+    0.026849904040971925
+   ],
+   "n_groups": 155,
+   "n_arms": 2945
+  },
+  "split_digest": "326251fd425e93f3",
+  "params": 99142,
+  "train_s": 4525.534703731537,
+  "resumed_at_epochs": [],
+  "device": "cuda:0",
+  "torch": "2.15.0+cu132",
+  "checkpoint": "/kaggle/working/phase2c_training/results/phase2c/training/gru_paired_lam1/fold_5_building_train_8/model_seed0.pt"
+ },
+ {
+  "spec": "graph:arms:5:0:0",
+  "arch": "graph",
+  "objective": "arms",
+  "lambda": 0.0,
+  "seed": 0,
+  "fold": {
+   "fold": 5,
+   "test_building": "building_train_8",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7"
+   ]
+  },
+  "best_epoch": 9,
+  "best_val_select": 0.5638817329064765,
+  "epochs_run": 12,
+  "best_val_state": 0.21433470242128178,
+  "best_val_cf": 0.14026779758379512,
+  "train_windows": 19700,
+  "train_branch_points": 155,
+  "val_branch_points": 45,
+  "dropped_aborted_arms": 0,
+  "delta_stats": {
+   "zone": 0.6795970797538757,
+   "tank": 2.024871826171875,
+   "energy": [
+    0.0028551404372729084,
+    0.014929309955403368,
+    0.0005328571382069878,
+    0.026849904040971925
+   ],
+   "n_groups": 155,
+   "n_arms": 2945
+  },
+  "split_digest": "326251fd425e93f3",
+  "params": 100398,
+  "train_s": 9413.423630714417,
+  "resumed_at_epochs": [],
+  "device": "cuda:1",
+  "torch": "2.15.0+cu132",
+  "checkpoint": "/kaggle/working/phase2c_training/results/phase2c/training/graph_arms_lam0/fold_5_building_train_8/model_seed0.pt"
+ },
+ {
+  "spec": "graph:paired:5:0:0.1",
+  "arch": "graph",
+  "objective": "paired",
+  "lambda": 0.1,
+  "seed": 0,
+  "fold": {
+   "fold": 5,
+   "test_building": "building_train_8",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7"
+   ]
+  },
+  "best_epoch": 10,
+  "best_val_select": 0.6036144451784314,
+  "epochs_run": 12,
+  "best_val_state": 0.21944848616683,
+  "best_val_cf": 0.12943828381274058,
+  "train_windows": 19700,
+  "train_branch_points": 155,
+  "val_branch_points": 45,
+  "dropped_aborted_arms": 0,
+  "delta_stats": {
+   "zone": 0.6795970797538757,
+   "tank": 2.024871826171875,
+   "energy": [
+    0.0028551404372729084,
+    0.014929309955403368,
+    0.0005328571382069878,
+    0.026849904040971925
+   ],
+   "n_groups": 155,
+   "n_arms": 2945
+  },
+  "split_digest": "326251fd425e93f3",
+  "params": 100398,
+  "train_s": 8749.227788448334,
+  "resumed_at_epochs": [],
+  "device": "cuda:0",
+  "torch": "2.15.0+cu132",
+  "checkpoint": "/kaggle/working/phase2c_training/results/phase2c/training/graph_paired_lam0.1/fold_5_building_train_8/model_seed0.pt"
+ },
+ {
+  "spec": "graph:paired:5:0:0.3",
+  "arch": "graph",
+  "objective": "paired",
+  "lambda": 0.3,
+  "seed": 0,
+  "fold": {
+   "fold": 5,
+   "test_building": "building_train_8",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7"
+   ]
+  },
+  "best_epoch": 10,
+  "best_val_select": 0.6078930563240867,
+  "epochs_run": 12,
+  "best_val_state": 0.21189921660147407,
+  "best_val_cf": 0.12481253626553909,
+  "train_windows": 19700,
+  "train_branch_points": 155,
+  "val_branch_points": 45,
+  "dropped_aborted_arms": 0,
+  "delta_stats": {
+   "zone": 0.6795970797538757,
+   "tank": 2.024871826171875,
+   "energy": [
+    0.0028551404372729084,
+    0.014929309955403368,
+    0.0005328571382069878,
+    0.026849904040971925
+   ],
+   "n_groups": 155,
+   "n_arms": 2945
+  },
+  "split_digest": "326251fd425e93f3",
+  "params": 100398,
+  "train_s": 8745.496052742004,
+  "resumed_at_epochs": [],
+  "device": "cuda:0",
+  "torch": "2.15.0+cu132",
+  "checkpoint": "/kaggle/working/phase2c_training/results/phase2c/training/graph_paired_lam0.3/fold_5_building_train_8/model_seed0.pt"
+ },
+ {
+  "spec": "graph:paired:5:0:1",
+  "arch": "graph",
+  "objective": "paired",
+  "lambda": 1.0,
+  "seed": 0,
+  "fold": {
+   "fold": 5,
+   "test_building": "building_train_8",
+   "train_buildings": [
+    "building_train_1",
+    "building_train_2",
+    "building_train_4",
+    "building_train_5",
+    "building_train_7"
+   ]
+  },
+  "best_epoch": 10,
+  "best_val_select": 0.6584172727864073,
+  "epochs_run": 12,
+  "best_val_state": 0.21818235935643315,
+  "best_val_cf": 0.1027720325788402,
+  "train_windows": 19700,
+  "train_branch_points": 155,
+  "val_branch_points": 45,
+  "dropped_aborted_arms": 0,
+  "delta_stats": {
+   "zone": 0.6795970797538757,
+   "tank": 2.024871826171875,
+   "energy": [
+    0.0028551404372729084,
+    0.014929309955403368,
+    0.0005328571382069878,
+    0.026849904040971925
+   ],
+   "n_groups": 155,
+   "n_arms": 2945
+  },
+  "split_digest": "326251fd425e93f3",
+  "params": 100398,
+  "train_s": 8613.204297304153,
+  "resumed_at_epochs": [],
+  "device": "cuda:1",
+  "torch": "2.15.0+cu132",
+  "checkpoint": "/kaggle/working/phase2c_training/results/phase2c/training/graph_paired_lam1/fold_5_building_train_8/model_seed0.pt"
+ }
+]

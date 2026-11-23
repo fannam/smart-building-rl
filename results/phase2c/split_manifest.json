@@ -1,0 +1,2827 @@
+{
+ "version": "phase2c-splits-v1",
+ "unit": "scenario-day (t_b // 288); all arms of a branch point share its split",
+ "heldout_weather_prefix": "denver",
+ "val_fraction": 0.2,
+ "seed": 0,
+ "test_a": {
+  "source": "/tmp/p2c/smart-building-rl/configs/phase2c/phase2b_branch_points.json",
+  "branch_points": {
+   "building_train_1/atlanta_2": [
+    315,
+    950,
+    1145,
+    1192,
+    1649,
+    1761
+   ],
+   "building_train_1/fairbanks_1": [
+    434,
+    1145,
+    1275,
+    1664,
+    1812
+   ],
+   "building_train_2/atlanta_3": [
+    331,
+    378,
+    890,
+    1050,
+    1145,
+    1849
+   ],
+   "building_train_2/fairbanks_2": [
+    359,
+    610,
+    815,
+    1145,
+    1300,
+    1820
+   ],
+   "building_train_4/atlanta_5": [
+    815,
+    895,
+    1145,
+    1439,
+    1820
+   ],
+   "building_train_4/fairbanks_4": [
+    696,
+    997,
+    1050,
+    1145,
+    1464,
+    1849
+   ],
+   "building_train_5/atlanta_6": [
+    815,
+    1145,
+    1262,
+    1820
+   ],
+   "building_train_5/fairbanks_5": [
+    292,
+    371,
+    581,
+    1145,
+    1664,
+    1812
+   ],
+   "building_train_7/atlanta_8": [
+    359,
+    915,
+    1145,
+    1444,
+    1649,
+    1761
+   ],
+   "building_train_7/fairbanks_7": [
+    361,
+    943,
+    1145,
+    1301,
+    1649,
+    1761
+   ],
+   "building_train_8/atlanta_1": [
+    342,
+    425,
+    1145,
+    1493,
+    1649,
+    1761
+   ],
+   "building_train_8/fairbanks_8": [
+    293,
+    575,
+    618,
+    1145,
+    1649,
+    1761
+   ]
+  }
+ },
+ "assignments": {
+  "building_train_1__atlanta_2__t00262": {
+   "split": "train",
+   "scenario_day": "building_train_1/atlanta_2#0",
+   "scenario": "building_train_1/atlanta_2",
+   "building": "building_train_1",
+   "weather": "atlanta_2",
+   "t_b": 262,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__atlanta_2__t00387": {
+   "split": "val",
+   "scenario_day": "building_train_1/atlanta_2#1",
+   "scenario": "building_train_1/atlanta_2",
+   "building": "building_train_1",
+   "weather": "atlanta_2",
+   "t_b": 387,
+   "stratum": "occupied_heating"
+  },
+  "building_train_1__atlanta_2__t00574": {
+   "split": "val",
+   "scenario_day": "building_train_1/atlanta_2#1",
+   "scenario": "building_train_1/atlanta_2",
+   "building": "building_train_1",
+   "weather": "atlanta_2",
+   "t_b": 574,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__atlanta_2__t00663": {
+   "split": "train",
+   "scenario_day": "building_train_1/atlanta_2#2",
+   "scenario": "building_train_1/atlanta_2",
+   "building": "building_train_1",
+   "weather": "atlanta_2",
+   "t_b": 663,
+   "stratum": "occupied_heating"
+  },
+  "building_train_1__atlanta_2__t00720": {
+   "split": "train",
+   "scenario_day": "building_train_1/atlanta_2#2",
+   "scenario": "building_train_1/atlanta_2",
+   "building": "building_train_1",
+   "weather": "atlanta_2",
+   "t_b": 720,
+   "stratum": "occupied_heating"
+  },
+  "building_train_1__atlanta_2__t00861": {
+   "split": "train",
+   "scenario_day": "building_train_1/atlanta_2#2",
+   "scenario": "building_train_1/atlanta_2",
+   "building": "building_train_1",
+   "weather": "atlanta_2",
+   "t_b": 861,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__atlanta_2__t01307": {
+   "split": "train",
+   "scenario_day": "building_train_1/atlanta_2#4",
+   "scenario": "building_train_1/atlanta_2",
+   "building": "building_train_1",
+   "weather": "atlanta_2",
+   "t_b": 1307,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_1__atlanta_2__t01382": {
+   "split": "train",
+   "scenario_day": "building_train_1/atlanta_2#4",
+   "scenario": "building_train_1/atlanta_2",
+   "building": "building_train_1",
+   "weather": "atlanta_2",
+   "t_b": 1382,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_1__atlanta_2__t01436": {
+   "split": "train",
+   "scenario_day": "building_train_1/atlanta_2#4",
+   "scenario": "building_train_1/atlanta_2",
+   "building": "building_train_1",
+   "weather": "atlanta_2",
+   "t_b": 1436,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__atlanta_2__t01574": {
+   "split": "val",
+   "scenario_day": "building_train_1/atlanta_2#5",
+   "scenario": "building_train_1/atlanta_2",
+   "building": "building_train_1",
+   "weather": "atlanta_2",
+   "t_b": 1574,
+   "stratum": "occupied_heating"
+  },
+  "building_train_1__denver_7__t00285": {
+   "split": "test_b",
+   "scenario_day": "building_train_1/denver_7#0",
+   "scenario": "building_train_1/denver_7",
+   "building": "building_train_1",
+   "weather": "denver_7",
+   "t_b": 285,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__denver_7__t00384": {
+   "split": "test_b",
+   "scenario_day": "building_train_1/denver_7#1",
+   "scenario": "building_train_1/denver_7",
+   "building": "building_train_1",
+   "weather": "denver_7",
+   "t_b": 384,
+   "stratum": "occupied_heating"
+  },
+  "building_train_1__denver_7__t00695": {
+   "split": "test_b",
+   "scenario_day": "building_train_1/denver_7#2",
+   "scenario": "building_train_1/denver_7",
+   "building": "building_train_1",
+   "weather": "denver_7",
+   "t_b": 695,
+   "stratum": "occupied_heating"
+  },
+  "building_train_1__denver_7__t00809": {
+   "split": "test_b",
+   "scenario_day": "building_train_1/denver_7#2",
+   "scenario": "building_train_1/denver_7",
+   "building": "building_train_1",
+   "weather": "denver_7",
+   "t_b": 809,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_1__denver_7__t00926": {
+   "split": "test_b",
+   "scenario_day": "building_train_1/denver_7#3",
+   "scenario": "building_train_1/denver_7",
+   "building": "building_train_1",
+   "weather": "denver_7",
+   "t_b": 926,
+   "stratum": "occupied_heating"
+  },
+  "building_train_1__denver_7__t01146": {
+   "split": "test_b",
+   "scenario_day": "building_train_1/denver_7#3",
+   "scenario": "building_train_1/denver_7",
+   "building": "building_train_1",
+   "weather": "denver_7",
+   "t_b": 1146,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__denver_7__t01198": {
+   "split": "test_b",
+   "scenario_day": "building_train_1/denver_7#4",
+   "scenario": "building_train_1/denver_7",
+   "building": "building_train_1",
+   "weather": "denver_7",
+   "t_b": 1198,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_1__denver_7__t01287": {
+   "split": "test_b",
+   "scenario_day": "building_train_1/denver_7#4",
+   "scenario": "building_train_1/denver_7",
+   "building": "building_train_1",
+   "weather": "denver_7",
+   "t_b": 1287,
+   "stratum": "occupied_other"
+  },
+  "building_train_1__denver_7__t01437": {
+   "split": "test_b",
+   "scenario_day": "building_train_1/denver_7#4",
+   "scenario": "building_train_1/denver_7",
+   "building": "building_train_1",
+   "weather": "denver_7",
+   "t_b": 1437,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__denver_7__t01595": {
+   "split": "test_b",
+   "scenario_day": "building_train_1/denver_7#5",
+   "scenario": "building_train_1/denver_7",
+   "building": "building_train_1",
+   "weather": "denver_7",
+   "t_b": 1595,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_1__fairbanks_1__t00277": {
+   "split": "train",
+   "scenario_day": "building_train_1/fairbanks_1#0",
+   "scenario": "building_train_1/fairbanks_1",
+   "building": "building_train_1",
+   "weather": "fairbanks_1",
+   "t_b": 277,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__fairbanks_1__t00569": {
+   "split": "train",
+   "scenario_day": "building_train_1/fairbanks_1#1",
+   "scenario": "building_train_1/fairbanks_1",
+   "building": "building_train_1",
+   "weather": "fairbanks_1",
+   "t_b": 569,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__fairbanks_1__t00670": {
+   "split": "val",
+   "scenario_day": "building_train_1/fairbanks_1#2",
+   "scenario": "building_train_1/fairbanks_1",
+   "building": "building_train_1",
+   "weather": "fairbanks_1",
+   "t_b": 670,
+   "stratum": "occupied_other"
+  },
+  "building_train_1__fairbanks_1__t00856": {
+   "split": "val",
+   "scenario_day": "building_train_1/fairbanks_1#2",
+   "scenario": "building_train_1/fairbanks_1",
+   "building": "building_train_1",
+   "weather": "fairbanks_1",
+   "t_b": 856,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__fairbanks_1__t00994": {
+   "split": "train",
+   "scenario_day": "building_train_1/fairbanks_1#3",
+   "scenario": "building_train_1/fairbanks_1",
+   "building": "building_train_1",
+   "weather": "fairbanks_1",
+   "t_b": 994,
+   "stratum": "occupied_heating"
+  },
+  "building_train_1__fairbanks_1__t01433": {
+   "split": "train",
+   "scenario_day": "building_train_1/fairbanks_1#4",
+   "scenario": "building_train_1/fairbanks_1",
+   "building": "building_train_1",
+   "weather": "fairbanks_1",
+   "t_b": 1433,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__fairbanks_1__t01491": {
+   "split": "train",
+   "scenario_day": "building_train_1/fairbanks_1#5",
+   "scenario": "building_train_1/fairbanks_1",
+   "building": "building_train_1",
+   "weather": "fairbanks_1",
+   "t_b": 1491,
+   "stratum": "occupied_heating"
+  },
+  "building_train_1__fairbanks_1__t01591": {
+   "split": "train",
+   "scenario_day": "building_train_1/fairbanks_1#5",
+   "scenario": "building_train_1/fairbanks_1",
+   "building": "building_train_1",
+   "weather": "fairbanks_1",
+   "t_b": 1591,
+   "stratum": "occupied_heating"
+  },
+  "building_train_1__fairbanks_1__t01872": {
+   "split": "val",
+   "scenario_day": "building_train_1/fairbanks_1#6",
+   "scenario": "building_train_1/fairbanks_1",
+   "building": "building_train_1",
+   "weather": "fairbanks_1",
+   "t_b": 1872,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_1__fairbanks_1__t01965": {
+   "split": "val",
+   "scenario_day": "building_train_1/fairbanks_1#6",
+   "scenario": "building_train_1/fairbanks_1",
+   "building": "building_train_1",
+   "weather": "fairbanks_1",
+   "t_b": 1965,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_1__phoenix_5__t00193": {
+   "split": "train",
+   "scenario_day": "building_train_1/phoenix_5#0",
+   "scenario": "building_train_1/phoenix_5",
+   "building": "building_train_1",
+   "weather": "phoenix_5",
+   "t_b": 193,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_1__phoenix_5__t00281": {
+   "split": "train",
+   "scenario_day": "building_train_1/phoenix_5#0",
+   "scenario": "building_train_1/phoenix_5",
+   "building": "building_train_1",
+   "weather": "phoenix_5",
+   "t_b": 281,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__phoenix_5__t00570": {
+   "split": "val",
+   "scenario_day": "building_train_1/phoenix_5#1",
+   "scenario": "building_train_1/phoenix_5",
+   "building": "building_train_1",
+   "weather": "phoenix_5",
+   "t_b": 570,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__phoenix_5__t00854": {
+   "split": "train",
+   "scenario_day": "building_train_1/phoenix_5#2",
+   "scenario": "building_train_1/phoenix_5",
+   "building": "building_train_1",
+   "weather": "phoenix_5",
+   "t_b": 854,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__phoenix_5__t01140": {
+   "split": "train",
+   "scenario_day": "building_train_1/phoenix_5#3",
+   "scenario": "building_train_1/phoenix_5",
+   "building": "building_train_1",
+   "weather": "phoenix_5",
+   "t_b": 1140,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__phoenix_5__t01219": {
+   "split": "train",
+   "scenario_day": "building_train_1/phoenix_5#4",
+   "scenario": "building_train_1/phoenix_5",
+   "building": "building_train_1",
+   "weather": "phoenix_5",
+   "t_b": 1219,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_1__phoenix_5__t01434": {
+   "split": "train",
+   "scenario_day": "building_train_1/phoenix_5#4",
+   "scenario": "building_train_1/phoenix_5",
+   "building": "building_train_1",
+   "weather": "phoenix_5",
+   "t_b": 1434,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__phoenix_5__t01534": {
+   "split": "val",
+   "scenario_day": "building_train_1/phoenix_5#5",
+   "scenario": "building_train_1/phoenix_5",
+   "building": "building_train_1",
+   "weather": "phoenix_5",
+   "t_b": 1534,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_1__phoenix_5__t01595": {
+   "split": "val",
+   "scenario_day": "building_train_1/phoenix_5#5",
+   "scenario": "building_train_1/phoenix_5",
+   "building": "building_train_1",
+   "weather": "phoenix_5",
+   "t_b": 1595,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_1__phoenix_5__t01910": {
+   "split": "train",
+   "scenario_day": "building_train_1/phoenix_5#6",
+   "scenario": "building_train_1/phoenix_5",
+   "building": "building_train_1",
+   "weather": "phoenix_5",
+   "t_b": 1910,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_1__singapore_8__t00284": {
+   "split": "train",
+   "scenario_day": "building_train_1/singapore_8#0",
+   "scenario": "building_train_1/singapore_8",
+   "building": "building_train_1",
+   "weather": "singapore_8",
+   "t_b": 284,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__singapore_8__t00500": {
+   "split": "val",
+   "scenario_day": "building_train_1/singapore_8#1",
+   "scenario": "building_train_1/singapore_8",
+   "building": "building_train_1",
+   "weather": "singapore_8",
+   "t_b": 500,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_1__singapore_8__t00570": {
+   "split": "val",
+   "scenario_day": "building_train_1/singapore_8#1",
+   "scenario": "building_train_1/singapore_8",
+   "building": "building_train_1",
+   "weather": "singapore_8",
+   "t_b": 570,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__singapore_8__t00672": {
+   "split": "train",
+   "scenario_day": "building_train_1/singapore_8#2",
+   "scenario": "building_train_1/singapore_8",
+   "building": "building_train_1",
+   "weather": "singapore_8",
+   "t_b": 672,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_1__singapore_8__t00761": {
+   "split": "train",
+   "scenario_day": "building_train_1/singapore_8#2",
+   "scenario": "building_train_1/singapore_8",
+   "building": "building_train_1",
+   "weather": "singapore_8",
+   "t_b": 761,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_1__singapore_8__t00853": {
+   "split": "train",
+   "scenario_day": "building_train_1/singapore_8#2",
+   "scenario": "building_train_1/singapore_8",
+   "building": "building_train_1",
+   "weather": "singapore_8",
+   "t_b": 853,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__singapore_8__t00937": {
+   "split": "train",
+   "scenario_day": "building_train_1/singapore_8#3",
+   "scenario": "building_train_1/singapore_8",
+   "building": "building_train_1",
+   "weather": "singapore_8",
+   "t_b": 937,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_1__singapore_8__t01142": {
+   "split": "train",
+   "scenario_day": "building_train_1/singapore_8#3",
+   "scenario": "building_train_1/singapore_8",
+   "building": "building_train_1",
+   "weather": "singapore_8",
+   "t_b": 1142,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__singapore_8__t01431": {
+   "split": "train",
+   "scenario_day": "building_train_1/singapore_8#4",
+   "scenario": "building_train_1/singapore_8",
+   "building": "building_train_1",
+   "weather": "singapore_8",
+   "t_b": 1431,
+   "stratum": "morning_recovery"
+  },
+  "building_train_1__singapore_8__t01595": {
+   "split": "val",
+   "scenario_day": "building_train_1/singapore_8#5",
+   "scenario": "building_train_1/singapore_8",
+   "building": "building_train_1",
+   "weather": "singapore_8",
+   "t_b": 1595,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_2__atlanta_3__t00282": {
+   "split": "train",
+   "scenario_day": "building_train_2/atlanta_3#0",
+   "scenario": "building_train_2/atlanta_3",
+   "building": "building_train_2",
+   "weather": "atlanta_3",
+   "t_b": 282,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__atlanta_3__t00572": {
+   "split": "train",
+   "scenario_day": "building_train_2/atlanta_3#1",
+   "scenario": "building_train_2/atlanta_3",
+   "building": "building_train_2",
+   "weather": "atlanta_3",
+   "t_b": 572,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__atlanta_3__t00630": {
+   "split": "train",
+   "scenario_day": "building_train_2/atlanta_3#2",
+   "scenario": "building_train_2/atlanta_3",
+   "building": "building_train_2",
+   "weather": "atlanta_3",
+   "t_b": 630,
+   "stratum": "occupied_heating"
+  },
+  "building_train_2__atlanta_3__t00814": {
+   "split": "train",
+   "scenario_day": "building_train_2/atlanta_3#2",
+   "scenario": "building_train_2/atlanta_3",
+   "building": "building_train_2",
+   "weather": "atlanta_3",
+   "t_b": 814,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_2__atlanta_3__t00953": {
+   "split": "train",
+   "scenario_day": "building_train_2/atlanta_3#3",
+   "scenario": "building_train_2/atlanta_3",
+   "building": "building_train_2",
+   "weather": "atlanta_3",
+   "t_b": 953,
+   "stratum": "occupied_heating"
+  },
+  "building_train_2__atlanta_3__t01239": {
+   "split": "train",
+   "scenario_day": "building_train_2/atlanta_3#4",
+   "scenario": "building_train_2/atlanta_3",
+   "building": "building_train_2",
+   "weather": "atlanta_3",
+   "t_b": 1239,
+   "stratum": "occupied_heating"
+  },
+  "building_train_2__atlanta_3__t01307": {
+   "split": "train",
+   "scenario_day": "building_train_2/atlanta_3#4",
+   "scenario": "building_train_2/atlanta_3",
+   "building": "building_train_2",
+   "weather": "atlanta_3",
+   "t_b": 1307,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_2__atlanta_3__t01438": {
+   "split": "train",
+   "scenario_day": "building_train_2/atlanta_3#4",
+   "scenario": "building_train_2/atlanta_3",
+   "building": "building_train_2",
+   "weather": "atlanta_3",
+   "t_b": 1438,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__atlanta_3__t01524": {
+   "split": "train",
+   "scenario_day": "building_train_2/atlanta_3#5",
+   "scenario": "building_train_2/atlanta_3",
+   "building": "building_train_2",
+   "weather": "atlanta_3",
+   "t_b": 1524,
+   "stratum": "occupied_heating"
+  },
+  "building_train_2__atlanta_3__t01578": {
+   "split": "train",
+   "scenario_day": "building_train_2/atlanta_3#5",
+   "scenario": "building_train_2/atlanta_3",
+   "building": "building_train_2",
+   "weather": "atlanta_3",
+   "t_b": 1578,
+   "stratum": "occupied_heating"
+  },
+  "building_train_2__denver_8__t00277": {
+   "split": "test_b",
+   "scenario_day": "building_train_2/denver_8#0",
+   "scenario": "building_train_2/denver_8",
+   "building": "building_train_2",
+   "weather": "denver_8",
+   "t_b": 277,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__denver_8__t00334": {
+   "split": "test_b",
+   "scenario_day": "building_train_2/denver_8#1",
+   "scenario": "building_train_2/denver_8",
+   "building": "building_train_2",
+   "weather": "denver_8",
+   "t_b": 334,
+   "stratum": "occupied_other"
+  },
+  "building_train_2__denver_8__t00434": {
+   "split": "test_b",
+   "scenario_day": "building_train_2/denver_8#1",
+   "scenario": "building_train_2/denver_8",
+   "building": "building_train_2",
+   "weather": "denver_8",
+   "t_b": 434,
+   "stratum": "occupied_heating"
+  },
+  "building_train_2__denver_8__t00570": {
+   "split": "test_b",
+   "scenario_day": "building_train_2/denver_8#1",
+   "scenario": "building_train_2/denver_8",
+   "building": "building_train_2",
+   "weather": "denver_8",
+   "t_b": 570,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__denver_8__t00643": {
+   "split": "test_b",
+   "scenario_day": "building_train_2/denver_8#2",
+   "scenario": "building_train_2/denver_8",
+   "building": "building_train_2",
+   "weather": "denver_8",
+   "t_b": 643,
+   "stratum": "occupied_heating"
+  },
+  "building_train_2__denver_8__t00724": {
+   "split": "test_b",
+   "scenario_day": "building_train_2/denver_8#2",
+   "scenario": "building_train_2/denver_8",
+   "building": "building_train_2",
+   "weather": "denver_8",
+   "t_b": 724,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_2__denver_8__t01019": {
+   "split": "test_b",
+   "scenario_day": "building_train_2/denver_8#3",
+   "scenario": "building_train_2/denver_8",
+   "building": "building_train_2",
+   "weather": "denver_8",
+   "t_b": 1019,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_2__denver_8__t01089": {
+   "split": "test_b",
+   "scenario_day": "building_train_2/denver_8#3",
+   "scenario": "building_train_2/denver_8",
+   "building": "building_train_2",
+   "weather": "denver_8",
+   "t_b": 1089,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_2__denver_8__t01142": {
+   "split": "test_b",
+   "scenario_day": "building_train_2/denver_8#3",
+   "scenario": "building_train_2/denver_8",
+   "building": "building_train_2",
+   "weather": "denver_8",
+   "t_b": 1142,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__denver_8__t01299": {
+   "split": "test_b",
+   "scenario_day": "building_train_2/denver_8#4",
+   "scenario": "building_train_2/denver_8",
+   "building": "building_train_2",
+   "weather": "denver_8",
+   "t_b": 1299,
+   "stratum": "occupied_heating"
+  },
+  "building_train_2__fairbanks_2__t00178": {
+   "split": "train",
+   "scenario_day": "building_train_2/fairbanks_2#0",
+   "scenario": "building_train_2/fairbanks_2",
+   "building": "building_train_2",
+   "weather": "fairbanks_2",
+   "t_b": 178,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_2__fairbanks_2__t00269": {
+   "split": "train",
+   "scenario_day": "building_train_2/fairbanks_2#0",
+   "scenario": "building_train_2/fairbanks_2",
+   "building": "building_train_2",
+   "weather": "fairbanks_2",
+   "t_b": 269,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__fairbanks_2__t00421": {
+   "split": "train",
+   "scenario_day": "building_train_2/fairbanks_2#1",
+   "scenario": "building_train_2/fairbanks_2",
+   "building": "building_train_2",
+   "weather": "fairbanks_2",
+   "t_b": 421,
+   "stratum": "occupied_heating"
+  },
+  "building_train_2__fairbanks_2__t00551": {
+   "split": "train",
+   "scenario_day": "building_train_2/fairbanks_2#1",
+   "scenario": "building_train_2/fairbanks_2",
+   "building": "building_train_2",
+   "weather": "fairbanks_2",
+   "t_b": 551,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__fairbanks_2__t00702": {
+   "split": "train",
+   "scenario_day": "building_train_2/fairbanks_2#2",
+   "scenario": "building_train_2/fairbanks_2",
+   "building": "building_train_2",
+   "weather": "fairbanks_2",
+   "t_b": 702,
+   "stratum": "occupied_heating"
+  },
+  "building_train_2__fairbanks_2__t00933": {
+   "split": "train",
+   "scenario_day": "building_train_2/fairbanks_2#3",
+   "scenario": "building_train_2/fairbanks_2",
+   "building": "building_train_2",
+   "weather": "fairbanks_2",
+   "t_b": 933,
+   "stratum": "occupied_other"
+  },
+  "building_train_2__fairbanks_2__t01240": {
+   "split": "train",
+   "scenario_day": "building_train_2/fairbanks_2#4",
+   "scenario": "building_train_2/fairbanks_2",
+   "building": "building_train_2",
+   "weather": "fairbanks_2",
+   "t_b": 1240,
+   "stratum": "occupied_heating"
+  },
+  "building_train_2__fairbanks_2__t01436": {
+   "split": "train",
+   "scenario_day": "building_train_2/fairbanks_2#4",
+   "scenario": "building_train_2/fairbanks_2",
+   "building": "building_train_2",
+   "weather": "fairbanks_2",
+   "t_b": 1436,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__fairbanks_2__t01539": {
+   "split": "train",
+   "scenario_day": "building_train_2/fairbanks_2#5",
+   "scenario": "building_train_2/fairbanks_2",
+   "building": "building_train_2",
+   "weather": "fairbanks_2",
+   "t_b": 1539,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_2__fairbanks_2__t01945": {
+   "split": "train",
+   "scenario_day": "building_train_2/fairbanks_2#6",
+   "scenario": "building_train_2/fairbanks_2",
+   "building": "building_train_2",
+   "weather": "fairbanks_2",
+   "t_b": 1945,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_2__phoenix_6__t00285": {
+   "split": "train",
+   "scenario_day": "building_train_2/phoenix_6#0",
+   "scenario": "building_train_2/phoenix_6",
+   "building": "building_train_2",
+   "weather": "phoenix_6",
+   "t_b": 285,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__phoenix_6__t00349": {
+   "split": "train",
+   "scenario_day": "building_train_2/phoenix_6#1",
+   "scenario": "building_train_2/phoenix_6",
+   "building": "building_train_2",
+   "weather": "phoenix_6",
+   "t_b": 349,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_2__phoenix_6__t00573": {
+   "split": "train",
+   "scenario_day": "building_train_2/phoenix_6#1",
+   "scenario": "building_train_2/phoenix_6",
+   "building": "building_train_2",
+   "weather": "phoenix_6",
+   "t_b": 573,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__phoenix_6__t00857": {
+   "split": "val",
+   "scenario_day": "building_train_2/phoenix_6#2",
+   "scenario": "building_train_2/phoenix_6",
+   "building": "building_train_2",
+   "weather": "phoenix_6",
+   "t_b": 857,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__phoenix_6__t01150": {
+   "split": "train",
+   "scenario_day": "building_train_2/phoenix_6#3",
+   "scenario": "building_train_2/phoenix_6",
+   "building": "building_train_2",
+   "weather": "phoenix_6",
+   "t_b": 1150,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__phoenix_6__t01245": {
+   "split": "train",
+   "scenario_day": "building_train_2/phoenix_6#4",
+   "scenario": "building_train_2/phoenix_6",
+   "building": "building_train_2",
+   "weather": "phoenix_6",
+   "t_b": 1245,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_2__phoenix_6__t01434": {
+   "split": "train",
+   "scenario_day": "building_train_2/phoenix_6#4",
+   "scenario": "building_train_2/phoenix_6",
+   "building": "building_train_2",
+   "weather": "phoenix_6",
+   "t_b": 1434,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__phoenix_6__t01709": {
+   "split": "train",
+   "scenario_day": "building_train_2/phoenix_6#5",
+   "scenario": "building_train_2/phoenix_6",
+   "building": "building_train_2",
+   "weather": "phoenix_6",
+   "t_b": 1709,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_2__phoenix_6__t01883": {
+   "split": "val",
+   "scenario_day": "building_train_2/phoenix_6#6",
+   "scenario": "building_train_2/phoenix_6",
+   "building": "building_train_2",
+   "weather": "phoenix_6",
+   "t_b": 1883,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_2__phoenix_6__t01932": {
+   "split": "val",
+   "scenario_day": "building_train_2/phoenix_6#6",
+   "scenario": "building_train_2/phoenix_6",
+   "building": "building_train_2",
+   "weather": "phoenix_6",
+   "t_b": 1932,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_2__singapore_1__t00284": {
+   "split": "train",
+   "scenario_day": "building_train_2/singapore_1#0",
+   "scenario": "building_train_2/singapore_1",
+   "building": "building_train_2",
+   "weather": "singapore_1",
+   "t_b": 284,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__singapore_1__t00443": {
+   "split": "val",
+   "scenario_day": "building_train_2/singapore_1#1",
+   "scenario": "building_train_2/singapore_1",
+   "building": "building_train_2",
+   "weather": "singapore_1",
+   "t_b": 443,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_2__singapore_1__t00573": {
+   "split": "val",
+   "scenario_day": "building_train_2/singapore_1#1",
+   "scenario": "building_train_2/singapore_1",
+   "building": "building_train_2",
+   "weather": "singapore_1",
+   "t_b": 573,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__singapore_1__t00852": {
+   "split": "train",
+   "scenario_day": "building_train_2/singapore_1#2",
+   "scenario": "building_train_2/singapore_1",
+   "building": "building_train_2",
+   "weather": "singapore_1",
+   "t_b": 852,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__singapore_1__t01146": {
+   "split": "train",
+   "scenario_day": "building_train_2/singapore_1#3",
+   "scenario": "building_train_2/singapore_1",
+   "building": "building_train_2",
+   "weather": "singapore_1",
+   "t_b": 1146,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__singapore_1__t01292": {
+   "split": "train",
+   "scenario_day": "building_train_2/singapore_1#4",
+   "scenario": "building_train_2/singapore_1",
+   "building": "building_train_2",
+   "weather": "singapore_1",
+   "t_b": 1292,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_2__singapore_1__t01367": {
+   "split": "train",
+   "scenario_day": "building_train_2/singapore_1#4",
+   "scenario": "building_train_2/singapore_1",
+   "building": "building_train_2",
+   "weather": "singapore_1",
+   "t_b": 1367,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_2__singapore_1__t01433": {
+   "split": "train",
+   "scenario_day": "building_train_2/singapore_1#4",
+   "scenario": "building_train_2/singapore_1",
+   "building": "building_train_2",
+   "weather": "singapore_1",
+   "t_b": 1433,
+   "stratum": "morning_recovery"
+  },
+  "building_train_2__singapore_1__t01546": {
+   "split": "val",
+   "scenario_day": "building_train_2/singapore_1#5",
+   "scenario": "building_train_2/singapore_1",
+   "building": "building_train_2",
+   "weather": "singapore_1",
+   "t_b": 1546,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_2__singapore_1__t01684": {
+   "split": "val",
+   "scenario_day": "building_train_2/singapore_1#5",
+   "scenario": "building_train_2/singapore_1",
+   "building": "building_train_2",
+   "weather": "singapore_1",
+   "t_b": 1684,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_4__atlanta_5__t00285": {
+   "split": "train",
+   "scenario_day": "building_train_4/atlanta_5#0",
+   "scenario": "building_train_4/atlanta_5",
+   "building": "building_train_4",
+   "weather": "atlanta_5",
+   "t_b": 285,
+   "stratum": "morning_recovery"
+  },
+  "building_train_4__atlanta_5__t00403": {
+   "split": "val",
+   "scenario_day": "building_train_4/atlanta_5#1",
+   "scenario": "building_train_4/atlanta_5",
+   "building": "building_train_4",
+   "weather": "atlanta_5",
+   "t_b": 403,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_4__atlanta_5__t00501": {
+   "split": "val",
+   "scenario_day": "building_train_4/atlanta_5#1",
+   "scenario": "building_train_4/atlanta_5",
+   "building": "building_train_4",
+   "weather": "atlanta_5",
+   "t_b": 501,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_4__atlanta_5__t00571": {
+   "split": "val",
+   "scenario_day": "building_train_4/atlanta_5#1",
+   "scenario": "building_train_4/atlanta_5",
+   "building": "building_train_4",
+   "weather": "atlanta_5",
+   "t_b": 571,
+   "stratum": "morning_recovery"
+  },
+  "building_train_4__atlanta_5__t00661": {
+   "split": "train",
+   "scenario_day": "building_train_4/atlanta_5#2",
+   "scenario": "building_train_4/atlanta_5",
+   "building": "building_train_4",
+   "weather": "atlanta_5",
+   "t_b": 661,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_4__atlanta_5__t00731": {
+   "split": "train",
+   "scenario_day": "building_train_4/atlanta_5#2",
+   "scenario": "building_train_4/atlanta_5",
+   "building": "building_train_4",
+   "weather": "atlanta_5",
+   "t_b": 731,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_4__atlanta_5__t01045": {
+   "split": "train",
+   "scenario_day": "building_train_4/atlanta_5#3",
+   "scenario": "building_train_4/atlanta_5",
+   "building": "building_train_4",
+   "weather": "atlanta_5",
+   "t_b": 1045,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_4__atlanta_5__t01211": {
+   "split": "train",
+   "scenario_day": "building_train_4/atlanta_5#4",
+   "scenario": "building_train_4/atlanta_5",
+   "building": "building_train_4",
+   "weather": "atlanta_5",
+   "t_b": 1211,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_4__atlanta_5__t01267": {
+   "split": "train",
+   "scenario_day": "building_train_4/atlanta_5#4",
+   "scenario": "building_train_4/atlanta_5",
+   "building": "building_train_4",
+   "weather": "atlanta_5",
+   "t_b": 1267,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_4__atlanta_5__t01578": {
+   "split": "val",
+   "scenario_day": "building_train_4/atlanta_5#5",
+   "scenario": "building_train_4/atlanta_5",
+   "building": "building_train_4",
+   "weather": "atlanta_5",
+   "t_b": 1578,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_4__denver_2__t00286": {
+   "split": "test_b",
+   "scenario_day": "building_train_4/denver_2#0",
+   "scenario": "building_train_4/denver_2",
+   "building": "building_train_4",
+   "weather": "denver_2",
+   "t_b": 286,
+   "stratum": "morning_recovery"
+  },
+  "building_train_4__denver_2__t00564": {
+   "split": "test_b",
+   "scenario_day": "building_train_4/denver_2#1",
+   "scenario": "building_train_4/denver_2",
+   "building": "building_train_4",
+   "weather": "denver_2",
+   "t_b": 564,
+   "stratum": "morning_recovery"
+  },
+  "building_train_4__denver_2__t00922": {
+   "split": "test_b",
+   "scenario_day": "building_train_4/denver_2#3",
+   "scenario": "building_train_4/denver_2",
+   "building": "building_train_4",
+   "weather": "denver_2",
+   "t_b": 922,
+   "stratum": "occupied_heating"
+  },
+  "building_train_4__denver_2__t01019": {
+   "split": "test_b",
+   "scenario_day": "building_train_4/denver_2#3",
+   "scenario": "building_train_4/denver_2",
+   "building": "building_train_4",
+   "weather": "denver_2",
+   "t_b": 1019,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_4__denver_2__t01102": {
+   "split": "test_b",
+   "scenario_day": "building_train_4/denver_2#3",
+   "scenario": "building_train_4/denver_2",
+   "building": "building_train_4",
+   "weather": "denver_2",
+   "t_b": 1102,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_4__denver_2__t01151": {
+   "split": "test_b",
+   "scenario_day": "building_train_4/denver_2#3",
+   "scenario": "building_train_4/denver_2",
+   "building": "building_train_4",
+   "weather": "denver_2",
+   "t_b": 1151,
+   "stratum": "occupied_heating"
+  },
+  "building_train_4__denver_2__t01204": {
+   "split": "test_b",
+   "scenario_day": "building_train_4/denver_2#4",
+   "scenario": "building_train_4/denver_2",
+   "building": "building_train_4",
+   "weather": "denver_2",
+   "t_b": 1204,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_4__denver_2__t01296": {
+   "split": "test_b",
+   "scenario_day": "building_train_4/denver_2#4",
+   "scenario": "building_train_4/denver_2",
+   "building": "building_train_4",
+   "weather": "denver_2",
+   "t_b": 1296,
+   "stratum": "occupied_other"
+  },
+  "building_train_4__denver_2__t01433": {
+   "split": "test_b",
+   "scenario_day": "building_train_4/denver_2#4",
+   "scenario": "building_train_4/denver_2",
+   "building": "building_train_4",
+   "weather": "denver_2",
+   "t_b": 1433,
+   "stratum": "morning_recovery"
+  },
+  "building_train_4__denver_2__t01532": {
+   "split": "test_b",
+   "scenario_day": "building_train_4/denver_2#5",
+   "scenario": "building_train_4/denver_2",
+   "building": "building_train_4",
+   "weather": "denver_2",
+   "t_b": 1532,
+   "stratum": "occupied_heating"
+  },
+  "building_train_4__fairbanks_4__t00280": {
+   "split": "train",
+   "scenario_day": "building_train_4/fairbanks_4#0",
+   "scenario": "building_train_4/fairbanks_4",
+   "building": "building_train_4",
+   "weather": "fairbanks_4",
+   "t_b": 280,
+   "stratum": "morning_recovery"
+  },
+  "building_train_4__fairbanks_4__t00337": {
+   "split": "train",
+   "scenario_day": "building_train_4/fairbanks_4#1",
+   "scenario": "building_train_4/fairbanks_4",
+   "building": "building_train_4",
+   "weather": "fairbanks_4",
+   "t_b": 337,
+   "stratum": "occupied_heating"
+  },
+  "building_train_4__fairbanks_4__t00435": {
+   "split": "train",
+   "scenario_day": "building_train_4/fairbanks_4#1",
+   "scenario": "building_train_4/fairbanks_4",
+   "building": "building_train_4",
+   "weather": "fairbanks_4",
+   "t_b": 435,
+   "stratum": "occupied_heating"
+  },
+  "building_train_4__fairbanks_4__t00566": {
+   "split": "train",
+   "scenario_day": "building_train_4/fairbanks_4#1",
+   "scenario": "building_train_4/fairbanks_4",
+   "building": "building_train_4",
+   "weather": "fairbanks_4",
+   "t_b": 566,
+   "stratum": "morning_recovery"
+  },
+  "building_train_4__fairbanks_4__t00627": {
+   "split": "val",
+   "scenario_day": "building_train_4/fairbanks_4#2",
+   "scenario": "building_train_4/fairbanks_4",
+   "building": "building_train_4",
+   "weather": "fairbanks_4",
+   "t_b": 627,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_4__fairbanks_4__t00859": {
+   "split": "val",
+   "scenario_day": "building_train_4/fairbanks_4#2",
+   "scenario": "building_train_4/fairbanks_4",
+   "building": "building_train_4",
+   "weather": "fairbanks_4",
+   "t_b": 859,
+   "stratum": "morning_recovery"
+  },
+  "building_train_4__fairbanks_4__t01249": {
+   "split": "train",
+   "scenario_day": "building_train_4/fairbanks_4#4",
+   "scenario": "building_train_4/fairbanks_4",
+   "building": "building_train_4",
+   "weather": "fairbanks_4",
+   "t_b": 1249,
+   "stratum": "occupied_heating"
+  },
+  "building_train_4__fairbanks_4__t01307": {
+   "split": "train",
+   "scenario_day": "building_train_4/fairbanks_4#4",
+   "scenario": "building_train_4/fairbanks_4",
+   "building": "building_train_4",
+   "weather": "fairbanks_4",
+   "t_b": 1307,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_4__fairbanks_4__t01548": {
+   "split": "train",
+   "scenario_day": "building_train_4/fairbanks_4#5",
+   "scenario": "building_train_4/fairbanks_4",
+   "building": "building_train_4",
+   "weather": "fairbanks_4",
+   "t_b": 1548,
+   "stratum": "occupied_other"
+  },
+  "building_train_4__fairbanks_4__t01929": {
+   "split": "val",
+   "scenario_day": "building_train_4/fairbanks_4#6",
+   "scenario": "building_train_4/fairbanks_4",
+   "building": "building_train_4",
+   "weather": "fairbanks_4",
+   "t_b": 1929,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_4__phoenix_8__t00291": {
+   "split": "train",
+   "scenario_day": "building_train_4/phoenix_8#1",
+   "scenario": "building_train_4/phoenix_8",
+   "building": "building_train_4",
+   "weather": "phoenix_8",
+   "t_b": 291,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_4__phoenix_8__t00433": {
+   "split": "train",
+   "scenario_day": "building_train_4/phoenix_8#1",
+   "scenario": "building_train_4/phoenix_8",
+   "building": "building_train_4",
+   "weather": "phoenix_8",
+   "t_b": 433,
+   "stratum": "occupied_heating"
+  },
+  "building_train_4__phoenix_8__t00574": {
+   "split": "train",
+   "scenario_day": "building_train_4/phoenix_8#1",
+   "scenario": "building_train_4/phoenix_8",
+   "building": "building_train_4",
+   "weather": "phoenix_8",
+   "t_b": 574,
+   "stratum": "morning_recovery"
+  },
+  "building_train_4__phoenix_8__t00673": {
+   "split": "train",
+   "scenario_day": "building_train_4/phoenix_8#2",
+   "scenario": "building_train_4/phoenix_8",
+   "building": "building_train_4",
+   "weather": "phoenix_8",
+   "t_b": 673,
+   "stratum": "occupied_heating"
+  },
+  "building_train_4__phoenix_8__t00858": {
+   "split": "train",
+   "scenario_day": "building_train_4/phoenix_8#2",
+   "scenario": "building_train_4/phoenix_8",
+   "building": "building_train_4",
+   "weather": "phoenix_8",
+   "t_b": 858,
+   "stratum": "morning_recovery"
+  },
+  "building_train_4__phoenix_8__t01019": {
+   "split": "train",
+   "scenario_day": "building_train_4/phoenix_8#3",
+   "scenario": "building_train_4/phoenix_8",
+   "building": "building_train_4",
+   "weather": "phoenix_8",
+   "t_b": 1019,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_4__phoenix_8__t01150": {
+   "split": "train",
+   "scenario_day": "building_train_4/phoenix_8#3",
+   "scenario": "building_train_4/phoenix_8",
+   "building": "building_train_4",
+   "weather": "phoenix_8",
+   "t_b": 1150,
+   "stratum": "morning_recovery"
+  },
+  "building_train_4__phoenix_8__t01503": {
+   "split": "train",
+   "scenario_day": "building_train_4/phoenix_8#5",
+   "scenario": "building_train_4/phoenix_8",
+   "building": "building_train_4",
+   "weather": "phoenix_8",
+   "t_b": 1503,
+   "stratum": "occupied_other"
+  },
+  "building_train_4__phoenix_8__t01584": {
+   "split": "train",
+   "scenario_day": "building_train_4/phoenix_8#5",
+   "scenario": "building_train_4/phoenix_8",
+   "building": "building_train_4",
+   "weather": "phoenix_8",
+   "t_b": 1584,
+   "stratum": "occupied_heating"
+  },
+  "building_train_4__phoenix_8__t01926": {
+   "split": "train",
+   "scenario_day": "building_train_4/phoenix_8#6",
+   "scenario": "building_train_4/phoenix_8",
+   "building": "building_train_4",
+   "weather": "phoenix_8",
+   "t_b": 1926,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_4__singapore_3__t00213": {
+   "split": "train",
+   "scenario_day": "building_train_4/singapore_3#0",
+   "scenario": "building_train_4/singapore_3",
+   "building": "building_train_4",
+   "weather": "singapore_3",
+   "t_b": 213,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_4__singapore_3__t00278": {
+   "split": "train",
+   "scenario_day": "building_train_4/singapore_3#0",
+   "scenario": "building_train_4/singapore_3",
+   "building": "building_train_4",
+   "weather": "singapore_3",
+   "t_b": 278,
+   "stratum": "morning_recovery"
+  },
+  "building_train_4__singapore_3__t00570": {
+   "split": "val",
+   "scenario_day": "building_train_4/singapore_3#1",
+   "scenario": "building_train_4/singapore_3",
+   "building": "building_train_4",
+   "weather": "singapore_3",
+   "t_b": 570,
+   "stratum": "morning_recovery"
+  },
+  "building_train_4__singapore_3__t00860": {
+   "split": "train",
+   "scenario_day": "building_train_4/singapore_3#2",
+   "scenario": "building_train_4/singapore_3",
+   "building": "building_train_4",
+   "weather": "singapore_3",
+   "t_b": 860,
+   "stratum": "morning_recovery"
+  },
+  "building_train_4__singapore_3__t00923": {
+   "split": "train",
+   "scenario_day": "building_train_4/singapore_3#3",
+   "scenario": "building_train_4/singapore_3",
+   "building": "building_train_4",
+   "weather": "singapore_3",
+   "t_b": 923,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_4__singapore_3__t00973": {
+   "split": "train",
+   "scenario_day": "building_train_4/singapore_3#3",
+   "scenario": "building_train_4/singapore_3",
+   "building": "building_train_4",
+   "weather": "singapore_3",
+   "t_b": 973,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_4__singapore_3__t01092": {
+   "split": "train",
+   "scenario_day": "building_train_4/singapore_3#3",
+   "scenario": "building_train_4/singapore_3",
+   "building": "building_train_4",
+   "weather": "singapore_3",
+   "t_b": 1092,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_4__singapore_3__t01148": {
+   "split": "train",
+   "scenario_day": "building_train_4/singapore_3#3",
+   "scenario": "building_train_4/singapore_3",
+   "building": "building_train_4",
+   "weather": "singapore_3",
+   "t_b": 1148,
+   "stratum": "morning_recovery"
+  },
+  "building_train_4__singapore_3__t01437": {
+   "split": "train",
+   "scenario_day": "building_train_4/singapore_3#4",
+   "scenario": "building_train_4/singapore_3",
+   "building": "building_train_4",
+   "weather": "singapore_3",
+   "t_b": 1437,
+   "stratum": "morning_recovery"
+  },
+  "building_train_4__singapore_3__t01595": {
+   "split": "val",
+   "scenario_day": "building_train_4/singapore_3#5",
+   "scenario": "building_train_4/singapore_3",
+   "building": "building_train_4",
+   "weather": "singapore_3",
+   "t_b": 1595,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_5__atlanta_6__t00226": {
+   "split": "train",
+   "scenario_day": "building_train_5/atlanta_6#0",
+   "scenario": "building_train_5/atlanta_6",
+   "building": "building_train_5",
+   "weather": "atlanta_6",
+   "t_b": 226,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_5__atlanta_6__t00284": {
+   "split": "train",
+   "scenario_day": "building_train_5/atlanta_6#0",
+   "scenario": "building_train_5/atlanta_6",
+   "building": "building_train_5",
+   "weather": "atlanta_6",
+   "t_b": 284,
+   "stratum": "morning_recovery"
+  },
+  "building_train_5__atlanta_6__t00345": {
+   "split": "train",
+   "scenario_day": "building_train_5/atlanta_6#1",
+   "scenario": "building_train_5/atlanta_6",
+   "building": "building_train_5",
+   "weather": "atlanta_6",
+   "t_b": 345,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_5__atlanta_6__t00508": {
+   "split": "train",
+   "scenario_day": "building_train_5/atlanta_6#1",
+   "scenario": "building_train_5/atlanta_6",
+   "building": "building_train_5",
+   "weather": "atlanta_6",
+   "t_b": 508,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_5__atlanta_6__t00565": {
+   "split": "train",
+   "scenario_day": "building_train_5/atlanta_6#1",
+   "scenario": "building_train_5/atlanta_6",
+   "building": "building_train_5",
+   "weather": "atlanta_6",
+   "t_b": 565,
+   "stratum": "morning_recovery"
+  },
+  "building_train_5__atlanta_6__t00709": {
+   "split": "train",
+   "scenario_day": "building_train_5/atlanta_6#2",
+   "scenario": "building_train_5/atlanta_6",
+   "building": "building_train_5",
+   "weather": "atlanta_6",
+   "t_b": 709,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_5__atlanta_6__t00903": {
+   "split": "val",
+   "scenario_day": "building_train_5/atlanta_6#3",
+   "scenario": "building_train_5/atlanta_6",
+   "building": "building_train_5",
+   "weather": "atlanta_6",
+   "t_b": 903,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_5__atlanta_6__t01019": {
+   "split": "val",
+   "scenario_day": "building_train_5/atlanta_6#3",
+   "scenario": "building_train_5/atlanta_6",
+   "building": "building_train_5",
+   "weather": "atlanta_6",
+   "t_b": 1019,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_5__atlanta_6__t01433": {
+   "split": "train",
+   "scenario_day": "building_train_5/atlanta_6#4",
+   "scenario": "building_train_5/atlanta_6",
+   "building": "building_train_5",
+   "weather": "atlanta_6",
+   "t_b": 1433,
+   "stratum": "morning_recovery"
+  },
+  "building_train_5__atlanta_6__t01496": {
+   "split": "train",
+   "scenario_day": "building_train_5/atlanta_6#5",
+   "scenario": "building_train_5/atlanta_6",
+   "building": "building_train_5",
+   "weather": "atlanta_6",
+   "t_b": 1496,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_5__denver_3__t00285": {
+   "split": "test_b",
+   "scenario_day": "building_train_5/denver_3#0",
+   "scenario": "building_train_5/denver_3",
+   "building": "building_train_5",
+   "weather": "denver_3",
+   "t_b": 285,
+   "stratum": "morning_recovery"
+  },
+  "building_train_5__denver_3__t00379": {
+   "split": "test_b",
+   "scenario_day": "building_train_5/denver_3#1",
+   "scenario": "building_train_5/denver_3",
+   "building": "building_train_5",
+   "weather": "denver_3",
+   "t_b": 379,
+   "stratum": "occupied_other"
+  },
+  "building_train_5__denver_3__t00603": {
+   "split": "test_b",
+   "scenario_day": "building_train_5/denver_3#2",
+   "scenario": "building_train_5/denver_3",
+   "building": "building_train_5",
+   "weather": "denver_3",
+   "t_b": 603,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_5__denver_3__t00695": {
+   "split": "test_b",
+   "scenario_day": "building_train_5/denver_3#2",
+   "scenario": "building_train_5/denver_3",
+   "building": "building_train_5",
+   "weather": "denver_3",
+   "t_b": 695,
+   "stratum": "occupied_heating"
+  },
+  "building_train_5__denver_3__t00824": {
+   "split": "test_b",
+   "scenario_day": "building_train_5/denver_3#2",
+   "scenario": "building_train_5/denver_3",
+   "building": "building_train_5",
+   "weather": "denver_3",
+   "t_b": 824,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_5__denver_3__t00895": {
+   "split": "test_b",
+   "scenario_day": "building_train_5/denver_3#3",
+   "scenario": "building_train_5/denver_3",
+   "building": "building_train_5",
+   "weather": "denver_3",
+   "t_b": 895,
+   "stratum": "occupied_heating"
+  },
+  "building_train_5__denver_3__t01019": {
+   "split": "test_b",
+   "scenario_day": "building_train_5/denver_3#3",
+   "scenario": "building_train_5/denver_3",
+   "building": "building_train_5",
+   "weather": "denver_3",
+   "t_b": 1019,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_5__denver_3__t01150": {
+   "split": "test_b",
+   "scenario_day": "building_train_5/denver_3#3",
+   "scenario": "building_train_5/denver_3",
+   "building": "building_train_5",
+   "weather": "denver_3",
+   "t_b": 1150,
+   "stratum": "morning_recovery"
+  },
+  "building_train_5__denver_3__t01228": {
+   "split": "test_b",
+   "scenario_day": "building_train_5/denver_3#4",
+   "scenario": "building_train_5/denver_3",
+   "building": "building_train_5",
+   "weather": "denver_3",
+   "t_b": 1228,
+   "stratum": "occupied_heating"
+  },
+  "building_train_5__denver_3__t01436": {
+   "split": "test_b",
+   "scenario_day": "building_train_5/denver_3#4",
+   "scenario": "building_train_5/denver_3",
+   "building": "building_train_5",
+   "weather": "denver_3",
+   "t_b": 1436,
+   "stratum": "morning_recovery"
+  },
+  "building_train_5__fairbanks_5__t00666": {
+   "split": "train",
+   "scenario_day": "building_train_5/fairbanks_5#2",
+   "scenario": "building_train_5/fairbanks_5",
+   "building": "building_train_5",
+   "weather": "fairbanks_5",
+   "t_b": 666,
+   "stratum": "occupied_heating"
+  },
+  "building_train_5__fairbanks_5__t00758": {
+   "split": "train",
+   "scenario_day": "building_train_5/fairbanks_5#2",
+   "scenario": "building_train_5/fairbanks_5",
+   "building": "building_train_5",
+   "weather": "fairbanks_5",
+   "t_b": 758,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_5__fairbanks_5__t00861": {
+   "split": "train",
+   "scenario_day": "building_train_5/fairbanks_5#2",
+   "scenario": "building_train_5/fairbanks_5",
+   "building": "building_train_5",
+   "weather": "fairbanks_5",
+   "t_b": 861,
+   "stratum": "morning_recovery"
+  },
+  "building_train_5__fairbanks_5__t00912": {
+   "split": "train",
+   "scenario_day": "building_train_5/fairbanks_5#3",
+   "scenario": "building_train_5/fairbanks_5",
+   "building": "building_train_5",
+   "weather": "fairbanks_5",
+   "t_b": 912,
+   "stratum": "occupied_heating"
+  },
+  "building_train_5__fairbanks_5__t01008": {
+   "split": "train",
+   "scenario_day": "building_train_5/fairbanks_5#3",
+   "scenario": "building_train_5/fairbanks_5",
+   "building": "building_train_5",
+   "weather": "fairbanks_5",
+   "t_b": 1008,
+   "stratum": "occupied_heating"
+  },
+  "building_train_5__fairbanks_5__t01237": {
+   "split": "train",
+   "scenario_day": "building_train_5/fairbanks_5#4",
+   "scenario": "building_train_5/fairbanks_5",
+   "building": "building_train_5",
+   "weather": "fairbanks_5",
+   "t_b": 1237,
+   "stratum": "occupied_heating"
+  },
+  "building_train_5__fairbanks_5__t01307": {
+   "split": "train",
+   "scenario_day": "building_train_5/fairbanks_5#4",
+   "scenario": "building_train_5/fairbanks_5",
+   "building": "building_train_5",
+   "weather": "fairbanks_5",
+   "t_b": 1307,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_5__fairbanks_5__t01435": {
+   "split": "train",
+   "scenario_day": "building_train_5/fairbanks_5#4",
+   "scenario": "building_train_5/fairbanks_5",
+   "building": "building_train_5",
+   "weather": "fairbanks_5",
+   "t_b": 1435,
+   "stratum": "morning_recovery"
+  },
+  "building_train_5__fairbanks_5__t01490": {
+   "split": "train",
+   "scenario_day": "building_train_5/fairbanks_5#5",
+   "scenario": "building_train_5/fairbanks_5",
+   "building": "building_train_5",
+   "weather": "fairbanks_5",
+   "t_b": 1490,
+   "stratum": "occupied_heating"
+  },
+  "building_train_5__fairbanks_5__t01541": {
+   "split": "train",
+   "scenario_day": "building_train_5/fairbanks_5#5",
+   "scenario": "building_train_5/fairbanks_5",
+   "building": "building_train_5",
+   "weather": "fairbanks_5",
+   "t_b": 1541,
+   "stratum": "occupied_heating"
+  },
+  "building_train_5__phoenix_1__t00235": {
+   "split": "train",
+   "scenario_day": "building_train_5/phoenix_1#0",
+   "scenario": "building_train_5/phoenix_1",
+   "building": "building_train_5",
+   "weather": "phoenix_1",
+   "t_b": 235,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_5__phoenix_1__t00288": {
+   "split": "train",
+   "scenario_day": "building_train_5/phoenix_1#1",
+   "scenario": "building_train_5/phoenix_1",
+   "building": "building_train_5",
+   "weather": "phoenix_1",
+   "t_b": 288,
+   "stratum": "occupied_heating"
+  },
+  "building_train_5__phoenix_1__t00443": {
+   "split": "train",
+   "scenario_day": "building_train_5/phoenix_1#1",
+   "scenario": "building_train_5/phoenix_1",
+   "building": "building_train_5",
+   "weather": "phoenix_1",
+   "t_b": 443,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_5__phoenix_1__t00570": {
+   "split": "train",
+   "scenario_day": "building_train_5/phoenix_1#1",
+   "scenario": "building_train_5/phoenix_1",
+   "building": "building_train_5",
+   "weather": "phoenix_1",
+   "t_b": 570,
+   "stratum": "morning_recovery"
+  },
+  "building_train_5__phoenix_1__t00675": {
+   "split": "train",
+   "scenario_day": "building_train_5/phoenix_1#2",
+   "scenario": "building_train_5/phoenix_1",
+   "building": "building_train_5",
+   "weather": "phoenix_1",
+   "t_b": 675,
+   "stratum": "occupied_heating"
+  },
+  "building_train_5__phoenix_1__t00859": {
+   "split": "train",
+   "scenario_day": "building_train_5/phoenix_1#2",
+   "scenario": "building_train_5/phoenix_1",
+   "building": "building_train_5",
+   "weather": "phoenix_1",
+   "t_b": 859,
+   "stratum": "morning_recovery"
+  },
+  "building_train_5__phoenix_1__t01015": {
+   "split": "val",
+   "scenario_day": "building_train_5/phoenix_1#3",
+   "scenario": "building_train_5/phoenix_1",
+   "building": "building_train_5",
+   "weather": "phoenix_1",
+   "t_b": 1015,
+   "stratum": "occupied_heating"
+  },
+  "building_train_5__phoenix_1__t01152": {
+   "split": "train",
+   "scenario_day": "building_train_5/phoenix_1#4",
+   "scenario": "building_train_5/phoenix_1",
+   "building": "building_train_5",
+   "weather": "phoenix_1",
+   "t_b": 1152,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_5__phoenix_1__t01433": {
+   "split": "train",
+   "scenario_day": "building_train_5/phoenix_1#4",
+   "scenario": "building_train_5/phoenix_1",
+   "building": "building_train_5",
+   "weather": "phoenix_1",
+   "t_b": 1433,
+   "stratum": "morning_recovery"
+  },
+  "building_train_5__phoenix_1__t01572": {
+   "split": "train",
+   "scenario_day": "building_train_5/phoenix_1#5",
+   "scenario": "building_train_5/phoenix_1",
+   "building": "building_train_5",
+   "weather": "phoenix_1",
+   "t_b": 1572,
+   "stratum": "occupied_other"
+  },
+  "building_train_5__singapore_4__t00283": {
+   "split": "train",
+   "scenario_day": "building_train_5/singapore_4#0",
+   "scenario": "building_train_5/singapore_4",
+   "building": "building_train_5",
+   "weather": "singapore_4",
+   "t_b": 283,
+   "stratum": "morning_recovery"
+  },
+  "building_train_5__singapore_4__t00403": {
+   "split": "train",
+   "scenario_day": "building_train_5/singapore_4#1",
+   "scenario": "building_train_5/singapore_4",
+   "building": "building_train_5",
+   "weather": "singapore_4",
+   "t_b": 403,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_5__singapore_4__t00569": {
+   "split": "train",
+   "scenario_day": "building_train_5/singapore_4#1",
+   "scenario": "building_train_5/singapore_4",
+   "building": "building_train_5",
+   "weather": "singapore_4",
+   "t_b": 569,
+   "stratum": "morning_recovery"
+  },
+  "building_train_5__singapore_4__t00855": {
+   "split": "val",
+   "scenario_day": "building_train_5/singapore_4#2",
+   "scenario": "building_train_5/singapore_4",
+   "building": "building_train_5",
+   "weather": "singapore_4",
+   "t_b": 855,
+   "stratum": "morning_recovery"
+  },
+  "building_train_5__singapore_4__t01143": {
+   "split": "train",
+   "scenario_day": "building_train_5/singapore_4#3",
+   "scenario": "building_train_5/singapore_4",
+   "building": "building_train_5",
+   "weather": "singapore_4",
+   "t_b": 1143,
+   "stratum": "morning_recovery"
+  },
+  "building_train_5__singapore_4__t01241": {
+   "split": "train",
+   "scenario_day": "building_train_5/singapore_4#4",
+   "scenario": "building_train_5/singapore_4",
+   "building": "building_train_5",
+   "weather": "singapore_4",
+   "t_b": 1241,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_5__singapore_4__t01370": {
+   "split": "train",
+   "scenario_day": "building_train_5/singapore_4#4",
+   "scenario": "building_train_5/singapore_4",
+   "building": "building_train_5",
+   "weather": "singapore_4",
+   "t_b": 1370,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_5__singapore_4__t01431": {
+   "split": "train",
+   "scenario_day": "building_train_5/singapore_4#4",
+   "scenario": "building_train_5/singapore_4",
+   "building": "building_train_5",
+   "weather": "singapore_4",
+   "t_b": 1431,
+   "stratum": "morning_recovery"
+  },
+  "building_train_5__singapore_4__t01595": {
+   "split": "train",
+   "scenario_day": "building_train_5/singapore_4#5",
+   "scenario": "building_train_5/singapore_4",
+   "building": "building_train_5",
+   "weather": "singapore_4",
+   "t_b": 1595,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_5__singapore_4__t01907": {
+   "split": "val",
+   "scenario_day": "building_train_5/singapore_4#6",
+   "scenario": "building_train_5/singapore_4",
+   "building": "building_train_5",
+   "weather": "singapore_4",
+   "t_b": 1907,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_7__atlanta_8__t00277": {
+   "split": "train",
+   "scenario_day": "building_train_7/atlanta_8#0",
+   "scenario": "building_train_7/atlanta_8",
+   "building": "building_train_7",
+   "weather": "atlanta_8",
+   "t_b": 277,
+   "stratum": "morning_recovery"
+  },
+  "building_train_7__atlanta_8__t00434": {
+   "split": "train",
+   "scenario_day": "building_train_7/atlanta_8#1",
+   "scenario": "building_train_7/atlanta_8",
+   "building": "building_train_7",
+   "weather": "atlanta_8",
+   "t_b": 434,
+   "stratum": "occupied_other"
+  },
+  "building_train_7__atlanta_8__t00521": {
+   "split": "train",
+   "scenario_day": "building_train_7/atlanta_8#1",
+   "scenario": "building_train_7/atlanta_8",
+   "building": "building_train_7",
+   "weather": "atlanta_8",
+   "t_b": 521,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_7__atlanta_8__t00570": {
+   "split": "train",
+   "scenario_day": "building_train_7/atlanta_8#1",
+   "scenario": "building_train_7/atlanta_8",
+   "building": "building_train_7",
+   "weather": "atlanta_8",
+   "t_b": 570,
+   "stratum": "morning_recovery"
+  },
+  "building_train_7__atlanta_8__t00640": {
+   "split": "val",
+   "scenario_day": "building_train_7/atlanta_8#2",
+   "scenario": "building_train_7/atlanta_8",
+   "building": "building_train_7",
+   "weather": "atlanta_8",
+   "t_b": 640,
+   "stratum": "occupied_heating"
+  },
+  "building_train_7__atlanta_8__t00731": {
+   "split": "val",
+   "scenario_day": "building_train_7/atlanta_8#2",
+   "scenario": "building_train_7/atlanta_8",
+   "building": "building_train_7",
+   "weather": "atlanta_8",
+   "t_b": 731,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_7__atlanta_8__t00858": {
+   "split": "val",
+   "scenario_day": "building_train_7/atlanta_8#2",
+   "scenario": "building_train_7/atlanta_8",
+   "building": "building_train_7",
+   "weather": "atlanta_8",
+   "t_b": 858,
+   "stratum": "morning_recovery"
+  },
+  "building_train_7__atlanta_8__t01231": {
+   "split": "train",
+   "scenario_day": "building_train_7/atlanta_8#4",
+   "scenario": "building_train_7/atlanta_8",
+   "building": "building_train_7",
+   "weather": "atlanta_8",
+   "t_b": 1231,
+   "stratum": "occupied_heating"
+  },
+  "building_train_7__atlanta_8__t01529": {
+   "split": "train",
+   "scenario_day": "building_train_7/atlanta_8#5",
+   "scenario": "building_train_7/atlanta_8",
+   "building": "building_train_7",
+   "weather": "atlanta_8",
+   "t_b": 1529,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_7__atlanta_8__t01581": {
+   "split": "train",
+   "scenario_day": "building_train_7/atlanta_8#5",
+   "scenario": "building_train_7/atlanta_8",
+   "building": "building_train_7",
+   "weather": "atlanta_8",
+   "t_b": 1581,
+   "stratum": "occupied_heating"
+  },
+  "building_train_7__denver_5__t00294": {
+   "split": "test_b",
+   "scenario_day": "building_train_7/denver_5#1",
+   "scenario": "building_train_7/denver_5",
+   "building": "building_train_7",
+   "weather": "denver_5",
+   "t_b": 294,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_7__denver_5__t00366": {
+   "split": "test_b",
+   "scenario_day": "building_train_7/denver_5#1",
+   "scenario": "building_train_7/denver_5",
+   "building": "building_train_7",
+   "weather": "denver_5",
+   "t_b": 366,
+   "stratum": "occupied_heating"
+  },
+  "building_train_7__denver_5__t00443": {
+   "split": "test_b",
+   "scenario_day": "building_train_7/denver_5#1",
+   "scenario": "building_train_7/denver_5",
+   "building": "building_train_7",
+   "weather": "denver_5",
+   "t_b": 443,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_7__denver_5__t00571": {
+   "split": "test_b",
+   "scenario_day": "building_train_7/denver_5#1",
+   "scenario": "building_train_7/denver_5",
+   "building": "building_train_7",
+   "weather": "denver_5",
+   "t_b": 571,
+   "stratum": "morning_recovery"
+  },
+  "building_train_7__denver_5__t00859": {
+   "split": "test_b",
+   "scenario_day": "building_train_7/denver_5#2",
+   "scenario": "building_train_7/denver_5",
+   "building": "building_train_7",
+   "weather": "denver_5",
+   "t_b": 859,
+   "stratum": "morning_recovery"
+  },
+  "building_train_7__denver_5__t00908": {
+   "split": "test_b",
+   "scenario_day": "building_train_7/denver_5#3",
+   "scenario": "building_train_7/denver_5",
+   "building": "building_train_7",
+   "weather": "denver_5",
+   "t_b": 908,
+   "stratum": "occupied_heating"
+  },
+  "building_train_7__denver_5__t00973": {
+   "split": "test_b",
+   "scenario_day": "building_train_7/denver_5#3",
+   "scenario": "building_train_7/denver_5",
+   "building": "building_train_7",
+   "weather": "denver_5",
+   "t_b": 973,
+   "stratum": "occupied_heating"
+  },
+  "building_train_7__denver_5__t01144": {
+   "split": "test_b",
+   "scenario_day": "building_train_7/denver_5#3",
+   "scenario": "building_train_7/denver_5",
+   "building": "building_train_7",
+   "weather": "denver_5",
+   "t_b": 1144,
+   "stratum": "morning_recovery"
+  },
+  "building_train_7__denver_5__t01432": {
+   "split": "test_b",
+   "scenario_day": "building_train_7/denver_5#4",
+   "scenario": "building_train_7/denver_5",
+   "building": "building_train_7",
+   "weather": "denver_5",
+   "t_b": 1432,
+   "stratum": "morning_recovery"
+  },
+  "building_train_7__denver_5__t01937": {
+   "split": "test_b",
+   "scenario_day": "building_train_7/denver_5#6",
+   "scenario": "building_train_7/denver_5",
+   "building": "building_train_7",
+   "weather": "denver_5",
+   "t_b": 1937,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_7__fairbanks_7__t00283": {
+   "split": "train",
+   "scenario_day": "building_train_7/fairbanks_7#0",
+   "scenario": "building_train_7/fairbanks_7",
+   "building": "building_train_7",
+   "weather": "fairbanks_7",
+   "t_b": 283,
+   "stratum": "morning_recovery"
+  },
+  "building_train_7__fairbanks_7__t00425": {
+   "split": "train",
+   "scenario_day": "building_train_7/fairbanks_7#1",
+   "scenario": "building_train_7/fairbanks_7",
+   "building": "building_train_7",
+   "weather": "fairbanks_7",
+   "t_b": 425,
+   "stratum": "occupied_other"
+  },
+  "building_train_7__fairbanks_7__t00573": {
+   "split": "train",
+   "scenario_day": "building_train_7/fairbanks_7#1",
+   "scenario": "building_train_7/fairbanks_7",
+   "building": "building_train_7",
+   "weather": "fairbanks_7",
+   "t_b": 573,
+   "stratum": "morning_recovery"
+  },
+  "building_train_7__fairbanks_7__t00633": {
+   "split": "val",
+   "scenario_day": "building_train_7/fairbanks_7#2",
+   "scenario": "building_train_7/fairbanks_7",
+   "building": "building_train_7",
+   "weather": "fairbanks_7",
+   "t_b": 633,
+   "stratum": "occupied_heating"
+  },
+  "building_train_7__fairbanks_7__t00871": {
+   "split": "train",
+   "scenario_day": "building_train_7/fairbanks_7#3",
+   "scenario": "building_train_7/fairbanks_7",
+   "building": "building_train_7",
+   "weather": "fairbanks_7",
+   "t_b": 871,
+   "stratum": "occupied_heating"
+  },
+  "building_train_7__fairbanks_7__t00993": {
+   "split": "train",
+   "scenario_day": "building_train_7/fairbanks_7#3",
+   "scenario": "building_train_7/fairbanks_7",
+   "building": "building_train_7",
+   "weather": "fairbanks_7",
+   "t_b": 993,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_7__fairbanks_7__t01090": {
+   "split": "train",
+   "scenario_day": "building_train_7/fairbanks_7#3",
+   "scenario": "building_train_7/fairbanks_7",
+   "building": "building_train_7",
+   "weather": "fairbanks_7",
+   "t_b": 1090,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_7__fairbanks_7__t01437": {
+   "split": "train",
+   "scenario_day": "building_train_7/fairbanks_7#4",
+   "scenario": "building_train_7/fairbanks_7",
+   "building": "building_train_7",
+   "weather": "fairbanks_7",
+   "t_b": 1437,
+   "stratum": "morning_recovery"
+  },
+  "building_train_7__fairbanks_7__t01510": {
+   "split": "train",
+   "scenario_day": "building_train_7/fairbanks_7#5",
+   "scenario": "building_train_7/fairbanks_7",
+   "building": "building_train_7",
+   "weather": "fairbanks_7",
+   "t_b": 1510,
+   "stratum": "occupied_heating"
+  },
+  "building_train_7__fairbanks_7__t01595": {
+   "split": "train",
+   "scenario_day": "building_train_7/fairbanks_7#5",
+   "scenario": "building_train_7/fairbanks_7",
+   "building": "building_train_7",
+   "weather": "fairbanks_7",
+   "t_b": 1595,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_7__phoenix_3__t00283": {
+   "split": "train",
+   "scenario_day": "building_train_7/phoenix_3#0",
+   "scenario": "building_train_7/phoenix_3",
+   "building": "building_train_7",
+   "weather": "phoenix_3",
+   "t_b": 283,
+   "stratum": "morning_recovery"
+  },
+  "building_train_7__phoenix_3__t00580": {
+   "split": "val",
+   "scenario_day": "building_train_7/phoenix_3#2",
+   "scenario": "building_train_7/phoenix_3",
+   "building": "building_train_7",
+   "weather": "phoenix_3",
+   "t_b": 580,
+   "stratum": "occupied_other"
+  },
+  "building_train_7__phoenix_3__t00690": {
+   "split": "val",
+   "scenario_day": "building_train_7/phoenix_3#2",
+   "scenario": "building_train_7/phoenix_3",
+   "building": "building_train_7",
+   "weather": "phoenix_3",
+   "t_b": 690,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_7__phoenix_3__t00861": {
+   "split": "val",
+   "scenario_day": "building_train_7/phoenix_3#2",
+   "scenario": "building_train_7/phoenix_3",
+   "building": "building_train_7",
+   "weather": "phoenix_3",
+   "t_b": 861,
+   "stratum": "morning_recovery"
+  },
+  "building_train_7__phoenix_3__t01019": {
+   "split": "train",
+   "scenario_day": "building_train_7/phoenix_3#3",
+   "scenario": "building_train_7/phoenix_3",
+   "building": "building_train_7",
+   "weather": "phoenix_3",
+   "t_b": 1019,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_7__phoenix_3__t01141": {
+   "split": "train",
+   "scenario_day": "building_train_7/phoenix_3#3",
+   "scenario": "building_train_7/phoenix_3",
+   "building": "building_train_7",
+   "weather": "phoenix_3",
+   "t_b": 1141,
+   "stratum": "morning_recovery"
+  },
+  "building_train_7__phoenix_3__t01206": {
+   "split": "train",
+   "scenario_day": "building_train_7/phoenix_3#4",
+   "scenario": "building_train_7/phoenix_3",
+   "building": "building_train_7",
+   "weather": "phoenix_3",
+   "t_b": 1206,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_7__phoenix_3__t01428": {
+   "split": "train",
+   "scenario_day": "building_train_7/phoenix_3#4",
+   "scenario": "building_train_7/phoenix_3",
+   "building": "building_train_7",
+   "weather": "phoenix_3",
+   "t_b": 1428,
+   "stratum": "morning_recovery"
+  },
+  "building_train_7__phoenix_3__t01589": {
+   "split": "train",
+   "scenario_day": "building_train_7/phoenix_3#5",
+   "scenario": "building_train_7/phoenix_3",
+   "building": "building_train_7",
+   "weather": "phoenix_3",
+   "t_b": 1589,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_7__phoenix_3__t01913": {
+   "split": "val",
+   "scenario_day": "building_train_7/phoenix_3#6",
+   "scenario": "building_train_7/phoenix_3",
+   "building": "building_train_7",
+   "weather": "phoenix_3",
+   "t_b": 1913,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_7__singapore_6__t00286": {
+   "split": "train",
+   "scenario_day": "building_train_7/singapore_6#0",
+   "scenario": "building_train_7/singapore_6",
+   "building": "building_train_7",
+   "weather": "singapore_6",
+   "t_b": 286,
+   "stratum": "morning_recovery"
+  },
+  "building_train_7__singapore_6__t00338": {
+   "split": "val",
+   "scenario_day": "building_train_7/singapore_6#1",
+   "scenario": "building_train_7/singapore_6",
+   "building": "building_train_7",
+   "weather": "singapore_6",
+   "t_b": 338,
+   "stratum": "occupied_other"
+  },
+  "building_train_7__singapore_6__t00405": {
+   "split": "val",
+   "scenario_day": "building_train_7/singapore_6#1",
+   "scenario": "building_train_7/singapore_6",
+   "building": "building_train_7",
+   "weather": "singapore_6",
+   "t_b": 405,
+   "stratum": "occupied_other"
+  },
+  "building_train_7__singapore_6__t00571": {
+   "split": "val",
+   "scenario_day": "building_train_7/singapore_6#1",
+   "scenario": "building_train_7/singapore_6",
+   "building": "building_train_7",
+   "weather": "singapore_6",
+   "t_b": 571,
+   "stratum": "morning_recovery"
+  },
+  "building_train_7__singapore_6__t00624": {
+   "split": "train",
+   "scenario_day": "building_train_7/singapore_6#2",
+   "scenario": "building_train_7/singapore_6",
+   "building": "building_train_7",
+   "weather": "singapore_6",
+   "t_b": 624,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_7__singapore_6__t00856": {
+   "split": "train",
+   "scenario_day": "building_train_7/singapore_6#2",
+   "scenario": "building_train_7/singapore_6",
+   "building": "building_train_7",
+   "weather": "singapore_6",
+   "t_b": 856,
+   "stratum": "morning_recovery"
+  },
+  "building_train_7__singapore_6__t01019": {
+   "split": "train",
+   "scenario_day": "building_train_7/singapore_6#3",
+   "scenario": "building_train_7/singapore_6",
+   "building": "building_train_7",
+   "weather": "singapore_6",
+   "t_b": 1019,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_7__singapore_6__t01099": {
+   "split": "train",
+   "scenario_day": "building_train_7/singapore_6#3",
+   "scenario": "building_train_7/singapore_6",
+   "building": "building_train_7",
+   "weather": "singapore_6",
+   "t_b": 1099,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_7__singapore_6__t01205": {
+   "split": "train",
+   "scenario_day": "building_train_7/singapore_6#4",
+   "scenario": "building_train_7/singapore_6",
+   "building": "building_train_7",
+   "weather": "singapore_6",
+   "t_b": 1205,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_7__singapore_6__t01437": {
+   "split": "train",
+   "scenario_day": "building_train_7/singapore_6#4",
+   "scenario": "building_train_7/singapore_6",
+   "building": "building_train_7",
+   "weather": "singapore_6",
+   "t_b": 1437,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__atlanta_1__t00285": {
+   "split": "train",
+   "scenario_day": "building_train_8/atlanta_1#0",
+   "scenario": "building_train_8/atlanta_1",
+   "building": "building_train_8",
+   "weather": "atlanta_1",
+   "t_b": 285,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__atlanta_1__t00574": {
+   "split": "train",
+   "scenario_day": "building_train_8/atlanta_1#1",
+   "scenario": "building_train_8/atlanta_1",
+   "building": "building_train_8",
+   "weather": "atlanta_1",
+   "t_b": 574,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__atlanta_1__t00627": {
+   "split": "val",
+   "scenario_day": "building_train_8/atlanta_1#2",
+   "scenario": "building_train_8/atlanta_1",
+   "building": "building_train_8",
+   "weather": "atlanta_1",
+   "t_b": 627,
+   "stratum": "occupied_other"
+  },
+  "building_train_8__atlanta_1__t00706": {
+   "split": "val",
+   "scenario_day": "building_train_8/atlanta_1#2",
+   "scenario": "building_train_8/atlanta_1",
+   "building": "building_train_8",
+   "weather": "atlanta_1",
+   "t_b": 706,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_8__atlanta_1__t00805": {
+   "split": "val",
+   "scenario_day": "building_train_8/atlanta_1#2",
+   "scenario": "building_train_8/atlanta_1",
+   "building": "building_train_8",
+   "weather": "atlanta_1",
+   "t_b": 805,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_8__atlanta_1__t00862": {
+   "split": "val",
+   "scenario_day": "building_train_8/atlanta_1#2",
+   "scenario": "building_train_8/atlanta_1",
+   "building": "building_train_8",
+   "weather": "atlanta_1",
+   "t_b": 862,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__atlanta_1__t00927": {
+   "split": "train",
+   "scenario_day": "building_train_8/atlanta_1#3",
+   "scenario": "building_train_8/atlanta_1",
+   "building": "building_train_8",
+   "weather": "atlanta_1",
+   "t_b": 927,
+   "stratum": "occupied_heating"
+  },
+  "building_train_8__atlanta_1__t01019": {
+   "split": "train",
+   "scenario_day": "building_train_8/atlanta_1#3",
+   "scenario": "building_train_8/atlanta_1",
+   "building": "building_train_8",
+   "weather": "atlanta_1",
+   "t_b": 1019,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_8__atlanta_1__t01194": {
+   "split": "train",
+   "scenario_day": "building_train_8/atlanta_1#4",
+   "scenario": "building_train_8/atlanta_1",
+   "building": "building_train_8",
+   "weather": "atlanta_1",
+   "t_b": 1194,
+   "stratum": "occupied_heating"
+  },
+  "building_train_8__atlanta_1__t01299": {
+   "split": "train",
+   "scenario_day": "building_train_8/atlanta_1#4",
+   "scenario": "building_train_8/atlanta_1",
+   "building": "building_train_8",
+   "weather": "atlanta_1",
+   "t_b": 1299,
+   "stratum": "occupied_heating"
+  },
+  "building_train_8__denver_6__t00257": {
+   "split": "test_b",
+   "scenario_day": "building_train_8/denver_6#0",
+   "scenario": "building_train_8/denver_6",
+   "building": "building_train_8",
+   "weather": "denver_6",
+   "t_b": 257,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__denver_6__t00308": {
+   "split": "test_b",
+   "scenario_day": "building_train_8/denver_6#1",
+   "scenario": "building_train_8/denver_6",
+   "building": "building_train_8",
+   "weather": "denver_6",
+   "t_b": 308,
+   "stratum": "occupied_other"
+  },
+  "building_train_8__denver_6__t00386": {
+   "split": "test_b",
+   "scenario_day": "building_train_8/denver_6#1",
+   "scenario": "building_train_8/denver_6",
+   "building": "building_train_8",
+   "weather": "denver_6",
+   "t_b": 386,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_8__denver_6__t00566": {
+   "split": "test_b",
+   "scenario_day": "building_train_8/denver_6#1",
+   "scenario": "building_train_8/denver_6",
+   "building": "building_train_8",
+   "weather": "denver_6",
+   "t_b": 566,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__denver_6__t00731": {
+   "split": "test_b",
+   "scenario_day": "building_train_8/denver_6#2",
+   "scenario": "building_train_8/denver_6",
+   "building": "building_train_8",
+   "weather": "denver_6",
+   "t_b": 731,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_8__denver_6__t00860": {
+   "split": "test_b",
+   "scenario_day": "building_train_8/denver_6#2",
+   "scenario": "building_train_8/denver_6",
+   "building": "building_train_8",
+   "weather": "denver_6",
+   "t_b": 860,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__denver_6__t01079": {
+   "split": "test_b",
+   "scenario_day": "building_train_8/denver_6#3",
+   "scenario": "building_train_8/denver_6",
+   "building": "building_train_8",
+   "weather": "denver_6",
+   "t_b": 1079,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_8__denver_6__t01148": {
+   "split": "test_b",
+   "scenario_day": "building_train_8/denver_6#3",
+   "scenario": "building_train_8/denver_6",
+   "building": "building_train_8",
+   "weather": "denver_6",
+   "t_b": 1148,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__denver_6__t01296": {
+   "split": "test_b",
+   "scenario_day": "building_train_8/denver_6#4",
+   "scenario": "building_train_8/denver_6",
+   "building": "building_train_8",
+   "weather": "denver_6",
+   "t_b": 1296,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_8__denver_6__t01436": {
+   "split": "test_b",
+   "scenario_day": "building_train_8/denver_6#4",
+   "scenario": "building_train_8/denver_6",
+   "building": "building_train_8",
+   "weather": "denver_6",
+   "t_b": 1436,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__fairbanks_8__t00378": {
+   "split": "train",
+   "scenario_day": "building_train_8/fairbanks_8#1",
+   "scenario": "building_train_8/fairbanks_8",
+   "building": "building_train_8",
+   "weather": "fairbanks_8",
+   "t_b": 378,
+   "stratum": "occupied_heating"
+  },
+  "building_train_8__fairbanks_8__t00702": {
+   "split": "train",
+   "scenario_day": "building_train_8/fairbanks_8#2",
+   "scenario": "building_train_8/fairbanks_8",
+   "building": "building_train_8",
+   "weather": "fairbanks_8",
+   "t_b": 702,
+   "stratum": "occupied_heating"
+  },
+  "building_train_8__fairbanks_8__t00855": {
+   "split": "train",
+   "scenario_day": "building_train_8/fairbanks_8#2",
+   "scenario": "building_train_8/fairbanks_8",
+   "building": "building_train_8",
+   "weather": "fairbanks_8",
+   "t_b": 855,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__fairbanks_8__t00926": {
+   "split": "val",
+   "scenario_day": "building_train_8/fairbanks_8#3",
+   "scenario": "building_train_8/fairbanks_8",
+   "building": "building_train_8",
+   "weather": "fairbanks_8",
+   "t_b": 926,
+   "stratum": "occupied_heating"
+  },
+  "building_train_8__fairbanks_8__t01000": {
+   "split": "val",
+   "scenario_day": "building_train_8/fairbanks_8#3",
+   "scenario": "building_train_8/fairbanks_8",
+   "building": "building_train_8",
+   "weather": "fairbanks_8",
+   "t_b": 1000,
+   "stratum": "occupied_other"
+  },
+  "building_train_8__fairbanks_8__t01245": {
+   "split": "train",
+   "scenario_day": "building_train_8/fairbanks_8#4",
+   "scenario": "building_train_8/fairbanks_8",
+   "building": "building_train_8",
+   "weather": "fairbanks_8",
+   "t_b": 1245,
+   "stratum": "occupied_heating"
+  },
+  "building_train_8__fairbanks_8__t01437": {
+   "split": "train",
+   "scenario_day": "building_train_8/fairbanks_8#4",
+   "scenario": "building_train_8/fairbanks_8",
+   "building": "building_train_8",
+   "weather": "fairbanks_8",
+   "t_b": 1437,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__fairbanks_8__t01559": {
+   "split": "train",
+   "scenario_day": "building_train_8/fairbanks_8#5",
+   "scenario": "building_train_8/fairbanks_8",
+   "building": "building_train_8",
+   "weather": "fairbanks_8",
+   "t_b": 1559,
+   "stratum": "occupied_heating"
+  },
+  "building_train_8__fairbanks_8__t01864": {
+   "split": "train",
+   "scenario_day": "building_train_8/fairbanks_8#6",
+   "scenario": "building_train_8/fairbanks_8",
+   "building": "building_train_8",
+   "weather": "fairbanks_8",
+   "t_b": 1864,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_8__fairbanks_8__t01913": {
+   "split": "train",
+   "scenario_day": "building_train_8/fairbanks_8#6",
+   "scenario": "building_train_8/fairbanks_8",
+   "building": "building_train_8",
+   "weather": "fairbanks_8",
+   "t_b": 1913,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_8__phoenix_4__t00281": {
+   "split": "train",
+   "scenario_day": "building_train_8/phoenix_4#0",
+   "scenario": "building_train_8/phoenix_4",
+   "building": "building_train_8",
+   "weather": "phoenix_4",
+   "t_b": 281,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__phoenix_4__t00443": {
+   "split": "train",
+   "scenario_day": "building_train_8/phoenix_4#1",
+   "scenario": "building_train_8/phoenix_4",
+   "building": "building_train_8",
+   "weather": "phoenix_4",
+   "t_b": 443,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_8__phoenix_4__t00565": {
+   "split": "train",
+   "scenario_day": "building_train_8/phoenix_4#1",
+   "scenario": "building_train_8/phoenix_4",
+   "building": "building_train_8",
+   "weather": "phoenix_4",
+   "t_b": 565,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__phoenix_4__t00862": {
+   "split": "train",
+   "scenario_day": "building_train_8/phoenix_4#2",
+   "scenario": "building_train_8/phoenix_4",
+   "building": "building_train_8",
+   "weather": "phoenix_4",
+   "t_b": 862,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__phoenix_4__t01059": {
+   "split": "train",
+   "scenario_day": "building_train_8/phoenix_4#3",
+   "scenario": "building_train_8/phoenix_4",
+   "building": "building_train_8",
+   "weather": "phoenix_4",
+   "t_b": 1059,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_8__phoenix_4__t01142": {
+   "split": "train",
+   "scenario_day": "building_train_8/phoenix_4#3",
+   "scenario": "building_train_8/phoenix_4",
+   "building": "building_train_8",
+   "weather": "phoenix_4",
+   "t_b": 1142,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__phoenix_4__t01295": {
+   "split": "train",
+   "scenario_day": "building_train_8/phoenix_4#4",
+   "scenario": "building_train_8/phoenix_4",
+   "building": "building_train_8",
+   "weather": "phoenix_4",
+   "t_b": 1295,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_8__phoenix_4__t01433": {
+   "split": "train",
+   "scenario_day": "building_train_8/phoenix_4#4",
+   "scenario": "building_train_8/phoenix_4",
+   "building": "building_train_8",
+   "weather": "phoenix_4",
+   "t_b": 1433,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__phoenix_4__t01571": {
+   "split": "train",
+   "scenario_day": "building_train_8/phoenix_4#5",
+   "scenario": "building_train_8/phoenix_4",
+   "building": "building_train_8",
+   "weather": "phoenix_4",
+   "t_b": 1571,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_8__phoenix_4__t01918": {
+   "split": "train",
+   "scenario_day": "building_train_8/phoenix_4#6",
+   "scenario": "building_train_8/phoenix_4",
+   "building": "building_train_8",
+   "weather": "phoenix_4",
+   "t_b": 1918,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_8__singapore_7__t00284": {
+   "split": "val",
+   "scenario_day": "building_train_8/singapore_7#0",
+   "scenario": "building_train_8/singapore_7",
+   "building": "building_train_8",
+   "weather": "singapore_7",
+   "t_b": 284,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__singapore_7__t00566": {
+   "split": "train",
+   "scenario_day": "building_train_8/singapore_7#1",
+   "scenario": "building_train_8/singapore_7",
+   "building": "building_train_8",
+   "weather": "singapore_7",
+   "t_b": 566,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__singapore_7__t00858": {
+   "split": "train",
+   "scenario_day": "building_train_8/singapore_7#2",
+   "scenario": "building_train_8/singapore_7",
+   "building": "building_train_8",
+   "weather": "singapore_7",
+   "t_b": 858,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__singapore_7__t01009": {
+   "split": "train",
+   "scenario_day": "building_train_8/singapore_7#3",
+   "scenario": "building_train_8/singapore_7",
+   "building": "building_train_8",
+   "weather": "singapore_7",
+   "t_b": 1009,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_8__singapore_7__t01147": {
+   "split": "train",
+   "scenario_day": "building_train_8/singapore_7#3",
+   "scenario": "building_train_8/singapore_7",
+   "building": "building_train_8",
+   "weather": "singapore_7",
+   "t_b": 1147,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__singapore_7__t01225": {
+   "split": "val",
+   "scenario_day": "building_train_8/singapore_7#4",
+   "scenario": "building_train_8/singapore_7",
+   "building": "building_train_8",
+   "weather": "singapore_7",
+   "t_b": 1225,
+   "stratum": "occupied_cooling"
+  },
+  "building_train_8__singapore_7__t01307": {
+   "split": "val",
+   "scenario_day": "building_train_8/singapore_7#4",
+   "scenario": "building_train_8/singapore_7",
+   "building": "building_train_8",
+   "weather": "singapore_7",
+   "t_b": 1307,
+   "stratum": "unoccupied_other"
+  },
+  "building_train_8__singapore_7__t01370": {
+   "split": "val",
+   "scenario_day": "building_train_8/singapore_7#4",
+   "scenario": "building_train_8/singapore_7",
+   "building": "building_train_8",
+   "weather": "singapore_7",
+   "t_b": 1370,
+   "stratum": "unoccupied_night"
+  },
+  "building_train_8__singapore_7__t01438": {
+   "split": "val",
+   "scenario_day": "building_train_8/singapore_7#4",
+   "scenario": "building_train_8/singapore_7",
+   "building": "building_train_8",
+   "weather": "singapore_7",
+   "t_b": 1438,
+   "stratum": "morning_recovery"
+  },
+  "building_train_8__singapore_7__t01959": {
+   "split": "train",
+   "scenario_day": "building_train_8/singapore_7#6",
+   "scenario": "building_train_8/singapore_7",
+   "building": "building_train_8",
+   "weather": "singapore_7",
+   "t_b": 1959,
+   "stratum": "unoccupied_night"
+  }
+ },
+ "counts": {
+  "building_train_1|test_b": 10,
+  "building_train_1|train": 27,
+  "building_train_1|val": 13,
+  "building_train_2|test_b": 10,
+  "building_train_2|train": 33,
+  "building_train_2|val": 7,
+  "building_train_4|test_b": 10,
+  "building_train_4|train": 31,
+  "building_train_4|val": 9,
+  "building_train_5|test_b": 10,
+  "building_train_5|train": 35,
+  "building_train_5|val": 5,
+  "building_train_7|test_b": 10,
+  "building_train_7|train": 29,
+  "building_train_7|val": 11,
+  "building_train_8|test_b": 10,
+  "building_train_8|train": 29,
+  "building_train_8|val": 11
+ },
+ "digest": "326251fd425e93f3"
+}

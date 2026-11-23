@@ -3,6 +3,8 @@
 > **Date:** 2026-11-18 · **Starter kit:** `1fb75606` (2026-11-16) · **Machine:** Intel i9-14900HX, 32 threads, 31 GB RAM
 > **Scope:** verification and small benchmarks only. No controller code was written; simulator and policy sources are unmodified.
 > **Companion:** [`latent_mpc_implementation_plan.md`](latent_mpc_implementation_plan.md) (its §2 R5, §6.6 and §12 are superseded by this document where they differ).
+>
+> **Update 2026-11-22:** the Kaggle competition data bundle (`competition_data/neurips-2026-smart-buildings.zip`, gitignored) contains the real `kaggle_evaluation` gateway. Q1 is now **resolved** and Q2 **narrowed**; see §2.4. The bundle's simulator is identical to starter-kit `1fb75606`, so every dataset and model built so far stays valid.
 
 **Reproduce:**
 ```bash
@@ -19,8 +21,8 @@ cd starter-kit && ../.venv/bin/python ../scratch/phase0/tariff_sensitivity.py
 
 | Q | Topic | Status | One-line answer |
 |---|---|---|---|
-| Q1 | Where the 30 hidden rollouts execute | **Unresolved** (no public source) | The gateway owns the simulator. Whether its rollouts count against the 9 h notebook limit is not documented publicly. Two budget modes are kept configurable (§2.1) |
-| Q2 | How the 10× `bang_bang` limit is measured | **Partially resolved** | The paper says "per-rollout wall-clock". No public enforcement code exists, and the boundary (`__init__`, IPC) is unknown. Measured locally: the per-step policy allowance is **≈ 140 ms (small building) to ≈ 410 ms (large)** |
+| Q1 | Where the hidden rollouts execute | **Resolved** (gateway source, §2.4) | The gateway runs **every scenario sequentially** in its own container against one policy server; probably **48** scenarios, not 30. It has no wall-clock check of its own; a total "rerun allowance" is enforced outside it, value not in the code. Treat `notebook_sequential` as the realistic mode |
+| Q2 | How the 10× `bang_bang` limit is measured | **Narrowed** (§2.4) | The gateway has **no 10× `bang_bang` check**. Its only limits are **15 min for a scenario's first turn** (policy construction, weight loading) and **60 s per later turn**. If a 10× rule exists, it is enforced outside the gateway. The local allowance in §2.3 (≈ 140–410 ms/step) applies only under `per_rollout` |
 | Q3 | Public tariff / carbon schedules | **Resolved (technically); rules permission unresolved** | They are public module constants, identical across all 30 configs. Hour and day type are observable; the **month is not** (needed for the gas price), but the annual mean gives ≤ 4.6% error |
 | Q4 | Reward normalizers | **Resolved** | Energy and gas normalizers are 80 kW·K and 205 kW·K, where K (the number of AHUs) is known at runtime. Every other constant is global. The comfort term is independent of the $/person-hour constant |
 | Q5 | Tank accounting | **Current implementation documented; finality unresolved** | The energy-balanced tank is active in all 30 scenarios. Gas is billed as burner heat at 100% efficiency. No free storage |
@@ -37,7 +39,7 @@ cd starter-kit && ../.venv/bin/python ../scratch/phase0/tariff_sensitivity.py
 - Baseline notebook cell 3 (`baseline/example-smart-building.ipynb`): the submission calls `SmartBuildingsInferenceServer(SubmissionPolicy).run(competition_data_folder=DATA_ROOT)`. The `kaggle_evaluation` package is part of the Kaggle competition data and **is not in the public starter kit**. This machine has no Kaggle credentials, so it could not be inspected.
 - The Kaggle overview, data and rules pages render client-side, so their text could not be fetched. The challenge site (`smart-buildings-2026.github.io/competition/`, `competition.html`) has no runtime details. A web search found no discussion thread on this.
 
-**Status: unresolved.** Next action: read `kaggle_evaluation/smart_buildings_gateway.py` (or similar) in the attached competition data inside a Kaggle notebook, and the Kaggle "Code Requirements" panel.
+**Status (2026-11-18): unresolved.** **Update 2026-11-22: resolved from the gateway source, see §2.4.** The text below is kept as the original analysis.
 
 **Development assumption (configurable `budget_mode`):**
 - `per_rollout` (**default**): only the paper's 10× `bang_bang` per-rollout bound applies (§2.3 numbers).
@@ -84,6 +86,49 @@ Notes:
 - The smallest building binds, because the allowance scales with simulator cost while planner cost grows with V. Hidden buildings come from the same generator (K = 3–9), so a K = 3, V ≈ 28 building is the design point.
 - Kaggle CPU is slower than this machine. The Kaggle smoke test ran b1 (4/39) in 805 s, against an estimated ≈ 180–200 s here. If the reference and the policy are timed on the same machine, the *ratio* carries over, but fixed costs (`__init__`, model load) do not scale the same way. **Re-measure on Kaggle before Phase 2 sign-off.**
 - **Development rule:** total policy time per rollout ≤ 4 × T_bb(local) on the smallest building, plus watchdog fallback to the baseline. In `notebook_sequential` mode the target is ≤ 30 ms/step.
+
+### 2.4 Update 2026-11-22: what the gateway source shows
+
+**Source:** `competition_data/neurips-2026-smart-buildings.zip` (Kaggle competition data, gitignored):
+- `kaggle_evaluation/gateway.py` (`SmartBuildingsGateway`, `SmartBuildingsDriver`);
+- `kaggle_evaluation/smart_buildings_inference_server.py`;
+- `smart_buildings/` (simulator and scenarios).
+
+The code was read only, not executed.
+
+**Simulator version.**
+- `diff -r` against a fresh clone of the public starter kit (HEAD = `1fb75606`, no newer commits) finds **no difference** in `smart_buildings/` apart from the added `evaluation_scenarios/` directory.
+- That directory holds one example: `building_train_1/atlanta_2`, the same as the training scenario except for asset paths. The hidden scenarios are mounted by Kaggle at scoring time.
+- Our environment construction (`src/run_eval.py`, `src/collect_data.py`) matches the gateway's `_load_environment` line for line: `evaluate.load_hybrid_environment`, `metrics_path = None`, the no-op `_occupancy_normalization_constant = 125.0`, `evaluate.create_building_meta_data`.
+
+**Execution flow (Q1):**
+- `generate_game_results` loops over every `evaluation_scenarios/*/*/config.gin` **sequentially**, in sorted order, with one driver and one policy server.
+- Scenario count: the code hardcodes no list, but a comment refers to "the hours a full **48 scenario** sweep takes".
+- **No wall-clock check in the gateway.** Its comment: *"there is deliberately no wall-clock check here: the rerun allowance is enforced outside this container"*. The value of that allowance is not in the bundle.
+- Supporting hint: `smart_buildings/training_set.yaml` says the training set has 30 scenarios *"so that one policy over the whole set fits inside a single Kaggle session alongside the graded run"*.
+- **Inference (not confirmed):** if 48 scenarios must fit in one 9 h session, that is ≈ 675 s per scenario including the simulator. The Kaggle smoke test of the baseline on b1 took ≈ 805 s. So the per-step policy budget may be close to zero on Kaggle hardware, unless the rerun uses faster machines or a larger allowance. **The `notebook_sequential` mode (§2.1) should be treated as the realistic case, not a fallback.**
+
+**Timing (Q2):**
+- `FIRST_TURN_TIMEOUT_SECONDS = 15 * 60`: the first turn of each scenario, where the policy is constructed and weights are loaded.
+- `PROCESS_TURN_TIMEOUT_SECONDS = 60`: every later turn.
+- No code compares against a `bang_bang` runtime. The paper's 10× rule, if enforced, happens outside the gateway.
+
+**Protocol facts relevant to the controller:**
+- **Metadata arrives once.** `building_meta_data` arrives only on the first turn of a scenario, through gym's `info` dict. Later turns carry only the observation (≈ 1.2 KiB) and the action space.
+- **No state between scenarios.** A fresh `Policy(building_meta_data, action_spec)` is built for each scenario.
+- **One bad action fails the whole submission.** Each of these raises `INVALID_SUBMISSION` and ends the run, not just the scenario:
+  - an action the simulator rejects (out of bounds, wrong shape, missing key);
+  - a step whose reward equals the rejection reward (`-inf`, the building refused the action);
+  - a NaN in the action, which upstream checks catch.
+
+  A deployed controller must sanitize its outputs (finite values, clipped to `action_spec`, correct dtype) and fall back to the baseline on any internal failure.
+- **Score.** Per-scenario mean reward (total / steps) goes into one row per scenario. The metric is MAE against 0 with equal weight per scenario, which is what `src/summarize.py` already computes.
+
+**Hidden scenarios** (from the starter-kit README):
+- Held-out buildings are drawn from the same generator and parameter ranges as the shipped six.
+- Their weather strips are built the same way, but **none is a shipped strip**.
+- A sixth station, `minneapolis`, ships as generator input (8 strips) but is not used by any training scenario. It is the natural candidate for a held-out-climate test.
+- Six stations × 8 strips = 48 matches the scenario count, but this may be a coincidence.
 
 ---
 
@@ -202,8 +247,8 @@ r        = 0.6·comfort − 0.2·energy − 0.2·carbon
 
 ## 7. Questions for the organizers
 
-1. **Execution flow:** do the 30 hidden rollouts run inside the submitted notebook session, and do they count against the 9 h limit? Sequentially or in parallel?
-2. **10× rule:** is the `bang_bang` reference measured per building, on the same hardware, in the same session? Are policy `__init__`, artifact loading and gateway IPC inside the timed window? What happens on violation: the rollout fails, or a fallback is used?
+1. **Execution flow:** ~~do the 30 hidden rollouts run inside the submitted notebook session …? Sequentially or in parallel?~~ *Answered 2026-11-22 (§2.4): sequentially, probably 48 scenarios.* Still open: the value of the "rerun allowance" enforced outside the gateway, and the hardware it runs on.
+2. **10× rule** *(not in the gateway, §2.4; ask whether it exists at all)*: is the `bang_bang` reference measured per building, on the same hardware, in the same session? Are policy `__init__`, artifact loading and gateway IPC inside the timed window? What happens on violation: the rollout fails, or a fallback is used?
 3. **Tariffs and carbon:** are the evaluation scenarios built with the default `ElectricityEnergyCost` / `NaturalGasEnergyCost` schedules and `US/Pacific`? May a policy embed these public tables?
 4. **Normalizers:** are `C_ELECTRICITY_PER_AHU = 80,000`, `C_NATURAL_GAS_PER_AHU = 205,000` and `productivity_deviation_ref = 5` used unchanged for evaluation?
 5. **Tank:** is the energy-balanced boiler (`energy_balance = True`, 1.5 m³, 0.5 K/min, 100% efficiency) final for evaluation?
@@ -213,10 +258,10 @@ r        = 0.6·comfort − 0.2·energy − 0.2·carbon
 
 ## 8. Updated recommendations for the next phase
 
-1. **Runtime budget is looser than assumed in the plan, unless Q1 says otherwise.** In `per_rollout` mode the design target is about 70 ms/step mean on the smallest building, against the plan's 25 ms. This permits an MPPI planner with N ≈ 64–128 samples and H = 12–36 in NumPy. Keep the `notebook_sequential` lean mode (≤ 30 ms/step) as a configuration, and keep distillation (Architecture D) as the contingency.
+1. *(Superseded 2026-11-22: Q1 now says otherwise, see §2.4. Design for `notebook_sequential` first: the per-step policy budget may be near zero on Kaggle hardware, so a distilled or analytical policy is the primary path and any planner must be optional.)* **Runtime budget is looser than assumed in the plan, unless Q1 says otherwise.** In `per_rollout` mode the design target is about 70 ms/step mean on the smallest building, against the plan's 25 ms. This permits an MPPI planner with N ≈ 64–128 samples and H = 12–36 in NumPy. Keep the `notebook_sequential` lean mode (≤ 30 ms/step) as a configuration, and keep distillation (Architecture D) as the contingency.
 2. **Cost model:** implement the exact formula in §4 with K from metadata and the public tariff tables, plus the annual-mean gas price and causal holiday detection. The learned components should only predict *physical* quantities: zone temperatures, E (fan, chiller, pump) and G (burner heat).
 3. **Re-rank the multi-step levers:** time-of-use shifting is small (≈ 15% swing). Tank value comes from the ramp limit and standing loss. The main opportunities are **heating recovery timing and capacity** (cold outliers: fairbanks_1, fairbanks_8), setback depth, and AHU on/off scheduling. The oracle study should test exactly these knobs.
 4. **Tank model in the dynamics prior:** a first-order tank with the burner ramp limit (≈ 52 kW cap above draw plus loss) and the insulation loss, with parameters isolated in config.
 5. **Comfort weighting gap:** only building-level occupancy is observable. Validate the uniform vs. area-weighted zone split against the true reward on training rollouts in Phase 1.
 6. **Phase 1 (refactor baseline into hooks)** can start now; it doesn't depend on any unresolved question. Run the Phase 0 oracle window study alongside it, first fixing or characterizing the b2 copy divergence.
-7. **Measure on Kaggle** (one notebook session): `bang_bang` and baseline single-rollout time for one small building, plus an inspection of the `kaggle_evaluation` gateway source. This resolves Q1/Q2 or narrows them sharply.
+7. **Measure on Kaggle** (one notebook session): `bang_bang` and baseline single-rollout time for one small building, plus an inspection of the `kaggle_evaluation` gateway source. This resolves Q1/Q2 or narrows them sharply. *(Gateway inspected 2026-11-22, §2.4. The timing measurement is still needed: it decides whether 48 sequential scenarios fit in one session.)*

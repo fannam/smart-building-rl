@@ -1,0 +1,78 @@
+{
+ "argv": [
+  "scripts/train_paired.py",
+  "--config",
+  "/kaggle/working/phase2c_training/run_config.json",
+  "--out",
+  "/kaggle/working/phase2c_training/results/phase2c/training",
+  "--parallel",
+  "3",
+  "--device",
+  "cuda",
+  "--workers",
+  "1",
+  "--threads",
+  "1",
+  "--deadline",
+  "1795313999.5605714",
+  "--jobs",
+  "graph:paired:0:1:1",
+  "graph:paired:1:1:1",
+  "graph:paired:2:1:1",
+  "graph:paired:3:1:1",
+  "graph:paired:4:1:1",
+  "graph:paired:5:1:1",
+  "graph:paired:0:2:1",
+  "graph:paired:1:2:1",
+  "graph:paired:2:2:1",
+  "graph:paired:3:2:1",
+  "graph:paired:4:2:1",
+  "graph:paired:5:2:1"
+ ],
+ "jobs": [
+  "graph:paired:0:1:1",
+  "graph:paired:1:1:1",
+  "graph:paired:2:1:1",
+  "graph:paired:3:1:1",
+  "graph:paired:4:1:1",
+  "graph:paired:5:1:1",
+  "graph:paired:0:2:1",
+  "graph:paired:1:2:1",
+  "graph:paired:2:2:1",
+  "graph:paired:3:2:1",
+  "graph:paired:4:2:1",
+  "graph:paired:5:2:1"
+ ],
+ "config": {
+  "name": "phase2c_paired_v1",
+  "description": "Paired counterfactual training on Phase 2C branch data. Same models/protocol as Phase 2A (GRU) and Phase 2B (graph); see scripts/train_paired.py.",
+  "base_configs": {
+   "gru": "configs/dynamics_gru.json",
+   "graph": "configs/graph_dynamics.json"
+  },
+  "phase1_root": "/tmp/p2c/smart-building-rl/data/phase1_sample",
+  "cf_data": "/tmp/p2c/phase2c_counterfactual",
+  "split_manifest": "/kaggle/working/phase2c_training/split_manifest.json",
+  "cache": "/tmp/p2c/cache",
+  "w_arm": 1.0,
+  "noop_weight": 0.1,
+  "branch_groups_per_step": 2,
+  "branch_every": 2,
+  "training_overrides": {},
+  "lambda_grid": [
+   0.1,
+   0.3,
+   1.0
+  ],
+  "sweep_fold": 5,
+  "lambda_selection_rule": "lowest val paired loss (val_branch.cf_total) among lambdas whose val state loss (val_state.total) is <= 1.05 x that of the lambda=0 'arms' control on the same fold; validation branch points of the training buildings only",
+  "control_folds": [
+   1,
+   5
+  ],
+  "ensemble_seeds": [
+   1,
+   2
+  ]
+ }
+}

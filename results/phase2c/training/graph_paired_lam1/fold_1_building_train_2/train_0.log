@@ -1,0 +1,12 @@
+[graph:paired:1:0:1] ep 0 sel 3.5349 | val state 0.7625 arm 2.3019 cf 0.4705 (zone 0.192 tank 0.154 E 0.202) 754s
+[graph:paired:1:0:1] ep 1 sel 2.4414 | val state 0.5958 arm 1.4926 cf 0.3529 (zone 0.171 tank 0.144 E 0.110) 710s
+[graph:paired:1:0:1] ep 2 sel 2.2965 | val state 0.7644 arm 1.2592 cf 0.2729 (zone 0.124 tank 0.128 E 0.085) 738s
+[graph:paired:1:0:1] ep 3 sel 1.6639 | val state 0.4641 arm 0.9750 cf 0.2248 (zone 0.089 tank 0.117 E 0.077) 719s
+[graph:paired:1:0:1] ep 4 sel 1.3991 | val state 0.4466 arm 0.7369 cf 0.2156 (zone 0.087 tank 0.102 E 0.077) 734s
+[graph:paired:1:0:1] ep 5 sel 1.3669 | val state 0.4772 arm 0.7091 cf 0.1806 (zone 0.076 tank 0.092 E 0.059) 809s
+[graph:paired:1:0:1] ep 6 sel 1.2701 | val state 0.4358 arm 0.6685 cf 0.1658 (zone 0.071 tank 0.083 E 0.053) 788s
+[graph:paired:1:0:1] ep 7 sel 1.1081 | val state 0.3883 arm 0.5770 cf 0.1429 (zone 0.061 tank 0.073 E 0.045) 705s
+[graph:paired:1:0:1] ep 8 sel 1.0250 | val state 0.3687 arm 0.5194 cf 0.1369 (zone 0.059 tank 0.074 E 0.041) 735s
+[graph:paired:1:0:1] ep 9 sel 0.9501 | val state 0.3576 arm 0.4630 cf 0.1295 (zone 0.056 tank 0.070 E 0.039) 728s
+[graph:paired:1:0:1] ep 10 sel 0.9119 | val state 0.3458 arm 0.4401 cf 0.1260 (zone 0.054 tank 0.069 E 0.037) 707s
+[graph:paired:1:0:1] ep 11 sel 0.9104 | val state 0.3457 arm 0.4390 cf 0.1257 (zone 0.054 tank 0.069 E 0.037) 698s
