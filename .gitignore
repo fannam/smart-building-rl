@@ -9,3 +9,5 @@ competition_data/
 .ipynb_checkpoints/
 .pytest_cache/
 kaggle_data/
+results/**/*.npz
+results/**/*.npy
