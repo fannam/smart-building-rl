@@ -1,10 +1,4 @@
-# Python >=3.12. Only direct dependencies of this repo's code; versions match the starter-kit pins.
-numpy==2.0.2
-pandas==2.3.3
-
-# Competition package (pulls in its own pinned dependencies: numba, scipy, gymnasium, ...)
-smart-buildings-competition @ git+https://github.com/smart-buildings-2026/starter-kit.git
-
-# Training only (Phase 1 dataset loader, Phase 2+ models). CPU wheel:
-#   uv pip install --python .venv/bin/python --index-url https://download.pytorch.org/whl/cpu torch
-torch>=2.4
+# Python >= 3.12. The competition package pulls in its own pinned dependencies (numpy, scipy, numba, gymnasium, ...).
+# Pinned to the starter-kit commit whose simulator matches the Kaggle bundle (checked 2026-11-24).
+smart-buildings-competition @ git+https://github.com/smart-buildings-2026/starter-kit.git@1fb75606d12e016463fbc63de704967c5b2bf9d5
+pytest

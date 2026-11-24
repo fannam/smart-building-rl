@@ -1,9 +1,0 @@
-done fold 1 (building_train_2) seed 0: best epoch 0 val 0.9973 epochs 4 train_windows 19700 24.7 min
-done fold 2 (building_train_4) seed 0: best epoch 2 val 0.4689 epochs 6 train_windows 19700 37.5 min
-done fold 4 (building_train_7) seed 0: best epoch 3 val 0.4622 epochs 7 train_windows 19700 43.9 min
-done fold 5 (building_train_8) seed 1: best epoch 7 val 0.4008 epochs 11 train_windows 19700 69.3 min
-done fold 5 (building_train_8) seed 2: best epoch 11 val 0.3491 epochs 12 train_windows 19700 76.1 min
-done fold 5 (building_train_8) seed 0: best epoch 8 val 0.4221 epochs 12 train_windows 19700 77.5 min
-done fold 3 (building_train_5) seed 0: best epoch 8 val 0.3874 epochs 12 train_windows 19700 77.7 min
-done fold 0 (building_train_1) seed 0: best epoch 8 val 0.3914 epochs 12 train_windows 19700 78.0 min
-EXIT 0
