@@ -1,6 +1,0 @@
-evaluated fold 0 (building_train_1) in 338s  repro {'gru_zone_mae_h12_phase2a': 0.16778951815473359, 'gru_zone_mae_h12_now': 0.16778951815473359, 'abs_diff': 0.0}
-evaluated fold 1 (building_train_2) in 363s  repro {'gru_zone_mae_h12_phase2a': 0.243118090417498, 'gru_zone_mae_h12_now': 0.243118090417498, 'abs_diff': 0.0}
-evaluated fold 2 (building_train_4) in 347s  repro {'gru_zone_mae_h12_phase2a': 0.07684850425685755, 'gru_zone_mae_h12_now': 0.07684850425685755, 'abs_diff': 0.0}
-evaluated fold 3 (building_train_5) in 365s  repro {'gru_zone_mae_h12_phase2a': 0.10992314773564281, 'gru_zone_mae_h12_now': 0.10992314773564281, 'abs_diff': 0.0}
-evaluated fold 4 (building_train_7) in 322s  repro {'gru_zone_mae_h12_phase2a': 0.12764719391902934, 'gru_zone_mae_h12_now': 0.12764719391902934, 'abs_diff': 0.0}
-evaluated fold 5 (building_train_8) in 318s  repro {'gru_zone_mae_h12_phase2a': 0.1377893441673217, 'gru_zone_mae_h12_now': 0.1377893441673217, 'abs_diff': 0.0}

@@ -1,9 +1,0 @@
-baselines fitted on 50100 train windows in 109s
-[fold 4 seed 0] ep 0 train 1.1010 val 0.7892 (T 0.586 H 0.282 E 0.076 G 0.049) 366s
-[fold 4 seed 0] ep 1 train 0.4874 val 0.7509 (T 0.654 H 0.119 E 0.039 G 0.035) 379s
-[fold 4 seed 0] ep 2 train 0.2972 val 0.5533 (T 0.472 H 0.113 E 0.024 G 0.026) 374s
-[fold 4 seed 0] ep 3 train 0.2186 val 0.4622 (T 0.399 H 0.091 E 0.017 G 0.019) 354s
-[fold 4 seed 0] ep 4 train 0.1729 val 0.5423 (T 0.481 H 0.081 E 0.019 G 0.023) 340s
-[fold 4 seed 0] ep 5 train 0.1415 val 0.4936 (T 0.422 H 0.108 E 0.016 G 0.020) 357s
-[fold 4 seed 0] ep 6 train 0.1189 val 0.4824 (T 0.424 H 0.080 E 0.015 G 0.021) 347s
-[fold 4 seed 0] early stop at epoch 6 (best 3)
