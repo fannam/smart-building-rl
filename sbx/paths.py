@@ -7,10 +7,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 KIT = Path(os.environ.get("SBX_KIT", ROOT / "starter-kit")).resolve()
 TRAINING_SCENARIOS = KIT / "smart_buildings" / "training_scenarios"
-BASELINE_RETURNS = KIT / "baseline_returns.json"
 RESULTS = ROOT / "results"
 
-FULL_STEPS = 8640  # 30 days at 5 min; the local scorer and baseline_returns.json use this horizon
+FULL_STEPS = 8640  # 30 days at 5 min; the local scorer uses this horizon
 
 
 def scenario_key(scenario_dir: Path) -> str:

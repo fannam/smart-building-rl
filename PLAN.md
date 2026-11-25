@@ -49,12 +49,29 @@ tests/
    `smart_buildings/` against the kit. If the simulator changed with the leaderboard reset, pin the bundle's version
    instead.
 2. Write `sbx/env.py`, `evaluate.py` and `score.py`. Make the action sanitizer mandatory in every rollout.
-3. Reproduce the four shipped baselines on the 30 training scenarios. **Gate:** scores match
-   `baseline_returns.json` (`pid_water` 0.05414, `pid` 0.06736, `fixed_setpoint` 0.06592, `bang_bang` 0.2252).
+3. Run the four kit baselines on the 30 training scenarios on the current simulator, as reference numbers only
+   (`baseline_returns.json` predates the 2026-11-16 simulator changes and is not a target). Done 2026-11-25:
+   `pid_water` 0.05787, `fixed_setpoint` 0.06708, `pid` 0.07068, `bang_bang` 0.24150; no failures, 0 sanitizer fixes.
 4. Benchmark throughput on this machine (32 threads): seconds per rollout by building size, at 1 vs 16 vs 30
    workers. That sets the tuning budget.
 
 **Deliverable:** a trusted evaluator, a throughput table.
+
+**Throughput (done 2026-11-25, `python -m sbx.bench`, pid_water, 864 steps, `results/bench/throughput.json`):**
+
+| Building | K/V | 1 worker ms/step | 1 worker full episode | 16 workers steps/s | 30 workers steps/s |
+|---|---|---|---|---|---|
+| train_8 | 3/30 | 16 | 2.8 min | 179 | 171 |
+| train_7 | 4/36 | 18 | 3.1 min | 155 | 155 |
+| train_1 | 4/39 | 26 | 4.5 min | 113 | 93 |
+| train_4 | 6/54 | 37 | 6.3 min | 77 | 69 |
+| train_5 | 8/79 | 38 | 6.5 min | 76 | 74 |
+| train_2 | 9/85 | 53 | 9.0 min | 46 | 46 |
+
+- Throughput saturates at about 16 workers (2.6–3.8x one worker); 30 workers add nothing. Likely memory-bandwidth
+  or cache bound. Policy cost is < 1 ms/step; nearly all time is the simulator.
+- Mean ≈ 88 steps/s at 16 workers over the six buildings. The M4 round as first planned (16 candidates x 24
+  seven-day scenarios x 30 generations ≈ 23 M steps) would take **≈ 73 h**, not 4–6 h. See the M4 budget note.
 
 ### M1 — Starting controller (Nov 27 – Dec 2)
 
@@ -111,7 +128,10 @@ the suite).
 ### M4 — Tuning (Dec 6 – Dec 22)
 
 1. **Round 1:** CMA-ES on the global parameters (population ≈ 16, about 30 generations, the tune split, windowed
-   objective). Estimated ≈ 100–150 core-hours, about 4–6 h on 30 workers.
+   objective). **Budget (from the M0 throughput table):** ≈ 88 steps/s locally, so the original sizing (≈ 23 M
+   steps) is ≈ 73 h. Cut it to ≤ 12 h per round: 3-day windows if the M2 gate allows, 8–12 scenarios sampled per
+   generation, generated buildings capped at K ≤ 6, and extra workers on the L4 VM / Kaggle. Also try pinning
+   workers to P-cores to see whether scaling improves.
 2. Every 5 generations, score the best candidate on **val** (full episodes). Stop or restart if the val score stops
    improving while the tune score keeps falling.
 3. **Round 2:** add the context parameters, warm-started from round 1.

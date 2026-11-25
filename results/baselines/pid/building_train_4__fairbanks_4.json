@@ -1,0 +1,32 @@
+{
+  "scenario": "building_train_4/fairbanks_4",
+  "policy": "pid",
+  "max_steps": 8640,
+  "steps": 8640,
+  "terminated_naturally": false,
+  "total_reward": -285.52274319223216,
+  "mean_reward": -0.033046613795397244,
+  "score": 0.033046613795397244,
+  "mean_comfort": -0.031358910117631665,
+  "mean_elec_cost": -0.0011015131824861216,
+  "mean_gas_cost": -7.736993433867754e-05,
+  "mean_elec_carbon": -0.0002550160886306035,
+  "mean_gas_carbon": -0.000253804776420776,
+  "terms_residual_max": 1.936954963088766e-08,
+  "worst_step_reward": -0.5043002367019653,
+  "num_ahus": 6,
+  "num_zones": 54,
+  "sanitizer_fixes": {
+    "nonfinite": 0,
+    "clipped": 0,
+    "shape": 0
+  },
+  "seconds": {
+    "load": 17.57369080799981,
+    "policy_init": 0.0003214630014554132,
+    "policy": 8.554154527893843,
+    "sim": 2358.261328548071,
+    "reward_terms": 178.23969529693568,
+    "wall": 2562.7141907589994
+  }
+}

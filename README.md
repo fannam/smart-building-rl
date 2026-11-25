@@ -13,8 +13,10 @@ Earlier work (learned dynamics model / latent MPC, phases 0–2C) is at git tag 
 - The public board scores ≈ 1/3 of the hidden set (≈ 10 scenarios), so differences below ≈ 0.0005 are noise.
 - Before the reset, local scores on the 30 training scenarios were ≈ 1.4× better than leaderboard scores. The hidden
   set leans to deep cold weather. Recheck this ratio on the new board.
-- Reference scores on the 30 training scenarios (full 8,640 steps): `bang_bang` 0.2252, `fixed_setpoint` 0.06592,
-  `pid` 0.06736, `pid_water` 0.05414 (shipped `baseline_returns.json`). A public analytical notebook controller
+- Kit baselines on the 30 training scenarios, current simulator (`1fb75606`, full 8,640 steps; reference only, run
+  `baselines`, 2026-11-25): `pid_water` 0.05787, `fixed_setpoint` 0.06708, `pid` 0.07068, `bang_bang` 0.24150. The kit's
+  `baseline_returns.json` predates the 2026-11-16 simulator changes (energy-balanced tank, airflow-weighted return
+  air) and is not used. A public analytical notebook controller
   (`WideHotStorageReservePolicy`, derived from penguin069 / Daniel Wu / jazivxt notebooks) scored 0.00695 locally.
 
 ## Approach: a tuned analytical controller
