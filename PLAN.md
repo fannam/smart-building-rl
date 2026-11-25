@@ -77,7 +77,7 @@ tests/
 
 1. **Decision: which controller to start from.**
    - **Recommended:** the public analytical notebook controller `WideHotStorageReservePolicy` (0.00695 locally;
-     recoverable from tag `archive/learned-model-phase2c`, `src/baseline_policy.py`). Check the license of each
+     recoverable from commit `b984845`, `src/baseline_policy.py`). Check the license of each
      source notebook and keep attribution.
    - Alternative: write our own (SADR-style: occupancy-gated modes, per-zone PI, SAT and static-pressure resets,
      economizer, hot-water reset). Cleaner to parametrize, but weeks of work to reach 0.007.
@@ -87,6 +87,28 @@ tests/
    weekday vs weekend. List the five biggest sources of loss.
 
 **Deliverable:** baseline leaderboard score, loss breakdown, ranked list of levers.
+
+**Results (2026-11-25, run `m1_reference`, `python -m sbx.breakdown m1_reference WideHotStorageReservePolicy`):**
+- Ported unmodified to `sbx/controller/reference.py` from commit `b984845` (the `archive/learned-model-phase2c` tag
+  does not exist; the pre-restart commit does). Attribution in `sbx/controller/ATTRIBUTION.md`. **Licenses of the
+  four source notebooks are not yet verified** (Kaggle was unreachable from this machine).
+- **Gate passed:** 0.00695 on the 30 training scenarios, the same as the archived number, so that number was
+  already on the current simulator. Comfort 0.00027 · electricity 0.00329 · gas 0.00339. Policy ≈ 2–7 ms/step.
+- Submission: `python -m submission.build` writes `submission/inference.py` (controller + sanitizer + fallback
+  to the last valid action) and `submission/notebook.ipynb`. Bit-identical rewards to the raw controller locally.
+  **Not yet submitted** (needs the Kaggle account).
+
+**Loss sources, ranked** (additive shares of the 0.00695 score):
+
+| # | Source | Share | Notes |
+|---|---|---|---|
+| 1 | Cold-weather gas | fairbanks 42.6% (gas 0.00258) | Two scenarios, `building_train_1/fairbanks_1` (0.0465 alone) and `building_train_8/fairbanks_8`, are 32.7% of the score. Matters most for the cold-leaning hidden set. |
+| 2 | Morning recovery, 05:00–08:00 | 35.7% for 05–07 (gas 0.00154, elec 0.00073, comfort 0.00021) | 05:00 is before occupancy and alone is 10.8%. Nearly all comfort loss is at 06:00 (late recovery on cold mornings). Levers: optimum-start timing, setback depth, tank pre-charge. |
+| 3 | Daytime electricity in warm climates | elec 0.00253 over 08–18; phoenix + singapore + atlanta elec 0.00284 | Flat ≈ 0.00023 per hour across the occupied day: fans and cooling. Levers: static-pressure and supply-air resets, economizer, minimum airflow. |
+| 4 | Daytime gas while occupied | gas 0.00176 over 08–18 | Reheat and keeping the tank at 340–350 K. Levers: hot-water setpoint and band, reheat vs AHU heating split. |
+| 5 | Comfort spikes | comfort only 3.9% overall, but the worst 1% of steps hold 63–97% of each scenario's comfort loss | Cold-morning runaways; the quadratic penalty makes this the main tail risk on unseen cold buildings. |
+
+Nights (19:00–05:00) are 1.8% and weekends 1.6%: setback is already cheap, so little headroom there.
 
 ### M2 — Validation suite (Nov 28 – Dec 4, in parallel with M1)
 
@@ -145,7 +167,7 @@ the suite).
 ### M5 — Oracle study, optional (Dec 8 – Dec 15, in parallel with M4)
 
 1. Port the bit-exact environment branching (env copy that shares the SuperLU factorization, plus global RNG
-   snapshots) from the archive tag.
+   snapshots) from commit `b984845`.
 2. On about 6 cold windows of 3 days, search recovery start time and setback depth every 15 min with simulator
    lookahead, starting from the M4 controller.
 3. **Gate:** if the oracle gains **≥ 5%** on these windows, add a cheap supervisory planner (per-zone RC + tank

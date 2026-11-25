@@ -1,6 +1,6 @@
 """Parallel evaluator: (policy x scenario) rollouts in separate processes.
 
-Writes results/<run>/<policy>/<building>__<weather>.json (summary) and .npz (per-step reward + terms).
+Writes results/<run>/<policy>/<building>__<weather>.json (summary) and .npz (per-step reward, terms, context).
 Existing results are skipped, so an interrupted run can be resumed by re-running the same command.
 
     python -m sbx.evaluate --policies pid_water bang_bang --run baselines
@@ -39,7 +39,7 @@ def _git_sha(path: Path) -> str | None:
 def run_job(scenario_dir: str, policy_spec: str, max_steps: int | None, out_json: str, kit: str) -> dict:
     import numpy as np
 
-    from sbx.env import TERMS, rollout
+    from sbx.env import CONTEXT, TERMS, rollout
     from sbx.policies import resolve
 
     key = paths.scenario_key(Path(scenario_dir))
@@ -47,7 +47,7 @@ def run_job(scenario_dir: str, policy_spec: str, max_steps: int | None, out_json
         summary, arr = rollout(Path(scenario_dir), resolve(policy_spec), Path(kit), max_steps)
         result = {"scenario": key, "policy": policy_spec, "max_steps": max_steps, **summary}
         np.savez_compressed(Path(out_json).with_suffix(".npz"), reward=arr[0],
-                            **{t: arr[i + 1] for i, t in enumerate(TERMS)})
+                            **{t: arr[i + 1] for i, t in enumerate(TERMS + CONTEXT)})
     except Exception:
         result = {"scenario": key, "policy": policy_spec, "error": traceback.format_exc()}
     Path(out_json).write_text(json.dumps(result, indent=2))
