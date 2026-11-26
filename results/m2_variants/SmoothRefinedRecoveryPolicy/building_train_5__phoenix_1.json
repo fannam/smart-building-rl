@@ -1,0 +1,32 @@
+{
+  "scenario": "building_train_5/phoenix_1",
+  "policy": "sbx.controller.reference:SmoothRefinedRecoveryPolicy",
+  "max_steps": 8640,
+  "steps": 8640,
+  "terminated_naturally": false,
+  "total_reward": -16.917894401121885,
+  "mean_reward": -0.0019580896297594773,
+  "score": 0.0019580896297594773,
+  "mean_comfort": -7.503138683440363e-05,
+  "mean_elec_cost": -0.00035525553895398627,
+  "mean_gas_cost": -0.0003747611613183081,
+  "mean_elec_carbon": -8.70194353481195e-05,
+  "mean_gas_carbon": -0.0010660220811557655,
+  "terms_residual_max": 3.4717261149230794e-09,
+  "worst_step_reward": -0.11459635943174362,
+  "num_ahus": 8,
+  "num_zones": 79,
+  "sanitizer_fixes": {
+    "nonfinite": 0,
+    "clipped": 0,
+    "shape": 0
+  },
+  "seconds": {
+    "load": 14.286736212998221,
+    "policy_init": 1.3658502610014693,
+    "policy": 91.96439330912108,
+    "sim": 1339.9022006670457,
+    "reward_terms": 137.76213150104377,
+    "wall": 1585.3594326969978
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "scenario": "building_train_1/denver_7",
+  "policy": "sbx.controller.reference:TransferPolicy",
+  "max_steps": 8640,
+  "steps": 8640,
+  "terminated_naturally": false,
+  "total_reward": -17.07618677399296,
+  "mean_reward": -0.001976410506249185,
+  "score": 0.001976410506249185,
+  "mean_comfort": -0.0004259730460202534,
+  "mean_elec_cost": -0.0004203210313822802,
+  "mean_gas_cost": -0.0002451708686607565,
+  "mean_elec_carbon": -9.94086371267234e-05,
+  "mean_gas_carbon": -0.0007855369031093617,
+  "terms_residual_max": 8.921238137116205e-09,
+  "worst_step_reward": -0.1679806411266327,
+  "num_ahus": 4,
+  "num_zones": 39,
+  "sanitizer_fixes": {
+    "nonfinite": 0,
+    "clipped": 0,
+    "shape": 0
+  },
+  "seconds": {
+    "load": 10.970053325000663,
+    "policy_init": 0.5050170630001958,
+    "policy": 38.00292860507216,
+    "sim": 1198.493470309014,
+    "reward_terms": 101.1299807809728,
+    "wall": 1349.1875664750005
+  }
+}

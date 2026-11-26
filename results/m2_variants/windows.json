@@ -1,0 +1,236 @@
+{
+  "policies": [
+    "CausalIdentifiedReservePolicy",
+    "ObserverGridPumpPolicy",
+    "SmoothRefinedRecoveryPolicy",
+    "StableHalfHourVacancyPolicy",
+    "StorageDispatchPolicy",
+    "TransferPolicy",
+    "WideHotStorageReservePolicy",
+    "bang_bang",
+    "fixed_setpoint",
+    "pid",
+    "pid_water"
+  ],
+  "scenarios": [
+    "building_train_1/atlanta_2",
+    "building_train_1/denver_7",
+    "building_train_1/fairbanks_1",
+    "building_train_1/phoenix_5",
+    "building_train_1/singapore_8",
+    "building_train_2/atlanta_3",
+    "building_train_2/denver_8",
+    "building_train_2/fairbanks_2",
+    "building_train_2/phoenix_6",
+    "building_train_2/singapore_1",
+    "building_train_4/atlanta_5",
+    "building_train_4/denver_2",
+    "building_train_4/fairbanks_4",
+    "building_train_4/phoenix_8",
+    "building_train_4/singapore_3",
+    "building_train_5/atlanta_6",
+    "building_train_5/denver_3",
+    "building_train_5/fairbanks_5",
+    "building_train_5/phoenix_1",
+    "building_train_5/singapore_4",
+    "building_train_7/atlanta_8",
+    "building_train_7/denver_5",
+    "building_train_7/fairbanks_7",
+    "building_train_7/phoenix_3",
+    "building_train_7/singapore_6",
+    "building_train_8/atlanta_1",
+    "building_train_8/denver_6",
+    "building_train_8/fairbanks_8",
+    "building_train_8/phoenix_4",
+    "building_train_8/singapore_7"
+  ],
+  "deep_cold_share": 0.25,
+  "rows": [
+    {
+      "weighted": false,
+      "subset": "all",
+      "n": 11,
+      "days": 3,
+      "spearman": 0.9727272727272729,
+      "kendall": 0.8909090909090909
+    },
+    {
+      "weighted": false,
+      "subset": "all",
+      "n": 11,
+      "days": 7,
+      "spearman": 0.9818181818181818,
+      "kendall": 0.9272727272727274
+    },
+    {
+      "weighted": false,
+      "subset": "all",
+      "n": 11,
+      "days": 10,
+      "spearman": 0.9727272727272729,
+      "kendall": 0.8909090909090909
+    },
+    {
+      "weighted": false,
+      "subset": "all",
+      "n": 11,
+      "days": 14,
+      "spearman": 1.0,
+      "kendall": 1.0
+    },
+    {
+      "weighted": false,
+      "subset": "all",
+      "n": 11,
+      "days": 21,
+      "spearman": 1.0,
+      "kendall": 1.0
+    },
+    {
+      "weighted": false,
+      "subset": "close",
+      "n": 7,
+      "days": 3,
+      "spearman": 0.9285714285714288,
+      "kendall": 0.8095238095238096
+    },
+    {
+      "weighted": false,
+      "subset": "close",
+      "n": 7,
+      "days": 7,
+      "spearman": 0.9642857142857145,
+      "kendall": 0.9047619047619049
+    },
+    {
+      "weighted": false,
+      "subset": "close",
+      "n": 7,
+      "days": 10,
+      "spearman": 0.9285714285714288,
+      "kendall": 0.8095238095238096
+    },
+    {
+      "weighted": false,
+      "subset": "close",
+      "n": 7,
+      "days": 14,
+      "spearman": 1.0,
+      "kendall": 1.0
+    },
+    {
+      "weighted": false,
+      "subset": "close",
+      "n": 7,
+      "days": 21,
+      "spearman": 1.0,
+      "kendall": 1.0
+    },
+    {
+      "weighted": true,
+      "subset": "all",
+      "n": 11,
+      "days": 3,
+      "spearman": 0.9636363636363637,
+      "kendall": 0.8909090909090909
+    },
+    {
+      "weighted": true,
+      "subset": "all",
+      "n": 11,
+      "days": 7,
+      "spearman": 0.990909090909091,
+      "kendall": 0.9636363636363636
+    },
+    {
+      "weighted": true,
+      "subset": "all",
+      "n": 11,
+      "days": 10,
+      "spearman": 0.9818181818181818,
+      "kendall": 0.9272727272727274
+    },
+    {
+      "weighted": true,
+      "subset": "all",
+      "n": 11,
+      "days": 14,
+      "spearman": 1.0,
+      "kendall": 1.0
+    },
+    {
+      "weighted": true,
+      "subset": "all",
+      "n": 11,
+      "days": 21,
+      "spearman": 0.990909090909091,
+      "kendall": 0.9636363636363636
+    },
+    {
+      "weighted": true,
+      "subset": "close",
+      "n": 7,
+      "days": 3,
+      "spearman": 0.8571428571428573,
+      "kendall": 0.7142857142857143
+    },
+    {
+      "weighted": true,
+      "subset": "close",
+      "n": 7,
+      "days": 7,
+      "spearman": 0.9642857142857145,
+      "kendall": 0.9047619047619049
+    },
+    {
+      "weighted": true,
+      "subset": "close",
+      "n": 7,
+      "days": 10,
+      "spearman": 0.9642857142857145,
+      "kendall": 0.9047619047619049
+    },
+    {
+      "weighted": true,
+      "subset": "close",
+      "n": 7,
+      "days": 14,
+      "spearman": 1.0,
+      "kendall": 1.0
+    },
+    {
+      "weighted": true,
+      "subset": "close",
+      "n": 7,
+      "days": 21,
+      "spearman": 1.0,
+      "kendall": 1.0
+    }
+  ],
+  "full": {
+    "CausalIdentifiedReservePolicy": 0.007186087916036524,
+    "ObserverGridPumpPolicy": 0.006856177571841224,
+    "SmoothRefinedRecoveryPolicy": 0.006845730055761766,
+    "StableHalfHourVacancyPolicy": 0.006895557026239069,
+    "StorageDispatchPolicy": 0.006853252800486958,
+    "TransferPolicy": 0.007392684483679624,
+    "WideHotStorageReservePolicy": 0.006947049208631989,
+    "bang_bang": 0.24149546134721694,
+    "fixed_setpoint": 0.06707962713479995,
+    "pid": 0.07068031465115011,
+    "pid_water": 0.05787152374975018
+  },
+  "full_weighted": {
+    "CausalIdentifiedReservePolicy": 0.01052145976973024,
+    "ObserverGridPumpPolicy": 0.009948529377643745,
+    "SmoothRefinedRecoveryPolicy": 0.009936857967517967,
+    "StableHalfHourVacancyPolicy": 0.010008814761163564,
+    "StorageDispatchPolicy": 0.009967656389513229,
+    "TransferPolicy": 0.010783638997886473,
+    "WideHotStorageReservePolicy": 0.010178357362237168,
+    "bang_bang": 0.23816832175567512,
+    "fixed_setpoint": 0.07439713691371656,
+    "pid": 0.07669756166848925,
+    "pid_water": 0.07620251657758566
+  }
+}

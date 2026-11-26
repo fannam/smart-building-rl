@@ -1,0 +1,32 @@
+{
+  "scenario": "building_train_4/phoenix_8",
+  "policy": "sbx.controller.reference:ObserverGridPumpPolicy",
+  "max_steps": 8640,
+  "steps": 8640,
+  "terminated_naturally": false,
+  "total_reward": -10.616272040468175,
+  "mean_reward": -0.0012287351898690017,
+  "score": 0.0012287351898690017,
+  "mean_comfort": -4.5622489902686545e-05,
+  "mean_elec_cost": -0.0005546208462736135,
+  "mean_gas_cost": -0.00013113423845961418,
+  "mean_elec_carbon": -0.00013672685630886037,
+  "mean_gas_carbon": -0.0003606307399874842,
+  "terms_residual_max": 3.6763376509707513e-09,
+  "worst_step_reward": -0.06785131990909576,
+  "num_ahus": 6,
+  "num_zones": 54,
+  "sanitizer_fixes": {
+    "nonfinite": 0,
+    "clipped": 0,
+    "shape": 0
+  },
+  "seconds": {
+    "load": 11.842821271999128,
+    "policy_init": 1.1941496899999038,
+    "policy": 73.92028233297606,
+    "sim": 1346.4996120448868,
+    "reward_terms": 116.82009656701302,
+    "wall": 1550.3219084329994
+  }
+}

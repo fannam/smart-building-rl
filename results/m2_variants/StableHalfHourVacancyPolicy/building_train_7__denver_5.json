@@ -1,0 +1,32 @@
+{
+  "scenario": "building_train_7/denver_5",
+  "policy": "sbx.controller.reference:StableHalfHourVacancyPolicy",
+  "max_steps": 8640,
+  "steps": 8640,
+  "terminated_naturally": false,
+  "total_reward": -36.82886144027725,
+  "mean_reward": -0.004262599703735793,
+  "score": 0.004262599703735793,
+  "mean_comfort": -9.515915761368494e-05,
+  "mean_elec_cost": -0.0033241298287634033,
+  "mean_gas_cost": -1.633276303188841e-05,
+  "mean_elec_carbon": -0.0007741572213788372,
+  "mean_gas_carbon": -5.282067107991702e-05,
+  "terms_residual_max": 3.401228312882587e-09,
+  "worst_step_reward": -0.10762115567922592,
+  "num_ahus": 4,
+  "num_zones": 36,
+  "sanitizer_fixes": {
+    "nonfinite": 0,
+    "clipped": 0,
+    "shape": 0
+  },
+  "seconds": {
+    "load": 5.431074551001075,
+    "policy_init": 0.26564708099976997,
+    "policy": 40.279583121877295,
+    "sim": 626.2417478461721,
+    "reward_terms": 66.3674820849701,
+    "wall": 738.6307155610011
+  }
+}

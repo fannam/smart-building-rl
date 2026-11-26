@@ -157,10 +157,23 @@ Nights (19:00–05:00) are 1.8% and weekends 1.6%: setback is already cheap, so 
 
   Building and weather YAMLs and `manifests/suite.yaml` are committed; scenario dirs (1.8 GB) are regenerated
   into `data/scenarios/`. `python -m sbx.evaluate --split val ...` runs a split.
-- Window check (`python -m sbx.windows`): window scores are the first N days of full rollouts, so no extra
-  simulation. Running 7 controllers from the reference's own class chain (close in quality) on the 30 shipped
-  scenarios for the gate; with only the far-apart kit baselines, 3- and 7-day windows already swap `pid_water`
-  and `fixed_setpoint`.
+- Window check (`python -m sbx.windows`, results in `results/m2_variants/windows.json`): window scores are the
+  first N days of full rollouts, so no extra simulation. 11 policies (4 kit baselines + 7 controllers from the
+  reference's class chain, close in quality) on the 30 shipped scenarios. `HotStorageReservePolicy` was left out:
+  its run was stopped for low memory after 3 of 30 scenarios.
+
+  | Window | Spearman, close 7, unweighted | Spearman, close 7, cold-weighted | Spearman, all 11, cold-weighted |
+  |---|---|---|---|
+  | 3 d | 0.929 | **0.857 (fails)** | 0.964 |
+  | 7 d | 0.964 | 0.964 | 0.991 |
+  | 10 d | 0.929 | 0.964 | 0.982 |
+  | 14 d | 1.000 | 1.000 | 1.000 |
+  | 21 d | 1.000 | 1.000 | 0.991 |
+
+  The swaps at 7 d are among the top three controllers, which differ by < 0.3% at 30 d. Short windows read
+  low in absolute terms (3 d ≈ 0.75× the 30-day score), so only rankings transfer, not values.
+  **Decision:** tune on **7-day windows** (gate passes, ¼ of the full cost); re-rank the top candidates of each
+  generation batch on 14-day windows, and judge on full-episode val. 3-day windows are out.
 
 **Deliverable:** committed manifests, a validated tuning objective.
 
@@ -189,7 +202,7 @@ the suite).
 
 1. **Round 1:** CMA-ES on the global parameters (population ≈ 16, about 30 generations, the tune split, windowed
    objective). **Budget (from the M0 throughput table):** ≈ 88 steps/s locally, so the original sizing (≈ 23 M
-   steps) is ≈ 73 h. Cut it to ≤ 12 h per round: 3-day windows if the M2 gate allows, 8–12 scenarios sampled per
+   steps) is ≈ 73 h. Cut it to ≤ 12 h per round: 7-day windows (M2 gate; 3-day windows failed it), 8–12 scenarios sampled per
    generation, generated buildings capped at K ≤ 6, and extra workers on the L4 VM / Kaggle. Also try pinning
    workers to P-cores to see whether scaling improves.
 2. Every 5 generations, score the best candidate on **val** (full episodes). Stop or restart if the val score stops

@@ -38,12 +38,13 @@ def main(argv: list[str] | None = None) -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--runs", nargs="+", required=True)
     ap.add_argument("--close", nargs="*", default=[], help="policy labels forming the close-quality subset")
+    ap.add_argument("--exclude", nargs="*", default=[], help="policy labels to leave out (e.g. incomplete runs)")
     ap.add_argument("--days", nargs="+", type=int, default=[3, 7, 14])
     ap.add_argument("--deep-cold-share", type=float, default=0.25)
     ap.add_argument("--json", type=Path, default=None)
     a = ap.parse_args(argv)
 
-    data = load_rewards(a.runs)
+    data = {p: v for p, v in load_rewards(a.runs).items() if p not in a.exclude}
     common = sorted(set.intersection(*(set(v) for v in data.values())))
     pols = sorted(data)
     print(f"{len(pols)} policies x {len(common)} common scenarios (full episodes)")
