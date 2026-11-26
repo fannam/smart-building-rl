@@ -128,10 +128,39 @@ Nights (19:00–05:00) are 1.8% and weekends 1.6%: setback is already cheap, so 
 3. **Short windows for tuning.** Check whether a 7- or 14-day rollout ranks controllers the same as the full 30
    days. Compare 10 controller variants. **Gate:** Spearman ρ ≥ 0.9 between window and full score. Otherwise tune on
    full episodes with fewer scenarios.
-4. **Cold-weighted objective.** Weight stations to match the hidden set. From M1 (local per-station scores:
-   fairbanks 0.01478, the other four average 0.00499), the 1.44 ratio is what a mix with **≈ 50% deep cold** would
-   give. That is a rough estimate: about 10 public scenarios on unseen buildings, which may also be harder in
-   themselves. Start with fairbanks + minneapolis ≈ 1/2 of the objective weight and revisit after each probe.
+4. **Cold-weighted objective.** Weight scenarios to match the hidden set. Classifying each scenario by its strip's
+   mean outdoor temperature (deep cold < −5 °C) instead of by station: the 3 deep-cold shipped scenarios average
+   0.0263 and the other 27 average 0.0048, so the 0.0100 public score fits a **≈ 24% deep-cold** mix. (An
+   earlier station-level estimate of ≈ 50% was wrong: many Fairbanks strips are summer.) The objective gives
+   deep-cold scenarios 25% of the weight (`sbx.scenarios.DEEP_COLD_SHARE`); the reference controller then scores
+   0.01018 locally vs 0.01000 public. Still a single calibration point on ≈ 10 scenarios: re-check after each probe.
+
+**Progress (2026-11-26):**
+- The hidden buildings come "from the same generator and parameter ranges as the shipped six", but the shipped
+  six (318–430 × 188–301 ft, rooms 25–35 ft) are smaller than the generator's current defaults (400–700 ×
+  300–500 ft, rooms 30–60 ft). Regenerating shipped seeds 0 and 8 with the defaults gives 597×494 and 516×394 ft,
+  so the shipped set came from smaller ranges. Default-range buildings have K 5–12, V 32–120 and are 2–3× slower
+  to simulate (cost tracks footprint × floors, r = 0.87, not zone count). Decision: the main suite uses ranges
+  fitted to the shipped six; the larger defaults are a separate robustness split.
+- The hidden weather strips are not among the 48 shipped. Shipped strips are 30-day windows of the 2023 station
+  CSVs starting on Sundays at 06:00 and use each Sunday Jan 1–Nov 26 exactly once across the six stations. Per
+  station, the 40 unused Sundays become new strips (240), split by date 3:1:1 into tune / val / test.
+- `python -m sbx.scenarios manifest | generate | summary` (`sbx/scenarios.py`): 48 buildings (seeds 1000+ shipped
+  profile, 2000+ kit default), one strip per station plus one extra deep-cold strip per building:
+
+  | Split | Buildings | Scenarios | Deep cold | Cold | Mild | Hot |
+  |---|---|---|---|---|---|---|
+  | tune | 24 | 168 | 36 | 17 | 47 | 68 |
+  | val | 8 | 56 | 13 | 4 | 16 | 23 |
+  | test | 8 | 56 | 11 | 5 | 18 | 22 |
+  | test_large (kit-default sizes) | 8 | 56 | 11 | 5 | 18 | 22 |
+
+  Building and weather YAMLs and `manifests/suite.yaml` are committed; scenario dirs (1.8 GB) are regenerated
+  into `data/scenarios/`. `python -m sbx.evaluate --split val ...` runs a split.
+- Window check (`python -m sbx.windows`): window scores are the first N days of full rollouts, so no extra
+  simulation. Running 7 controllers from the reference's own class chain (close in quality) on the 30 shipped
+  scenarios for the gate; with only the far-apart kit baselines, 3- and 7-day windows already swap `pid_water`
+  and `fixed_setpoint`.
 
 **Deliverable:** committed manifests, a validated tuning objective.
 

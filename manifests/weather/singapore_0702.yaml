@@ -1,0 +1,4 @@
+name: singapore_0702
+weather_csv: csv/singapore.csv
+convection_coefficient: 17.6
+start_timestamp: 2023-07-02 06:00

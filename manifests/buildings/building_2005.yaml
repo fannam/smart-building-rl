@@ -1,0 +1,25 @@
+name: building_2005
+seed: 2005
+floor_plan:
+  width: 630
+  height: 303
+  num_floors: 2
+  min_room_size: 45
+  max_room_size: 57
+  building_shape: composite
+  shape_ratio: 0.3357450148299066
+  composite_coverage: 0.7364948080435744
+  composite_style: architectural
+ahu:
+  num_ahus: 4
+simulation:
+  start_timestamp: 2023-07-10 06:00
+  num_days_in_episode: 30
+  occupants_per_zone: 2
+materials:
+  exterior_cv_conductivity: 0.1656
+  exterior_cv_density: 368.4192
+  interior_mass_cv_density: 18.5328
+  interior_wall_cv_conductivity: 0.497
+  interior_wall_cv_density: 190.327
+  exterior_cv_heat_capacity: 986.6931

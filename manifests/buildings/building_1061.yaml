@@ -1,0 +1,25 @@
+name: building_1061
+seed: 1061
+floor_plan:
+  width: 397
+  height: 226
+  num_floors: 2
+  min_room_size: 31
+  max_room_size: 44
+  building_shape: composite
+  shape_ratio: 0.3466713351934363
+  composite_coverage: 0.6513507342330529
+  composite_style: architectural
+ahu:
+  num_ahus: 4
+simulation:
+  start_timestamp: 2023-07-10 06:00
+  num_days_in_episode: 30
+  occupants_per_zone: 2
+materials:
+  exterior_cv_conductivity: 0.3086
+  exterior_cv_density: 633.3836
+  interior_mass_cv_density: 14.5348
+  interior_wall_cv_conductivity: 0.5926
+  interior_wall_cv_density: 311.8443
+  exterior_cv_heat_capacity: 975.7735

@@ -1,0 +1,4 @@
+name: phoenix_0709
+weather_csv: csv/phoenix.csv
+convection_coefficient: 19.5
+start_timestamp: 2023-07-09 06:00

@@ -1,0 +1,4 @@
+name: denver_0709
+weather_csv: csv/denver.csv
+convection_coefficient: 26.7
+start_timestamp: 2023-07-09 06:00

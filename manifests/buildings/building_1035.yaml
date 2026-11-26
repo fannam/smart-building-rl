@@ -1,0 +1,25 @@
+name: building_1035
+seed: 1035
+floor_plan:
+  width: 423
+  height: 202
+  num_floors: 3
+  min_room_size: 27
+  max_room_size: 38
+  building_shape: composite
+  shape_ratio: 0.28597913597152624
+  composite_coverage: 0.6549866430693563
+  composite_style: architectural
+ahu:
+  num_ahus: 4
+simulation:
+  start_timestamp: 2023-07-10 06:00
+  num_days_in_episode: 30
+  occupants_per_zone: 2
+materials:
+  exterior_cv_conductivity: 0.1912
+  exterior_cv_density: 797.7236
+  interior_mass_cv_density: 24.0662
+  interior_wall_cv_conductivity: 0.5046
+  interior_wall_cv_density: 432.9449
+  exterior_cv_heat_capacity: 850.4546

@@ -1,0 +1,4 @@
+name: singapore_0129
+weather_csv: csv/singapore.csv
+convection_coefficient: 17.6
+start_timestamp: 2023-01-29 06:00

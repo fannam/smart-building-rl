@@ -1,0 +1,25 @@
+name: building_1040
+seed: 1040
+floor_plan:
+  width: 388
+  height: 207
+  num_floors: 4
+  min_room_size: 36
+  max_room_size: 48
+  building_shape: composite
+  shape_ratio: 0.3613687464921648
+  composite_coverage: 0.8459952918479002
+  composite_style: architectural
+ahu:
+  num_ahus: 5
+simulation:
+  start_timestamp: 2023-07-10 06:00
+  num_days_in_episode: 30
+  occupants_per_zone: 1
+materials:
+  exterior_cv_conductivity: 0.2272
+  exterior_cv_density: 1231.8904
+  interior_mass_cv_density: 10.4599
+  interior_wall_cv_conductivity: 0.5745
+  interior_wall_cv_density: 119.4143
+  exterior_cv_heat_capacity: 982.8424

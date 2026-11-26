@@ -1,7 +1,8 @@
 """Leaderboard-style scoring of an evaluation run.
 
 Score = mean over scenarios of |mean per-step reward| (lower is better), equal weight per scenario.
-Also prints the split into comfort / electricity / gas (cost + carbon) and per-station means.
+Also prints the split into comfort / electricity / gas (cost + carbon), per-station means, and the cold-weighted
+score (deep-cold scenarios weighted to DEEP_COLD_SHARE of the total, see sbx/scenarios.py).
 (The kit's baseline_returns.json predates the 2026-11-16 simulator changes, so it is not used.)
 
     python -m sbx.score baselines
@@ -16,6 +17,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from sbx import paths
+from sbx.scenarios import DEEP_COLD_SHARE, scenario_info, weights
 
 
 def load_run(run_dir: Path) -> dict[str, dict[str, dict]]:
@@ -45,6 +47,7 @@ def main(argv: list[str] | None = None) -> None:
     a = ap.parse_args(argv)
     run_dir = Path(a.run) if Path(a.run).exists() else paths.RESULTS / a.run
     runs = load_run(run_dir)
+    info = scenario_info()
 
     for pol, res in runs.items():
         ok = {k: r for k, r in res.items() if "error" not in r}
@@ -59,6 +62,11 @@ def main(argv: list[str] | None = None) -> None:
         print(f"\n== {pol}: score {score:.5f} over {n} scenarios  "
               f"(comfort {c:.5f} | elec {e:.5f} | gas {g:.5f})  steps={steps}"
               + (f"  ERRORS: {bad}" if bad else ""))
+        keys = sorted(ok)
+        w = weights(keys, info)
+        n_cold = sum(info.get(k, {}).get("climate") == "deep_cold" for k in keys)
+        print(f"   cold-weighted ({DEEP_COLD_SHARE:.0%} deep cold; {n_cold} deep-cold scenarios here): "
+              f"{sum(wi * ok[k]['score'] for wi, k in zip(w, keys)):.5f}")
 
         by_station = defaultdict(list)
         for k, r in ok.items():
