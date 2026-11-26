@@ -99,6 +99,10 @@ tests/
   **Public leaderboard (2026-11-26): 0.01000, about rank 270** (#1 ≈ 0.008). Leaderboard / local = 1.44, the same
   ≈ 1.4× ratio as before the reset. To reach #1 we need ≈ 20% better on the board; the crowd around 0.0100 is
   mostly this public controller family.
+  The Kaggle "save version" run took **14–15 min**. It most likely runs one local gateway scenario, as the
+  archived notebook's output did (`building_train_1/atlanta_2`, 805 s). That is ≈ 100 ms/step on Kaggle CPU for a
+  K = 4 building, about 3× this machine's single-worker speed (≈ 31 ms/step all-in). The controller is ≈ 2–7
+  ms/step here, so ≈ 6–20 ms/step on Kaggle: already 10–20% of the per-step budget.
 
 **Loss sources, ranked** (additive shares of the 0.00695 score):
 
@@ -185,7 +189,9 @@ the suite).
 2. Fuzz test: run every building in the suite plus randomly generated ones for one day each, with assertions on the
    actions.
 3. Run a full sweep on Kaggle hardware (48 scenarios if that is the true count) and check that it fits within 9 h
-   with a margin. The policy should take ≤ 5 ms per step.
+   with a margin. The policy should take ≤ 5 ms per step locally. Known point: the reference controller's
+   submission (≈ 100 ms/step all-in on Kaggle for a K = 4 building) completed scoring, so any extra per-step cost
+   must be measured against that, not assumed free.
 4. **Accept the competition rules by Jan 3.**
 5. Final picks (Jan 12–15):
    - **Conservative:** the best test-split score with the smallest worst case.
