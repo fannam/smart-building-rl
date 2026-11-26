@@ -13,7 +13,8 @@ Earlier work (learned dynamics model / latent MPC, phases 0–2C) is at commit `
   quirk that the current simulator (energy-balanced hot-water tank) no longer has.
 - The public board scores ≈ 1/3 of the hidden set (≈ 10 scenarios), so differences below ≈ 0.0005 are noise.
 - Before the reset, local scores on the 30 training scenarios were ≈ 1.4× better than leaderboard scores. The hidden
-  set leans to deep cold weather. Recheck this ratio on the new board.
+  set leans to deep cold weather. On the new board the ratio is still ≈ 1.44 (reference controller: 0.00695 local,
+  0.01000 public on 2026-11-26, about rank 270).
 - Kit baselines on the 30 training scenarios, current simulator (`1fb75606`, full 8,640 steps; reference only, run
   `baselines`, 2026-11-25): `pid_water` 0.05787, `fixed_setpoint` 0.06708, `pid` 0.07068, `bang_bang` 0.24150. The kit's
   `baseline_returns.json` predates the 2026-11-16 simulator changes (energy-balanced tank, airflow-weighted return

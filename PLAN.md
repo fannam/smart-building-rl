@@ -96,7 +96,9 @@ tests/
   already on the current simulator. Comfort 0.00027 · electricity 0.00329 · gas 0.00339. Policy ≈ 2–7 ms/step.
 - Submission: `python -m submission.build` writes `submission/inference.py` (controller + sanitizer + fallback
   to the last valid action) and `submission/notebook.ipynb`. Bit-identical rewards to the raw controller locally.
-  **Not yet submitted** (needs the Kaggle account).
+  **Public leaderboard (2026-11-26): 0.01000, about rank 270** (#1 ≈ 0.008). Leaderboard / local = 1.44, the same
+  ≈ 1.4× ratio as before the reset. To reach #1 we need ≈ 20% better on the board; the crowd around 0.0100 is
+  mostly this public controller family.
 
 **Loss sources, ranked** (additive shares of the 0.00695 score):
 
@@ -121,8 +123,10 @@ Nights (19:00–05:00) are 1.8% and weekends 1.6%: setback is already cheap, so 
 3. **Short windows for tuning.** Check whether a 7- or 14-day rollout ranks controllers the same as the full 30
    days. Compare 10 controller variants. **Gate:** Spearman ρ ≥ 0.9 between window and full score. Otherwise tune on
    full episodes with fewer scenarios.
-4. **Cold-weighted objective.** Weight stations to match the hidden set as estimated (≈ 1/3 deep cold). Re-estimate
-   the weights once the M1 leaderboard ratio is known.
+4. **Cold-weighted objective.** Weight stations to match the hidden set. From M1 (local per-station scores:
+   fairbanks 0.01478, the other four average 0.00499), the 1.44 ratio is what a mix with **≈ 50% deep cold** would
+   give. That is a rough estimate: about 10 public scenarios on unseen buildings, which may also be harder in
+   themselves. Start with fairbanks + minneapolis ≈ 1/2 of the objective weight and revisit after each probe.
 
 **Deliverable:** committed manifests, a validated tuning objective.
 
