@@ -99,8 +99,9 @@ tests/
   **Public leaderboard (2026-11-26): 0.01000, about rank 270** (#1 ≈ 0.008). Leaderboard / local = 1.44, the same
   ≈ 1.4× ratio as before the reset. To reach #1 we need ≈ 20% better on the board; the crowd around 0.0100 is
   mostly this public controller family.
-  The Kaggle "save version" run took **14–15 min**. It most likely runs one local gateway scenario, as the
-  archived notebook's output did (`building_train_1/atlanta_2`, 805 s). That is ≈ 100 ms/step on Kaggle CPU for a
+  The Kaggle "save version" run took **14–15 min** for **one** gateway scenario: its `submission.parquet` has a
+  single row, `building_train_1/atlanta_2`, mean reward −0.0027447, the same as our local rollout (−0.0027447),
+  so the Kaggle run matches ours. That is ≈ 100 ms/step on Kaggle CPU for a
   K = 4 building, about 3× this machine's single-worker speed (≈ 31 ms/step all-in). The controller is ≈ 2–7
   ms/step here, so ≈ 6–20 ms/step on Kaggle: already 10–20% of the per-step budget.
 
