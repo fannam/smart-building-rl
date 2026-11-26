@@ -1,0 +1,32 @@
+{
+  "scenario": "building_train_7/phoenix_3",
+  "policy": "sbx.controller.tunable:TunablePolicy@results/m3_probe/params/weekend3.json",
+  "max_steps": 2016,
+  "steps": 2016,
+  "terminated_naturally": false,
+  "total_reward": -8.741851895967557,
+  "mean_reward": -0.004336236059507717,
+  "score": 0.004336236059507717,
+  "mean_comfort": -5.297563060217035e-05,
+  "mean_elec_cost": -0.003465280378446368,
+  "mean_gas_cost": 0.0,
+  "mean_elec_carbon": -0.0008179799883625133,
+  "mean_gas_carbon": 0.0,
+  "terms_residual_max": 1.7393851116376258e-09,
+  "worst_step_reward": -0.025737717747688293,
+  "num_ahus": 4,
+  "num_zones": 36,
+  "sanitizer_fixes": {
+    "nonfinite": 0,
+    "clipped": 0,
+    "shape": 0
+  },
+  "seconds": {
+    "load": 5.137537045000499,
+    "policy_init": 0.5355644379997102,
+    "policy": 9.886173910064826,
+    "sim": 112.2237363450331,
+    "reward_terms": 11.634132386941928,
+    "wall": 139.43405985200297
+  }
+}

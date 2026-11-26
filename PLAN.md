@@ -216,6 +216,11 @@ the suite).
   reference class constants.
 - Policy specs accept a params file: `sbx.controller.tunable:TunablePolicy@params.json`.
 - Context parameters (step 4) are left for M4 round 2.
+- Probe of the new behaviours, one at a time, 7-day windows on the 30 shipped scenarios (`results/m3_probe`),
+  cold-weighted gain vs defaults: `weekend_standby_offset=-3` **+1.0%** (better on 3, worse on 0),
+  `early_lead_cold_slope=0.05` +0.3%, `early_lead_hours=1` +0.2% (mixed), `standby_cold_slope=0.2` **−7.9%**
+  (raising the setback in the cold costs more energy than it saves in recovery: deeper setback is the direction).
+  Only cold scenarios move; warm ones are unaffected. The knobs have signal, so they go into M4 round 1.
 
 ### M4 — Tuning (Dec 6 – Dec 22)
 

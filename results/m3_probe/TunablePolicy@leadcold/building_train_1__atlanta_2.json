@@ -1,0 +1,32 @@
+{
+  "scenario": "building_train_1/atlanta_2",
+  "policy": "sbx.controller.tunable:TunablePolicy@results/m3_probe/params/leadcold.json",
+  "max_steps": 2016,
+  "steps": 2016,
+  "terminated_naturally": false,
+  "total_reward": -1.5160926873286371,
+  "mean_reward": -0.0007520301028415858,
+  "score": 0.0007520301028415858,
+  "mean_comfort": -3.9989955222777395e-05,
+  "mean_elec_cost": -0.0004435932339099589,
+  "mean_gas_cost": -4.061795139795931e-05,
+  "mean_elec_carbon": -0.00010700407719337049,
+  "mean_gas_carbon": -0.00012082487658160959,
+  "terms_residual_max": 7.192535525502031e-10,
+  "worst_step_reward": -0.014387350529432297,
+  "num_ahus": 4,
+  "num_zones": 39,
+  "sanitizer_fixes": {
+    "nonfinite": 0,
+    "clipped": 0,
+    "shape": 0
+  },
+  "seconds": {
+    "load": 9.004806740998902,
+    "policy_init": 1.000544517999515,
+    "policy": 16.98833806996845,
+    "sim": 271.2708163870957,
+    "reward_terms": 23.703796587898978,
+    "wall": 322.01180640299935
+  }
+}

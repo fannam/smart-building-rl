@@ -1,0 +1,32 @@
+{
+  "scenario": "building_train_2/singapore_1",
+  "policy": "sbx.controller.tunable:TunablePolicy@results/m3_probe/params/leadcold.json",
+  "max_steps": 2016,
+  "steps": 2016,
+  "terminated_naturally": false,
+  "total_reward": -8.739643576554954,
+  "mean_reward": -0.004335140662973688,
+  "score": 0.004335140662973688,
+  "mean_comfort": -9.599724123806996e-05,
+  "mean_elec_cost": -0.0034081581735224257,
+  "mean_gas_cost": 0.0,
+  "mean_elec_carbon": -0.0008309851889813786,
+  "mean_gas_carbon": 0.0,
+  "terms_residual_max": 1.4951605856183825e-09,
+  "worst_step_reward": -0.029572537168860435,
+  "num_ahus": 9,
+  "num_zones": 85,
+  "sanitizer_fixes": {
+    "nonfinite": 0,
+    "clipped": 0,
+    "shape": 0
+  },
+  "seconds": {
+    "load": 10.984758055001294,
+    "policy_init": 1.313128466001217,
+    "policy": 16.24011755011452,
+    "sim": 324.7169050059165,
+    "reward_terms": 28.66312172405742,
+    "wall": 381.9555505190001
+  }
+}

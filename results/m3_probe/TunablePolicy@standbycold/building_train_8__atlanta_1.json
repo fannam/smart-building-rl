@@ -1,0 +1,32 @@
+{
+  "scenario": "building_train_8/atlanta_1",
+  "policy": "sbx.controller.tunable:TunablePolicy@results/m3_probe/params/standbycold.json",
+  "max_steps": 2016,
+  "steps": 2016,
+  "terminated_naturally": false,
+  "total_reward": -4.184798152688018,
+  "mean_reward": -0.0020757927344682626,
+  "score": 0.0020757927344682626,
+  "mean_comfort": -8.225597568352661e-05,
+  "mean_elec_cost": -0.0002865916508626577,
+  "mean_gas_cost": -0.0004420335296309947,
+  "mean_elec_carbon": -7.149674283877439e-05,
+  "mean_gas_carbon": -0.0011934148039618132,
+  "terms_residual_max": 4.159445884943658e-09,
+  "worst_step_reward": -0.11948208510875702,
+  "num_ahus": 3,
+  "num_zones": 30,
+  "sanitizer_fixes": {
+    "nonfinite": 0,
+    "clipped": 0,
+    "shape": 0
+  },
+  "seconds": {
+    "load": 4.474737102998915,
+    "policy_init": 0.4133878479988198,
+    "policy": 11.875417048027884,
+    "sim": 125.16035033594017,
+    "reward_terms": 12.952776299985999,
+    "wall": 154.89421502700134
+  }
+}
