@@ -198,6 +198,25 @@ Nights (19:00–05:00) are 1.8% and weekends 1.6%: setback is already cheap, so 
 **Deliverable:** `controller/` with documented parameter bounds and unit tests (actions valid for every building in
 the suite).
 
+**Progress (Nov 26):**
+- Base controller: `SmoothRefinedRecoveryPolicy` (best of the reference chain in M2: 0.00994 cold-weighted vs 0.01018
+  for the M1 `WideHotStorageReservePolicy`). `reference.py` stays verbatim; `sbx/controller/tunable.py` wraps it.
+- `TunablePolicy(meta, spec, params)` exposes 29 parameters with bounds (`PARAMS`, `bounds()`): 12 reference
+  `DEFAULTS`, 11 class constants (overridden per instance) and 6 new behaviours, neutral at their defaults:
+  workday early preheat (`early_lead_hours`, `early_lead_cold_slope`, `early_lead_max_hours`, `cold_ref_k`),
+  cold-weather setback raise (`standby_cold_slope`) and a weekend setback offset (`weekend_standby_offset`).
+- **Gate passed:** default parameters give bit-identical actions to the base over 864 steps (lockstep), and
+  `tests/test_tunable.py` checks it (288 steps) plus valid actions at both corners of the bounds on all six shipped
+  buildings (`SBX_SLOW=1 pytest`).
+- Findings that shape the parameters: `comfort_mode_soon` looks exactly 60 min ahead, so the reference cannot
+  precondition earlier than 1 h before occupancy whatever `precondition_hours` says; hence the early-lead
+  parameters. The chain has no day-of-week logic of its own (it follows the comfort flags), so the "Saturday as a
+  workday" pitfall does not apply; the new weekday decoding rounds the day-of-week angle and is tested.
+- Caveat: the reference's internal observer (`reference_observer`, a separate `ObservedWaterCoastPolicy`) keeps the
+  reference class constants.
+- Policy specs accept a params file: `sbx.controller.tunable:TunablePolicy@params.json`.
+- Context parameters (step 4) are left for M4 round 2.
+
 ### M4 — Tuning (Dec 6 – Dec 22)
 
 1. **Round 1:** CMA-ES on the global parameters (population ≈ 16, about 30 generations, the tune split, windowed
