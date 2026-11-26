@@ -1,6 +1,7 @@
 """Build the Kaggle submission: one self-contained inference module plus the notebook that embeds it.
 
-    python -m submission.build
+    python -m submission.build                      # reference controller (M1)
+    python -m submission.build --params best.json   # TunablePolicy with tuned parameters (M3+)
 
 Writes
 - submission/inference.py: controller source + action sanitizer + SafePolicy wrapper (NumPy only). It is also
@@ -21,6 +22,8 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 CONTROLLER = ROOT / "sbx" / "controller" / "reference.py"
 CONTROLLER_CLASS = "WideHotStorageReservePolicy"
+TUNABLE = ROOT / "sbx" / "controller" / "tunable.py"
+TUNABLE_BASE = "SmoothRefinedRecoveryPolicy"
 
 WRAPPER = '''
 
@@ -76,10 +79,35 @@ smart_buildings_inference_server.SmartBuildingsInferenceServer(SubmissionPolicy)
     competition_data_folder=str(DATA_ROOT))"""
 
 
-def build_inference() -> str:
+def _tunable_source(params: dict) -> str:
+    """tunable.py without its package imports, plus a TunedPolicy fixing the parameters."""
+    drop = ("from __future__ import", "from sbx.controller.reference import")
+    body = "".join(line for line in TUNABLE.read_text().splitlines(keepends=True) if not line.startswith(drop))
+    fixed = json.dumps(params, indent=4, sort_keys=True)
+    return (f"\n\n# {'-' * 111}\n# Tunable wrapper (ours): sbx/controller/tunable.py\n# {'-' * 111}\n{body.rstrip()}\n\n"
+            f"TUNED_PARAMS = {fixed}\n\n\nclass TunedPolicy(TunablePolicy):\n"
+            f"    def __init__(self, building_meta_data, action_spec=None):\n"
+            f"        super().__init__(building_meta_data, action_spec, TUNED_PARAMS)\n")
+
+
+def load_params(path: Path | None) -> dict | None:
+    if path is None:
+        return None
+    params = json.loads(Path(path).read_text())
+    params = params.get("params", params)
+    from sbx.controller.tunable import PARAMS
+    unknown = set(params) - set(PARAMS)
+    if unknown:
+        raise ValueError(f"unknown parameters in {path}: {sorted(unknown)}")
+    return {k: float(v) for k, v in params.items()}
+
+
+def build_inference(params: dict | None = None) -> str:
     sanitizer = inspect.getsource(sbx_env.Sanitizer)
-    return (CONTROLLER.read_text().rstrip() + "\n"
-            + WRAPPER.format(sanitizer=sanitizer.rstrip(), controller=CONTROLLER_CLASS))
+    code, controller = CONTROLLER.read_text().rstrip() + "\n", CONTROLLER_CLASS
+    if params is not None:
+        code, controller = code + _tunable_source(params), "TunedPolicy"
+    return code + WRAPPER.format(sanitizer=sanitizer.rstrip(), controller=controller)
 
 
 def cell(kind: str, src: str) -> dict:
@@ -89,15 +117,21 @@ def cell(kind: str, src: str) -> dict:
     return c
 
 
-def main() -> None:
-    code = build_inference()
+def main(argv: list[str] | None = None) -> None:
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--params", type=Path, default=None, help="TunablePolicy parameters (JSON); default: M1 reference")
+    a = ap.parse_args(argv)
+    params = load_params(a.params)
+    code = build_inference(params)
     (HERE / "inference.py").write_text(code)
     sha = hashlib.sha256(code.encode()).hexdigest()
-    header = (f"# Smart Buildings submission: `{CONTROLLER_CLASS}` + safety layer\n\n"
+    what = CONTROLLER_CLASS if params is None else f"TunablePolicy over {TUNABLE_BASE} ({len(params)} tuned parameters)"
+    header = (f"# Smart Buildings submission: `{what}` + safety layer\n\n"
               "The controller is a public analytical controller written by other competitors (Daniel Wu, jazivxt, "
               "penguin069 and the author of the *Hot Storage340 Nov14* notebook), embedded unmodified; see the "
-              "attribution comments at the top of the code cell. The sanitizer and fallback wrapper at the end are "
-              f"ours.\n\nInference code SHA256: `{sha}`.")
+              "attribution comments at the top of the code cell. The tunable wrapper, sanitizer and fallback "
+              f"wrapper after it are ours.\n\nInference code SHA256: `{sha}`.")
     nb = {"cells": [cell("markdown", header), cell("code", SETUP_CELL), cell("code", code),
                     cell("code", SERVER_CELL)],
           "metadata": {"kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},

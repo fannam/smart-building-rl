@@ -53,3 +53,24 @@ def test_safe_policy_first_step_error_gives_neutral_action():
 def test_built_inference_is_current():
     """submission/inference.py must be regenerated after changing the controller or the sanitizer."""
     assert (build.HERE / "inference.py").read_text() == build.build_inference()
+
+
+def test_tuned_inference_matches_tunable_policy(tmp_path):
+    """The inlined TunablePolicy + TUNED_PARAMS must be the same controller as sbx.controller.tunable."""
+    import importlib.util
+
+    params = {"early_lead_hours": 1.5, "MIN_PRESSURE": 300.0, "standby_minimum": 280.0}
+    path = tmp_path / "inference_tuned.py"
+    path.write_text(build.build_inference(params))
+    spec = importlib.util.spec_from_file_location("inference_tuned", path)
+    mod = importlib.util.module_from_spec(spec)
+    import sys
+    sys.modules[spec.name] = mod  # dataclasses look their module up here
+    try:
+        spec.loader.exec_module(mod)
+    finally:
+        sys.modules.pop(spec.name, None)
+    from sbx.controller import tunable
+    assert mod.TUNED_PARAMS == params
+    assert set(mod.PARAMS) == set(tunable.PARAMS) and mod.TunablePolicy.__mro__[1].__name__ == tunable.BASE.__name__
+    assert issubclass(mod.SafePolicy, mod.TunedPolicy)
