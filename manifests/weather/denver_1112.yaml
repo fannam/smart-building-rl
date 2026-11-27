@@ -1,0 +1,4 @@
+name: denver_1112
+weather_csv: csv/denver.csv
+convection_coefficient: 26.7
+start_timestamp: 2023-11-12 06:00

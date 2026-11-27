@@ -1,0 +1,4 @@
+name: atlanta_0402
+weather_csv: csv/atlanta.csv
+convection_coefficient: 19.1
+start_timestamp: 2023-04-02 06:00

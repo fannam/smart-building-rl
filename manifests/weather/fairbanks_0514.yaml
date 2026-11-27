@@ -1,0 +1,4 @@
+name: fairbanks_0514
+weather_csv: csv/fairbanks.csv
+convection_coefficient: 8.8
+start_timestamp: 2023-05-14 06:00

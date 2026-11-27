@@ -1,0 +1,32 @@
+{
+  "scenario": "building_train_4/denver_2",
+  "policy": "sbx.controller.tunable:TunablePolicy@results/m3_probe/params/weekend3.json",
+  "max_steps": 2016,
+  "steps": 2016,
+  "terminated_naturally": false,
+  "total_reward": -6.266323763724358,
+  "mean_reward": -0.0031082955177204157,
+  "score": 0.0031082955177204157,
+  "mean_comfort": -0.00014936162271337144,
+  "mean_elec_cost": -0.00026120104297595317,
+  "mean_gas_cost": -0.0006754273868141866,
+  "mean_elec_carbon": -6.272059916713165e-05,
+  "mean_gas_carbon": -0.0019595848263420043,
+  "terms_residual_max": 4.251781024477985e-09,
+  "worst_step_reward": -0.10075905174016953,
+  "num_ahus": 6,
+  "num_zones": 54,
+  "sanitizer_fixes": {
+    "nonfinite": 0,
+    "clipped": 0,
+    "shape": 0
+  },
+  "seconds": {
+    "load": 12.331968915001198,
+    "policy_init": 1.3793717049993575,
+    "policy": 22.29179679997833,
+    "sim": 361.92897342806464,
+    "reward_terms": 32.46203365785914,
+    "wall": 430.4308938200011
+  }
+}

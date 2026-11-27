@@ -18,6 +18,8 @@ os.environ.setdefault("MPLBACKEND", "Agg")
 
 # Per-step reward decomposition stored for every rollout (reward-weighted, each <= 0; they sum to the reward).
 TERMS = ("comfort", "elec_cost", "gas_cost", "elec_carbon", "gas_carbon")
+# Per-step context stored with every rollout: local time at the step start and building occupancy (people).
+CONTEXT = ("local_hour", "weekday", "occupancy")
 
 
 def load_env(scenario_dir: Path, kit: Path):
@@ -97,6 +99,16 @@ def reward_terms(env, resp, info) -> tuple[float, ...]:
     )
 
 
+def step_context(env, info) -> tuple[float, float, float]:
+    """(local hour of day incl. minutes, local weekday 0=Mon, total occupancy) for the step just taken."""
+    from smart_buildings.smart_control.utils import conversion_utils
+
+    # The simulator's clock is local wall-clock time; the proto labels it +00:00, so drop the label (no tz math).
+    t = conversion_utils.proto_to_pandas_timestamp(info.start_timestamp).tz_localize(None)
+    occ = sum(z.average_occupancy for z in info.zone_reward_infos.values())
+    return t.hour + t.minute / 60.0, float(t.weekday()), float(occ)
+
+
 def rollout(
     scenario_dir: Path,
     make_policy: Callable[[dict, Any], Any],
@@ -105,7 +117,7 @@ def rollout(
 ) -> tuple[dict, np.ndarray]:
     """Run one scenario. max_steps=None runs until the environment terminates (gateway semantics).
 
-    Returns (summary dict, per-step array of shape (1 + len(TERMS), n): reward then TERMS).
+    Returns (summary dict, per-step array of shape (1 + len(TERMS) + len(CONTEXT), n): reward, TERMS, CONTEXT).
     """
     t0 = time.perf_counter()
     env, meta, spec = load_env(scenario_dir, kit)
@@ -127,7 +139,7 @@ def rollout(
         obs, reward, terminated, truncated, _ = env.step(action)
         c = time.perf_counter()
         info, resp = env.get_reward_info_and_response()
-        rows.append((float(reward), *reward_terms(env, resp, info)))
+        rows.append((float(reward), *reward_terms(env, resp, info), *step_context(env, info)))
         t_terms += time.perf_counter() - c
         t_policy += b - a
         t_sim += c - b
@@ -143,7 +155,7 @@ def rollout(
         "mean_reward": float(arr[0].mean()),
         "score": float(abs(arr[0].mean())),
         **{f"mean_{t}": float(arr[i + 1].mean()) for i, t in enumerate(TERMS)},
-        "terms_residual_max": float(np.max(np.abs(arr[0] - arr[1:].sum(axis=0)))),
+        "terms_residual_max": float(np.max(np.abs(arr[0] - arr[1:1 + len(TERMS)].sum(axis=0)))),
         "worst_step_reward": float(arr[0].min()),
         "num_ahus": len(meta["temp_indices"]),
         "num_zones": len(meta["zone_temp_indices"]),

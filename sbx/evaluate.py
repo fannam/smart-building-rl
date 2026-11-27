@@ -1,11 +1,12 @@
 """Parallel evaluator: (policy x scenario) rollouts in separate processes.
 
-Writes results/<run>/<policy>/<building>__<weather>.json (summary) and .npz (per-step reward + terms).
+Writes results/<run>/<policy>/<building>__<weather>.json (summary) and .npz (per-step reward, terms, context).
 Existing results are skipped, so an interrupted run can be resumed by re-running the same command.
 
     python -m sbx.evaluate --policies pid_water bang_bang --run baselines
     python -m sbx.evaluate --policies pid_water --scenarios 'building_train_8/*' --steps 288 --run smoke
     python -m sbx.evaluate --policies bang_bang --scenarios building_train_8/atlanta_1 --until-done --run horizon
+    python -m sbx.evaluate --policies pid_water --split val --run val_check
 """
 from __future__ import annotations
 
@@ -39,7 +40,7 @@ def _git_sha(path: Path) -> str | None:
 def run_job(scenario_dir: str, policy_spec: str, max_steps: int | None, out_json: str, kit: str) -> dict:
     import numpy as np
 
-    from sbx.env import TERMS, rollout
+    from sbx.env import CONTEXT, TERMS, rollout
     from sbx.policies import resolve
 
     key = paths.scenario_key(Path(scenario_dir))
@@ -47,7 +48,7 @@ def run_job(scenario_dir: str, policy_spec: str, max_steps: int | None, out_json
         summary, arr = rollout(Path(scenario_dir), resolve(policy_spec), Path(kit), max_steps)
         result = {"scenario": key, "policy": policy_spec, "max_steps": max_steps, **summary}
         np.savez_compressed(Path(out_json).with_suffix(".npz"), reward=arr[0],
-                            **{t: arr[i + 1] for i, t in enumerate(TERMS)})
+                            **{t: arr[i + 1] for i, t in enumerate(TERMS + CONTEXT)})
     except Exception:
         result = {"scenario": key, "policy": policy_spec, "error": traceback.format_exc()}
     Path(out_json).write_text(json.dumps(result, indent=2))
@@ -61,6 +62,8 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--policies", nargs="+", required=True)
     ap.add_argument("--scenarios", nargs="*", default=None, help="glob patterns on 'building/weather' (default: all)")
     ap.add_argument("--scenario-root", type=Path, default=paths.TRAINING_SCENARIOS)
+    ap.add_argument("--split", nargs="+", default=None,
+                    help="suite split(s) from manifests/suite.yaml (tune, val, test, test_large) instead of --scenario-root")
     ap.add_argument("--steps", type=int, default=paths.FULL_STEPS)
     ap.add_argument("--until-done", action="store_true", help="ignore --steps; run until the env terminates (gateway)")
     ap.add_argument("--workers", type=int, default=min(8, os.cpu_count() or 1))
@@ -68,7 +71,19 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--force", action="store_true", help="re-run jobs that already have a result")
     a = ap.parse_args(argv)
 
-    scenarios = paths.discover(a.scenario_root, a.scenarios)
+    if a.split:
+        from fnmatch import fnmatch
+
+        from sbx.scenarios import split_dirs
+
+        scenarios = [d for sp in a.split for d in split_dirs(sp)]
+        missing = [d for d in scenarios if not (d / "config.gin").exists()]
+        if missing:
+            sys.exit(f"{len(missing)} scenario dirs missing, run: python -m sbx.scenarios generate (first: {missing[0]})")
+        if a.scenarios:
+            scenarios = [d for d in scenarios if any(fnmatch(paths.scenario_key(d), p) for p in a.scenarios)]
+    else:
+        scenarios = paths.discover(a.scenario_root, a.scenarios)
     if not scenarios:
         sys.exit(f"no scenarios match {a.scenarios} under {a.scenario_root}")
     out = (paths.RESULTS / a.run).resolve()
@@ -87,7 +102,8 @@ def main(argv: list[str] | None = None) -> None:
         "argv": sys.argv if argv is None else argv,
         "repo_sha": _git_sha(paths.ROOT),
         "kit_sha": _git_sha(paths.KIT),
-        "scenario_root": str(a.scenario_root),
+        "scenario_root": str(a.scenario_root) if not a.split else None,
+        "splits": a.split,
         "scenarios": [paths.scenario_key(d) for d in scenarios],
         "policies": a.policies,
         "max_steps": max_steps,

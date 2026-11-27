@@ -1,0 +1,32 @@
+{
+  "scenario": "building_train_7/atlanta_8",
+  "policy": "sbx.controller.tunable:TunablePolicy@results/m3_probe/params/lead1h.json",
+  "max_steps": 2016,
+  "steps": 2016,
+  "terminated_naturally": false,
+  "total_reward": -9.740691422237433,
+  "mean_reward": -0.004831692173728885,
+  "score": 0.004831692173728885,
+  "mean_comfort": -0.0001561279543292847,
+  "mean_elec_cost": -0.0002360204219823994,
+  "mean_gas_cost": -0.0011052441067352316,
+  "mean_elec_carbon": -5.627307169687981e-05,
+  "mean_gas_carbon": -0.0032780265550561827,
+  "terms_residual_max": 4.681744963930257e-09,
+  "worst_step_reward": -0.11042071878910065,
+  "num_ahus": 4,
+  "num_zones": 36,
+  "sanitizer_fixes": {
+    "nonfinite": 0,
+    "clipped": 0,
+    "shape": 0
+  },
+  "seconds": {
+    "load": 4.619087627997942,
+    "policy_init": 0.42950039300194476,
+    "policy": 10.111970791920612,
+    "sim": 105.81954051601497,
+    "reward_terms": 10.78321931291066,
+    "wall": 131.77864137600045
+  }
+}

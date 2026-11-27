@@ -49,18 +49,35 @@ tests/
    `smart_buildings/` against the kit. If the simulator changed with the leaderboard reset, pin the bundle's version
    instead.
 2. Write `sbx/env.py`, `evaluate.py` and `score.py`. Make the action sanitizer mandatory in every rollout.
-3. Reproduce the four shipped baselines on the 30 training scenarios. **Gate:** scores match
-   `baseline_returns.json` (`pid_water` 0.05414, `pid` 0.06736, `fixed_setpoint` 0.06592, `bang_bang` 0.2252).
+3. Run the four kit baselines on the 30 training scenarios on the current simulator, as reference numbers only
+   (`baseline_returns.json` predates the 2026-11-16 simulator changes and is not a target). Done 2026-11-25:
+   `pid_water` 0.05787, `fixed_setpoint` 0.06708, `pid` 0.07068, `bang_bang` 0.24150; no failures, 0 sanitizer fixes.
 4. Benchmark throughput on this machine (32 threads): seconds per rollout by building size, at 1 vs 16 vs 30
    workers. That sets the tuning budget.
 
 **Deliverable:** a trusted evaluator, a throughput table.
 
+**Throughput (done 2026-11-25, `python -m sbx.bench`, pid_water, 864 steps, `results/bench/throughput.json`):**
+
+| Building | K/V | 1 worker ms/step | 1 worker full episode | 16 workers steps/s | 30 workers steps/s |
+|---|---|---|---|---|---|
+| train_8 | 3/30 | 16 | 2.8 min | 179 | 171 |
+| train_7 | 4/36 | 18 | 3.1 min | 155 | 155 |
+| train_1 | 4/39 | 26 | 4.5 min | 113 | 93 |
+| train_4 | 6/54 | 37 | 6.3 min | 77 | 69 |
+| train_5 | 8/79 | 38 | 6.5 min | 76 | 74 |
+| train_2 | 9/85 | 53 | 9.0 min | 46 | 46 |
+
+- Throughput saturates at about 16 workers (2.6–3.8x one worker); 30 workers add nothing. Likely memory-bandwidth
+  or cache bound. Policy cost is < 1 ms/step; nearly all time is the simulator.
+- Mean ≈ 88 steps/s at 16 workers over the six buildings. The M4 round as first planned (16 candidates x 24
+  seven-day scenarios x 30 generations ≈ 23 M steps) would take **≈ 73 h**, not 4–6 h. See the M4 budget note.
+
 ### M1 — Starting controller (Nov 27 – Dec 2)
 
 1. **Decision: which controller to start from.**
    - **Recommended:** the public analytical notebook controller `WideHotStorageReservePolicy` (0.00695 locally;
-     recoverable from tag `archive/learned-model-phase2c`, `src/baseline_policy.py`). Check the license of each
+     recoverable from commit `b984845`, `src/baseline_policy.py`). Check the license of each
      source notebook and keep attribution.
    - Alternative: write our own (SADR-style: occupancy-gated modes, per-zone PI, SAT and static-pressure resets,
      economizer, hot-water reset). Cleaner to parametrize, but weeks of work to reach 0.007.
@@ -70,6 +87,35 @@ tests/
    weekday vs weekend. List the five biggest sources of loss.
 
 **Deliverable:** baseline leaderboard score, loss breakdown, ranked list of levers.
+
+**Results (2026-11-25, run `m1_reference`, `python -m sbx.breakdown m1_reference WideHotStorageReservePolicy`):**
+- Ported unmodified to `sbx/controller/reference.py` from commit `b984845` (the `archive/learned-model-phase2c` tag
+  does not exist; the pre-restart commit does). Attribution in `sbx/controller/ATTRIBUTION.md`. **Licenses of the
+  four source notebooks are not yet verified** (Kaggle was unreachable from this machine).
+- **Gate passed:** 0.00695 on the 30 training scenarios, the same as the archived number, so that number was
+  already on the current simulator. Comfort 0.00027 · electricity 0.00329 · gas 0.00339. Policy ≈ 2–7 ms/step.
+- Submission: `python -m submission.build` writes `submission/inference.py` (controller + sanitizer + fallback
+  to the last valid action) and `submission/notebook.ipynb`. Bit-identical rewards to the raw controller locally.
+  **Public leaderboard (2026-11-26): 0.01000, about rank 270** (#1 ≈ 0.008). Leaderboard / local = 1.44, the same
+  ≈ 1.4× ratio as before the reset. To reach #1 we need ≈ 20% better on the board; the crowd around 0.0100 is
+  mostly this public controller family.
+  The Kaggle "save version" run took **14–15 min** for **one** gateway scenario: its `submission.parquet` has a
+  single row, `building_train_1/atlanta_2`, mean reward −0.0027447, the same as our local rollout (−0.0027447),
+  so the Kaggle run matches ours. That is ≈ 100 ms/step on Kaggle CPU for a
+  K = 4 building, about 3× this machine's single-worker speed (≈ 31 ms/step all-in). The controller is ≈ 2–7
+  ms/step here, so ≈ 6–20 ms/step on Kaggle: already 10–20% of the per-step budget.
+
+**Loss sources, ranked** (additive shares of the 0.00695 score):
+
+| # | Source | Share | Notes |
+|---|---|---|---|
+| 1 | Cold-weather gas | fairbanks 42.6% (gas 0.00258) | Two scenarios, `building_train_1/fairbanks_1` (0.0465 alone) and `building_train_8/fairbanks_8`, are 32.7% of the score. Matters most for the cold-leaning hidden set. |
+| 2 | Morning recovery, 05:00–08:00 | 35.7% for 05–07 (gas 0.00154, elec 0.00073, comfort 0.00021) | 05:00 is before occupancy and alone is 10.8%. Nearly all comfort loss is at 06:00 (late recovery on cold mornings). Levers: optimum-start timing, setback depth, tank pre-charge. |
+| 3 | Daytime electricity in warm climates | elec 0.00253 over 08–18; phoenix + singapore + atlanta elec 0.00284 | Flat ≈ 0.00023 per hour across the occupied day: fans and cooling. Levers: static-pressure and supply-air resets, economizer, minimum airflow. |
+| 4 | Daytime gas while occupied | gas 0.00176 over 08–18 | Reheat and keeping the tank at 340–350 K. Levers: hot-water setpoint and band, reheat vs AHU heating split. |
+| 5 | Comfort spikes | comfort only 3.9% overall, but the worst 1% of steps hold 63–97% of each scenario's comfort loss | Cold-morning runaways; the quadratic penalty makes this the main tail risk on unseen cold buildings. |
+
+Nights (19:00–05:00) are 1.8% and weekends 1.6%: setback is already cheap, so little headroom there.
 
 ### M2 — Validation suite (Nov 28 – Dec 4, in parallel with M1)
 
@@ -82,8 +128,52 @@ tests/
 3. **Short windows for tuning.** Check whether a 7- or 14-day rollout ranks controllers the same as the full 30
    days. Compare 10 controller variants. **Gate:** Spearman ρ ≥ 0.9 between window and full score. Otherwise tune on
    full episodes with fewer scenarios.
-4. **Cold-weighted objective.** Weight stations to match the hidden set as estimated (≈ 1/3 deep cold). Re-estimate
-   the weights once the M1 leaderboard ratio is known.
+4. **Cold-weighted objective.** Weight scenarios to match the hidden set. Classifying each scenario by its strip's
+   mean outdoor temperature (deep cold < −5 °C) instead of by station: the 3 deep-cold shipped scenarios average
+   0.0263 and the other 27 average 0.0048, so the 0.0100 public score fits a **≈ 24% deep-cold** mix. (An
+   earlier station-level estimate of ≈ 50% was wrong: many Fairbanks strips are summer.) The objective gives
+   deep-cold scenarios 25% of the weight (`sbx.scenarios.DEEP_COLD_SHARE`); the reference controller then scores
+   0.01018 locally vs 0.01000 public. Still a single calibration point on ≈ 10 scenarios: re-check after each probe.
+
+**Progress (2026-11-26):**
+- The hidden buildings come "from the same generator and parameter ranges as the shipped six", but the shipped
+  six (318–430 × 188–301 ft, rooms 25–35 ft) are smaller than the generator's current defaults (400–700 ×
+  300–500 ft, rooms 30–60 ft). Regenerating shipped seeds 0 and 8 with the defaults gives 597×494 and 516×394 ft,
+  so the shipped set came from smaller ranges. Default-range buildings have K 5–12, V 32–120 and are 2–3× slower
+  to simulate (cost tracks footprint × floors, r = 0.87, not zone count). Decision: the main suite uses ranges
+  fitted to the shipped six; the larger defaults are a separate robustness split.
+- The hidden weather strips are not among the 48 shipped. Shipped strips are 30-day windows of the 2023 station
+  CSVs starting on Sundays at 06:00 and use each Sunday Jan 1–Nov 26 exactly once across the six stations. Per
+  station, the 40 unused Sundays become new strips (240), split by date 3:1:1 into tune / val / test.
+- `python -m sbx.scenarios manifest | generate | summary` (`sbx/scenarios.py`): 48 buildings (seeds 1000+ shipped
+  profile, 2000+ kit default), one strip per station plus one extra deep-cold strip per building:
+
+  | Split | Buildings | Scenarios | Deep cold | Cold | Mild | Hot |
+  |---|---|---|---|---|---|---|
+  | tune | 24 | 168 | 36 | 17 | 47 | 68 |
+  | val | 8 | 56 | 13 | 4 | 16 | 23 |
+  | test | 8 | 56 | 11 | 5 | 18 | 22 |
+  | test_large (kit-default sizes) | 8 | 56 | 11 | 5 | 18 | 22 |
+
+  Building and weather YAMLs and `manifests/suite.yaml` are committed; scenario dirs (1.8 GB) are regenerated
+  into `data/scenarios/`. `python -m sbx.evaluate --split val ...` runs a split.
+- Window check (`python -m sbx.windows`, results in `results/m2_variants/windows.json`): window scores are the
+  first N days of full rollouts, so no extra simulation. 11 policies (4 kit baselines + 7 controllers from the
+  reference's class chain, close in quality) on the 30 shipped scenarios. `HotStorageReservePolicy` was left out:
+  its run was stopped for low memory after 3 of 30 scenarios.
+
+  | Window | Spearman, close 7, unweighted | Spearman, close 7, cold-weighted | Spearman, all 11, cold-weighted |
+  |---|---|---|---|
+  | 3 d | 0.929 | **0.857 (fails)** | 0.964 |
+  | 7 d | 0.964 | 0.964 | 0.991 |
+  | 10 d | 0.929 | 0.964 | 0.982 |
+  | 14 d | 1.000 | 1.000 | 1.000 |
+  | 21 d | 1.000 | 1.000 | 0.991 |
+
+  The swaps at 7 d are among the top three controllers, which differ by < 0.3% at 30 d. Short windows read
+  low in absolute terms (3 d ≈ 0.75× the 30-day score), so only rankings transfer, not values.
+  **Decision:** tune on **7-day windows** (gate passes, ¼ of the full cost); re-rank the top candidates of each
+  generation batch on 14-day windows, and judge on full-episode val. 3-day windows are out.
 
 **Deliverable:** committed manifests, a validated tuning objective.
 
@@ -108,10 +198,37 @@ tests/
 **Deliverable:** `controller/` with documented parameter bounds and unit tests (actions valid for every building in
 the suite).
 
+**Progress (Nov 26):**
+- Base controller: `SmoothRefinedRecoveryPolicy` (best of the reference chain in M2: 0.00994 cold-weighted vs 0.01018
+  for the M1 `WideHotStorageReservePolicy`). `reference.py` stays verbatim; `sbx/controller/tunable.py` wraps it.
+- `TunablePolicy(meta, spec, params)` exposes 29 parameters with bounds (`PARAMS`, `bounds()`): 12 reference
+  `DEFAULTS`, 11 class constants (overridden per instance) and 6 new behaviours, neutral at their defaults:
+  workday early preheat (`early_lead_hours`, `early_lead_cold_slope`, `early_lead_max_hours`, `cold_ref_k`),
+  cold-weather setback raise (`standby_cold_slope`) and a weekend setback offset (`weekend_standby_offset`).
+- **Gate passed:** default parameters give bit-identical actions to the base over 864 steps (lockstep), and
+  `tests/test_tunable.py` checks it (288 steps) plus valid actions at both corners of the bounds on all six shipped
+  buildings (`SBX_SLOW=1 pytest`).
+- Findings that shape the parameters: `comfort_mode_soon` looks exactly 60 min ahead, so the reference cannot
+  precondition earlier than 1 h before occupancy whatever `precondition_hours` says; hence the early-lead
+  parameters. The chain has no day-of-week logic of its own (it follows the comfort flags), so the "Saturday as a
+  workday" pitfall does not apply; the new weekday decoding rounds the day-of-week angle and is tested.
+- Caveat: the reference's internal observer (`reference_observer`, a separate `ObservedWaterCoastPolicy`) keeps the
+  reference class constants.
+- Policy specs accept a params file: `sbx.controller.tunable:TunablePolicy@params.json`.
+- Context parameters (step 4) are left for M4 round 2.
+- Probe of the new behaviours, one at a time, 7-day windows on the 30 shipped scenarios (`results/m3_probe`),
+  cold-weighted gain vs defaults: `weekend_standby_offset=-3` **+1.0%** (better on 3, worse on 0),
+  `early_lead_cold_slope=0.05` +0.3%, `early_lead_hours=1` +0.2% (mixed), `standby_cold_slope=0.2` **−7.9%**
+  (raising the setback in the cold costs more energy than it saves in recovery: deeper setback is the direction).
+  Only cold scenarios move; warm ones are unaffected. The knobs have signal, so they go into M4 round 1.
+
 ### M4 — Tuning (Dec 6 – Dec 22)
 
 1. **Round 1:** CMA-ES on the global parameters (population ≈ 16, about 30 generations, the tune split, windowed
-   objective). Estimated ≈ 100–150 core-hours, about 4–6 h on 30 workers.
+   objective). **Budget (from the M0 throughput table):** ≈ 88 steps/s locally, so the original sizing (≈ 23 M
+   steps) is ≈ 73 h. Cut it to ≤ 12 h per round: 7-day windows (M2 gate; 3-day windows failed it), 8–12 scenarios sampled per
+   generation, generated buildings capped at K ≤ 6, and extra workers on the L4 VM / Kaggle. Also try pinning
+   workers to P-cores to see whether scaling improves.
 2. Every 5 generations, score the best candidate on **val** (full episodes). Stop or restart if the val score stops
    improving while the tune score keeps falling.
 3. **Round 2:** add the context parameters, warm-started from round 1.
@@ -125,7 +242,7 @@ the suite).
 ### M5 — Oracle study, optional (Dec 8 – Dec 15, in parallel with M4)
 
 1. Port the bit-exact environment branching (env copy that shares the SuperLU factorization, plus global RNG
-   snapshots) from the archive tag.
+   snapshots) from commit `b984845`.
 2. On about 6 cold windows of 3 days, search recovery start time and setback depth every 15 min with simulator
    lookahead, starting from the M4 controller.
 3. **Gate:** if the oracle gains **≥ 5%** on these windows, add a cheap supervisory planner (per-zone RC + tank
@@ -139,7 +256,9 @@ the suite).
 2. Fuzz test: run every building in the suite plus randomly generated ones for one day each, with assertions on the
    actions.
 3. Run a full sweep on Kaggle hardware (48 scenarios if that is the true count) and check that it fits within 9 h
-   with a margin. The policy should take ≤ 5 ms per step.
+   with a margin. The policy should take ≤ 5 ms per step locally. Known point: the reference controller's
+   submission (≈ 100 ms/step all-in on Kaggle for a K = 4 building) completed scoring, so any extra per-step cost
+   must be measured against that, not assumed free.
 4. **Accept the competition rules by Jan 3.**
 5. Final picks (Jan 12–15):
    - **Conservative:** the best test-split score with the smallest worst case.

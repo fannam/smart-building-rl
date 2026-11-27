@@ -1,0 +1,4 @@
+name: phoenix_0528
+weather_csv: csv/phoenix.csv
+convection_coefficient: 19.5
+start_timestamp: 2023-05-28 06:00

@@ -1,0 +1,4 @@
+name: minneapolis_1001
+weather_csv: csv/minneapolis.csv
+convection_coefficient: 21.5
+start_timestamp: 2023-10-01 06:00

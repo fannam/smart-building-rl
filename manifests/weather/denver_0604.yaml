@@ -1,0 +1,4 @@
+name: denver_0604
+weather_csv: csv/denver.csv
+convection_coefficient: 26.7
+start_timestamp: 2023-06-04 06:00

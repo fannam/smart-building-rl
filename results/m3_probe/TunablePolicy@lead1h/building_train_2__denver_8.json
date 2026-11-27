@@ -1,0 +1,32 @@
+{
+  "scenario": "building_train_2/denver_8",
+  "policy": "sbx.controller.tunable:TunablePolicy@results/m3_probe/params/lead1h.json",
+  "max_steps": 2016,
+  "steps": 2016,
+  "terminated_naturally": false,
+  "total_reward": -9.410602340252808,
+  "mean_reward": -0.004667957510046036,
+  "score": 0.004667957510046036,
+  "mean_comfort": -0.00012598181638469037,
+  "mean_elec_cost": -0.0002296255747050271,
+  "mean_gas_cost": -0.0010776449931698036,
+  "mean_elec_carbon": -5.4520489815019836e-05,
+  "mean_gas_carbon": -0.0031801845717675577,
+  "terms_residual_max": 4.156083685535883e-09,
+  "worst_step_reward": -0.10649595409631729,
+  "num_ahus": 9,
+  "num_zones": 85,
+  "sanitizer_fixes": {
+    "nonfinite": 0,
+    "clipped": 0,
+    "shape": 0
+  },
+  "seconds": {
+    "load": 12.672757659001945,
+    "policy_init": 1.3634212569995725,
+    "policy": 20.603527295039385,
+    "sim": 367.9222002910101,
+    "reward_terms": 32.18267339592421,
+    "wall": 434.7761588470021
+  }
+}

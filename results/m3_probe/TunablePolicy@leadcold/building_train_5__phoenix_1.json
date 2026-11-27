@@ -1,0 +1,32 @@
+{
+  "scenario": "building_train_5/phoenix_1",
+  "policy": "sbx.controller.tunable:TunablePolicy@results/m3_probe/params/leadcold.json",
+  "max_steps": 2016,
+  "steps": 2016,
+  "terminated_naturally": false,
+  "total_reward": -2.92219372351974,
+  "mean_reward": -0.001449500854920506,
+  "score": 0.001449500854920506,
+  "mean_comfort": -0.00014180251185682421,
+  "mean_elec_cost": -0.0003887409277535611,
+  "mean_gas_cost": -0.00021886509959410266,
+  "mean_elec_carbon": -9.561009285216036e-05,
+  "mean_gas_carbon": -0.0006044822068458929,
+  "terms_residual_max": 1.1256424924110942e-09,
+  "worst_step_reward": -0.05836588889360428,
+  "num_ahus": 8,
+  "num_zones": 79,
+  "sanitizer_fixes": {
+    "nonfinite": 0,
+    "clipped": 0,
+    "shape": 0
+  },
+  "seconds": {
+    "load": 9.736487116002536,
+    "policy_init": 0.8940667249989929,
+    "policy": 14.78981704002581,
+    "sim": 215.74298313803592,
+    "reward_terms": 21.96732640299888,
+    "wall": 263.16437142400173
+  }
+}

@@ -1,0 +1,25 @@
+name: building_1012
+seed: 1012
+floor_plan:
+  width: 396
+  height: 205
+  num_floors: 2
+  min_room_size: 31
+  max_room_size: 43
+  building_shape: composite
+  shape_ratio: 0.35266864987890173
+  composite_coverage: 0.71887453683673
+  composite_style: architectural
+ahu:
+  num_ahus: 6
+simulation:
+  start_timestamp: 2023-07-10 06:00
+  num_days_in_episode: 30
+  occupants_per_zone: 1
+materials:
+  exterior_cv_conductivity: 0.2498
+  exterior_cv_density: 964.9972
+  interior_mass_cv_density: 24.8124
+  interior_wall_cv_conductivity: 0.5564
+  interior_wall_cv_density: 238.049
+  exterior_cv_heat_capacity: 902.568

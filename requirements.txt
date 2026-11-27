@@ -2,3 +2,4 @@
 # Pinned to the starter-kit commit whose simulator matches the Kaggle bundle (checked 2026-11-24).
 smart-buildings-competition @ git+https://github.com/smart-buildings-2026/starter-kit.git@1fb75606d12e016463fbc63de704967c5b2bf9d5
 pytest
+cma  # CMA-ES for sbx.tune (M4)

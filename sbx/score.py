@@ -1,8 +1,9 @@
 """Leaderboard-style scoring of an evaluation run.
 
 Score = mean over scenarios of |mean per-step reward| (lower is better), equal weight per scenario.
-Also prints the split into comfort / electricity / gas (cost + carbon), per-station means, and, when the
-run covers the shipped training scenarios at 8640 steps, a check against the kit's baseline_returns.json.
+Also prints the split into comfort / electricity / gas (cost + carbon), per-station means, and the cold-weighted
+score (deep-cold scenarios weighted to DEEP_COLD_SHARE of the total, see sbx/scenarios.py).
+(The kit's baseline_returns.json predates the 2026-11-16 simulator changes, so it is not used.)
 
     python -m sbx.score baselines
     python -m sbx.score baselines --per-scenario
@@ -16,6 +17,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from sbx import paths
+from sbx.scenarios import DEEP_COLD_SHARE, scenario_info, weights
 
 
 def load_run(run_dir: Path) -> dict[str, dict[str, dict]]:
@@ -45,7 +47,7 @@ def main(argv: list[str] | None = None) -> None:
     a = ap.parse_args(argv)
     run_dir = Path(a.run) if Path(a.run).exists() else paths.RESULTS / a.run
     runs = load_run(run_dir)
-    ref = json.loads(paths.BASELINE_RETURNS.read_text()) if paths.BASELINE_RETURNS.exists() else {}
+    info = scenario_info()
 
     for pol, res in runs.items():
         ok = {k: r for k, r in res.items() if "error" not in r}
@@ -60,6 +62,11 @@ def main(argv: list[str] | None = None) -> None:
         print(f"\n== {pol}: score {score:.5f} over {n} scenarios  "
               f"(comfort {c:.5f} | elec {e:.5f} | gas {g:.5f})  steps={steps}"
               + (f"  ERRORS: {bad}" if bad else ""))
+        keys = sorted(ok)
+        w = weights(keys, info)
+        n_cold = sum(info.get(k, {}).get("climate") == "deep_cold" for k in keys)
+        print(f"   cold-weighted ({DEEP_COLD_SHARE:.0%} deep cold; {n_cold} deep-cold scenarios here): "
+              f"{sum(wi * ok[k]['score'] for wi, k in zip(w, keys)):.5f}")
 
         by_station = defaultdict(list)
         for k, r in ok.items():
@@ -71,23 +78,11 @@ def main(argv: list[str] | None = None) -> None:
               f"sanitizer fixes: {sum(sum(r['sanitizer_fixes'].values()) for r in ok.values())}   "
               f"max wall {max(r['seconds']['wall'] for r in ok.values()):.0f}s")
 
-        # Check against the kit's reference returns (same scenarios, 8640 steps only).
-        matched = [(k, r) for k, r in ok.items() if pol in ref.get(k, {}) and r["steps"] == paths.FULL_STEPS]
-        if matched:
-            diffs = [abs(r["total_reward"] - ref[k][pol]) / abs(ref[k][pol]) for k, r in matched]
-            ref_score = sum(abs(ref[k][pol]) / paths.FULL_STEPS for k, _ in matched) / len(matched)
-            our = sum(r["score"] for _, r in matched) / len(matched)
-            print(f"   vs baseline_returns.json on {len(matched)} scenarios: ours {our:.5f} ref {ref_score:.5f}  "
-                  f"max rel diff per scenario {max(diffs):.2e}")
-
         if a.per_scenario:
             for k, r in sorted(ok.items()):
                 cc, ee, gg = split(r)
-                refv = ref.get(k, {}).get(pol)
-                refs = (f"  ref {abs(refv) / paths.FULL_STEPS:.5f}"
-                        if refv is not None and r["steps"] == paths.FULL_STEPS else "")
                 print(f"   {k:32s} {r['score']:.5f}  c {cc:.5f} e {ee:.5f} g {gg:.5f}  "
-                      f"K/V {r['num_ahus']}/{r['num_zones']}  wall {r['seconds']['wall']:.0f}s{refs}")
+                      f"K/V {r['num_ahus']}/{r['num_zones']}  wall {r['seconds']['wall']:.0f}s")
 
 
 if __name__ == "__main__":

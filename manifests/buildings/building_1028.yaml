@@ -1,0 +1,25 @@
+name: building_1028
+seed: 1028
+floor_plan:
+  width: 428
+  height: 261
+  num_floors: 3
+  min_room_size: 35
+  max_room_size: 48
+  building_shape: composite
+  shape_ratio: 0.3730928819452561
+  composite_coverage: 0.6892864234246806
+  composite_style: architectural
+ahu:
+  num_ahus: 5
+simulation:
+  start_timestamp: 2023-07-10 06:00
+  num_days_in_episode: 30
+  occupants_per_zone: 2
+materials:
+  exterior_cv_conductivity: 0.2719
+  exterior_cv_density: 658.4514
+  interior_mass_cv_density: 35.9788
+  interior_wall_cv_conductivity: 0.4906
+  interior_wall_cv_density: 288.2149
+  exterior_cv_heat_capacity: 951.6364

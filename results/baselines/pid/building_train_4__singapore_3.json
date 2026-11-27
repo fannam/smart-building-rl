@@ -1,0 +1,32 @@
+{
+  "scenario": "building_train_4/singapore_3",
+  "policy": "pid",
+  "max_steps": 8640,
+  "steps": 8640,
+  "terminated_naturally": false,
+  "total_reward": -409.7199626073125,
+  "mean_reward": -0.047421291968438944,
+  "score": 0.047421291968438944,
+  "mean_comfort": -0.028254224189974482,
+  "mean_elec_cost": -0.013233779761147636,
+  "mean_gas_cost": -0.0006383485597684002,
+  "mean_elec_carbon": -0.0030579313424794947,
+  "mean_gas_carbon": -0.002237008146050644,
+  "terms_residual_max": 2.6129295283006115e-08,
+  "worst_step_reward": -0.3786311149597168,
+  "num_ahus": 6,
+  "num_zones": 54,
+  "sanitizer_fixes": {
+    "nonfinite": 0,
+    "clipped": 0,
+    "shape": 0
+  },
+  "seconds": {
+    "load": 16.009809679000682,
+    "policy_init": 0.00035202299841330387,
+    "policy": 10.51864160007608,
+    "sim": 2698.097984369013,
+    "reward_terms": 198.36683247496694,
+    "wall": 2923.075587621999
+  }
+}

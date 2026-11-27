@@ -1,0 +1,32 @@
+{
+  "scenario": "building_train_2/atlanta_3",
+  "policy": "fixed_setpoint",
+  "max_steps": 8640,
+  "steps": 8640,
+  "terminated_naturally": false,
+  "total_reward": -170.5123784199959,
+  "mean_reward": -0.019735228983795823,
+  "score": 0.019735228983795823,
+  "mean_comfort": -0.015127724141293153,
+  "mean_elec_cost": -0.003677018564136823,
+  "mean_gas_cost": -1.7419147998997623e-05,
+  "mean_elec_carbon": -0.0008605224952230544,
+  "mean_gas_carbon": -5.25447027959207e-05,
+  "terms_residual_max": 8.777024829154101e-09,
+  "worst_step_reward": -0.12585864961147308,
+  "num_ahus": 9,
+  "num_zones": 85,
+  "sanitizer_fixes": {
+    "nonfinite": 0,
+    "clipped": 0,
+    "shape": 0
+  },
+  "seconds": {
+    "load": 21.740527743999337,
+    "policy_init": 0.000663863998852321,
+    "policy": 10.91487350494026,
+    "sim": 2608.3379335359878,
+    "reward_terms": 202.12823254510295,
+    "wall": 2843.2524322589998
+  }
+}

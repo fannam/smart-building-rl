@@ -1,0 +1,32 @@
+{
+  "scenario": "building_train_4/phoenix_8",
+  "policy": "fixed_setpoint",
+  "max_steps": 8640,
+  "steps": 8640,
+  "terminated_naturally": false,
+  "total_reward": -252.65010807430372,
+  "mean_reward": -0.029241910656748114,
+  "score": 0.029241910656748114,
+  "mean_comfort": -0.027059353194933418,
+  "mean_elec_cost": -0.00140043510285591,
+  "mean_gas_cost": -0.00012214851298574805,
+  "mean_elec_carbon": -0.00034483006783012874,
+  "mean_gas_carbon": -0.00031514402547419047,
+  "terms_residual_max": 1.6723959050946036e-08,
+  "worst_step_reward": -0.44800904393196106,
+  "num_ahus": 6,
+  "num_zones": 54,
+  "sanitizer_fixes": {
+    "nonfinite": 0,
+    "clipped": 0,
+    "shape": 0
+  },
+  "seconds": {
+    "load": 20.429754771999797,
+    "policy_init": 0.00039332699998340104,
+    "policy": 9.907976997037622,
+    "sim": 2853.289790167848,
+    "reward_terms": 209.77200279106546,
+    "wall": 3093.474882958002
+  }
+}

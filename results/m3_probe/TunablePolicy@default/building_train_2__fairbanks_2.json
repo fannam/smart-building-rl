@@ -1,0 +1,32 @@
+{
+  "scenario": "building_train_2/fairbanks_2",
+  "policy": "sbx.controller.tunable:TunablePolicy@results/m3_probe/params/default.json",
+  "max_steps": 2016,
+  "steps": 2016,
+  "terminated_naturally": false,
+  "total_reward": -28.964132987191988,
+  "mean_reward": -0.014367129457932533,
+  "score": 0.014367129457932533,
+  "mean_comfort": -0.0008097001126644115,
+  "mean_elec_cost": -0.0005024563613942865,
+  "mean_gas_cost": -0.003335226158296841,
+  "mean_elec_carbon": -0.0001195478416333415,
+  "mean_gas_carbon": -0.009600198835227221,
+  "terms_residual_max": 1.2123463649649224e-08,
+  "worst_step_reward": -0.33621639013290405,
+  "num_ahus": 9,
+  "num_zones": 85,
+  "sanitizer_fixes": {
+    "nonfinite": 0,
+    "clipped": 0,
+    "shape": 0
+  },
+  "seconds": {
+    "load": 29.537000776999776,
+    "policy_init": 2.070385303999501,
+    "policy": 24.683931550986017,
+    "sim": 447.18505134701263,
+    "reward_terms": 38.10352686003171,
+    "wall": 541.707213149999
+  }
+}
