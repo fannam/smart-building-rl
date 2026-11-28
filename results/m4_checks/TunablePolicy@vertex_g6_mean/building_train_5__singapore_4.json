@@ -1,0 +1,32 @@
+{
+  "scenario": "building_train_5/singapore_4",
+  "policy": "sbx.controller.tunable:TunablePolicy@results/m4_checks/params/vertex_g6_mean.json",
+  "max_steps": 2016,
+  "steps": 2016,
+  "terminated_naturally": false,
+  "total_reward": -10.294028313248418,
+  "mean_reward": -0.005106164837920843,
+  "score": 0.005106164837920843,
+  "mean_comfort": -0.00010462618505929322,
+  "mean_elec_cost": -0.004060615822432982,
+  "mean_gas_cost": 0.0,
+  "mean_elec_carbon": -0.0009409227641528483,
+  "mean_gas_carbon": 0.0,
+  "terms_residual_max": 2.0202761547016834e-09,
+  "worst_step_reward": -0.03253648430109024,
+  "num_ahus": 8,
+  "num_zones": 79,
+  "sanitizer_fixes": {
+    "nonfinite": 0,
+    "clipped": 0,
+    "shape": 0
+  },
+  "seconds": {
+    "load": 10.473784251997131,
+    "policy_init": 0.8808103909977945,
+    "policy": 13.857705143884232,
+    "sim": 218.06471834918193,
+    "reward_terms": 22.715740743929928,
+    "wall": 266.0205819299954
+  }
+}

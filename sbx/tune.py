@@ -10,6 +10,7 @@ Search space: parameters normalized to [0, 1] between their bounds (log scale wh
 defaults (or `--init`). State is saved every generation, so re-running the same command resumes.
 
     python -m sbx.tune --run r1 --generations 20 --popsize 12 --scenarios 8 --workers 12
+    python -m sbx.tune --run r1 ... --max-hours 7.5   # stop cleanly between generations; same command resumes
     python -m sbx.tune --run r1 --report          # generation table + best/mean parameters -> results/tune/r1/
 """
 from __future__ import annotations
@@ -89,6 +90,8 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--init", type=Path, default=None, help="JSON parameters to start from (default: defaults)")
     ap.add_argument("--workers", type=int, default=12)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--max-hours", type=float, default=None,
+                    help="stop after the last generation that fits in this wall time (resume later with the same command)")
     ap.add_argument("--report", action="store_true")
     a = ap.parse_args(argv)
 
@@ -117,8 +120,13 @@ def main(argv: list[str] | None = None) -> None:
                                                      "start": start}, indent=2))
     steps = a.days * STEPS_PER_DAY
 
+    started, last_gen = time.time(), 0.0
     with ProcessPoolExecutor(a.workers) as pool:
         while es.countiter < a.generations:
+            if a.max_hours is not None and (time.time() - started + last_gen) / 3600 > a.max_hours:
+                print(f"stopping: another generation (~{last_gen / 60:.0f} min) would exceed --max-hours "
+                      f"{a.max_hours}; re-run the same command to continue", flush=True)
+                break
             t0 = time.time()
             xs = es.ask()
             # Also score the current mean and the start point on the same draw: tracks progress across generations.
@@ -137,6 +145,7 @@ def main(argv: list[str] | None = None) -> None:
             with log_path.open("a") as f:
                 f.write(json.dumps(rec) + "\n")
             state_path.write_bytes(pickle.dumps((es, rng, names, start)))
+            last_gen = time.time() - t0
             print(f"gen {es.countiter:3d}  best {rec['best']:.5f}  median {rec['median']:.5f}  "
                   f"mean-candidate {rec['mean_candidate']:.5f}  start {rec['start']:.5f}  "
                   f"({rec['gain_vs_start']:+.1%})  sigma {es.sigma:.3f}  {rec['seconds']}s", flush=True)
